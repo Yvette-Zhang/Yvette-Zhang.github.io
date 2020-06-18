@@ -61,10 +61,12 @@
   height: 48px;
   line-height: 48px;
   padding-left: 24px;
+  box-sizing: border-box;
   border-radius: 10px 0 0 10px;
   color: #616774;
   font-size: 16px;
   background-color: transparent;
+  cursor: pointer;
 }
 .menu-item.active,
 .menu-item:hover {
@@ -81,6 +83,10 @@
 .table-toolbar-right {
   display: flex;
   align-items: center;
+}
+
+.table-toolbar-right .layui-btn+.layui-btn {
+  margin-left: 25px;
 }
 
 .table-toolbar-right .layui-form-switch {

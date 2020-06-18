@@ -99,6 +99,9 @@ table.dataTable [data-dropdown] {
 }
 
 /* 覆盖 layui-table 样式 */
+table.dataTable.layui-table td {
+  padding: 10px 5px;
+}
 table.dataTable {
   border: none !important;
 }
@@ -210,12 +213,28 @@ table.dataTable .datatable-btn {
   opacity: 1;
 }
 
-.datatable-status-invalid td:nth-child(2)::before {
+.datatable-status-invalid td.main-column::before {
   content: " ";
   display: block;
   position: absolute;
-  width: 100%;
+  /* 减去单元格 padding */
+  width: calc(100% - 10px);
   background: #9aa4bc;
   height: 1px;
   bottom: 50%;
+}
+
+/* 折叠class */
+.treegrid-control-open,
+.treegrid-control {
+  cursor: pointer;
+}
+
+/* 禁用折行 */
+table.dataTable th,
+table.dataTable td {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 0;
 }

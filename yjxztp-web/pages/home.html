@@ -8,38 +8,7 @@
   <link rel="stylesheet" href="../assets/plugins/layui/css/layui.css">
   <link rel="stylesheet" href="../assets/css/home/style.css">
   <link rel="stylesheet" href="../assets/css/common.css">
-  <style>
-    #todoDate .layui-laydate-footer {
-      display: none;
-    }
 
-    #todoDate,
-    #todoDate .layui-laydate-static,
-    #todoDate .layui-laydate-main,
-    #todoDate .layui-laydate-content table {
-      width: 100% !important;
-    }
-
-    #todoDate .layui-laydate-content {
-      height: 312px;
-    }
-
-    #todoDate .layui-laydate-content table {
-      height: 100%;
-    }
-
-    #todoDate .layui-laydate,
-    .layui-laydate-hint {
-      box-shadow: none;
-      border-color: #eee;
-    }
-
-    #todoDate .layui-laydate .layui-this {
-      background-color: rgba(251, 59, 53, .1) !important;
-      color: #C9211B !important;
-      border-radius: 22px;
-    }
-  </style>
 </head>
 
 <body style="margin: 20px;margin-bottom: 0;">
@@ -112,7 +81,8 @@
               <div class="home-inner-card">
                 <div class="home-inner-card__header">
                   <div class="home-inner-card__header__title">日历</div>
-                  <div class="home-inner-card__header__link">进入日程<i class="layui-icon layui-icon-heart-fill"></i>
+                  <div class="home-inner-card__header__link schedule-link">进入日程<i
+                      class="layui-icon layui-icon-heart-fill"></i>
                   </div>
                 </div>
                 <div class="home-inner-card__body">
@@ -402,8 +372,23 @@
       var laydate = layui.laydate;
       laydate.render({
         elem: '#todoDate',
-        position: 'static'
+        position: 'static',
+        mark: {
+          '2020-6-18': '',
+          '2020-6-25': '',
+          '2020-6-05': '',
+          '2020-6-15': ''
+        },
+        done: function (value, date, endDate) {
+          console.log(value);
+          console.log(date);
+          console.log(endDate);
+        }
       });
+
+      $('.schedule-link').on('click', function () {
+        location.href = "./schedule.html";
+      })
     })
   </script>
 </body>

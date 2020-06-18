@@ -1,6 +1,7 @@
-.home-inner-card + .home-inner-card {
+.home-inner-card+.home-inner-card {
   margin-top: 35px;
 }
+
 .home-inner-card__header {
   display: flex;
   align-items: center;
@@ -9,19 +10,24 @@
   padding-bottom: 10px;
   border-bottom: 1px solid #e6e9f0;
 }
+
 .home-inner-card__header__title {
   font-size: 18px;
   font-weight: 500;
   color: rgba(33, 40, 50, 1);
 }
+
 .home-inner-card__header__link {
   font-size: 14px;
   font-weight: 500;
   color: #0077ff;
+  cursor: pointer;
 }
+
 .home-inner-card__header__link i {
   margin-left: 10px;
 }
+
 .home-inner-card__body {
   margin-top: 20px;
 }
@@ -40,18 +46,22 @@
   box-sizing: border-box;
   margin-bottom: 20px;
 }
+
 .home-create:hover {
   color: #ca221c;
 }
+
 .home-create--mini {
   padding: 15px 20px;
   height: 120px;
   font-size: 18px;
 }
+
 .home-dotted-box__img {
   max-width: 50px;
   margin-bottom: 10px;
 }
+
 .home-dotted-box__title {
   font-size: 14px;
   max-width: 100%;
@@ -60,9 +70,11 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
 .home-dotted-box:hover {
   border: 2px solid #07f;
 }
+
 .home-dotted-box {
   transition: border 0.2s;
   cursor: pointer;
@@ -76,6 +88,7 @@
   align-items: center;
   flex-direction: column;
 }
+
 .home-project {
   display: flex;
   align-items: center;
@@ -83,18 +96,22 @@
   border-radius: 10px;
   padding: 22px 20px 17px 20px;
 }
+
 .home-project__header {
   height: 29px;
   width: 40px;
   margin-right: 20px;
 }
+
 .home-project__header img {
   width: 100%;
   height: 100%;
 }
+
 .home-project__body {
   flex: 1;
 }
+
 .home-project__title {
   line-height: 18px;
   font-size: 18px;
@@ -102,9 +119,11 @@
   font-weight: 500;
   color: rgba(33, 40, 50, 1);
 }
+
 .home-project__mate {
   display: flex;
 }
+
 .home-project__footer__left,
 .home-project__footer__right {
   font-size: 14px;
@@ -112,24 +131,29 @@
   color: #616874;
   line-height: 14px;
 }
+
 .home-project__footer__left span {
   color: #212832;
   font-weight: 400;
 }
+
 .home-project__footer__right {
   color: #b9c0c8;
   margin-left: 10px;
 }
+
 .home-task {
   max-height: 625px;
   overflow: auto;
   margin-right: -30px;
   padding-right: 30px;
 }
+
 .home-task-item {
   display: flex;
 }
-.home-task-item + .home-task-item {
+
+.home-task-item+.home-task-item {
   margin-top: 30px;
 }
 
@@ -139,6 +163,7 @@
   align-items: center;
   margin-right: 20px;
 }
+
 .task-icon__bg {
   box-sizing: border-box;
   width: 38px;
@@ -150,9 +175,11 @@
   justify-content: center;
   margin-bottom: 5px;
 }
+
 .task-icon__bg i {
   color: #46c5b2;
 }
+
 .task-icon__text {
   color: #46c5b2;
   font-size: 12px;
@@ -161,21 +188,27 @@
   font-weight: 500;
   text-align: center;
 }
+
 .task-icon--red .task-icon__bg {
   background-color: #fb3c351a;
 }
+
 .task-icon--red .task-icon__text {
   color: #ca221c;
 }
+
 .task-icon--red .task-icon__bg i {
   color: #ca221c;
 }
+
 .task-icon--blue .task-icon__bg {
   background-color: #0077ff1a;
 }
+
 .task-icon--blue .task-icon__text {
   color: #0077ff;
 }
+
 .task-icon--blue .task-icon__bg i {
   color: #0077ff;
 }
@@ -187,30 +220,96 @@
   align-items: center;
   color: rgba(97, 104, 116, 1);
 }
+
 .task-content__title {
   font-size: 16px;
   font-weight: 400;
   color: rgba(33, 40, 50, 1);
 }
+
 .task-content__subtitle {
   font-size: 14px;
   font-weight: 400;
 }
+
 .task-footer__title {
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
 }
+
 .task-footer__subtitle {
   font-size: 14px;
   font-weight: 400;
   color: rgba(185, 192, 200, 1);
 }
 
+#todoDate .layui-laydate-footer {
+  display: none;
+}
+
+#todoDate,
+#todoDate .layui-laydate-static,
+#todoDate .layui-laydate-main,
+#todoDate .layui-laydate-content table {
+  width: 100% !important;
+}
+
+#todoDate .layui-laydate-content {
+  height: 312px;
+}
+
+#todoDate .layui-laydate-content td {
+  color: #212832;
+  font-weight: bold;
+}
+
+#todoDate .layui-laydate-content .laydate-day-next,
+#todoDate .layui-laydate-content .laydate-day-prev {
+  color: #DCDFE3;
+}
+
+#todoDate .layui-laydate-content table {
+  height: 100%;
+}
+
+#todoDate .layui-laydate,
+.layui-laydate-hint {
+  box-shadow: none;
+  border-color: #eee;
+}
+
+#todoDate .layui-laydate .layui-this {
+  background-color: rgba(251, 59, 53, .1) !important;
+  color: #C9211B !important;
+  border-radius: 22px;
+}
+
+#todoDate .laydate-day-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#todoDate .laydate-day-mark::before {
+  position: absolute;
+  content: '';
+  width: 8px;
+  height: 8px;
+  bottom: 3px;
+  border-radius: 50%;
+  background-color: #0077FF;
+}
+
+#todoDate .laydate-day-mark::after {
+  display: none;
+}
+
 @media screen and (max-width: 1599px) {
   .home-col-md4 {
     width: 33.33%;
   }
+
   .home-create--mini {
     height: 69px;
   }

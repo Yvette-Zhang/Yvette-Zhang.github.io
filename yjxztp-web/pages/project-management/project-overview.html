@@ -257,7 +257,7 @@
 <body>
 <h2 class="page-title">新能源协作平台项目</h2>
 <div class="layui-row layui-col-space20">
-	<div class="layui-col-md8">
+	<div class="layui-col-md8" style="width: 71.8%">
 		<div class="top-box">
 			<div class="layui-card">
 				<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>项目信息</div>
@@ -387,7 +387,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="layui-col-md4">
+	<div class="layui-col-md3" style="width: 28%">
 		<div class="right-box">
 			<div class="layui-card">
 				<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>项目统计</div>
@@ -570,8 +570,8 @@
 											}
 									}
 							},
-							left: '44%',
-							top: '32%'
+							left: 'center',
+							top: '33%'
 					},
 					tooltip: {
 							trigger: 'item',
@@ -592,11 +592,23 @@
 							data: ['已完成', '未完成', '已逾期', '今日待办', '待认领']
 					},
 					series: [
+							// 外层边框
+							{
+								type: 'pie',
+								radius: ['63%', '64%'],
+								center: ['50%', '40%'],
+								color:'#CFD3DC',
+								data: [100],
+								label: {
+									show: false
+								}
+							},
 							{
 									name: '任务完成情况',
 									type: 'pie',
-									top: '-20%',
-									radius: ['40%', '55%'],
+									// top: '-20%',
+									center: ['50%', '40%'],
+									radius: ['40%', '60%'],
 									avoidLabelOverlap: false,
 									color: ['#46C5B2', '#0077FF', '#FB3C35', '#F5AE44',' #6565EF '],
 									label: {

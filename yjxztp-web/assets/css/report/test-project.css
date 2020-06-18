@@ -23,13 +23,11 @@
   text-overflow: ellipsis; 
 }
 .report_ie__imgT{
-  position: absolute;
-  width:18px;
+  width: 18px;
   height: 18px;
-  bottom:51px;
-  right: 21px;
   text-align: center;
   line-height: 18px;
+  margin-top: 5px;
 }
 .report_ie__img{
   position: absolute;
@@ -99,4 +97,12 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.report_row{
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  justify-content: center;
 }
