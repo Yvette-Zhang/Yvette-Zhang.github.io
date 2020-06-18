@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>项目管理--菜单页</title>
+	<link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+	<link rel="stylesheet" href="../../assets/css/common.css">
+	<link rel="stylesheet" href="../../assets/css/project/style.css">
+	<style>
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		body{
+			display: flex;
+			overflow: hidden;
+		}
+		p{
+			margin: 0;
+		}
+
+		.container{
+			display: inline-block;
+			flex: 1;
+		}
+
+	</style>
+</head>
+<body>
+<div class="slide-menu">
+	<p><i class="layui-icon layui-icon-addition"></i>项目</p>
+	<ul class="menu-list">
+		<li class="menu-item active" data-href="./project-overview.html" >项目概况</li>
+		<li class="menu-item" data-href="./project-allview.html" >项目全览</li>
+		<li class="menu-item" data-href="./project-samelevel.html" >项目本级概览</li>
+		<li class="menu-item" data-href="./project-topic.html" >项目课题</li>
+	</ul>
+</div>
+<div class="container">
+	<iframe style="width: 100%;height: 100%;" src="./project-overview.html" id="iframe" frameborder="0" ></iframe>
+</div>
+<script src="../../assets/js/jquery-1.9.1.min.js"></script>
+<script src="../../assets/plugins/layui/layui.js"></script>
+<script>
+		$(".menu-item").on("click", function() {
+				var title = document.title.split("-");
+				title[1] = $(this).text();
+				document.title = title.join("-");
+				$("#iframe").attr("src", $(this).attr("data-href"));
+				$(".menu-item").removeClass("active");
+				$(this).addClass("active");
+		});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>项目概况</title>
+	<link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+	<link rel="stylesheet" href="../../assets/css/common.css">
+	<style>
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		body{
+			padding:20px;
+			box-sizing: border-box;
+		}
+		.top-box{
+			/*width: 100%;*/
+			height: 291px;
+			margin-bottom: 20px;
+		}
+		.center-box{
+			/*width: 100%;*/
+			height: 316px;
+		}
+		.right-box{
+			width: 100%;
+			height: 627px;
+		}
+		.blue-panel{
+			width:100%;
+			height:175px;
+			background:rgba(0,119,255,1);
+			box-shadow:0 2px 2px 0 rgba(166,166,170,0.15);
+			border-radius:10px;
+			margin-top: 14px;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		.top-part{
+			height: 83px;
+			color: #fff;
+			border-bottom: 1px dashed  rgba(230,233,240,.2);
+		}
+		.project-name{
+			width: 67%;
+			display: inline-block;
+		}
+		.project-name{
+			font-size: 22px;
+			line-height: 45px;
+			height: 45px;
+		}
+		.project-summary{
+			font-size: 14px;
+		}
+		.project-date{
+			display: inline-block;
+		}
+		.project-date span{
+			font-size: 20px;
+		}
+		.bottom-part{
+			display: flex;
+			justify-content: space-between;
+			color: #fff;
+			padding-top: 20px;
+		}
+		.member-avatar{
+			/*display: inline-block;*/
+		}
+		.member-avatar .layui-avatar{
+			color: #0077ff;
+			background: #fff;
+			margin: 0 3px;
+		}
+		.member-avatar .layui-avatar:before{
+			border: 1px solid #fff;
+		}
+		.layui-btn.layui-btn-plain.manager-btn{
+			border: 1px solid #fff;
+			color: #fff;
+		}
+		.layui-btn.layui-btn-plain.manager-btn:hover{
+			background-color: #4e9dfa;
+		}
+		.card-list{
+			width: 100%;
+			margin-top: 20px;
+		}
+		.card-item{
+			width: 100%;
+			height:200px;
+			background:rgba(245,245,247,1);
+			border-radius:10px;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		.cart-header{
+			display: flex;
+			height: 44px;
+		}
+		.cart-img{
+			width: 36px;
+			height: 44px;
+			background: aqua;
+		}
+		.cart-title{
+			flex: 1;
+			padding-left: 5px;
+		}
+		.cart-title p{
+			font-size: 16px;
+			color: #212832;
+		}
+		.cart-title .cart-time{
+			color: #99A3BC;
+			font-size: 14px;
+		}
+		.member{
+			color: #99A3BC;
+			margin: 10px 0;
+		}
+		.member span{
+			color: #616874;
+		}
+		.member .num{
+			color: #CA221C;
+		}
+		.info{
+			display: flex;
+		}
+		.info span{
+			color: #99A3BC;
+		}
+		.info p{
+			display: inline-block;
+			width: 78%;
+			color: #616874;
+		}
+
+		.bottom-left-box,.bottom-right-box{
+			width: 100%;
+			display: inline-block;
+			height: 480px;
+		}
+		.layui-card-header{
+			height: 65px;
+			box-sizing: border-box;
+		}
+		.layui-card{
+			height: 100%;
+		}
+		.chart-legend-item{
+			display: flex;
+			justify-content: space-between;
+			margin: 10px 0;
+		}
+		.legend-icon{
+			width: 44px;
+			height: 44px;
+			border-radius: 10px;
+			background: aliceblue;
+			line-height: 44px;
+			text-align: center;
+			display: inline-block;
+		}
+		.legend-progress{
+			color: #212832;
+			font-size: 16px;
+		}
+		.legend-number{
+			display: inline-block;
+			height: 44px;
+			line-height: 44px;
+			color: #212832;
+			font-size: 18px;
+		}
+		.layui-timeline{
+			margin-top: 20px;
+		}
+		.layui-timeline-item .layui-timeline-icon{
+			width: 12px;
+			height: 12px;
+			border: 2px solid #0077FF;
+			background: #fff;
+			box-shadow: 0 8px 21px 0 rgba(0,119,255,0.4);
+			border-radius: 50%;
+			position: absolute;
+			top: 18px;
+			left: 80px;
+
+		}
+		.layui-timeline-item.active .layui-timeline-icon{
+			background: #0077FF;
+		}
+		.layui-timeline-item:before {
+			 content: "";
+			 position: absolute;
+			 left: 87px;
+			 top: 20px;
+			 z-index: 0;
+			 width: 1px;
+			 height: 100%;
+		 }
+		.layui-timeline-item .avatar{
+			display: inline-block;
+		}
+		.avatar .avatar-name{
+			margin: 0 10px;
+			height: 40px;
+			line-height: 40px;
+			display: inline-block;
+		}
+		.layui-timeline-content {
+			width: 77%;
+			padding-left: 12px;
+			display: inline-flex;
+			line-height: 51px;
+			height: 51px;
+		}
+		.layui-timeline-content i{
+			margin-right: 10px;
+			color: #D1D9E4;
+		}
+		.layui-timeline-item.active .layui-timeline-content i{
+			color: #0077FF;
+		}
+		.layui-timeline-item.update .layui-timeline-content,
+		.layui-timeline-item.update .avatar {
+			color: #CA221C;
+		}
+		.layui-timeline-title{
+			width: 96%;
+			height: 51px;
+			line-height: 21px;
+			background: #F5F6F7;
+			padding: 15px;
+			border-radius:4px;
+			box-sizing: border-box;
+		}
+		.layui-timeline-title .timeline-info{
+			margin-left: 30px;
+		}
+		.member-name{
+			color: #46C5B2;
+		}
+		#gtChart{
+			width: 100%;
+			height: 330px;
+			background: #cccccc;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+<h2 class="page-title">新能源协作平台项目</h2>
+<div class="layui-row layui-col-space20">
+	<div class="layui-col-md8">
+		<div class="top-box">
+			<div class="layui-card">
+				<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>项目信息</div>
+				<div class="layui-card-body">
+					<div class="blue-panel">
+						<div class="top-part">
+							<span class="project-name">新能源协作平台项目1</span>
+							<p class="project-date"> 项目周期：<span>2020.01.12——2023.12.03</span></p>
+							<p class="project-summary">国家能源集团全称国家能源投资集团有限责任公司，经党中央、国务院批准。</p>
+						</div>
+						<div class="bottom-part">
+							<div class="member-avatar">
+								成员：
+								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								...等45人
+							</div>
+							<button class="layui-btn layui-btn-plain manager-btn">管理</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="center-box">
+			<div class="layui-card">
+				<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>课题信息</div>
+				<div class="layui-card-body">
+					<div class="card-list">
+						<div class="layui-row layui-col-space20">
+							<div class="layui-col-md3">
+								<div class="card-item">
+									<div class="cart-header">
+										<div class="cart-img"></div>
+										<div class="cart-title">
+											<p >课题1</p>
+											<p class="cart-time">2020.05.11-2022.01.01</p>
+										</div>
+									</div>
+									<div class="cart-body">
+										<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
+										<div class="info">
+											<span>详情：</span>
+											<p>
+												这里是详情这里是详情这里是
+												详情这里是详情这里是详情这
+												这里是详情。
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="card-item">
+									<div class="cart-header">
+										<div class="cart-img"></div>
+										<div class="cart-title">
+											<p >课题1</p>
+											<p class="cart-time">2020.05.11-2022.01.01</p>
+										</div>
+									</div>
+									<div class="cart-body">
+										<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
+										<div class="info">
+											<span>详情：</span>
+											<p>
+												这里是详情这里是详情这里是
+												详情这里是详情这里是详情这
+												这里是详情。
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="card-item">
+									<div class="cart-header">
+										<div class="cart-img"></div>
+										<div class="cart-title">
+											<p >课题1</p>
+											<p class="cart-time">2020.05.11-2022.01.01</p>
+										</div>
+									</div>
+									<div class="cart-body">
+										<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
+										<div class="info">
+											<span>详情：</span>
+											<p>
+												这里是详情这里是详情这里是
+												详情这里是详情这里是详情这
+												这里是详情。
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="layui-col-md3">
+								<div class="card-item">
+									<div class="cart-header">
+										<div class="cart-img"></div>
+										<div class="cart-title">
+											<p >课题1</p>
+											<p class="cart-time">2020.05.11-2022.01.01</p>
+										</div>
+									</div>
+									<div class="cart-body">
+										<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
+										<div class="info">
+											<span>详情：</span>
+											<p>
+												这里是详情这里是详情这里是
+												详情这里是详情这里是详情这
+												这里是详情。
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-col-md4">
+		<div class="right-box">
+			<div class="layui-card">
+				<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>项目统计</div>
+				<div class="layui-card-body">
+					<div id="chart" style="width: 80%;height: 250px; margin: 0 auto;"></div>
+					<div class="chart-legend">
+						<div class="chart-legend-item">
+							<div>
+								<div class="legend-icon"><i class="layui-icon layui-icon-edit"></i></div>
+								<span class="legend-progress">已完成</span>
+							</div>
+							<span class="legend-number">1</span>
+						</div>
+					</div>
+					<div class="chart-legend">
+						<div class="chart-legend-item">
+							<div>
+								<div class="legend-icon"><i class="layui-icon layui-icon-edit"></i></div>
+								<span class="legend-progress">已完成</span>
+							</div>
+							<span class="legend-number">1</span>
+						</div>
+					</div>
+					<div class="chart-legend">
+						<div class="chart-legend-item">
+							<div>
+								<div class="legend-icon"><i class="layui-icon layui-icon-edit"></i></div>
+								<span class="legend-progress">已完成</span>
+							</div>
+							<span class="legend-number">1</span>
+						</div>
+					</div>
+					<div class="chart-legend">
+						<div class="chart-legend-item">
+							<div>
+								<div class="legend-icon"><i class="layui-icon layui-icon-edit"></i></div>
+								<span class="legend-progress">已完成</span>
+							</div>
+							<span class="legend-number">1</span>
+						</div>
+					</div>
+					<div class="chart-legend">
+						<div class="chart-legend-item">
+							<div>
+								<div class="legend-icon"><i class="layui-icon layui-icon-edit"></i></div>
+								<span class="legend-progress">已完成</span>
+							</div>
+							<span class="legend-number">1</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="layui-row layui-col-space20">
+		<div class="layui-col-md6" >
+			<div class="bottom-left-box" >
+				<div class="layui-card">
+					<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>项目动态</div>
+					<div class="layui-card-body">
+						<ul class="layui-timeline">
+							<li class="layui-timeline-item active">
+								<div class="avatar">
+									<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+									<span  class="avatar-name">李四</span>
+								</div>
+								<div class="layui-timeline-icon"></div>
+								<div class="layui-timeline-content layui-text">
+									<i class="layui-icon layui-icon-more"></i>
+									<div class="layui-timeline-title">
+										<span>2020-08-12 15:13:20</span>
+										<span class="timeline-info">完成了项目协作任务1</span>
+									</div>
+								</div>
+							</li>
+							<li class="layui-timeline-item update">
+								<div class="avatar">
+									<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+									<span  class="avatar-name">李四</span>
+								</div>
+								<div class="layui-timeline-icon"></div>
+								<div class="layui-timeline-content layui-text">
+									<i class="layui-icon layui-icon-more"></i>
+									<div class="layui-timeline-title">
+										<span>2020-08-12 15:13:20</span>
+										<span class="timeline-info">将协作报告文档进行了编辑更新1</span>
+									</div>
+								</div>
+							</li>
+							<li class="layui-timeline-item">
+								<div class="avatar">
+									<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+									<span  class="avatar-name">李四</span>
+								</div>
+								<div class="layui-timeline-icon"></div>
+								<div class="layui-timeline-content layui-text">
+									<i class="layui-icon layui-icon-more"></i>
+									<div class="layui-timeline-title">
+										<span>2020-08-12 15:13:20</span>
+										<span class="timeline-info">将<span class="member-name">豆豆</span>移除项目协作1组 </span>
+									</div>
+								</div>
+							</li>
+							<li class="layui-timeline-item">
+								<div class="avatar">
+									<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+									<span  class="avatar-name">李四</span>
+								</div>
+								<div class="layui-timeline-icon"></div>
+								<div class="layui-timeline-content layui-text">
+									<i class="layui-icon layui-icon-more"></i>
+									<div class="layui-timeline-title">
+										<span>2020-08-12 15:13:20</span>
+										<span class="timeline-info">完成了项目协作任务1</span>
+									</div>
+								</div>
+							</li>
+							<li class="layui-timeline-item">
+								<div class="avatar">
+									<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+									<span class="avatar-name">李四</span>
+								</div>
+								<div class="layui-timeline-icon"></div>
+								<div class="layui-timeline-content layui-text">
+									<i class="layui-icon layui-icon-more"></i>
+									<div class="layui-timeline-title">
+										<span>2020-08-12 15:13:20</span>
+										<span class="timeline-info">完成了项目协作任务1</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md6">
+			<div class="bottom-right-box">
+				<div class="layui-card">
+					<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>甘特图</div>
+					<div class="layui-card-body">
+						<div id="gtChart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.min.js"></script>
+<script src="../../assets/js/jquery-1.9.1.min.js"></script>
+<script src="../../assets/plugins/layui/layui.js"></script>
+<script src="../../assets/js/index/main.js"></script>
+<script>
+	renderChart();
+	function renderChart(){
+			var myChart = echarts.init(document.getElementById('chart'));
+			// $.get('xxx').done(function(data){
+			//
+			// })
+			// 指定图表的配置项和数据
+			var option = {
+					title: {
+							text:'{a|12}{b|个}\n{c|总任务}',
+							textStyle:{
+									rich: {
+											a: {
+													color: '#212832',
+													fontSize: 18,
+													fontWeight:800
+											},
+											b: {
+													color: '#212832',
+													fontSize: 14
+											},
+											c: {
+													color: '#212832',
+													fontSize: 14
+											}
+									}
+							},
+							left: '44%',
+							top: '32%'
+					},
+					tooltip: {
+							trigger: 'item',
+							formatter: '{a} <br/>{b}: {c} ({d}%)'
+					},
+					legend: {
+							show:false,
+							orient: 'vertical',
+							left: '5%',
+							bottom: '5%',
+							itemGap: 20,
+							// itemWidth: 44,
+							// itemHeight: 44,
+							// borderRadius: 5,
+							// backgroundColor:'#ccc',
+							symbolKeepAspect: true,
+							icon: 'image://data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7',
+							data: ['已完成', '未完成', '已逾期', '今日待办', '待认领']
+					},
+					series: [
+							{
+									name: '任务完成情况',
+									type: 'pie',
+									top: '-20%',
+									radius: ['40%', '55%'],
+									avoidLabelOverlap: false,
+									color: ['#46C5B2', '#0077FF', '#FB3C35', '#F5AE44',' #6565EF '],
+									label: {
+											show: false,
+											position: 'center',
+									},
+									labelLine: {
+											show: false
+									},
+									data: [
+											{value: 335, name: '已完成',},
+											{value: 310, name: '未完成'},
+											{value: 234, name: '已逾期'},
+											{value: 135, name: '今日待办'},
+											{value: 1548, name: '待认领'}
+									]
+							}
+					]
+			};
+
+			// 使用刚指定的配置项和数据显示图表。
+			myChart.setOption(option);
+			// 响应式
+			window.addEventListener('resize',function () {
+					myChart.resize();
+			})
+	}
+
+</script>
+</body>
+</html>

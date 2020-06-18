@@ -1,0 +1,105 @@
+/* 页面标题 */
+.page-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(33, 40, 50, 1);
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+
+/* 页面顶部操作按钮 */
+.panel-button-group {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1;
+}
+
+/* 搜索框 */
+.search {
+  position: relative;
+}
+.search-ipt {
+  width: 310px;
+  height: 30px;
+  padding: 10px 10px 10px 30px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  background-color: #f0f3f7;
+  box-sizing: border-box;
+}
+.search i {
+  position: absolute;
+  top: 3px;
+  left: 10px;
+  color: #0077ff;
+  z-index: 99;
+  line-height: 24px;
+}
+/*左侧菜单栏*/
+.slide-menu {
+  width: 240px;
+  height: 100%;
+  background-color: #fff;
+  padding: 40px 0 40px 30px;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px 0 rgba(28, 29, 49, 0.05);
+  overflow-x: hidden;
+}
+.slide-menu p {
+  margin-bottom: 33px;
+  font-size: 18px;
+  color: #0077ff;
+}
+.menu-list {
+  list-style: none;
+}
+.menu-item {
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  padding-left: 24px;
+  border-radius: 10px 0 0 10px;
+  color: #616774;
+  font-size: 16px;
+  background-color: transparent;
+}
+.menu-item.active,
+.menu-item:hover {
+  background-color: #0077ff;
+  color: #fff;
+}
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.table-toolbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.table-toolbar-right .layui-form-switch {
+  margin: 0;
+  margin-right: 5px;
+}
+
+.layui-btn-text.layui-btn-sm i {
+  font-size: 14px !important;
+}
+
+.table-toolbar-switch {
+  display: flex;
+  align-items: center;
+}
+
+.table-toolbar .layui-input {
+  border-radius: 4px;
+  background-color: #f0f3f7;
+  width: 310px;
+  font-size: 14px;
+}

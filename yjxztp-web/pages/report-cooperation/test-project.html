@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>测试项目</title>
+	<link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/report/test-project.css">
+	<style>
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		body{
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		.layui-card{
+			height: 100%;
+		}
+		.outline-title{
+			padding-left: 10px;
+		}
+		.report-item{
+      height: 150px;
+      padding:20px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      
+		}
+		.outline-item{
+      height: 97px;
+      padding:33px 0 33px 20px;
+      display: flex;
+      align-items: center;
+		}
+		.report-item, .outline-item{
+			border: 2px dashed #ccc;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+		.report-item:hover,.outline-item:hover{
+			border:2px solid  #0077FF ;
+			box-shadow:0 10px 22px 0 rgba(27,101,187,0.15);
+    }
+		.create-report-btn,.create-outline-btn{
+			margin-bottom: 20px;
+		}
+	</style>
+</head> 
+<body>
+<div class="layui-row layui-col-space20">
+	<div class="layui-col-md6">
+		<h2 class="page-title">报告</h2>
+		<div class="report-box" style="height: 928px">
+			<div class="layui-card">
+				<div class="layui-card-body">
+					<div class="layui-row" >
+						<div class="layui-col-md2 layui-col-md-offset10">
+							<button class="layui-btn create-report-btn layui-btn-shadow">创建报告</button>
+						</div>
+					</div>
+					<div class="layui-row layui-col-space20">
+						<div class="layui-col-md3">
+							<div class="report-item">
+                <i class="layui-icon layui-icon-delete report_ie__img"></i>  
+                <img class="report_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                  <div class="report_ie__title">测试文档报告</div>
+                  <i class="layui-icon layui-icon-edit report_ie__imgT"></i> 
+                  
+              </div>
+						</div>
+						<div class="layui-col-md3">
+							<div class="report-item">
+                <i class="layui-icon layui-icon-delete report_ie__img"></i>
+                <img class="report_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="report_ie__title">测试文档报告</div>
+                <i class="layui-icon layui-icon-edit report_ie__imgT"></i> 
+              </div>
+						</div>
+						<div class="layui-col-md3">
+							<div class="report-item">
+                <i class="layui-icon layui-icon-delete report_ie__img"></i>
+                <img class="report_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="report_ie__title">测试文档报告</div>
+                <i class="layui-icon layui-icon-edit report_ie__imgT"></i> 
+              </div>
+						</div>
+						<div class="layui-col-md3">
+							<div class="report-item">
+                <i class="layui-icon layui-icon-delete report_ie__img"></i>
+                <img class="report_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="report_ie__title">测试文档报告</div>
+                <i class="layui-icon layui-icon-edit report_ie__imgT"></i> 
+              </div>
+						</div>
+						<div class="layui-col-md3">
+							<div class="report-item">
+                <i class="layui-icon layui-icon-delete report_ie__img"></i>
+                <img class="report_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="report_ie__title">测试文档报告</div>
+                <i class="layui-icon layui-icon-edit report_ie__imgT"></i> 
+              </div>
+						</div>
+						<div class="layui-col-md3">
+							<div class="report-item">
+                <i class="layui-icon layui-icon-delete report_ie__img"></i>
+                <img class="report_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="report_ie__title">测试文档报告</div>
+                <i class="layui-icon layui-icon-edit report_ie__imgT"></i> 
+              </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-col-md6">
+		<h2 class="page-title outline-title">大纲</h2>
+		<div class="outline-box" style="height: 928px">
+			<div class="layui-card">
+				<div class="layui-card-body">
+					<div class="layui-row" >
+						<div class="layui-col-md2 layui-col-md-offset10">
+							<button class="layui-btn create-outline-btn layui-btn-shadow">创建大纲</button>
+						</div>
+					</div>
+					<div class="layui-row layui-col-space20">
+						<div class="layui-col-md6">
+							<div class="outline-item">
+                <i class="layui-icon layui-icon-delete outline_ie__imgTH"></i>
+                <img class="outline_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="outline_row">
+                  <div class="outline_rowO">
+                    <div class="outline_ie__title">我的项目报告大纲
+                  </div>
+                    <i class="layui-icon layui-icon-edit outline_ie__imgT"></i>
+                  </div>
+                  
+                  <div class="outline_ie__titleO">创建时间：2020-06-02</div>
+                </div>
+                
+              </div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="outline-item">
+                <i class="layui-icon layui-icon-delete outline_ie__imgTH"></i>
+                <img class="outline_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="outline_row">
+                  <div class="outline_rowO">
+                    <div class="outline_ie__title">我的项目报告大纲
+                  </div>
+                    <i class="layui-icon layui-icon-edit outline_ie__imgT"></i>
+                  </div>
+                  
+                  <div class="outline_ie__titleO">创建时间：2020-06-02</div>
+                </div>
+              </div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="outline-item">
+                <i class="layui-icon layui-icon-delete outline_ie__imgTH"></i>
+                <img class="outline_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="outline_row">
+                  <div class="outline_rowO">
+                    <div class="outline_ie__title">我的项目报告大纲
+                  </div>
+                    <i class="layui-icon layui-icon-edit outline_ie__imgT"></i>
+                  </div>
+                  
+                  <div class="outline_ie__titleO">创建时间：2020-06-02</div>
+                </div>
+              </div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="outline-item">
+                <i class="layui-icon layui-icon-delete outline_ie__imgTH"></i>
+                <img class="outline_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="outline_row">
+                  <div class="outline_rowO">
+                    <div class="outline_ie__title">我的项目报告大纲
+                  </div>
+                    <i class="layui-icon layui-icon-edit outline_ie__imgT"></i>
+                  </div>
+                  
+                  <div class="outline_ie__titleO">创建时间：2020-06-02</div>
+                </div>
+              </div>
+						</div>
+						<div class="layui-col-md6">
+							<div class="outline-item">
+                <i class="layui-icon layui-icon-delete outline_ie__imgTH"></i>
+                <img class="outline_ie__imgO " src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                <div class="outline_row">
+                  <div class="outline_rowO">
+                    <div class="outline_ie__title">我的项目报告大纲
+                  </div>
+                    <i class="layui-icon layui-icon-edit outline_ie__imgT"></i>
+                  </div>
+                  
+                  <div class="outline_ie__titleO">创建时间：2020-06-02</div>
+                </div>
+              </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

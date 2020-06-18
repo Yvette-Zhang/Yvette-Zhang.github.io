@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+  <link rel="stylesheet" href="../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../assets/css/home/style.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <style>
+    #todoDate .layui-laydate-footer {
+      display: none;
+    }
+
+    #todoDate,
+    #todoDate .layui-laydate-static,
+    #todoDate .layui-laydate-main,
+    #todoDate .layui-laydate-content table {
+      width: 100% !important;
+    }
+
+    #todoDate .layui-laydate-content {
+      height: 312px;
+    }
+
+    #todoDate .layui-laydate-content table {
+      height: 100%;
+    }
+
+    #todoDate .layui-laydate,
+    .layui-laydate-hint {
+      box-shadow: none;
+      border-color: #eee;
+    }
+
+    #todoDate .layui-laydate .layui-this {
+      background-color: rgba(251, 59, 53, .1) !important;
+      color: #C9211B !important;
+      border-radius: 22px;
+    }
+  </style>
+</head>
+
+<body style="margin: 20px;margin-bottom: 0;">
+  <div class="layui-row layui-col-space20">
+    <div class="layui-col-md8">
+      <div class="layui-card" style="height: 980px;">
+        <div class="layui-card-header layui-card-header--noline">
+          <i class="layui-icon layui-icon-heart-fill"></i> 项目管理
+        </div>
+        <div class="layui-card-body">
+          <div class="layui-row layui-col-space20">
+            <div class="layui-col-md6">
+              <a class="home-create">
+                +创建项目
+              </a>
+            </div>
+            <div class="layui-col-md6">
+              <a class="home-create">
+                +创建任务
+              </a>
+            </div>
+          </div>
+          <div class="layui-row layui-col-space30">
+            <div class="layui-col-md6">
+              <div class="home-inner-card">
+                <div class="home-inner-card__header">
+                  <div class="home-inner-card__header__title">我的项目</div>
+                  <div class="home-inner-card__header__link">进入项目<i class="layui-icon layui-icon-heart-fill"></i>
+                  </div>
+                </div>
+                <div class="home-inner-card__body">
+                  <div class="layui-row layui-col-space20">
+                    <div class="layui-col-md12">
+                      <div class="home-project">
+                        <div class="home-project__header">
+                          <img src="https://dummyimage.com/60x43/0077ff/ffffff" alt="">
+                        </div>
+                        <div class="home-project__body">
+                          <div class="home-project__title">项目1</div>
+                          <div class="home-project__mate">
+                            <div class="home-project__footer__left">执行人：<span>妮那</span></div>
+                            <div class="home-project__footer__right">2020-06-03</div>
+                          </div>
+                        </div>
+                        <div class="home-project__footer">
+                          30%
+                        </div>
+                      </div>
+                    </div>
+                    <div class="layui-col-md12">
+                      <div class="home-project">
+                        <div class="home-project__header">
+                          <img src="https://dummyimage.com/60x43/0077ff/ffffff" alt="">
+                        </div>
+                        <div class="home-project__body">
+                          <div class="home-project__title">项目1</div>
+                          <div class="home-project__mate">
+                            <div class="home-project__footer__left">执行人：<span>妮那</span></div>
+                            <div class="home-project__footer__right">2020-06-03</div>
+                          </div>
+                        </div>
+                        <div class="home-project__footer">
+                          30%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="home-inner-card">
+                <div class="home-inner-card__header">
+                  <div class="home-inner-card__header__title">日历</div>
+                  <div class="home-inner-card__header__link">进入日程<i class="layui-icon layui-icon-heart-fill"></i>
+                  </div>
+                </div>
+                <div class="home-inner-card__body">
+                  <div class="layui-inline todo-date" id="todoDate"></div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-col-md6">
+              <div class="home-inner-card">
+                <div class="home-inner-card__header">
+                  <div class="home-inner-card__header__title">我的任务</div>
+                  <div class="home-inner-card__header__link">进入任务<i class="layui-icon layui-icon-heart-fill"></i>
+                  </div>
+                </div>
+                <div class="home-inner-card__body">
+                  <ul class="home-task">
+                    <li class="home-task-item">
+                      <div class="task-icon task-icon--red">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">已逾期</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                    <li class="home-task-item">
+                      <div class="task-icon task-icon--red">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">已逾期</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                    <li class="home-task-item">
+                      <div class="task-icon task-icon--red">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">已逾期</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                    <li class="home-task-item">
+                      <div class="task-icon task-icon--blue">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">以后/ <br>未安排</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                    <li class="home-task-item">
+                      <div class="task-icon task-icon--red">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">已逾期</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                    <li class="home-task-item">
+                      <div class="task-icon task-icon--red">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">已逾期</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                    <li class="home-task-item">
+                      <div class="task-icon task-icon--red">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">已逾期</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                    <li class="home-task-item">
+                      <div class="task-icon">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">今日<br>到期</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                    <li class="home-task-item">
+                      <div class="task-icon task-icon--red">
+                        <div class="task-icon__bg"> <i class="layui-icon layui-icon-heart-fill"></i> </div>
+                        <div class="task-icon__text">已逾期</div>
+                      </div>
+                      <div class="task-body">
+                        <div class="task-content">
+                          <div class="task-content__title">某个任务名称</div>
+                          <div class="task-content__subtitle">任务类型</div>
+                        </div>
+                        <div class="task-footer">
+                          <div class="task-footer__title">执行人：<span>妮那</span> </div>
+                          <div class="task-footer__subtitle">2020-02-09</div>
+                        </div>
+                      </div>
+
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-md4">
+      <div class="layui-card" style="height: 980px;">
+        <div class="layui-card-header layui-card-header--noline">
+          <i class="layui-icon layui-icon-heart-fill"></i> 报告协作
+        </div>
+        <div class="layui-card-body">
+          <div class="layui-row layui-col-space20">
+            <div class="layui-col-md6">
+              <a class="home-create home-create--mini">
+                +创建报告
+              </a>
+            </div>
+            <div class="layui-col-md6">
+              <a class="home-create home-create--mini">
+                +创建大纲
+              </a>
+            </div>
+          </div>
+          <div class="home-inner-card">
+            <div class="home-inner-card__header">
+              <div class="home-inner-card__header__title">我的报告</div>
+              <div class="home-inner-card__header__link">进入协作文档<i class="layui-icon layui-icon-heart-fill"></i>
+              </div>
+            </div>
+            <div class="home-inner-card__body">
+              <div class="layui-row layui-col-space20">
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试文档</div>
+                  </div>
+                </div>
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试文档</div>
+                  </div>
+                </div>
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试文档</div>
+                  </div>
+                </div>
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试文档</div>
+                  </div>
+                </div>
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试文档</div>
+                  </div>
+                </div>
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试文档</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="home-inner-card">
+            <div class="home-inner-card__header">
+              <div class="home-inner-card__header__title">我的大纲</div>
+              <div class="home-inner-card__header__link">进入大纲管理<i class="layui-icon layui-icon-heart-fill"></i>
+              </div>
+            </div>
+            <div class="home-inner-card__body">
+              <div class="layui-row layui-col-space20" style="margin-top: 20px;">
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试大纲</div>
+                  </div>
+                </div>
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试大纲</div>
+                  </div>
+                </div>
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试文档</div>
+                  </div>
+                </div>
+                <div class="layui-col-md3 home-col-md4">
+                  <div class="home-dotted-box">
+                    <img class="home-dotted-box__img" src="https://dummyimage.com/40x50/e2e8f1/00067f" alt="">
+                    <div class="home-dotted-box__title">测试大纲</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../assets/plugins/layui/layui.js"></script>
+  <script>
+    layui.use('laydate', function () {
+      var laydate = layui.laydate;
+      laydate.render({
+        elem: '#todoDate',
+        position: 'static'
+      });
+    })
+  </script>
+</body>
+
+</html>

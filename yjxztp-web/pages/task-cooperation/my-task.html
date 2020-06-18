@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的任务</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .layui-tab-content {
+      height: calc(100vh - 118px);
+      border-radius: 0 10px 10px 10px;
+    }
+
+    .layui-tab {
+      height: 92%
+    }
+
+    .layui-tab-item,
+    #my-execute-tab-item,
+    #my-join-tab-item,
+    #my-create-tab-item {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body style="padding: 20px;padding-bottom: 0;box-sizing: border-box;">
+  <div class="page-header">
+    <h2 class="page-title">我的任务</h2>
+    <div class="panel-button-group" style="top:50px;">
+      <button class="layui-btn  layui-btn-plain">批量创建任务</button>
+      <button class="layui-btn  layui-btn-plain">任务设置</button>
+      <button class="layui-btn layui-btn-shadow">创建任务</button>
+    </div>
+  </div>
+  <div class="layui-tab" lay-filter="my-task-tab">
+    <ul class="layui-tab-title layui-tab-title-trapezoid">
+      <li class="layui-this">我执行的</li>
+      <li>我参与的</li>
+      <li>我创建的</li>
+    </ul>
+    <div class="layui-tab-content" style="box-sizing: border-box;">
+      <div class="layui-tab-item layui-show">
+        <iframe id="my-execute-tab-item" src="./my-execute.html" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="layui-tab-item">
+        <iframe id="my-join-tab-item" src="" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="layui-tab-item">
+        <iframe id="my-create-tab-item" src="" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <script>
+    layui.use(["element"], function () {
+      var element = layui.element
+      element.on('tab(my-task-tab)', function (data) {
+        if (data.index === 0) {
+          $('#my-execute-tab-item').attr('src', './my-execute.html')
+        } else if (data.index === 1) {
+          $('#my-join-tab-item').attr('src', './my-join.html')
+        } else if (data.index === 2) {
+          $('#my-create-tab-item').attr('src', './my-create.html')
+        }
+      });
+    })
+  </script>
+</body>
+
+</html>

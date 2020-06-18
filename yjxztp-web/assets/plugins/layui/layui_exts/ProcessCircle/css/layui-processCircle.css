@@ -1,0 +1,51 @@
+.layui-circle {
+  position: relative;
+  /* height: 120px; */
+  /* width: 120px; */
+  border-radius: 50%;
+}
+
+.layui-pieRight,
+.layui-pieLeft {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+
+.layui-right,
+.layui-left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transition: all .5s;
+}
+
+.layui-pieRight,
+.layui-right {
+  clip: rect(0, auto, auto, 60px);
+}
+
+.layui-pieLeft,
+.layui-left {
+  clip: rect(0, 60px, auto, 0);
+}
+
+.layui-mask {
+  /* width: 90px; */
+  /* height: 90px; */
+  border-radius: 50%;
+  /* left: 15px; */
+  /* top: 15px; */
+  background: #FFF;
+  position: absolute;
+  text-align: center;
+  font-size: 12px;
+}
+
+.layui-mask span {
+  font-size: 20px;
+  font-weight: bold;
+}

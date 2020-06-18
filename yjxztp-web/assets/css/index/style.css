@@ -1,0 +1,105 @@
+.index-body {
+  background-color: rgb(240, 243, 247);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#homeSubPage {
+  width: 100%;
+  flex: 1;
+}
+
+.index-header {
+  z-index: 1;
+  color: #616874;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+  box-shadow: 0px 4px 10px 0px rgba(29, 30, 49, 0.05);
+  padding: 0 30px;
+  background-color: white;
+}
+
+.index-header__right {
+  display: flex;
+  align-items: center;
+}
+
+.index-logo {
+  font-size: 1.85em;
+  font-weight: bold;
+  color: #ca221c;
+}
+
+.index-menus {
+  display: flex;
+  align-items: center;
+}
+
+.index-menus-item {
+  position: relative;
+  min-width: 100px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+  box-sizing: border-box;
+  line-height: 60px;
+}
+
+.index-menus-item:hover {
+  background-image: linear-gradient(#F9FCFF, #E6F2FF);
+}
+
+.index-menus-item.index-menus-item--active {
+  background-image: linear-gradient(#F9FCFF, #E6F2FF);
+  font-weight: bold;
+  color: #0077ff;
+}
+
+.index-menus-item.index-menus-item--active::after {
+  content: " ";
+  height: 4px;
+  width: 100%;
+  display: block;
+  background-color: #0077ff;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0;
+}
+
+.layui-btn-text {
+  background: none;
+  color: initial;
+  padding: 0 9px;
+}
+
+.layui-btn-text:hover {
+  color: initial;
+}
+
+.divider--vertical {
+  display: inline-block;
+  width: 1px;
+  height: 32px;
+  margin: 0 8px;
+  vertical-align: middle;
+  position: relative;
+  background-color: #e6e9f0;
+}
+
+.index-user {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.index-user__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
