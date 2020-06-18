@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>圆环进度条</title>
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <link rel="stylesheet" href="../layui_exts/ProcessCircle/css/layui-processCircle.css">
+</head>
+<style>
+  body {
+    padding:0px 30px;
+  }
+</style>
+
+<body>
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-md6">
+      <br>
+      <br>
+      <blockquote class="layui-elem-quote">
+        <p>基本参数配置</p>
+        <pre class="layui-code">
+          el: $('#circle'), 
+          value: 25,   //表示环形的百分比
+          background: '#fff',  // 表示外部圆的颜色
+          color: '#f0f',   //通过改变参数来改变圆环的颜色
+          width: ['120px', '90px'],  //通过改变内圆的直径来改变圆环的宽度
+          deg: 90, // 表示环形的起始位置，起始位置为角度
+        </pre>
+        <p>判断条件</p>
+        <pre class='layui-code'>
+          if (num + deg <= 180) {
+            right.css('transform', 'rotate(' + (deg - 180) + 'deg)')
+            rightwhite.css('transform', 'rotate(' + (num + deg) + 'deg)')
+          } else {
+            right.css('transform', 'rotate(' + (deg - 180) + 'deg)')
+            left.css('transform', 'rotate(' + (num + deg - 180) + 'deg)')
+          }
+        </pre> 
+      </blockquote>
+    </div>
+    <div class="layui-col-md6">
+      <div id="circle"></div>
+    </div>
+  </div>
+  
+
+  
+  <script src="../examples/js/jquery-1.9.1.min.js"></script>
+  <script src="../layui_exts/ProcessCircle/js/ProcessCircle.js"></script>
+  <script>
+    (function () {
+      var a = circle({
+        el: $('#circle'),
+        value:25,   //百分比
+        background: '#fff',  //大圆的颜色
+        color: '#f0f',   //圆环的颜色
+        width: ['120px', '90px'],  
+        deg: 90, //起始位置 
+      })
+    })();
+  </script>
+</body>
+
+</html>

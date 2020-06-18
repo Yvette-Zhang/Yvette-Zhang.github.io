@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>下拉菜单</title>
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <link rel="stylesheet" href="../layui_exts/dropDown/dropDown.css">
+  <style>
+    body {
+      padding:0px 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-md6">
+      <blockquote class="layui-elem-quote" style="margin-top: 30px;">
+        <p>基于layui 扩展下拉菜单 </p>
+
+        <p>注意</p>
+        <pre class="layui-code">
+          绑定事件的元素要有data-dropdown自定义属性，注意唯一性，防止下拉重复弹出
+          例如：<xmp><span class="test1" data-dropdown="9">点我</span></xmp>
+          一个页面中data-dropdown是必须且唯一
+        </pre>
+        <p>数据格式</p>
+        <pre class="layui-code">
+          var dropDownData = [
+            { 'type': 1, 'title': '删除文件', 'icon': 'addition', 'href': 'https://www.baidu.com/', 'target': '_blank' },
+            { 'type': 2, 'title': '添加文件', 'icon': 'delete' },
+            { 'type': 3, 'title': '分享', 'icon': 'share' },
+            { 'type': 4, 'title': '更多', 'icon': 'share', 'disabled': true, 'children': [
+                { 'type': 6, 'title': '更多2-1', 'icon': 'share', 'disabled': true },
+                { 'type': 6, 'title': '更多2-2', 'icon': 'share' },
+              ]
+            },
+            { 'type': 5, 'title': '更多2', 'icon': 'share', 'children': [
+                { 'type': 6, 'title': '更多2-1', 'icon': 'share', 'disabled': true },
+                { 'type': 6, 'title': '更多2-2', 'icon': 'share' },
+              ]
+            },
+          ];
+          //type: 类型；
+          //title: 标题；
+          //icon: 图标类型；
+          //href: 链接；
+          //target: 链接打开方式 默认本页面打开；_blank新页面打开
+          //disabled 是否禁选
+    
+          **暂时只支持两层的嵌套**
+        </pre>
+
+        <p>基本参数</p>
+        <pre class="layui-code">
+          var dropDownEle = dropDown.render({
+            ele: ele, // 绑定下拉菜单的元素（jq对象）（必须）
+            position: 'bottom', // String 下拉菜单定位 默认 bottom 类型：top、left、right、bottom （非必须）
+            className: 'my-drop', // String 自定义class 可根据此class自定义样式 默认为 空 （非必须）
+            showIcon: true, // Boolean 是否显示图标 默认false （非必须）
+            iconType: 'layui-icon', // String icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀 （必须）
+            zIndex: 1999, // Number 下拉层级 默认值999 （非必须）
+            clickClose: true, // Boolean 点击下拉菜单选项是否关闭下拉菜单 默认true 
+            mouseleaveClose: false, // Boolean 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+            data: dropDownData, // Json 下拉菜单的数据 （必须）
+            choose: function (data) { // 点击回调
+              console.log(data);
+            }
+          });
+        </pre>
+      </blockquote>
+    </div>
+    <div class="layui-col-md6">
+      <br>
+      <br>
+      <a class="my-test layui-dropdown-link" data-dropdown="1"><span>点我</span><i
+          class="layui-icon layui-icon-down"></i></a>
+      <a class="my-test layui-dropdown-link" data-dropdown="2"><span>点我</span><i
+          class="layui-icon layui-icon-down"></i></a>
+      <a class="my-test layui-dropdown-link" data-dropdown="3"><span>点我</span><i
+          class="layui-icon layui-icon-down"></i></a>
+      <a class="my-test layui-dropdown-link" data-dropdown="4"><span>点我</span><i
+          class="layui-icon layui-icon-down"></i></a>
+      <br />
+      <br />
+
+      <a class="my-test1 layui-dropdown-link" data-dropdown="5"><span>下方bottom</span><i
+          class="layui-icon layui-icon-down"></i></a>
+
+      <br />
+      <br />
+
+      <a class="my-test2 layui-dropdown-link" data-dropdown="6"><span>左方left</span><i
+          class="layui-icon layui-icon-down"></i></a>
+
+      <br />
+      <br />
+
+      <a class="my-test3 layui-dropdown-link" data-dropdown="7"><span>上方top</span><i
+          class="layui-icon layui-icon-down"></i></a>
+
+      <br />
+      <br />
+
+      <a class="my-test4 layui-dropdown-link" data-dropdown="8"><span>右方top</span><i
+          class="layui-icon layui-icon-down"></i></a>
+
+      <br />
+      <br />
+
+      <span class="test1" data-dropdown="9">测试点击下拉菜单选项隐藏下拉菜单</span>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <span class="test2" data-dropdown="10">测试鼠标移出下拉菜单隐藏下拉菜单</span>
+      <br />
+      <br />
+      <span class="test3" data-dropdown="11">测试</span>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="./js/jquery-1.9.1.min.js"></script>
+  <script src="../src/layui.js"></script>
+  <script>
+
+    // data-dropdown 下拉弹窗唯一标识 防止重复弹出
+
+    layui.config({
+      base: '../layui_exts/dropDown/'
+    }).use(['dropDown'], function () {
+      var dropDown = layui.dropDown;
+
+      var dropDownData = [
+        { 'type': 1, 'title': '删除文件', 'icon': 'addition', 'href': 'https://www.baidu.com/', 'target': '_blank' },
+        { 'type': 2, 'title': '添加文件', 'icon': 'delete' },
+        { 'type': 3, 'title': '分享', 'icon': 'share' },
+        {
+          'type': 4, 'title': '更多', 'icon': 'share', 'disabled': true, 'children': [
+            { 'type': 6, 'title': '更多2-1', 'icon': 'share', 'disabled': true },
+            { 'type': 6, 'title': '更多2-2', 'icon': 'share' },
+          ]
+        },
+        {
+          'type': 5, 'title': '更多2', 'icon': 'share', 'children': [
+            { 'type': 6, 'title': '更多2-1', 'icon': 'share', 'disabled': true },
+            { 'type': 6, 'title': '更多2-2', 'icon': 'share' },
+          ]
+        },
+      ];
+
+      //type: 类型；
+      //title: 标题；
+      //icon: 图标类型；
+      //href: 链接；
+      //target: 链接打开方式 默认本页面打开；_blank新页面打开
+      //disabled 是否禁选
+      $('.test1').on('click', function () {
+        var ele = $(this);
+
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素 （jq对象）
+          position: 'bottom', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            console.log(data);
+          }
+        });
+
+      });
+
+      $('.test2').on('click', function () {
+        var ele = $(this);
+
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素
+          position: 'bottom', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: false, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: true, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            console.log(data);
+          }
+        });
+
+      });
+
+      $('.test3').on('click', function () {
+        var ele = $(this);
+
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素
+          position: 'bottom', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: false, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            console.log(data);
+          }
+        });
+
+      });
+
+      $('.my-test').on('click', function () {
+        var ele = $(this);
+
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            ele.children('span').text(data.title)
+          }
+        });
+        //return false; // 阻止冒泡 
+      });
+
+      $('.my-test1').on('click', function () {
+        var ele = $(this);
+
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素
+          position: 'bottom', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            ele.children('span').text(data.title)
+          }
+        });
+      });
+
+      $('.my-test2').on('click', function () {
+        var ele = $(this);
+
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素
+          position: 'left', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            ele.children('span').text(data.title)
+          }
+        });
+      })
+
+
+
+      $('.my-test3').on('click', function () {
+        var ele = $(this);
+
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素
+          position: 'top', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            ele.children('span').text(data.title)
+          }
+        });
+      })
+
+      $('.my-test4').on('click', function () {
+        var ele = $(this);
+
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素
+          position: 'right', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            ele.children('span').text(data.title)
+          }
+        });
+      })
+
+
+    })
+
+  </script>
+</body>
+
+</html>

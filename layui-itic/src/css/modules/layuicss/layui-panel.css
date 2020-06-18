@@ -1,0 +1,113 @@
+/*
+
+  面板
+ 
+*/
+
+/* 折叠面板 */
+.layui-collapse {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 10px;
+  overflow: hidden;
+  border-color: rgba(230, 233, 240, 1);
+}
+.layui-colla-item,
+.layui-colla-content {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+.layui-colla-item:first-child {
+  border-top: none;
+}
+.layui-colla-title {
+  position: relative;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 15px 0 35px;
+  color: #212832;
+  background-color: rgba(245, 246, 247, 1);
+  cursor: pointer;
+  font-size: 14px;
+  overflow: hidden;
+}
+.layui-colla-content {
+  display: none;
+  padding: 10px 15px;
+  line-height: 22px;
+  color: #666;
+}
+.layui-colla-icon {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  font-size: 14px;
+}
+
+/* 卡片面板 */
+.layui-card {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 4px 10px 0px rgba(29, 30, 49, 0.05);
+}
+.layui-card:last-child {
+  margin-bottom: 0;
+}
+.layui-card-header {
+  position: relative;
+  padding: 30px 30px 15px 30px;
+  color: #212832;
+  border-radius: 10px 10px 0 0;
+  font-size: 20px;
+}
+.layui-card-header-line::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  bottom: 0;
+  height: 1px;
+  background-color: rgba(230, 233, 240, 1);
+}
+
+.layui-card-header i {
+  margin-right: 5px;
+  color: #0077ff;
+  vertical-align: middle;
+  font-size: 20px;
+}
+.layui-card-body {
+  position: relative;
+  padding: 0 30px 30px;
+  line-height: 24px;
+}
+
+.layui-card-header-line + .layui-card-body {
+  padding-top: 20px;
+}
+
+.layui-card .layui-card-body:first-child {
+  padding-top: 30px;
+}
+
+.layui-card-body[pad15] {
+  padding: 15px;
+}
+.layui-card-body[pad20] {
+  padding: 20px;
+}
+.layui-card-body .layui-table {
+  margin: 5px 0;
+}
+.layui-card .layui-tab {
+  margin: 0;
+}
+/* 窗口面板 */
+.layui-panel-window {
+  position: relative;
+  padding: 15px;
+  border-radius: 0;
+  border-top: 5px solid #e6e6e6;
+  background-color: #fff;
+}

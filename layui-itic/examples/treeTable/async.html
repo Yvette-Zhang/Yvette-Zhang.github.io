@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layui树形表格</title>
+    <link rel="stylesheet" href="../../src/css/layui.css">
+    <link rel="stylesheet" href="../../layui_exts/treeTable/css/demo.css">
+</head>
+<body class="layui-hide">
+<div class="page-wrapper">
+    <!-- <blockquote class="layui-elem-quote" style="margin: 15px 0;">Layui树形表格3.x演示</blockquote> -->
+    <div class="layui-btn-container">
+        <a href="treetable.html" class="layui-btn layui-btn-sm layui-btn-primary">
+            <i class="layui-icon">&#xe65c;</i>返回
+        </a>
+    </div>
+    <table id="demoTreeTb"></table>
+</div>
+
+<!-- 表格操作列 -->
+<script type="text/html" id="tbBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script src="../../src/layui.js"></script>
+
+<script>
+    layui.config({
+        base: '../../layui_exts/treeTable/js/'
+    }).use(['treeTable'], function () {
+        var $ = layui.jquery;
+        var treeTable = layui.treeTable;
+        $('body').removeClass('layui-hide');
+
+        // 渲染表格
+        treeTable.render({
+            elem: '#demoTreeTb',
+            toolbar: true,
+            tree: {
+                iconIndex: 2
+            },
+            cols: [[
+                {type: 'numbers'},
+                {type: 'checkbox'},
+                {field: 'id', title: 'ID'},
+                {field: 'name', title: 'name'},
+                {field: 'createTime', title: '创建时间'},
+                {align: 'center', toolbar: '#tbBar', title: '操作', width: 120}
+            ]],
+            reqData: function (data, callback) {  // 懒加载也可以用url方式，这里用reqData方式演示
+                setTimeout(function () {  // 故意延迟一下
+                    var url = '../../layui_exts/treeTable/json/list';
+                    url += ((data ? ('_' + data.id) : '') + '.json');
+                    $.get(url, function (res) {
+                        callback(res.data);
+                    });
+                }, 800);
+            },
+            style: 'margin-top:0;'
+        });
+
+    });
+</script>
+</body>
+</html>

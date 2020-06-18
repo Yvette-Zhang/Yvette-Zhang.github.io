@@ -1,0 +1,92 @@
+.layui-em {
+  font-style: normal;
+}
+
+.layui-enter {
+  top: 300px;
+  margin-top: 30px;
+  position: absolute;
+}
+
+#tagss {
+  position: absolute;
+  top: 380px;
+  left: 90px;
+  width: 100%;
+  color: #777;
+  background-color: #fff;
+}
+
+#tagss span {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 16px;
+  position: relative;
+  height: 16px;
+  margin-bottom: 5px;
+  padding: 4px 22px 5px 9px;
+  cursor: pointer;
+  transition: all 0.2s ease 0s;
+  vertical-align: baseline;
+  white-space: nowrap;
+  color: #fff;
+  background-color: #009688;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  top: -31px;
+}
+
+#tagss span + span {
+  margin-left: 5px;
+}
+
+#tagss .close {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  float: none;
+  width: 18px;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  opacity: 1;
+  color: #fff;
+  border: 0 none;
+  background: transparent none repeat scroll 0 0;
+  text-shadow: none;
+}
+
+#tagss .close:hover {
+  background: #ffb800;
+}
+
+#inputTags[type="text"],
+#inputTags[type="text"]:focus {
+  position: absolute;
+  line-height: 25px;
+  display: inline;
+  margin: 0;
+  padding: 0 6px;
+  outline: 0 none;
+  box-shadow: none;
+  left: 0px;
+  border: 1px solid #d5d5d5;
+}
+
+/* .al_btn {
+    position: absolute;
+    line-height: 27px;
+    display: block;
+    width: 100px;
+    height: 27px;
+    margin: 0 auto;
+    cursor: pointer;
+    text-align: center;
+    color: #fff;
+    background: #ffb800;
+    left: 256px;
+    
+} */
