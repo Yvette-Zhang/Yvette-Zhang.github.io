@@ -2025,15 +2025,15 @@
 }
 .layui-form-checked,
 .layui-form-checked:hover {
-  border-color: #46c5b2;
+  border-color: #0077ff;
 }
 .layui-form-checked span,
 .layui-form-checked:hover span {
-  background-color: #46c5b2;
+  background-color: #0077ff;
 }
 .layui-form-checked i,
 .layui-form-checked:hover i {
-  color: #46c5b2;
+  color: #0077ff;
 }
 .layui-form-item .layui-form-checkbox {
   margin-top: 4px;
@@ -2072,12 +2072,12 @@
   transition: 0.1s linear;
 }
 .layui-form-checkbox[lay-skin="primary"]:hover i {
-  border-color: #46c5b2;
+  border-color: #0077ff;
   color: #fff;
 }
 .layui-form-checked[lay-skin="primary"] i {
-  border-color: #46c5b2 !important;
-  background-color: #46c5b2;
+  border-color: #0077ff !important;
+  background-color: #0077ff;
   color: #fff;
 }
 .layui-checkbox-disbaled[lay-skin="primary"] span {
@@ -2182,7 +2182,7 @@
 }
 .layui-form-radioed > i,
 .layui-form-radio > i:hover {
-  color: #46c5b2;
+  color: #0077ff;
 }
 .layui-radio-disbaled > i {
   color: #e2e2e2 !important;
@@ -3181,7 +3181,7 @@
   padding: 1px;
   width: 100%;
   height: 100%;
-  background-color: #009688;
+  background-color: #0077ff;
 }
 .layui-laypage-em {
   border-radius: 2px;
@@ -5179,8 +5179,8 @@ body .layui-table-tips .layui-layer-content {
   display: block;
   margin: 0;
   padding: 0 15px;
-  background-color: #5fb878;
-  border-color: #5fb878;
+  background-color: #0077ff;
+  border-color: #0077ff;
   color: #fff;
 }
 .layui-transfer-active .layui-btn-disabled {
