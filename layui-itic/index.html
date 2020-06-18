@@ -144,9 +144,9 @@
               <dd>
                 <a href="./examples/ProcessCircle.html">环形进度条</a>
               </dd>
-              <dd>
+              <!-- <dd>
                 <a href="./examples/formUD.html">form表单上下结构</a>
-              </dd>
+              </dd> -->
             </dl>
           </li>
         </ul>
@@ -164,8 +164,8 @@
   <script src="./src/layui.js"></script>
   <script>
     layui.use('element', function () {
-      var $ = layui.jquery
-        , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+      var $ = layui.jquery,
+        element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
 
       $(document).ready(function () {
         $("dd > a").click(function (e) {
