@@ -236,7 +236,6 @@
 
   <script src="./assets/js/jquery-1.9.1.min.js"></script>
   <script src="./assets/plugins/layui/layui.js"></script>
-  <script src="./assets/js/index/main.js"></script>
   <script>
     layui.config({
   base: "./assets/plugins/layui/layui_exts/dropDown/"
@@ -257,7 +256,7 @@
       shadeClose: true,
       skin: 'notice-layer layui-anim layui-anim-rl layui-layer-openRight',
       area: '440px',
-      zIndex: '99',
+      zIndex: '999',
       content: noticeEle,
       success: function (layero) {
         layer.setTop(layero);
