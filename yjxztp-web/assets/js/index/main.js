@@ -1,5 +1,5 @@
 layui.config({
-  base: "../../../assets/plugins/layui/layui_exts/dropDown/"
+  base: "./assets/plugins/layui/layui_exts/dropDown/"
 }).use(["element", "layer", "dropDown"], function () {
   var element = layui.element,
     layer = layui.layer,
