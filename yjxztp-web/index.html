@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>重大项目云协同专用软件</title>
   <link rel="stylesheet" href="./assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="./assets/plugins/layui/layui_exts/dropDown/dropDown.css">
   <link rel="stylesheet" href="./assets/css/index/style.css">
 </head>
 
@@ -31,14 +32,206 @@
         <button class="layui-btn layui-btn-text">
           <i class="layui-icon layui-icon-notice"></i>
         </button>
+        <span class="layui-badge">6</span>
       </div>
-      <div class="divider--vertical"></div>
+      <div class="divider--vertical">
+      </div>
       <div class="index-user">
         <img class="index-user__avatar" src="https://dummyimage.com/64x64/000/fff" alt="avatar">
         <div class="index-user__name">周小豆</div>
       </div>
     </div>
   </header>
+  <div id="noticeCon" style="display: none;">
+    <div class="notice-toolbar">
+      <div class="dropdown-box">
+        <a class="notice-type layui-dropdown-link" data-dropdown="1" data-type="read-drop"><span>未读消息</span><i
+            class="layui-icon layui-icon-down"></i></a>
+        <a class="notice-type layui-dropdown-link" data-dropdown="2" data-type="category-drop"><span>类别</span><i
+            class="layui-icon layui-icon-down"></i></a>
+      </div>
+      <a class="layui-btn layui-btn-sm layui-btn-text" id="allRead">全部已读</a>
+    </div>
+    <div class="notice-list-con">
+      <ul>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-one">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              任务分配
+            </div>
+            <div class="notice-list-item_info">
+              任务：编写报告
+            </div>
+            <div class="notice-list-item_info">
+              内容：张三设置此任务为1.1.1审核的前置任务张三设置此任务为1.1.1审核的前置任务
+            </div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-two">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              任务待办提醒
+            </div>
+            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-three">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              评论通知
+            </div>
+            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-four">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              讨论通知
+            </div>
+            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-five">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              文件分享通知
+            </div>
+            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-five">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              文件分享通知
+            </div>
+            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-five">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              文件分享通知
+            </div>
+            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-five">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              文件分享通知
+            </div>
+            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+        <li>
+          <div class="notice-list-item_left">
+            <div class="notice-list-item_icon type-five">
+              <i class="layui-icon layui-icon-rate-solid"></i>
+            </div>
+          </div>
+          <div class="notice-list-item_right">
+            <div class="notice-list-item_type">
+              文件分享通知
+            </div>
+            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_date">
+              2020-05-21 14:27:49
+            </div>
+          </div>
+          <span class="notice-list-item_dot"></span>
+          <span class="notice-list-item_tips">已读</span>
+        </li>
+      </ul>
+    </div>
+  </div>
   <iframe id="homeSubPage" src="./pages/home.html" frameborder="0"></iframe>
 
   <script src="./assets/js/jquery-1.9.1.min.js"></script>

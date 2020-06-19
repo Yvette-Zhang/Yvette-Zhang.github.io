@@ -17,26 +17,45 @@
 
 /* 搜索框 */
 .search {
+  width: 310px;
+  height: 30px;
   position: relative;
 }
 .search-ipt {
-  width: 310px;
-  height: 30px;
-  padding: 10px 10px 10px 30px;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px 5px 30px;
   border-radius: 5px;
   display: inline-block;
   border: none;
   background-color: #f0f3f7;
   box-sizing: border-box;
 }
+.search-ipt:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
 .search i {
   position: absolute;
+  z-index: 99;
+  line-height: 24px;
+  cursor: pointer;
+}
+.search i:first-child{
   top: 3px;
   left: 10px;
   color: #0077ff;
-  z-index: 99;
-  line-height: 24px;
 }
+.search i:last-child{
+  top: 3px;
+  right: 10px;
+  color: #99A3BC;
+  display: none;
+}
+.search .search-ipt:focus + i{
+  display: inline;
+}
+
 /*左侧菜单栏*/
 .slide-menu {
   width: 240px;
@@ -79,14 +98,40 @@
   justify-content: space-between;
   padding-bottom: 30px;
 }
+/* 两行 */
+.table-toolbar--two {
+  justify-content: inherit;
+  padding-bottom: 0;
+  flex-direction: column;
+}
+.table-toolbar-tool {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.table-toolbar .layui-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 4px;
+}
+.table-toolbar .layui-btn:hover {
+  background: rgba(240, 243, 247, 1);
+}
+.table-toolbar .layui-btn:focus {
+  background: rgba(229, 241, 255, 1);
+  color: #0077ff;
+}
 
 .table-toolbar-right {
   display: flex;
   align-items: center;
 }
+.table-toolbar-nav .layui-btn + .layui-breadcrumb {
+  margin-left: 10px;
+}
 
-.table-toolbar-right .layui-btn+.layui-btn {
-  margin-left: 25px;
+.table-toolbar-right .layui-btn + .layui-btn {
+  margin-left: 10px;
 }
 
 .table-toolbar-right .layui-form-switch {

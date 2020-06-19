@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的文件库</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/plugins/datatables/datatable.css">
+  <style>
+    .filetable-tag {
+      position: relative;
+    }
+
+    .filetable-tag-item {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      top: -5px;
+    }
+
+    .file-box {
+      display: flex;
+      align-items: center;
+      padding: 15px 0;
+      cursor: pointer;
+    }
+
+    .file-box__icon {
+      margin-right: 13px;
+      display: block;
+      width: 48px;
+      height: 50px;
+    }
+
+    .file-box__content {
+      flex: 1;
+      height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+    }
+
+    .file-box__content__name {
+      font-size: 16px;
+      font-weight: 400;
+      color: #212732;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 275px;
+    }
+
+    .file-box__content__mate {
+      font-size: 12px;
+      color: #616774;
+    }
+
+    .file-box__content__mate i {
+      font-size: 12px;
+      color: #CCD2E0;
+      margin-right: 5px;
+    }
+
+    .file-box__no-share {
+      width: 18px;
+      height: 2px;
+      margin-top: 10px;
+      background-color: rgba(219, 221, 231, 1);
+    }
+
+
+    .file-box--isfloder .file-box__icon {
+      width: 28px;
+      height: 20px;
+    }
+
+    .file-box--isfloder .file-box__no-share {
+      display: none;
+    }
+
+    #shareLayer {
+      display: flex;
+    }
+
+    #shareLayer .layui-icon-left,
+    #shareLayer .layui-icon-right,
+    #shareLayer .layui-icon-down {
+      zoom: 0.5;
+    }
+
+    .share-left,
+    .share-right {
+      flex: 1;
+    }
+
+    .share-left {
+      box-sizing: border-box;
+      padding-right: 10px;
+    }
+
+    .share-left .layui-badge {
+      margin-bottom: 10px;
+    }
+
+    .share-left .layui-badge i {
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .share-left__header__mate i {
+      color: #99A3BC;
+    }
+
+
+    .share-right {
+      box-sizing: border-box;
+      padding-left: 10px;
+    }
+
+    .share-left-item {
+      margin-bottom: 20px;
+    }
+
+    .share-left-item:first-child {
+      border-bottom: 1px solid #E6E9F0;
+    }
+
+    .share-left__header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      color: #212832;
+      margin-bottom: 10px;
+    }
+
+    .share-left__subheader {
+      display: flex;
+      justify-content: space-between;
+      color: #B9C0C8;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .share-left__content {
+      max-height: 150px;
+      overflow: auto;
+    }
+
+    .share-right__header {
+      color: #212832;
+      font-size: 14px;
+    }
+
+    .share-right__header img {
+      display: inline-block;
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    }
+
+    .share-right__content {
+      padding-top: 25px;
+      box-sizing: border-box;
+      overflow: auto;
+      height: 550px;
+    }
+
+    .share-right-select__list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      cursor: pointer;
+      color: #616874;
+      font-size: 14px;
+    }
+
+    .share-right-select-member .share-right-select__list,
+    .share-right-select-detail .share-right-select__list {
+      padding-left: 10px;
+    }
+
+    .share-right-select-member__nav,
+    .share-right-select-detail__nav {
+      font-size: 14px;
+      color: #616874;
+    }
+
+    .share-right-select-member__nav i,
+    .share-right-select-detail__nav i {
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body style="margin: 20px;margin-bottom: 0;">
+  <h2 class="page-title">我的任务</h2>
+  <div class="layui-card" style="height: calc(100vh - 80px);">
+    <div class="layui-card-body">
+      <div class="table-toolbar table-toolbar--two">
+        <div class="table-toolbar-tool">
+          <div class="table-toolbar-left">
+            <div class="search">
+              <i class="layui-icon layui-icon-search"></i>
+              <input class="search-ipt" type="text" placeholder="请输入项目名称，按“Enter”键进行搜索">
+              <i class="layui-icon layui-icon-close"></i>
+            </div>
+          </div>
+          <div class="table-toolbar-right layui-form">
+            <button id="share" data-tips="分享" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+              <i class="layui-icon layui-icon-share"></i>
+            </button>
+            <button data-tips="分配公有标签" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+              <i class="layui-icon layui-icon-note"></i>
+            </button>
+            <button data-tips="分配私有标签" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+              <i class="layui-icon layui-icon-note"></i>
+            </button>
+            <button data-tips="上传" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+              <i class="layui-icon layui-icon-upload"></i>
+            </button>
+            <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+              筛选 <i class="layui-icon layui-icon-down"></i>
+            </button>
+            <button id="colsvis" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+              显示列 <i class="layui-icon layui-icon-down"></i>
+            </button>
+            <div class="layui-btn-group" style="margin-left: 25px;">
+              <button data-tips="卡片" class="layui-btn layui-btn-primary layui-btn-sm">
+                <i class="layui-icon layui-icon-app"></i>
+              </button>
+              <button data-tips="列表" class="layui-btn layui-btn-primary layui-btn-sm">
+                <i class="layui-icon layui-icon-layer"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="table-toolbar-nav">
+          <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+            <i class="layui-icon layui-icon-prev"></i>
+          </button>
+          <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+            <i class="layui-icon layui-icon-next"></i>
+          </button>
+          <span class="layui-breadcrumb">
+            <a href="#">Users</a>
+            <a href="#">kejun</a>
+            <a><cite>gzxt-ui</cite></a>
+          </span>
+        </div>
+      </div>
+      <form class="layui-form">
+        <table id="my-library-table" class="layui-table" lay-skin='line'></table>
+      </form>
+    </div>
+  </div>
+  <!-- 显示列弹窗 -->
+  <div style="display: none;" id="columnsVis">
+    <div class="layer-box__header"></div>
+    <div class="layer-box__body layui-form">
+      <ul>
+        <li>
+          上传时间 <input data-column="uploadtime" type="checkbox" checked lay-skin="switch">
+        </li>
+        <li>
+          大小 <input data-column="size" type="checkbox" checked lay-skin="switch">
+        </li>
+        <li>
+          浏览数 <input data-column="view" type="checkbox" checked lay-skin="switch">
+        </li>
+        <li>
+          下载数 <input data-column="download" type="checkbox" checked lay-skin="switch">
+        </li>
+        <li>
+          被引用数 <input data-column="quote" type="checkbox" checked lay-skin="switch">
+        </li>
+        <!-- 如果要设置默认隐藏列，记得在这把 checked 属性去了 -->
+        <li>
+          相关联 <input data-column="link" type="checkbox" lay-skin="switch">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 分享弹窗 -->
+  <div id="shareLayer" class="layui-form" style="display: none;">
+    <div class="share-left">
+      <div class="share-left-item">
+        <div class="share-left__header">
+          <div class="share-left__header__title">添加成员</div>
+          <div class="share-left__header__mate">
+            <i class="layui-icon layui-icon-search"></i>
+          </div>
+        </div>
+        <div class="share-left__subheader">
+          <div class="share-left__subheader__left">已添加成员：</div>
+          <div class="share-left__subheader__right">78人</div>
+        </div>
+        <div class="share-left__content" style="height: 250px;">
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+        </div>
+      </div>
+      <div class="share-left-item">
+        <div class="share-left__header">
+          <div class="share-left__header__title">备注</div>
+          <div class="share-left__header__mate">
+            <i class="layui-icon layui-icon-down"></i>
+          </div>
+        </div>
+        <div class="share-left__content">
+          <input type="text" class="layui-input">
+        </div>
+      </div>
+      <div class="share-left-item">
+        <div class="share-left__header">
+          <div class="share-left__header__title">公开</div>
+        </div>
+        <div class="share-left__subheader">
+          <div class="share-left__subheader__left">当前知识库成员及可访问当前知识库的人</div>
+        </div>
+        <div class="share-left__content">
+          <input type="radio" name="sex" value="男" title="可查看">
+          <br>
+          <input type="radio" name="sex" value="女" title="可下载（可查看，下载到本地）">
+        </div>
+      </div>
+      <div class="share-left-item">
+        <div class="share-left__header">
+          <div class="share-left__header__title">分享有效期</div>
+        </div>
+        <div class="share-left__content">
+          <div class="layui-input-date">
+            <input placeholder="请选择" type="text" id="date" class="layui-input">
+          </div>
+        </div>
+      </div>
+      <button class="layui-btn layui-btn-shadow ">分享</button>
+      <button class="layui-btn layui-btn-primary">取消</button>
+    </div>
+    <div class="share-right">
+      <div class="share-right__header">
+        <img src="https://dummyimage.com/30x30/000/fff">
+        国家能源集团-项目研究
+      </div>
+      <div class="share-right__content">
+        <div class="share-right-select">
+          <input type="checkbox" lay-skin="primary" title="全选">
+          <div class="share-right-select__list">
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">按组织架构选择</div>
+              <i class="layui-icon layui-icon-right"></i>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">按项目选择</div>
+              <i class="layui-icon layui-icon-right"></i>
+            </div>
+          </div>
+        </div>
+        <div style="display: none;" class="share-right-select-detail">
+          <div class="share-right-select-detail__nav"><i class="layui-icon layui-icon-left"></i>按组织架构选择</div>
+          <div class="share-right-select__list">
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary" title="全选">
+              </div>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary" title="能源小组(5人)">
+              </div>
+              <i class="layui-icon layui-icon-right"></i>
+            </div>
+          </div>
+        </div>
+        <div style="display: none;" class="share-right-select-member">
+          <div class="share-right-select-member__nav"><i class="layui-icon layui-icon-left"></i>按组织架构选择</div>
+          <div class="share-right-select__list">
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary" title="全选">
+              </div>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary">
+                <div class="layui-avatar">平安</div>
+                王平安
+              </div>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary">
+                <div class="layui-avatar">平安</div>
+                王平安
+              </div>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary">
+                <div class="layui-avatar">平安</div>
+                王平安
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- layui -->
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <!-- datatables -->
+  <script src="../../assets/plugins/datatables/datatables.min.js"></script>
+  <script src="../../assets/plugins/datatables/dataTables.tips.js"></script>
+  <!-- 模拟数据 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/Mock.js/1.0.1-beta3/mock-min.js"></script>
+
+  <script src="../../assets/js/file-libray/my-library.js"></script>
+</body>
+
+</html>

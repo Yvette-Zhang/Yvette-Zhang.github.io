@@ -166,6 +166,12 @@ table.dataTable .datatable-btn {
   font-size: 1em;
 }
 
+table.dataTable .datatable-btn.layui-btn-text {
+  background: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+
 .layer-box {
   border-radius: 20px;
   background-color: white;
@@ -209,10 +215,6 @@ table.dataTable .datatable-btn {
   opacity: 0.5;
 }
 
-.datatable-status-invalid td:last-child {
-  opacity: 1;
-}
-
 .datatable-status-invalid td.main-column::before {
   content: " ";
   display: block;
@@ -224,6 +226,22 @@ table.dataTable .datatable-btn {
   bottom: 50%;
 }
 
+/* 置顶数据 */
+.datatable-status-top {
+  position: relative;
+}
+
+.datatable-status-top::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  left: 0px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid red;
+  border-right: 10px solid transparent;
+  opacity: 0.2;
+}
 /* 折叠class */
 .treegrid-control-open,
 .treegrid-control {
@@ -237,4 +255,30 @@ table.dataTable td {
   overflow: hidden;
   white-space: nowrap;
   max-width: 0;
+}
+
+/* 子元素隐藏 */
+
+.datatable-visibility * {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+table.dataTable tr:hover .datatable-visibility * {
+  opacity: 1;
+  visibility: visible;
+}
+
+td.select-checkbox {
+  padding-left: 20px !important;
+}
+
+.dataTable .layui-form-checkbox {
+  min-width: 14px;
+  min-height: 14px;
+}
+
+th.select-checkbox .layui-form-checkbox {
+  position: absolute;
+  top: 10px;
 }

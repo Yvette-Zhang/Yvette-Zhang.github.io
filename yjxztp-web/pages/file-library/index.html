@@ -3,11 +3,429 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>文件库</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/dropDown/dropDown.css">
+  <style>
+    html,body{
+      height: 100%;
+    }
+    body{
+      display: flex;
+      overflow: hidden;
+    }
+    .container{
+      display: inline-block;
+      flex: 1;
+    }
+    .tag-box{
+      margin-top: 50px;
+    }
+    .tag-title{
+      height: 48px;
+      line-height: 48px;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      padding-right: 30px;
+    }
+    .tag-title-left{
+      color: #0077FF;
+    }
+    .tag-title-setting{
+      color: #99A3BC;
+      cursor: pointer;
+    }
+    .tag-list{
+      padding-left: 24px;
+    }
+    .tag-item{
+      height: 48px;
+      line-height: 48px;
+      display: flex;
+      justify-content: space-between;
+      padding-right: 25px;
+    }
+    .tag-item i{
+      color: #99A3BC;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .all-tag{
+      position: relative;
+    }
+    .all-tag span:first-child{
+      position: absolute;
+      top: 20px;
+      left: -6px;
+      z-index: 999;
+      border: 1px solid #fff;
+    }
+    .create-tag {
+      color: #0077FF;
+      display: block;
+      line-height: 48px;
+      height: 48px;
+      padding-left: 48px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .layui-layer{
+      width: 20%;
+    }
+    #chooseTag,#addTag{
+      display: none;
+      height: 300px;
+    }
+    #publicTag{
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
-  文件库
+  <div class="slide-menu">
+    <p><i class="layui-icon layui-icon-addition"></i>文件库</p>
+    <ul class="menu-list">
+      <li class="menu-item active" data-href="./recent-view.html" >最近浏览</li>
+      <li class="menu-item" data-href="./my-library.html" >我的文件库</li>
+      <li class="menu-item" data-href="./share-file.html" >分享文件</li>
+      <li class="menu-item" data-href="./project-file.html" >项目文件</li>
+      <li class="menu-item" data-href="./recycle-bin.html" >回收站</li>
+    </ul>
+    <div class="tag-box">
+      <div class="tag-title">
+        <div class="tag-title-left">
+          <i class="layui-icon layui-icon-note"></i>
+          <span>标签</span>
+        </div>
+        <div class="tag-title-setting" data-method="offset" data-type="auto">
+          <i class="layui-icon layui-icon-set"></i>
+        </div>
+      </div>
+      <ul class="tag-list">
+        <li class="tag-item">
+          <div>
+            <span class="layui-badge-dot layui-bg-blue"></span>
+            <span class="color-name">蓝色</span>
+          </div>
+          <div>
+            <span class="layui-badge">6</span>
+          </div>
+          <i class="layui-icon layui-icon-more" data-dropdown="1"></i>
+        </li>
+        <li class="tag-item">
+          <div>
+            <span class="layui-badge-dot layui-bg-red"></span>
+            <span class="color-name">红色</span>
+          </div>
+          <div>
+            <span class="layui-badge">20</span>
+          </div>
+          <i class="layui-icon layui-icon-more" data-dropdown="2"></i>
+        </li>
+        <li class="tag-item">
+          <div>
+            <span class="layui-badge-dot layui-bg-orange"></span>
+            <span class="color-name">黄色</span>
+          </div>
+          <div>
+            <span class="layui-badge">49</span>
+          </div>
+          <i class="layui-icon layui-icon-more" data-dropdown="3"></i>
+        </li>
+        <li class="tag-item">
+          <div class="all-tag">
+            <span class="layui-badge-dot layui-bg-black"></span>
+            <span class="layui-badge-dot layui-bg-black"></span>
+            <span class="color-name">所有标签</span>
+          </div>
+          <div>
+            <span class="layui-badge">120</span>
+          </div>
+          <i class="layui-icon layui-icon-more" data-dropdown="4"></i>
+        </li>
+      </ul>
+    </div>
+    <span class="create-tag" data-method="offset" data-type="auto">+ 新建标签</span>
+  </div>
+  <div id="chooseTag">
+    <div id="colorSelect"></div>
+  </div>
+  <div id="addTag">
+    <div id="addSelect"></div>
+  </div>
+  <div id="publicTag">
+    <div class="publicTree">
+
+    </div>
+  </div>
+  <div class="container">
+    <iframe style="width: 100%;height: 100%;" src="./recent-view.html" id="iframe" frameborder="0" ></iframe>
+  </div>
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <script src="../../assets/plugins/layui/layui_exts/xm-select/xm-select.js"></script>
+  <script>
+    layui.config({
+      base: '../../assets/plugins/layui/layui_exts/dropDown/'
+    }).use(['dropDown','layer','colorpicker','form','tree'], function () {
+      var dropDown = layui.dropDown,
+              layer = layui.layer,
+              tree = layui.tree,
+              colorpicker = layui.colorpicker,
+              form = layui.form;
+      // 左导航下拉菜单
+      var dropDownData = [
+        {'type': 1, 'title': '编辑', 'icon': 'edit'},
+        {'type': 2, 'title': '删除', 'icon': 'delete'}
+      ];
+      $('.tag-item i').on('click', function () {
+        var ele = $(this);
+        var dropDownEle = dropDown.render({
+          ele: ele, // 绑定下拉菜单的元素 （jq对象）
+          position: 'right', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
+          className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
+          showIcon: true, //是否显示图标 默认false
+          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          zIndex: 1999, // 下拉层级 默认值999
+          clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+          data: dropDownData, // 下拉菜单的数据
+          choose: function (data) { // 点击回调
+            if(data.title === '编辑'){
+              layer.open({
+                type: 1
+                ,content: $('#chooseTag')
+                , btn: '确定'
+                , title:'将标签分配给'
+                , fixed: false
+                , skin: 'layui-layer-radius'
+                , move: false // 禁止拖动
+                , btnAlign: 'c' //按钮居中
+                , shade: 0 //0不显示遮罩,
+                , shadeClose: true
+                , yes: function () {
+                  layer.closeAll();
+                },
+              })
+            }
+            console.log(data)
+          }
+        });
+      });
+      //新建标签弹窗
+      var newTagData = {
+                name: '',
+                value: '',
+                color: ''
+              },
+              defaultColor = '#eb2f96',
+              newColor = '';
+      var data = [
+        { name: '标签一', value: 1, color: '#eb2f96' },
+        { name: '标签二', value: 2, color: '#f5222d' },
+        { name: '标签三', value: 3, color: '#fa8c16' },
+        { name: '标签四', value: 4, color: '#52c41a' },
+        { name: '标签五', value: 5, color: '#13c2c2' },
+        { name: '标签六', value: 6, color: '#1890ff' },
+        { name: '标签七', value: 7, color: '#722ed1' }
+      ];
+      var active = {
+        offset: function (othis) {
+          var type = othis.data('type')
+                  , text = othis.text();
+          layer.open({
+            triggerEle: othis // 触发弹窗的元素 jq对象
+            , type: 1
+            , offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            , id: 'layerDemo' + type //防止重复弹出
+            // , content: '<div style="padding: 20px">' + text + '</div>'
+            , content: $('#addTag')
+            , btn: '确定'
+            , title:'将标签分配给'
+            , fixed: false
+            , skin: 'layui-layer-radius'
+            , move: false // 禁止拖动
+            , btnAlign: 'c' //按钮居中
+            , shade: 0 //0不显示遮罩,
+            , shadeClose: true
+            , yes: function () {
+                layer.closeAll();
+            },
+          });
+        }
+      };
+
+      function updateTag(addData) {
+        data.push(addData);
+        setTimeout(function () {
+          tagColorSelect.opened();
+        }, 0);
+        tagColorSelect.update({
+          data: data
+        })
+      }
+
+      $('.create-tag').on('click', function () {
+        var tagColorLayer = layer.open({
+          type: 1,
+          title: '新建标签',
+          content: '<div class="tag-color-form">' +
+                  '<form class="layui-form" action="" lay-filter="tag-confirm"><div class="layui-form-item">' +
+                  '<div class="layui-input-inline" style="width: 150px;">' +
+                  '<input name="name" type="text" value="" lay-verify="required" autocomplete="off" placeholder="请输入标签名" class="layui-input">' +
+                  '</div>' +
+                  '<div class="layui-inline" style="left: -11px;">' +
+                  '<div id="tag-color"></div>' +
+                  '</div>' +
+                  '</div>' +
+                  '<div class="layui-input-block" style="margin-left:0px;text-align:center;">' +
+                  '<button type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="tag-confirm">确认</button>' +
+                  '<button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="tag-cancel">取消</button>' +
+                  '</div>' +
+                  '</form></div>',
+          success: function () {
+            colorpicker.render({
+              elem: '#tag-color',
+              color: '#eb2f96',
+              predefine: true, //开启预定义颜色
+              alpha: true, //开启透明度
+              format: 'rgb',
+              colors: ['#eb2f96', '#f5222d', '#fa8c16', '#52c41a', '#13c2c2', '#1890ff', '#722ed1'], //自定义预定义颜色项
+
+              done: function (color) {
+                newColor = color;
+              }
+            });
+
+            $('#tag-cancel').on('click', function () {
+              layer.close(tagColorLayer);
+            });
+
+            form.render();
+
+            form.on('submit(tag-confirm)', function (data) {
+              newTagData = {
+                color: newColor ? newColor : defaultColor,
+                name: data.field.name,
+                value: (new Date()).valueOf()
+              }
+              updateTag(newTagData);
+              layer.close(tagColorLayer);
+            });
+          }
+        });
+      });
+
+      // 编辑标签
+      var tagColorSelect = xmSelect.render({
+        el: '#colorSelect',
+        theme: {
+          color: '#aaaaaa', //主题颜色
+        },
+        data: data,
+                filterable: true, //是否显示搜索
+                template({ item }) { // 自定义渲染选项
+          return '<span class="xm-tag-dot" style="background-color: ' + item.color + '"></span>' + item.name
+        },
+      });
+
+      // 分配公有标签
+      var treeData  = [{
+        title: '江西'
+        ,id: 1
+        ,children: [{
+          title: '南昌'
+          ,id: 1000
+          ,children: [{
+            title: '青山湖区'
+            ,id: 10001
+          },{
+            title: '高新区'
+            ,id: 10002
+          }]
+        },{
+          title: '九江'
+          ,id: 1001
+        },{
+          title: '赣州'
+          ,id: 1002
+        }]
+      },{
+        title: '广西'
+        ,id: 2
+        ,children: [{
+          title: '南宁'
+          ,id: 2000
+        },{
+          title: '桂林'
+          ,id: 2001
+        }]
+      },{
+        title: '陕西'
+        ,id: 3
+        ,children: [{
+          title: '西安'
+          ,id: 3000
+        },{
+          title: '延安'
+          ,id: 3001
+        }]
+      }]
+      tree.render({
+        elem: '#publicTag'
+        ,data: treeData
+        ,edit: ['add', 'update', 'del'] //操作节点的图标
+        ,click: function(obj){
+          layer.msg(JSON.stringify(obj.data));
+        }
+      });
+      var publicTagChoose = {
+        offset: function (othis) {
+          var type = othis.data('type')
+                  , text = othis.text();
+          layer.open({
+            triggerEle: othis // 触发弹窗的元素 jq对象
+            , type: 1
+            , offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            , id: 'layerDemo' + type //防止重复弹出
+            // , content: '<div style="padding: 20px">' + text + '</div>'
+            , content: $('#publicTag')
+            , btn: '确定'
+            , title:'设置公有标签'
+            , fixed: false
+            , skin: 'layui-layer-radius'
+            , move: false // 禁止拖动
+            , btnAlign: 'c' //按钮居中
+            , shade: 0 //0不显示遮罩,
+            , shadeClose: true
+            , yes: function () {
+              layer.closeAll();
+            },
+          });
+        }
+      };
+      $('.tag-title-setting').on('click',function(){
+        var othis = $(this),
+          method = othis.data('method');
+          publicTagChoose[method] ? publicTagChoose[method].call(this, othis) : '';
+      })
+
+
+    });
+
+    $(".menu-item").on("click", function() {
+      var title = document.title.split("-");
+      title[1] = $(this).text();
+      document.title = title.join("-");
+      $("#iframe").attr("src", $(this).attr("data-href"));
+      $(".menu-item").removeClass("active");
+      $(this).addClass("active");
+    });
+  </script>
 </body>
 
 </html>

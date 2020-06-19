@@ -63,11 +63,12 @@
         rows.forEach(function (r) {
           r.anCells.forEach(function (c, k) {
             $([c, cols[k].nTh]).on({
-              mouseover: function mouseover() {
+              mouseover: function mouseover(e) {
                 // 判断列设置和是否溢出
                 if (
                   cols[k].tips === false ||
-                  this.clientWidth >= this.scrollWidth || tips_index
+                  this.clientWidth >= this.scrollWidth ||
+                  tips_index
                 ) {
                   return;
                 }

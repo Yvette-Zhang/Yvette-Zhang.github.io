@@ -35,13 +35,27 @@
 			line-height: 48px;
 			padding-left: 24px;
 			box-sizing: border-box;
+			border-radius: 10px 0 0 10px;
 			color: #616774;
 			font-size: 16px;
 			cursor: pointer;
 		}
+		.topic-submenu.active,
+		.topic-submenu:hover {
+			background-color: #0077ff;
+			color: #fff;
+		}
+		.topic-submenu span{
+			display: inline-block;
+			width: 80%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 		.topic-submenu i{
 			color: #99A3BC;
 			font-size: 20px;
+			cursor: pointer;
 		}
 		.create-topic {
 			color: #0077FF;
@@ -67,12 +81,13 @@
 		<li class="menu-item active" data-href="./project-overview.html" >项目概况</li>
 		<li class="menu-item" data-href="./project-allview.html" >项目全览</li>
 		<li class="menu-item" data-href="./project-samelevel.html" >项目本级概览</li>
-		<li class="menu-item" data-href="./project-topic.html" >项目课题</li>
-<!--		<li class="topic-submenu"><span>课题1</span><i class="layui-icon layui-icon-more" data-dropdown="1"></i></li>-->
-<!--		<li class="topic-submenu"><span>课题2</span><i class="layui-icon layui-icon-more" data-dropdown="2"></i></li>-->
-<!--		<li class="topic-submenu"><span>课题3</span><i class="layui-icon layui-icon-more" data-dropdown="3"></i></li>-->
+		<li class="menu-item nosubpage" >项目课题</li>
+		<span class="create-topic" data-method="offset" data-type="auto">+ 创建课题</span>
+		<li class="topic-submenu" title="课题1课题1课题1课题1" data-href="./project-topic.html"><span>课题1课题1课题1课题1</span><i class="layui-icon layui-icon-more" data-dropdown="1"></i></li>
+		<li class="topic-submenu" title="课题2" data-href="./project-topic.html"><span>课题2</span><i class="layui-icon layui-icon-more" data-dropdown="2"></i></li>
+		<li class="topic-submenu" title="课题3" data-href="./project-topic.html"><span>课题3</span><i class="layui-icon layui-icon-more" data-dropdown="3"></i></li>
 	</ul>
-	<span class="create-topic" data-method="offset" data-type="auto">+ 创建课题</span>
+
 </div>
 <div id="createTopicForm">
 	<form class="layui-form layui-form-pane1 layui-form-label-top" action="" lay-filter="createTopic">
@@ -102,21 +117,21 @@
 <script src="../../assets/js/jquery-1.9.1.min.js"></script>
 <script src="../../assets/plugins/layui/layui.js"></script>
 <script>
-	var topicList = [{
-		title:'课题1'
-	},{
-		title:'课题2'
-	},{
-		title:'课题3'
-	}];
-	renderTopic();
-	function renderTopic(){
-		topicList.map(function(v,i){
-			var topicStr = '';
-			topicStr += `<li class="topic-submenu"><span>${v.title}</span><i class="layui-icon layui-icon-more" data-dropdown="${i}"></i></li>`;
-			$('.menu-list').append(topicStr)
-		})
-	}
+	// var topicList = [{
+	// 	title:'课题1课题1课题1课题1'
+	// },{
+	// 	title:'课题2'
+	// },{
+	// 	title:'课题3'
+	// }];
+	// renderTopic();
+	// function renderTopic(){
+	// 	topicList.map(function(v,i){
+	// 		var topicStr = '';
+	// 		topicStr += `<li class="topic-submenu"><span title="${v.title}" data-href="./project-topic.html">${v.title}</span><i class="layui-icon layui-icon-more" data-dropdown="${i}"></i></li>`;
+	// 		$('.menu-list').append(topicStr)
+	// 	})
+	// }
 
 
 	layui.config({
@@ -191,7 +206,19 @@
 			document.title = title.join("-");
 			$("#iframe").attr("src", $(this).attr("data-href"));
 			$(".menu-item").removeClass("active");
+			$(".topic-submenu").removeClass("active");
 			$(this).addClass("active");
+	});
+
+	$('.topic-submenu').on("click", function() {
+		var title = document.title.split("-");
+		title[1] = $(this).text();
+		document.title = title.join("-");
+		$("#iframe").attr("src", $(this).attr("data-href"));
+		$(".topic-submenu").removeClass("active");
+		$(this).addClass("active");
+		$(".menu-item").removeClass("active");
+		$('.nosubpage').addClass("active");
 	});
 
 

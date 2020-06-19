@@ -5,12 +5,111 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>日程</title>
-  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
-  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../assets/plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <link rel="stylesheet" href="../assets/css/schedule/style.css">
 </head>
 
 <body>
-  日程
+  <h2 class="page-title"><i class="layui-icon layui-icon-left goBack"></i>项目管理</h2>
+  <div class="layui-card">
+    <div class="layui-card-body">
+      <div id="schedule"></div>
+    </div>
+
+  </div>
+  <script src="../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../assets/plugins/fullcalendar/fullcalendar.min.js"></script>
+  <script src="../assets/plugins/layui/layui.js"></script>
+  <script>
+    layui.use([], function () {
+      $('.goBack').on('click', function () {
+        history.back();
+      });
+      var scheduleEl = document.getElementById('schedule');
+
+      var calendar = new FullCalendar.Calendar(scheduleEl, {
+
+
+        headerToolbar: {
+          left: 'prevYear,prev',
+          center: 'title',
+          right: 'next,nextYear,today'
+        },
+        buttonText: {
+          today: '今天'
+        },
+        initialDate: '2020-05-12',
+        //navLinks: true,
+        nowIndicator: true,
+        locale: 'zh',
+        height: 870,
+
+        editable: true,
+        selectable: true,
+        dayMaxEvents: true,
+        events: [{
+            title: '测试',
+            start: '2020-05-01'
+          },
+          {
+            title: '测试',
+            start: '2020-05-07',
+            end: '2020-05-10'
+          },
+          {
+            groupId: 999,
+            title: '测试',
+            start: '2020-05-09T16:00:00'
+          },
+          {
+            groupId: 999,
+            title: '测试',
+            start: '2020-05-16T16:00:00'
+          },
+          {
+            title: '测试',
+            start: '2020-05-11',
+            end: '2020-05-13'
+          },
+          {
+            title: '测试',
+            start: '2020-05-12T10:30:00',
+            end: '2020-05-12T12:30:00'
+          },
+          {
+            title: '测试',
+            start: '2020-05-12T12:00:00'
+          },
+          {
+            title: '测试',
+            start: '2020-05-12T14:30:00'
+          },
+          {
+            title: '测试',
+            start: '2020-05-12T17:30:00'
+          },
+          {
+            title: '测试',
+            start: '2020-05-12T20:00:00'
+          },
+          {
+            title: '测试',
+            start: '2020-05-13T07:00:00'
+          },
+          {
+            title: '测试',
+            url: 'http://google.com/',
+            start: '2020-05-28'
+          }
+        ]
+      });
+
+      calendar.render();
+
+    })
+  </script>
 </body>
 
 </html>

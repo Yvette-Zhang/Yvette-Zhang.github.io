@@ -583,8 +583,7 @@
   </div>
   <script src="../../assets/js/jquery-1.9.1.min.js"></script>
   <!-- datatables -->
-  <script type="text/javascript"
-    src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.21/fh-3.1.7/rg-1.1.2/sl-1.3.1/datatables.min.js"></script>
+  <script src="../../assets/plugins/datatables/datatables.min.js"></script>
   <script src="../../assets/plugins/datatables/dataTables.tips.js"></script>
 
   <script src="../../assets/plugins/layui/layui.js"></script>
@@ -608,7 +607,7 @@
             "endtime|1": "@date",
             "starttime|1": "@date",
             "status|1": ["invalid", "normal", "done"],
-          }, ],
+          },],
         });
         r(data.data);
       });
@@ -649,86 +648,86 @@
           $(row).addClass(`datatable-status-${data.status}`);
         },
         columns: [{
-            title: "序号",
-            data: "num",
-            width: "30px",
-            tips: false
+          title: "序号",
+          data: "num",
+          width: "30px",
+          tips: false
+        },
+        {
+          title: "任务名称",
+          data: "name",
+        },
+        {
+          title: "执行人",
+          data: "executor",
+          name: "executor",
+        },
+        {
+          title: "项目",
+          data: "project",
+          name: "project",
+          orderable: true,
+        },
+        {
+          title: "任务分类",
+          data: "type",
+          name: "type",
+        },
+        {
+          title: "截止时间",
+          data: "endtime",
+          name: "endtime",
+          orderable: true,
+        },
+        {
+          title: "创建时间",
+          data: "starttime",
+          name: "starttime",
+          orderable: true,
+        },
+        {
+          title: "操作",
+          data: null,
+          defaultContent: "",
+          width: "180px",
+          tips: false,
+          createdCell(cell, cellData, rowData, rowIndex, colIndex) {
+            if (rowData.status === "done" || rowData.status === "invalid") {
+              var restartBtn = new Button("重启", "", "sm");
+              restartBtn.on("click", function () {
+                $(this).trigger({
+                  type: "restartClick",
+                  cell,
+                },
+                  rowData
+                );
+              });
+            }
+            if (rowData.status === "normal") {
+              var doneBtn = new Button("完成", "", "sm");
+              doneBtn.on("click", function () {
+                $(this).trigger({
+                  type: "doneClick",
+                  cell,
+                },
+                  rowData
+                );
+              });
+            }
+            if (rowData.status !== "invalid") {
+              var subTaskBtn = new Button("+子任务", "", "sm");
+              subTaskBtn.on("click", function () {
+                $(this).trigger({
+                  type: "addSubTaskClick",
+                  cell,
+                },
+                  rowData
+                );
+              });
+            }
+            $(cell).append([restartBtn, doneBtn, subTaskBtn]);
           },
-          {
-            title: "任务名称",
-            data: "name",
-          },
-          {
-            title: "执行人",
-            data: "executor",
-            name: "executor",
-          },
-          {
-            title: "项目",
-            data: "project",
-            name: "project",
-            orderable: true,
-          },
-          {
-            title: "任务分类",
-            data: "type",
-            name: "type",
-          },
-          {
-            title: "截止时间",
-            data: "endtime",
-            name: "endtime",
-            orderable: true,
-          },
-          {
-            title: "创建时间",
-            data: "starttime",
-            name: "starttime",
-            orderable: true,
-          },
-          {
-            title: "操作",
-            data: null,
-            defaultContent: "",
-            width: "180px",
-            tips: false,
-            createdCell(cell, cellData, rowData, rowIndex, colIndex) {
-              if (rowData.status === "done" || rowData.status === "invalid") {
-                var restartBtn = new Button("重启", "", "sm");
-                restartBtn.on("click", function () {
-                  $(this).trigger({
-                      type: "restartClick",
-                      cell,
-                    },
-                    rowData
-                  );
-                });
-              }
-              if (rowData.status === "normal") {
-                var doneBtn = new Button("完成", "", "sm");
-                doneBtn.on("click", function () {
-                  $(this).trigger({
-                      type: "doneClick",
-                      cell,
-                    },
-                    rowData
-                  );
-                });
-              }
-              if (rowData.status !== "invalid") {
-                var subTaskBtn = new Button("+子任务", "", "sm");
-                subTaskBtn.on("click", function () {
-                  $(this).trigger({
-                      type: "addSubTaskClick",
-                      cell,
-                    },
-                    rowData
-                  );
-                });
-              }
-              $(cell).append([restartBtn, doneBtn, subTaskBtn]);
-            },
-          },
+        },
         ],
       });
     });
@@ -787,7 +786,7 @@
         column.order('desc').draw();
       });
 
-      // 项目资料操作 
+      // 项目资料操作
       $('.project-tool').on('click', function () {
         var $this = $(this);
         var layerDom = $("#projectDataTool");

@@ -1,0 +1,91 @@
+body {
+  padding: 20px;
+}
+
+.page-title i {
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 18px;
+  color: #99A3BC;
+  cursor: pointer;
+}
+
+.page-title i:hover {
+  opacity: 0.8;
+}
+
+#schedule {
+  width: 100%;
+}
+
+/* 日历相关修改 */
+
+.fc-button-primary {
+  background-color: rgba(245, 245, 249, 1);
+  color: #0077FF;
+  border: none;
+  outline: none;
+}
+
+.fc-button-primary:hover {
+  color: #0077FF;
+  background-color: rgba(245, 245, 249, .8);
+}
+
+.fc-button-primary:focus {
+  box-shadow: none;
+}
+
+.fc-button-primary:disabled {
+  background-color: #FBFBFB;
+  color: #C9C9C9;
+  cursor: not-allowed;
+}
+
+.fc-button-primary:not(:disabled):active,
+.fc-button-primary:not(:disabled).fc-button-active {
+  color: #0077FF;
+  background-color: rgba(245, 245, 249, .8);
+  border: none;
+}
+
+.fc-button-primary:not(:disabled):active:focus,
+.fc-button-primary:not(:disabled).fc-button-active:focus {
+  box-shadow: none;
+}
+
+.fc-theme-standard .fc-scrollgrid {
+  border-color: #F0F2F7;
+}
+
+.fc-col-header {
+  height: 50px;
+  line-height: 50px;
+  background-color: #F5F6F7;
+}
+
+.fc-col-header-cell-cushion {
+  padding: 0;
+  color: #616874;
+  font-size: 18px;
+
+}
+
+.fc-col-header-cell-cushion:hover {
+  color: #616874;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border-color: #F0F2F7;
+}
+
+.fc-daygrid-block-event {
+  background-color: rgba(0, 119, 255, .2);
+
+  border: none;
+}
+
+.fc-daygrid-block-event .fc-event-main {
+  color: #212832;
+}
