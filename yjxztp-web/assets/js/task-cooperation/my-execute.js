@@ -23,7 +23,7 @@ function MockData() {
 }
 function createIcon(icon) {
   if (!icon) return "";
-  return `<i class="layui-icon">${icon}</i>`;
+  return `<i class="font_family">${icon}</i>`;
 }
 function Button(text, theme, size, radius, icon) {
   if (!text) return null;
@@ -64,14 +64,14 @@ MockData().then(function (data) {
       dataSrc: "group",
       startRender: function (rows, group) {
         // 组颜色
-        const colors = ["#ff0000", "#808080", "#0000ff", "#ffa500", "#808080"];
+        const colors = ["#ff0000", "#46C5B2", "#0000ff", "#ffa500", "#808080"];
         // 组图标 layui
         const icons = [
-          "&#xe68d;",
-          "&#xe748;",
-          "&#xe655;",
-          "&#xe6c6;",
-          "&#x1006;",
+          "&#xe654;",
+          "&#xe652;",
+          "&#xe653;",
+          "&#xe665;",
+          "&#xe664;",
         ];
         const index = groups.indexOf(group);
         const color = `color: ${colors[index]};`;
@@ -207,6 +207,7 @@ layui.use(["layer", "form"], function () {
       shadeClose: true,
       closeBtn: 0,
       move: false,
+      resize: false,
     });
   });
   // 切换列显隐

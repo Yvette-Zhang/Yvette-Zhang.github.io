@@ -40,7 +40,8 @@ layui.define([
     showIcon: false,
     zIndex: 999,
     clickClose: true,
-    mouseleaveClose: true
+    mouseleaveClose: true,
+    bodyClose: true
   };
 
   // 下拉渲染
@@ -129,12 +130,15 @@ layui.define([
 
     if (options.showIcon) {
       for (var i = 0; i < l; i++) {
-        var d = data[i];
+        var d = data[i],
+          arrowStr = '';
+        if (d.arrow) {
+          arrowStr = '<span class="layui-dropdown-menu-submenu-arrow"><i class="layui-icon layui-icon-right"></i></span>'
+        }
         var iconArr = '<i class="' + options.iconType + ' ' + options.iconType + '-' + d.icon + '"></i>';
         if (d.children && d.children.length) {
           var subD = d.children,
             sL = subD.length;
-
           if (d.disabled) {
             eleArr += '<li class="layui-dropdown-menu-submenu">';
             eleArr += '<div class="layui-dropdown-menu-submenu-title">' + iconArr + d.title + '<span class="layui-dropdown-menu-submenu-arrow"><i class="layui-icon layui-icon-right"></i></span></div>';
@@ -160,9 +164,9 @@ layui.define([
           if (d.disabled) {
             eleArr += '<li class="layui-dropdown-menu-item layui-dropdown-menu-item-disabled">' + iconArr + d.title + '</li>'
           } else if (d.href) {
-            eleArr += '<li class="layui-dropdown-menu-item"><a href="' + d.href + '" target="' + (d.target ? d.target : '') + '">' + iconArr + d.title + '</a></li>'
+            eleArr += '<li class="layui-dropdown-menu-item"><a href="' + d.href + '" target="' + (d.target ? d.target : '') + '">' + iconArr + d.title + arrowStr + '</a></li>'
           } else {
-            eleArr += '<li class="layui-dropdown-menu-item"><a href="javascript:;">' + iconArr + d.title + '</a></li>'
+            eleArr += '<li class="layui-dropdown-menu-item"><a href="javascript:;">' + iconArr + d.title + arrowStr + '</a></li>'
           }
         }
 
@@ -198,16 +202,14 @@ layui.define([
           if (d.disabled) {
             eleArr += '<li class="layui-dropdown-menu-item layui-dropdown-menu-item-disabled">' + d.title + '</li>'
           } else if (d.href) {
-            eleArr += '<li class="layui-dropdown-menu-item"><a href="' + d.href + '" target="' + (d.target ? d.target : '') + '">' + d.title + '</a></li>'
+            eleArr += '<li class="layui-dropdown-menu-item"><a href="' + d.href + '" target="' + (d.target ? d.target : '') + '">' + d.title + arrowStr + '</a></li>'
           } else {
-            eleArr += '<li class="layui-dropdown-menu-item"><a href="javascript:;">' + d.title + '</a></li>'
+            eleArr += '<li class="layui-dropdown-menu-item"><a href="javascript:;">' + d.title + arrowStr + '</a></li>'
           }
         }
       }
     }
-
     eleArr += '</ul>'
-
     return eleArr
   };
 
@@ -216,7 +218,6 @@ layui.define([
     var that = this,
       options = that.config,
       data = options.data;
-
     $('.layui-dropdown').fadeIn(300);
     $('.layui-dropdown-menu-submenu').on('mouseenter', function () {
       var $that = $(this),
@@ -234,33 +235,38 @@ layui.define([
     })
 
     $('.layui-dropdown .layui-dropdown-menu-item').on('click', function () {
-      var $index = $(this).index(),
+      var $this = $(this),
+        $index = $this.index(),
         d = data[$index];
       if ($(this).parents('.layui-dropdown-menu-submenu').length) {
         var $pIndex = $(this).parents('.layui-dropdown-menu-submenu').index();
         d = data[$pIndex].children[$index];
       }
 
+      d.el = $this;
+
       options.choose(d);
       if (options.clickClose) {
         hideDropDown();
       }
     });
-
-    setTimeout(() => {
-      $('body').on('click', oneCLick);
-    }, 0);
-
-    function oneCLick(e) {
-
-      if ($(e.target).attr('data-dropdown') || $(e.target).parents().attr('data-dropdown')) {
-        return
-      };
-      if (!$('.layui-dropdown').length) {
-        return
-      }
-      hideDropDown();
+    if (options.bodyClose) {
+      setTimeout(() => {
+        $('body').on('click', function (e) {
+          if ($(e.target).attr('data-dropdown') || $(e.target).parents().attr('data-dropdown')) {
+            return
+          };
+          if ($(e.target).hasClass('layui-dropdown') || $(e.target).parents().hasClass('layui-dropdown')) {
+            return
+          };
+          if (!$('.layui-dropdown').length) {
+            return
+          }
+          hideDropDown();
+        });
+      }, 0);
     }
+
 
     function hideDropDown() {
       $('.layui-dropdown').fadeOut(300);

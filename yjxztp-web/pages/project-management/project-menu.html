@@ -6,86 +6,23 @@
 	<title>项目管理--菜单页</title>
 	<link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
 	<link rel="stylesheet" href="../../assets/css/common.css">
-	<link rel="stylesheet" href="../../assets/css/project/style.css">
+<!--	<link rel="stylesheet" href="../../assets/css/project/index.css">-->
 	<link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/dropDown/dropDown.css">
-	<style>
-		html,body{
-			width: 100%;
-			height: 100%;
-		}
-		body{
-			display: flex;
-			overflow: hidden;
-		}
-		p{
-			margin: 0;
-		}
-
-		.container{
-			display: inline-block;
-			flex: 1;
-		}
-		.topic-submenu{
-			margin-left: 24px;
-			display: flex;
-			justify-content: space-between;
-			width: 89%;
-			padding-right: 25px;
-			height: 48px;
-			line-height: 48px;
-			padding-left: 24px;
-			box-sizing: border-box;
-			border-radius: 10px 0 0 10px;
-			color: #616774;
-			font-size: 16px;
-			cursor: pointer;
-		}
-		.topic-submenu.active,
-		.topic-submenu:hover {
-			background-color: #0077ff;
-			color: #fff;
-		}
-		.topic-submenu span{
-			display: inline-block;
-			width: 80%;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
-		.topic-submenu i{
-			color: #99A3BC;
-			font-size: 20px;
-			cursor: pointer;
-		}
-		.create-topic {
-			color: #0077FF;
-			display: block;
-			line-height: 48px;
-			height: 48px;
-			padding-left: 48px;
-			font-size: 16px;
-			cursor: pointer;
-		}
-		.layui-layer{
-			width: 20%;
-		}
-		#createTopicForm{
-			display: none;
-		}
-	</style>
+	<link rel="stylesheet" href="../../assets/css/project/menu.css">
+	<link rel="stylesheet" href="../../assets/icon/iconfont.css">
 </head>
 <body>
 <div class="slide-menu">
-	<p><i class="layui-icon layui-icon-addition"></i>项目</p>
+	<p><i class="font_family icon-wenjianku"></i>项目</p>
 	<ul class="menu-list">
 		<li class="menu-item active" data-href="./project-overview.html" >项目概况</li>
 		<li class="menu-item" data-href="./project-allview.html" >项目全览</li>
 		<li class="menu-item" data-href="./project-samelevel.html" >项目本级概览</li>
 		<li class="menu-item nosubpage" >项目课题</li>
 		<span class="create-topic" data-method="offset" data-type="auto">+ 创建课题</span>
-		<li class="topic-submenu" title="课题1课题1课题1课题1" data-href="./project-topic.html"><span>课题1课题1课题1课题1</span><i class="layui-icon layui-icon-more" data-dropdown="1"></i></li>
-		<li class="topic-submenu" title="课题2" data-href="./project-topic.html"><span>课题2</span><i class="layui-icon layui-icon-more" data-dropdown="2"></i></li>
-		<li class="topic-submenu" title="课题3" data-href="./project-topic.html"><span>课题3</span><i class="layui-icon layui-icon-more" data-dropdown="3"></i></li>
+		<li class="topic-submenu" title="课题1课题1课题1课题1" data-href="./project-topic.html"><span>课题1课题1课题1课题1</span><i class="font_family icon-gengduo" data-dropdown="1"></i></li>
+		<li class="topic-submenu" title="课题2" data-href="./project-topic.html"><span>课题2</span><i class="font_family icon-gengduo" data-dropdown="2"></i></li>
+		<li class="topic-submenu" title="课题3" data-href="./project-topic.html"><span>课题3</span><i class="font_family icon-gengduo" data-dropdown="3"></i></li>
 	</ul>
 
 </div>
@@ -116,112 +53,6 @@
 </div>
 <script src="../../assets/js/jquery-1.9.1.min.js"></script>
 <script src="../../assets/plugins/layui/layui.js"></script>
-<script>
-	// var topicList = [{
-	// 	title:'课题1课题1课题1课题1'
-	// },{
-	// 	title:'课题2'
-	// },{
-	// 	title:'课题3'
-	// }];
-	// renderTopic();
-	// function renderTopic(){
-	// 	topicList.map(function(v,i){
-	// 		var topicStr = '';
-	// 		topicStr += `<li class="topic-submenu"><span title="${v.title}" data-href="./project-topic.html">${v.title}</span><i class="layui-icon layui-icon-more" data-dropdown="${i}"></i></li>`;
-	// 		$('.menu-list').append(topicStr)
-	// 	})
-	// }
-
-
-	layui.config({
-		base: '../../assets/plugins/layui/layui_exts/dropDown/'
-	}).use(['dropDown','layer','form'], function () {
-		var dropDown = layui.dropDown,
-				layer = layui.layer,
-				form = layui.form;
-		// 左导航下拉菜单
-		var dropDownData = [
-			{ 'type': 1, 'title': '编辑', 'icon': 'edit' },
-			{ 'type': 2, 'title': '删除', 'icon': 'delete' }
-		];
-		$('.topic-submenu i').on('click',function(){
-			var ele = $(this);
-			var dropDownEle = dropDown.render({
-				ele: ele, // 绑定下拉菜单的元素 （jq对象）
-				position: 'right', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
-				className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
-				showIcon: true, //是否显示图标 默认false
-				iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
-				zIndex: 1999, // 下拉层级 默认值999
-				clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
-				mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
-				data: dropDownData, // 下拉菜单的数据
-				choose: function (data) { // 点击回调
-					console.log(data)
-				}
-			});
-		});
-		//创建课题弹窗
-		var active2 = {
-			offset: function (othis) {
-				var type = othis.data('type')
-						, text = othis.text();
-				layer.open({
-					triggerEle: othis // 触发弹窗的元素 jq对象
-					, type: 1
-					, offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
-					, id: 'layerDemo' + type //防止重复弹出
-					// , content: '<div style="padding: 20px">' + text + '</div>'
-					, content: $('#createTopicForm')
-					, btn: '创建'
-					, title:'创建课题'
-					, fixed: false
-					, skin: 'layui-layer-radius'
-					, move: false // 禁止拖动
-					, btnAlign: 'c' //按钮居中
-					, shade: 0 //0不显示遮罩,
-					, shadeClose: true
-					, yes: function () {
-						var data = form.val('createTopic');
-						var topicName = data.topicName;
-						var topicDom = `<li class="topic-submenu"><span>${topicName}</span><i class="layui-icon layui-icon-more" data-dropdown="4"></i></li>`
-						// $('.menu-list').append(topicDom)
-						layer.closeAll();
-					},
-				});
-			}
-		};
-
-		$('.create-topic').on('click', function () {
-			var othis = $(this),
-					method = othis.data('method');
-			active2[method] ? active2[method].call(this, othis) : '';
-		});
-	});
-
-	$(".menu-item").on("click", function() {
-			var title = document.title.split("-");
-			title[1] = $(this).text();
-			document.title = title.join("-");
-			$("#iframe").attr("src", $(this).attr("data-href"));
-			$(".menu-item").removeClass("active");
-			$(".topic-submenu").removeClass("active");
-			$(this).addClass("active");
-	});
-
-	$('.topic-submenu').on("click", function() {
-		var title = document.title.split("-");
-		title[1] = $(this).text();
-		document.title = title.join("-");
-		$("#iframe").attr("src", $(this).attr("data-href"));
-		$(".topic-submenu").removeClass("active");
-		$(this).addClass("active");
-		$(".menu-item").removeClass("active");
-		$('.nosubpage').addClass("active");
-	});
-
-
-</script>
+<script src="../../assets/js/project-management/menu.js"></script>
 </body>
 </html>

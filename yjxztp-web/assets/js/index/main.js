@@ -19,6 +19,7 @@ layui.config({
       area: '440px',
       zIndex: '99',
       content: noticeEle,
+      move: false,
       success: function (layero) {
         layer.setTop(layero);
       }

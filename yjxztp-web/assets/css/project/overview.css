@@ -1,0 +1,302 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    padding:20px;
+    box-sizing: border-box;
+}
+.top-box{
+    /*width: 100%;*/
+    height: 291px;
+    margin-bottom: 20px;
+}
+.center-box{
+    /*width: 100%;*/
+    height: 316px;
+}
+.right-box{
+    width: 100%;
+    height: 627px;
+}
+.page-title{
+    font-size: 20px;
+    color: #212732;
+}
+.page-title a{
+    color: #99A3BB;
+    font-size: 20px;
+    margin-right: 5px;
+}
+.blue-panel{
+    width:100%;
+    height:175px;
+    background:rgba(0,119,255,1);
+    box-shadow:0 2px 2px 0 rgba(166,166,170,0.15);
+    border-radius:10px;
+    margin-top: 14px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.top-part{
+    height: 83px;
+    color: #fff;
+    border-bottom: 1px dashed  rgba(230,233,240,.2);
+}
+.project-name{
+    display: inline-block;
+}
+.project-name{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    font-size: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.project-summary{
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.project-date{
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    text-align: right;
+}
+.project-date span{
+    font-size: 20px;
+}
+.bottom-part{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    padding-top: 15px;
+}
+.member-avatar{
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 40px;
+    line-height: 40px;
+}
+.member-avatar .layui-avatar-sm{
+    color: #0077ff;
+    background: #fff;
+    margin: 0 3px;
+}
+.member-avatar .layui-avatar-sm:before{
+    border: 1px solid #fff;
+}
+.layui-btn.layui-btn-plain.manager-btn{
+    border: 1px solid #fff;
+    color: #fff;
+}
+.layui-btn.layui-btn-plain.manager-btn:hover{
+    background-color: #4e9dfa;
+}
+
+.card-list{
+    width: 100%;
+    margin-top: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.card-item{
+    width: 32%;
+    height:200px;
+    background:rgba(245,245,247,1);
+    border-radius:10px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-right: 1.5%;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.card-item:last-child{
+    margin-right: 0;
+}
+.card-header{
+    display: flex;
+    height: 44px;
+}
+.card-body{
+    height: 115px;
+    overflow: hidden;
+}
+.card-img{
+    width: 51px;
+    height: 51px;
+}
+.card-img svg{
+    width: 1em;
+    height: 1em;
+    font-size: 51px;
+}
+.card-title{
+    flex: 1;
+    padding-left: 5px;
+}
+.card-title p{
+    font-size: 16px;
+    color: #212832;
+}
+.card-title .card-time{
+    color: #99A3BC;
+    font-size: 14px;
+}
+.member{
+    color: #99A3BC;
+    margin: 10px 0;
+}
+.member span{
+    color: #616874;
+}
+.member .num{
+    color: #CA221C;
+}
+.info{
+    display: flex;
+    height: 80px;
+}
+.info span{
+    color: #99A3BC;
+}
+.info p{
+    display: inline-block;
+    width: 78%;
+    color: #616874;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.bottom-left-box,.bottom-right-box{
+    width: 100%;
+    display: inline-block;
+    height: 480px;
+}
+.layui-card-header{
+    height: 65px;
+    box-sizing: border-box;
+}
+.layui-card{
+    height: 100%;
+}
+.chart-legend-item{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.legend-icon{
+    width:22px;
+    height:22px;
+    border-radius:4px;
+    line-height: 22px;
+    text-align: center;
+    display: inline-block;
+}
+.legend-icon i{
+    font-size: 12px;
+    font-weight: bold;
+}
+.legend-progress{
+    color: #212832;
+    font-size: 16px;
+    margin-left: 20px;
+}
+.legend-number{
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    color: #212832;
+    font-size: 18px;
+}
+.timeline-box{
+    height: 365px;
+    padding-right: 20px;
+}
+.layui-timeline{
+    margin-top: 20px;
+    overflow-y: auto;
+    height: 100%;
+}
+.layui-timeline-item .layui-timeline-icon{
+    width: 8px;
+    height: 8px;
+    border: 2px solid #0077FF;
+    background: #fff;
+    box-shadow: 0 8px 21px 0 rgba(0,119,255,0.4);
+    border-radius: 50%;
+    position: absolute;
+    top: 18px;
+    left: 81.5px;
+
+}
+.layui-timeline-item.active .layui-timeline-icon{
+    background: #0077FF;
+}
+.layui-timeline-item:before {
+    content: "";
+    position: absolute;
+    left: 87px;
+    top: 20px;
+    z-index: 0;
+    width: 1px;
+    height: 100%;
+}
+.layui-timeline-item .avatar{
+    display: inline-block;
+}
+.avatar .avatar-name{
+    margin: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+}
+.layui-timeline-content {
+    width: 74%;
+    padding-left: 12px;
+    display: inline-flex;
+    line-height: 51px;
+    /*height: 51px;*/
+}
+.layui-timeline-content i{
+    margin-right: 10px;
+    color: #D1D9E4;
+}
+.layui-timeline-item.active .layui-timeline-content i{
+    color: #0077FF;
+}
+.layui-timeline-item.update .layui-timeline-content,
+.layui-timeline-item.update .avatar {
+    color: #CA221C;
+}
+.layui-timeline-title{
+    width: 96%;
+    /*height: 51px;*/
+    line-height: 21px;
+    background: #F5F6F7;
+    padding: 15px;
+    border-radius:4px;
+    box-sizing: border-box;
+}
+.layui-timeline-title .timeline-info{
+    margin-left: 30px;
+}
+.member-name{
+    color: #46C5B2;
+}
+#gtChart{
+    width: 100%;
+    height: 330px;
+    background: #cccccc;
+    margin-top: 50px;
+}

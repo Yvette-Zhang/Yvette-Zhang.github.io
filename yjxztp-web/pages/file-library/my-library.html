@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
   <link rel="stylesheet" href="../../assets/css/common.css">
   <link rel="stylesheet" href="../../assets/plugins/datatables/datatable.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css">
+  <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/dropDown/dropDown.css">
   <style>
     .filetable-tag {
       position: relative;
@@ -111,8 +113,25 @@
       cursor: pointer;
     }
 
+    .share-left__header__mate {
+      display: flex;
+      align-items: center;
+    }
+
+    .share-left__header__title {
+      white-space: nowrap;
+    }
+
+    .share-left__header__mate input {
+      height: 22px;
+      margin: 0 5px;
+      width: auto;
+      display: none;
+    }
+
     .share-left__header__mate i {
       color: #99A3BC;
+      cursor: pointer;
     }
 
 
@@ -196,34 +215,224 @@
       cursor: pointer;
       margin-right: 10px;
     }
+
+    .shareSearch {
+      cursor: pointer;
+    }
+
+    .add-to__search {
+      width: 360px;
+      height: 30px;
+      background: rgba(240, 243, 247, 1);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .add-to__search input {
+      background: rgba(240, 243, 247, 1);
+      height: 30px;
+      border: none;
+    }
+
+    .add-to__search i {
+      margin-left: 10px;
+      color: #B9C0C8;
+    }
+
+    .add-to__content {
+      margin: 20px 0;
+      border-bottom: 1px solid #E6E9F0;
+    }
+
+    .add-to__content__tree {
+      height: 210px;
+      overflow: auto;
+    }
+
+    .add-to__content-title {
+      color: #212832;
+      font-size: 12px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid #E6E9F0;
+    }
+
+    .add-to__footer {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .table-toolbar-right .icon-btn i {
+      font-size: 18px !important;
+      color: #99A3BC;
+    }
+
+    /* 分享成员 */
+    .user-layer .user-search {
+      position: relative;
+      border-bottom: 1px solid #e6e9f0;
+      margin-bottom: 5px;
+    }
+
+    .user-layer .user-search input {
+      width: 100%;
+      height: 30px;
+      padding: 0 25px 0 5px;
+      line-height: 30px;
+      color: #616874;
+      border: none;
+      box-sizing: border-box;
+    }
+
+    .user-layer .user-search i {
+      position: absolute;
+      right: 5px;
+      top: 8px;
+      cursor: pointer;
+      color: #99a3bc;
+    }
+
+    .user-layer .user-search i:hover {
+      color: #0077ff;
+    }
+
+    #user—list {
+      max-height: 310px;
+      overflow: auto;
+    }
+
+    #user—list li {
+      height: 44px;
+      line-height: 44px;
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding-right: 10px;
+    }
+
+    #user—list .user-msg {
+      flex: 1;
+      padding-left: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #user—list .user-name {
+      margin-left: 5px;
+      color: #616874;
+    }
+
+    #addToTree .icon-wenjianjia {
+      color: #EAAE58;
+    }
+
+    .layui-tree-entry {
+      display: flex;
+      align-items: center;
+    }
+
+    .layui-tree-entry--select {
+      background-color: #F0F3F7;
+    }
+
+    .layui-tree-entry--select:hover {
+      background-color: #F0F3F7 !important;
+    }
+
+    .comment-list {
+      height: 250px;
+      overflow: auto;
+      padding-left: 5px;
+      padding-top: 5px;
+      box-sizing: border-box;
+    }
+
+    .comment-item {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .comment-item__avatar {
+      margin-right: 10px;
+    }
+
+    .comment-item__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      line-height: 35px;
+    }
+
+    .comment-item__title {
+      font-size: 14px;
+      color: #212832;
+    }
+
+    .comment-item__time {
+      color: #B9C0C8;
+      font-size: 12px;
+    }
+
+    .comment-item__main {
+      color: #616874;
+      font-size: 12px;
+    }
+
+    .comment-input {
+      resize: none;
+      height: 56px;
+      border: 1px solid rgba(230, 233, 240, 1);
+      border-radius: 10px;
+      padding: 10px;
+      display: block;
+      width: 360px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    .comment-submit {
+      float: right;
+    }
   </style>
 </head>
 
 <body style="margin: 20px;margin-bottom: 0;">
   <h2 class="page-title">我的任务</h2>
+  <div class="panel-button-group">
+    <button id="uploadBtn" class="layui-btn layui-btn-plain">上传文件</button>
+    <button class="layui-btn layui-btn-shadow">创建文件夹</button>
+  </div>
   <div class="layui-card" style="height: calc(100vh - 80px);">
     <div class="layui-card-body">
       <div class="table-toolbar table-toolbar--two">
         <div class="table-toolbar-tool">
           <div class="table-toolbar-left">
             <div class="search">
-              <i class="layui-icon layui-icon-search"></i>
+              <i class="font_family icon-sousuo"></i>
               <input class="search-ipt" type="text" placeholder="请输入项目名称，按“Enter”键进行搜索">
-              <i class="layui-icon layui-icon-close"></i>
+              <i class="font_family icon-guanbi"></i>
             </div>
           </div>
           <div class="table-toolbar-right layui-form">
-            <button id="share" data-tips="分享" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
-              <i class="layui-icon layui-icon-share"></i>
+            <button id="addToFloderBtn" data-tips="添加至文件夹"
+              class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+              <i class="font_family icon-baocundaowenjianjia"></i>
             </button>
-            <button data-tips="分配公有标签" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
-              <i class="layui-icon layui-icon-note"></i>
+            <button id="share" data-tips="分享" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+              <i class="font_family icon-fenxiang"></i>
             </button>
-            <button data-tips="分配私有标签" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
-              <i class="layui-icon layui-icon-note"></i>
+            <button data-tips="分配公有标签" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+              <i class="font_family icon-gongyoubiaoqian"></i>
             </button>
-            <button data-tips="上传" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
-              <i class="layui-icon layui-icon-upload"></i>
+            <button data-tips="分配私有标签" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+              <i class="font_family icon-fenpeibiaoqian"></i>
+            </button>
+            <button data-tips="导出" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+              <i class="font_family icon-xiazai"></i>
+            </button>
+            <button data-tips="删除" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+              <i class="font_family icon-shanchu"></i>
             </button>
             <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
               筛选 <i class="layui-icon layui-icon-down"></i>
@@ -294,7 +503,8 @@
         <div class="share-left__header">
           <div class="share-left__header__title">添加成员</div>
           <div class="share-left__header__mate">
-            <i class="layui-icon layui-icon-search"></i>
+            <input type="text" class="layui-input">
+            <i id="shareSearch" class="layui-icon layui-icon-search"></i>
           </div>
         </div>
         <div class="share-left__subheader">
@@ -431,7 +641,96 @@
       </div>
     </div>
   </div>
+  <!-- 查看分享成员 -->
+  <div id="userInfo" style="display: none;">
+    <div class="user-search">
+      <input type="text" placeholder="搜索人员">
+      <i class="font_family icon-sousuo"></i>
+    </div>
+    <div id="user—list"></div>
   </div>
+  <!-- 分享成员列表 -->
+  <script id="userList" type="text/html">
+    <ul>
+      {{#  layui.each(d, function(index, item){ }}
+      <li>
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">{{ item.stortName }}</span>
+          </span>
+          <span class="user-name">
+            {{ item.name }}
+          </span>
+        </div>
+      </li>
+      {{#  }); }}
+      {{#  if(d.length === 0){ }}
+      暂无分享成员
+      {{#  } }}
+    </ul>
+  </script>
+  <!-- 添加到和上传 -->
+  <input id="uploadFileInput" type="file" style="display: none;">
+  <div id="addTo" class="layui-form add-to" style="display: none;">
+    <div class="add-to__search">
+      <i class="font_family icon-sousuo"></i>
+      <input class="layui-input" placeholder="文件名称搜索"></input>
+    </div>
+    <div class="add-to__content">
+      <div class="add-to__content-title">所有文件夹</div>
+      <div id="addToTree" class="add-to__content__tree"></div>
+    </div>
+    <div class="add-to__footer">
+      <button class="layui-btn layui-btn-primary">取消</button>
+      <button id="addToSubmit" class="layui-btn layui-btn-shadow">添加</button>
+    </div>
+  </div>
+  <!-- 评论 -->
+  <div style="display: none;" id="comment" class="layui-form">
+    <div class="comment-list">
+      <div class="comment-item">
+        <div class="comment-item__avatar">
+          <div class="layui-avatar">豆豆</div>
+        </div>
+        <div class="comment-item__content">
+          <div class="comment-item__header">
+            <div class="comment-item__title">豆豆</div>
+            <div class="comment-item__time">1分钟前</div>
+          </div>
+          <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+        </div>
+      </div>
+      <div class="comment-item">
+        <div class="comment-item__avatar">
+          <div class="layui-avatar">豆豆</div>
+        </div>
+        <div class="comment-item__content">
+          <div class="comment-item__header">
+            <div class="comment-item__title">豆豆</div>
+            <div class="comment-item__time">1分钟前</div>
+          </div>
+          <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+        </div>
+      </div>
+      <div class="comment-item">
+        <div class="comment-item__avatar">
+          <div class="layui-avatar">豆豆</div>
+        </div>
+        <div class="comment-item__content">
+          <div class="comment-item__header">
+            <div class="comment-item__title">豆豆</div>
+            <div class="comment-item__time">1分钟前</div>
+          </div>
+          <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+        </div>
+      </div>
+    </div>
+    <div class="comment-form">
+      <textarea class="comment-input"></textarea>
+      <button class="layui-btn comment-submit layui-btn-shadow">发送</button>
+    </div>
+  </div>
+
   <!-- layui -->
   <script src="../../assets/plugins/layui/layui.js"></script>
   <!-- datatables -->
@@ -439,6 +738,7 @@
   <script src="../../assets/plugins/datatables/dataTables.tips.js"></script>
   <!-- 模拟数据 -->
   <script src="https://cdn.bootcdn.net/ajax/libs/Mock.js/1.0.1-beta3/mock-min.js"></script>
+  <script src="../../assets/icon/iconfont.js"></script>
 
   <script src="../../assets/js/file-libray/my-library.js"></script>
 </body>

@@ -1,51 +1,51 @@
 .layui-circle {
   position: relative;
-  /* height: 120px; */
-  /* width: 120px; */
   border-radius: 50%;
+  overflow: hidden;
 }
 
-.layui-pieRight,
-.layui-pieLeft {
+.layui-circle .layui-pie {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 120px;
-  width: 120px;
-  border-radius: 50%;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  overflow: hidden;
 }
 
-.layui-right,
-.layui-left {
+.layui-circle .layui-pie-right {
+  right: 0;
+  transform-origin: left center;
+}
+
+.layui-circle .layui-pie-left {
+  left: 0;
+  transform-origin: right center;
+}
+
+.layui-circle .layui-pie-circle {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  transition: all .5s;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
 }
 
-.layui-pieRight,
-.layui-right {
-  clip: rect(0, auto, auto, 60px);
+.layui-circle .layui-pie-circle-r {
+  transform-origin: left center;
 }
 
-.layui-pieLeft,
-.layui-left {
-  clip: rect(0, 60px, auto, 0);
+.layui-circle .layui-pie-circle-l {
+  transform-origin: right center;
 }
 
-.layui-mask {
-  /* width: 90px; */
-  /* height: 90px; */
-  border-radius: 50%;
-  /* left: 15px; */
-  /* top: 15px; */
-  background: #FFF;
+.layui-circle .layui-mask {
   position: absolute;
   text-align: center;
+  background: #FFF;
   font-size: 12px;
+  border-radius: 50%;
 }
 
-.layui-mask span {
-  font-size: 20px;
-  font-weight: bold;
+.layui-circle .layui-mask span {
+  font-size: 16px;
 }

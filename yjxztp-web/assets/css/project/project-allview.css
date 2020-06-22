@@ -1,0 +1,515 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgb(240, 243, 247);
+}
+
+body {
+  padding: 20px;
+}
+
+.layui-btn {
+  position: relative;
+}
+
+.layui-btn .layui-badge {
+  position: absolute;
+  background-color: #fb3c35;
+  height: 14px;
+  left: 5px;
+  top: 2px;
+  padding: 0 3px;
+  line-height: 14px;
+  border-radius: 7px;
+}
+
+.layui-row {
+  position: absolute;
+  top: 65px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.layui-row .layui-card {
+  width: 100%;
+  height: 100%;
+}
+
+.layui-col-space20 > * {
+  height: 100%;
+}
+
+.project-allview-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.project-allview-card .layui-card-body {
+  position: absolute;
+  padding: 0 !important;
+  top: 30px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.layui-card-body table.dataTable {
+  margin: 0;
+}
+
+.layui-tab-allview {
+  width: 100%;
+  text-align: center;
+  border: none;
+  height: 30px;
+}
+
+.layui-tab-allview li {
+  position: relative;
+  display: inline-block;
+  margin: 0 20px;
+  height: 30px;
+  padding: 0;
+  line-height: 16px;
+  color: #616874;
+  font-size: 16px;
+  border: none;
+}
+
+.layui-tab-allview .layui-this {
+  color: #0077ff;
+}
+
+.layui-tab-allview .layui-this:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  height: 4px;
+  bottom: 0;
+  top: auto;
+  border-radius: 2px;
+  background-color: #0077ff;
+  border: none;
+}
+
+.project-allview-card .layui-tab {
+  width: 100%;
+  height: 100%;
+}
+
+.project-allview-card .layui-tab-content {
+  position: absolute;
+  padding: 0;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: -16px;
+}
+
+.project-allview-card .layui-tab-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+.project-allview-card .project-report-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+
+.project-allview-card .project-allview-list {
+  width: 100%;
+  height: 100%;
+  padding-right: 16px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.project-allview-card .toolbar-bottom {
+  position: absolute;
+  left: -10px;
+  right: 10px;
+  bottom: 0;
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-allview-list-item {
+  display: flex;
+  padding: 30px 0 25px 0;
+}
+
+.project-allview-list-item + .project-allview-list-item {
+  border-top: 1px solid #e6e9f0;
+}
+
+.project-allview-list-item .project-allview-list-item_img {
+  width: 37px;
+  flex-shrink: 0;
+  height: 37px;
+}
+.project-allview-list-item_img .icon{
+  width: 1em;
+  height: 1em;
+  font-size: 45px;
+}
+.project-allview-list-item .project-allview-list-item_msg {
+  flex: 1;
+  padding-left: 15px;
+  font-size: 14px;
+  line-height: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.project-allview-list-item .project-allview-list-item_title {
+  margin-bottom: 15px;
+  color: #212832;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-allview-list-item .project-allview-list-item_user {
+  color: #616874;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-allview-list-item .project-allview-list-item_right {
+  width: 100px;
+  font-size: 12px;
+  color: #b9c0c8;
+  line-height: 15px;
+  text-align: right;
+  line-height: 16px;
+  overflow: hidden;
+}
+.project-allview-list-item .project-allview-report-item_img {
+  width: 37px;
+  flex-shrink: 0;
+  height: 50px;
+}
+.project-allview-report-item_img .icon{
+  width: 1em;
+  height: 1em;
+  font-size: 52px;
+}
+.project-allview-list-item .project-allview-list-item_tool {
+  margin-bottom: 15px;
+  height: 16px;
+}
+
+.project-tool.layui-btn {
+  height: 16px;
+  line-height: 16px;
+  color: #99a3bc;
+}
+
+#projectDataTool {
+  font-size: 14px;
+  color: #616874;
+  line-height: 34px;
+}
+
+#projectDataTool .layui-form-switch {
+  margin: 0;
+}
+
+#projectDataTool .allow-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  min-width: 150px;
+}
+
+#projectDataTool .tool-list li {
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+#projectDataTool .tool-list li:hover {
+  background-color: #f0f3f7;
+  color: #0077ff;
+}
+
+/* 成员弹窗样式 */
+
+.user-layer .user-search {
+  position: relative;
+  border-bottom: 1px solid #e6e9f0;
+  margin-bottom: 5px;
+}
+
+.user-layer .user-search input {
+  width: 100%;
+  height: 30px;
+  padding: 0 25px 0 5px;
+  line-height: 30px;
+  color: #616874;
+  border: none;
+  box-sizing: border-box;
+}
+
+.user-layer .user-search i {
+  position: absolute;
+  right: 5px;
+  top: 8px;
+  cursor: pointer;
+  color: #99a3bc;
+}
+
+.user-layer .user-search i:hover {
+  color: #0077ff;
+}
+
+#user—list {
+  max-height: 310px;
+  overflow: auto;
+}
+
+#user—list li {
+  height: 44px;
+  line-height: 44px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+
+#user—list .user-msg {
+  flex: 1;
+  padding-left: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#user—list .user-name {
+  margin-left: 5px;
+  color: #616874;
+}
+
+#user—list .user-role {
+  color: #616874;
+}
+
+#userInfo .bottom-warp {
+  margin-top: 15px;
+}
+
+#userInfo .bottom-warp .layui-btn {
+  width: 100%;
+}
+
+#userPermission .bottom-warp .layui-btn {
+  width: 100%;
+  margin-left: 0;
+  margin-top: 10px;
+}
+
+#userPermission li + li {
+  margin-top: 15px;
+}
+
+#userPermission .layui-form-checkbox[lay-skin="primary"] {
+  width: 100%;
+}
+
+#userPermission .layui-form-checkbox[lay-skin="primary"] span {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#uesr-btn i {
+  font-size: 20px;
+}
+
+/* 成员弹窗 */
+#shareLayer {
+  display: flex;
+}
+
+#shareLayer .layui-icon-left,
+#shareLayer .layui-icon-right,
+#shareLayer .layui-icon-down {
+  zoom: 0.5;
+}
+
+.share-left,
+.share-right {
+  flex: 1;
+}
+
+.share-left {
+  box-sizing: border-box;
+  padding-right: 10px;
+}
+
+.share-left .layui-badge {
+  margin-bottom: 10px;
+}
+
+.share-left .layui-badge i {
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.share-left__header__mate {
+  display: flex;
+  align-items: center;
+}
+
+.share-left__header__title {
+  white-space: nowrap;
+}
+
+.share-left__header__mate input {
+  height: 22px;
+  margin: 0 5px;
+  width: auto;
+  display: none;
+}
+
+.share-left__header__mate i {
+  color: #99a3bc;
+  cursor: pointer;
+}
+
+.share-right {
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+
+.share-left-item {
+  margin-bottom: 20px;
+}
+
+.share-left__header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #212832;
+  margin-bottom: 10px;
+}
+
+.share-left__subheader {
+  display: flex;
+  justify-content: space-between;
+  color: #b9c0c8;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.share-left__content {
+  overflow: auto;
+}
+
+.share-right__header {
+  color: #212832;
+  font-size: 14px;
+}
+
+.share-right__header img {
+  display: inline-block;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.share-right__content {
+  padding-top: 25px;
+  box-sizing: border-box;
+  overflow: auto;
+  height: 300px;
+}
+
+.share-right-select__list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+  color: #616874;
+  font-size: 14px;
+}
+
+.share-right-select-member .share-right-select__list,
+.share-right-select-detail .share-right-select__list {
+  padding-left: 10px;
+}
+
+.share-right-select-member__nav,
+.share-right-select-detail__nav {
+  font-size: 14px;
+  color: #616874;
+}
+
+.share-right-select-member__nav i,
+.share-right-select-detail__nav i {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.shareSearch {
+  cursor: pointer;
+}
+
+.add-to__search {
+  width: 360px;
+  height: 30px;
+  background: rgba(240, 243, 247, 1);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.add-to__search input {
+  background: rgba(240, 243, 247, 1);
+  height: 30px;
+  border: none;
+}
+
+.add-to__search i {
+  margin-left: 10px;
+  color: #b9c0c8;
+}
+
+.add-to__content {
+  margin: 20px 0;
+  border-bottom: 1px solid #e6e9f0;
+}
+
+.add-to__content__tree {
+  height: 210px;
+  overflow: auto;
+}
+
+.add-to__content-title {
+  color: #212832;
+  font-size: 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #e6e9f0;
+}
+
+.add-to__footer {
+  display: flex;
+  justify-content: flex-end;
+}

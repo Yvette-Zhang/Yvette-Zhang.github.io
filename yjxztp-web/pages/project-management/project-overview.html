@@ -7,317 +7,40 @@
 	<link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
 	<link rel="stylesheet" href="../../assets/css/common.css">
 	<link rel="stylesheet" href="../../assets/icon/iconfont.css">
-	<style>
-		html,body{
-			width: 100%;
-			height: 100%;
-		}
-		body{
-			padding:20px;
-			box-sizing: border-box;
-		}
-		.top-box{
-			/*width: 100%;*/
-			height: 291px;
-			margin-bottom: 20px;
-		}
-		.center-box{
-			/*width: 100%;*/
-			height: 316px;
-		}
-		.right-box{
-			width: 100%;
-			height: 627px;
-		}
-		.page-title{
-			font-size: 20px;
-			color: #212732;
-		}
-		.page-title a{
-			color: #99A3BB;
-			font-size: 22px;
-		}
-		.blue-panel{
-			width:100%;
-			height:175px;
-			background:rgba(0,119,255,1);
-			box-shadow:0 2px 2px 0 rgba(166,166,170,0.15);
-			border-radius:10px;
-			margin-top: 14px;
-			padding: 20px;
-			box-sizing: border-box;
-		}
-		.top-part{
-			height: 83px;
-			color: #fff;
-			border-bottom: 1px dashed  rgba(230,233,240,.2);
-		}
-		.project-name{
-			display: inline-block;
-		}
-		.project-name{
-			font-size: 22px;
-			line-height: 45px;
-			height: 45px;
-		}
-		.project-summary{
-			font-size: 14px;
-		}
-		.project-date{
-			display: inline-block;
-			height: 45px;
-			line-height: 45px;
-		}
-		.project-date span{
-			font-size: 20px;
-		}
-		.bottom-part{
-			display: flex;
-			justify-content: space-between;
-			color: #fff;
-			padding-top: 20px;
-		}
-		.member-avatar{
-			/*display: inline-block;*/
-		}
-		.member-avatar .layui-avatar{
-			color: #0077ff;
-			background: #fff;
-			margin: 0 3px;
-		}
-		.member-avatar .layui-avatar:before{
-			border: 1px solid #fff;
-		}
-		.layui-btn.layui-btn-plain.manager-btn{
-			border: 1px solid #fff;
-			color: #fff;
-		}
-		.layui-btn.layui-btn-plain.manager-btn:hover{
-			background-color: #4e9dfa;
-		}
-
-		.card-list{
-			width: 100%;
-			margin-top: 20px;
-			overflow-x: auto;
-			white-space: nowrap;
-		}
-		.card-item{
-			width: 32%;
-			height:200px;
-			background:rgba(245,245,247,1);
-			border-radius:10px;
-			padding: 20px;
-			box-sizing: border-box;
-			margin-right: 1.5%;
-			margin-bottom: 5px;
-			display: inline-block;
-		}
-		.card-item:last-child{
-			margin-right: 0;
-		}
-		.card-header{
-			display: flex;
-			height: 44px;
-		}
-		.card-body{
-			height: 115px;
-			overflow: hidden;
-		}
-		.card-img{
-			width: 36px;
-			height: 44px;
-			background: aqua;
-		}
-		.card-title{
-			flex: 1;
-			padding-left: 5px;
-		}
-		.card-title p{
-			font-size: 16px;
-			color: #212832;
-		}
-		.card-title .card-time{
-			color: #99A3BC;
-			font-size: 14px;
-		}
-		.member{
-			color: #99A3BC;
-			margin: 10px 0;
-		}
-		.member span{
-			color: #616874;
-		}
-		.member .num{
-			color: #CA221C;
-		}
-		.info{
-			display: flex;
-		}
-		.info span{
-			color: #99A3BC;
-		}
-		.info p{
-			display: inline-block;
-			width: 78%;
-			color: #616874;
-			white-space: normal;
-		}
-
-		.bottom-left-box,.bottom-right-box{
-			width: 100%;
-			display: inline-block;
-			height: 480px;
-		}
-		.layui-card-header{
-			height: 65px;
-			box-sizing: border-box;
-		}
-		.layui-card{
-			height: 100%;
-		}
-		.chart-legend-item{
-			display: flex;
-			justify-content: space-between;
-			margin: 10px 0;
-		}
-		.legend-icon{
-			width:22px;
-			height:22px;
-			border-radius:4px;
-			line-height: 22px;
-			text-align: center;
-			display: inline-block;
-		}
-		.legend-icon i{
-			font-size: 12px;
-		}
-		.legend-progress{
-			color: #212832;
-			font-size: 16px;
-		}
-		.legend-number{
-			display: inline-block;
-			height: 44px;
-			line-height: 44px;
-			color: #212832;
-			font-size: 18px;
-		}
-		.timeline-box{
-			height: 365px;
-			padding-right: 20px;
-		}
-		.layui-timeline{
-			margin-top: 20px;
-			overflow-y: auto;
-			height: 100%;
-		}
-		.layui-timeline-item .layui-timeline-icon{
-			width: 12px;
-			height: 12px;
-			border: 2px solid #0077FF;
-			background: #fff;
-			box-shadow: 0 8px 21px 0 rgba(0,119,255,0.4);
-			border-radius: 50%;
-			position: absolute;
-			top: 18px;
-			left: 80px;
-
-		}
-		.layui-timeline-item.active .layui-timeline-icon{
-			background: #0077FF;
-		}
-		.layui-timeline-item:before {
-			 content: "";
-			 position: absolute;
-			 left: 87px;
-			 top: 20px;
-			 z-index: 0;
-			 width: 1px;
-			 height: 100%;
-		 }
-		.layui-timeline-item .avatar{
-			display: inline-block;
-		}
-		.avatar .avatar-name{
-			margin: 0 10px;
-			height: 40px;
-			line-height: 40px;
-			display: inline-block;
-		}
-		.layui-timeline-content {
-			width: 74%;
-			padding-left: 12px;
-			display: inline-flex;
-			line-height: 51px;
-			/*height: 51px;*/
-		}
-		.layui-timeline-content i{
-			margin-right: 10px;
-			color: #D1D9E4;
-		}
-		.layui-timeline-item.active .layui-timeline-content i{
-			color: #0077FF;
-		}
-		.layui-timeline-item.update .layui-timeline-content,
-		.layui-timeline-item.update .avatar {
-			color: #CA221C;
-		}
-		.layui-timeline-title{
-			width: 96%;
-			/*height: 51px;*/
-			line-height: 21px;
-			background: #F5F6F7;
-			padding: 15px;
-			border-radius:4px;
-			box-sizing: border-box;
-		}
-		.layui-timeline-title .timeline-info{
-			margin-left: 30px;
-		}
-		.member-name{
-			color: #46C5B2;
-		}
-		#gtChart{
-			width: 100%;
-			height: 330px;
-			background: #cccccc;
-			margin-top: 50px;
-		}
-
-	</style>
+	<link rel="stylesheet" href="../../assets/css/project/overview.css">
 </head>
 <body>
-<h2 class="page-title"><a class="iconfont icon-arrow-lift" href="#" onclick="javascript:history.go(-1);"></a>新能源协作平台项目</h2>
+<h2 class="page-title"><a class="layui-icon layui-icon-left" href="#" onclick="javascript:history.go(-1);"></a>新能源协作平台项目</h2>
 <div class="layui-row layui-col-space20">
 	<div class="layui-col-md8" style="width: 71.8%">
 		<div class="top-box">
 			<div class="layui-card">
-				<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>项目信息</div>
+				<div class="layui-card-header"><i class="font_family icon-baogaoxiezuo"></i>项目信息</div>
 				<div class="layui-card-body">
 					<div class="blue-panel">
 						<div class="top-part">
 							<div class="layui-row">
 								<div class="layui-col-md6">
-									<span class="project-name">新能源协作平台项目1</span>
+									<span class="project-name" title="新能源协作平台项目1新能源协作平台项目1新能源协作平台项目1新能源协作平台项目1">新能源协作平台项目1新能源协作平台项目1新能源协作平台项目1新能源协作平台项目1</span>
 								</div>
 								<div class="layui-col-md6">
 									<p class="project-date"> 项目周期：<span>2020.01.12-2023.12.03</span></p>
 								</div>
 							</div>
-							<p class="project-summary">国家能源集团全称国家能源投资集团有限责任公司，经党中央、国务院批准。</p>
+							<p class="project-summary" title="国家能源集团全称国家能源投资集团有限责任公司，经党中央、国务院批准。国家能源集团全称国家能源投资集团有限责任公司，经党中央、国务院批准。投资集团有限责任公司，经党中央、国务院批准投资集团有限责任公司，经党中央、国务院批准">国家能源集团全称国家能源投资集团有限责任公司，经党中央、国务院批准。国家能源集团全称国家能源投资集团有限责任公司，经党中央、国务院批准。投资集团有限责任公司，经党中央、国务院批准投资集团有限责任公司，经党中央、国务院批准</p>
 						</div>
 						<div class="bottom-part">
 							<div class="member-avatar">
 								成员：
-								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
-								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
-								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
-								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
-								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
-								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
-								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
-								<span class="layui-avatar"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+								<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
 								...等45人
 							</div>
 							<button class="layui-btn layui-btn-plain manager-btn">管理</button>
@@ -328,12 +51,45 @@
 		</div>
 		<div class="center-box">
 			<div class="layui-card">
-				<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>课题信息</div>
+				<div class="layui-card-header"><i class="font_family icon-baogaoxiezuo"></i>课题信息</div>
 				<div class="layui-card-body">
 					<div class="card-list">
 						<div class="card-item">
 							<div class="card-header">
-								<div class="card-img"></div>
+								<div class="card-img">
+									<svg class="icon" aria-hidden="true">
+										<use xlink:href="#icon-keti"></use>
+									</svg>
+								</div>
+								<div class="card-title">
+									<p >课题1</p>
+									<p class="card-time">2020.05.11-2022.01.01</p>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="member">成员：<span><span class="first-member">王晓晨</span>、<span class="second-member">张靓颖</span>等</span><span class="num">45</span>人</div>
+								<div class="info">
+									<span>详情：</span>
+									<p>
+										这里是详情这里是详情这里是
+										详情这里是详情这里是详情这
+										这里是详情。这里是详情这里
+										是详情这里是详情这里是详
+										这里是详情这这里是详情。
+										这里是详情这里是详情这里是
+										详情这里是详情这里是详情这
+										这里是详情。
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="card-item">
+							<div class="card-header">
+								<div class="card-img">
+									<svg class="icon" aria-hidden="true">
+										<use xlink:href="#icon-keti"></use>
+									</svg>
+								</div>
 								<div class="card-title">
 									<p >课题1</p>
 									<p class="card-time">2020.05.11-2022.01.01</p>
@@ -353,7 +109,11 @@
 						</div>
 						<div class="card-item">
 							<div class="card-header">
-								<div class="card-img"></div>
+								<div class="card-img">
+									<svg class="icon" aria-hidden="true">
+										<use xlink:href="#icon-keti"></use>
+									</svg>
+								</div>
 								<div class="card-title">
 									<p >课题1</p>
 									<p class="card-time">2020.05.11-2022.01.01</p>
@@ -373,27 +133,11 @@
 						</div>
 						<div class="card-item">
 							<div class="card-header">
-								<div class="card-img"></div>
-								<div class="card-title">
-									<p >课题1</p>
-									<p class="card-time">2020.05.11-2022.01.01</p>
+								<div class="card-img">
+									<svg class="icon" aria-hidden="true">
+										<use xlink:href="#icon-keti"></use>
+									</svg>
 								</div>
-							</div>
-							<div class="card-body">
-								<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
-								<div class="info">
-									<span>详情：</span>
-									<p>
-										这里是详情这里是详情这里是
-										详情这里是详情这里是详情这
-										这里是详情。
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card-item">
-							<div class="card-header">
-								<div class="card-img"></div>
 								<div class="card-title">
 									<p >课题1</p>
 									<p class="card-time">2020.05.11-2022.01.01</p>
@@ -419,13 +163,13 @@
 	<div class="layui-col-md3" style="width: 28%">
 		<div class="right-box">
 			<div class="layui-card">
-				<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>项目统计</div>
+				<div class="layui-card-header"><i class="font_family icon-baogaoxiezuo"></i>项目统计</div>
 				<div class="layui-card-body">
 					<div id="chart" style="width: 80%;height: 250px; margin: 0 auto;"></div>
 					<div class="chart-legend">
 						<div class="chart-legend-item">
 							<div>
-								<div class="legend-icon" style="background:rgba(69,197,177,.1);color:#45C5B1;"><i class="iconfont icon-querenyuanzhengqueduigoutijiaochenggongwancheng"></i></div>
+								<div class="legend-icon" style="background:rgba(69,197,177,.1);color:#45C5B1;"><i class="font_family icon-shangchuanchenggong"></i></div>
 								<span class="legend-progress">已完成</span>
 							</div>
 							<span class="legend-number">1</span>
@@ -434,7 +178,7 @@
 					<div class="chart-legend">
 						<div class="chart-legend-item">
 							<div>
-								<div class="legend-icon" style="background:rgba(0,119,255,.1);color:#0077FF;"><i class="iconfont icon-renwu"></i></div>
+								<div class="legend-icon" style="background:rgba(0,119,255,.1);color:#0077FF;"><i class="font_family icon-weianpai"></i></div>
 								<span class="legend-progress">未完成</span>
 							</div>
 							<span class="legend-number">1</span>
@@ -443,7 +187,7 @@
 					<div class="chart-legend">
 						<div class="chart-legend-item">
 							<div>
-								<div class="legend-icon" style="background:rgba(251,59,53,.1);color:#FB3B35;"><i class="iconfont icon-jurassic_clock"></i></div>
+								<div class="legend-icon" style="background:rgba(251,59,53,.1);color:#FB3B35;"><i class="font_family icon-yuqi"></i></div>
 								<span class="legend-progress">已逾期</span>
 							</div>
 							<span class="legend-number">1</span>
@@ -452,7 +196,7 @@
 					<div class="chart-legend">
 						<div class="chart-legend-item">
 							<div>
-								<div class="legend-icon" style="background:rgba(245,173,67,.1);color: #F5AD43;"><i class="iconfont icon-jinrishouru"></i></div>
+								<div class="legend-icon" style="background:rgba(245,173,67,.1);color: #F5AD43;"><i class="font_family icon-jinri"></i></div>
 								<span class="legend-progress">今日待办</span>
 							</div>
 							<span class="legend-number">1</span>
@@ -461,7 +205,7 @@
 					<div class="chart-legend">
 						<div class="chart-legend-item">
 							<div>
-								<div class="legend-icon" style="background:rgba(101,101,239,.1);color:#6565EF;"><i class="iconfont icon-jihua"></i></div>
+								<div class="legend-icon" style="background:rgba(101,101,239,.1);color:#6565EF;"><i class="font_family icon-jinri"></i></div>
 								<span class="legend-progress">待认领</span>
 							</div>
 							<span class="legend-number">1</span>
@@ -476,7 +220,7 @@
 		<div class="layui-col-md6" >
 			<div class="bottom-left-box" >
 				<div class="layui-card">
-					<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>项目动态</div>
+					<div class="layui-card-header"><i class="font_family icon-baogaoxiezuo"></i>项目动态</div>
 					<div class="layui-card-body timeline-box">
 						<ul class="layui-timeline">
 							<li class="layui-timeline-item active">
@@ -486,7 +230,7 @@
 								</div>
 								<div class="layui-timeline-icon"></div>
 								<div class="layui-timeline-content layui-text">
-									<i class="layui-icon layui-icon-more"></i>
+									<i class="font_family icon-gengduo"></i>
 									<div class="layui-timeline-title">
 										<span>2020-08-12 15:13:20</span>
 										<span class="timeline-info">完成了项目协作任务1</span>
@@ -500,7 +244,7 @@
 								</div>
 								<div class="layui-timeline-icon"></div>
 								<div class="layui-timeline-content layui-text">
-									<i class="layui-icon layui-icon-more"></i>
+									<i class="font_family icon-gengduo"></i>
 									<div class="layui-timeline-title">
 										<span>2020-08-12 15:13:20</span>
 										<span class="timeline-info">将协作报告文档进行了编辑更新1</span>
@@ -514,7 +258,7 @@
 								</div>
 								<div class="layui-timeline-icon"></div>
 								<div class="layui-timeline-content layui-text">
-									<i class="layui-icon layui-icon-more"></i>
+									<i class="font_family icon-gengduo"></i>
 									<div class="layui-timeline-title">
 										<span>2020-08-12 15:13:20</span>
 										<span class="timeline-info">将<span class="member-name">豆豆</span>移除项目协作1组 </span>
@@ -528,7 +272,7 @@
 								</div>
 								<div class="layui-timeline-icon"></div>
 								<div class="layui-timeline-content layui-text">
-									<i class="layui-icon layui-icon-more"></i>
+									<i class="font_family icon-gengduo"></i>
 									<div class="layui-timeline-title">
 										<span>2020-08-12 15:13:20</span>
 										<span class="timeline-info">完成了项目协作任务1</span>
@@ -542,7 +286,7 @@
 								</div>
 								<div class="layui-timeline-icon"></div>
 								<div class="layui-timeline-content layui-text">
-									<i class="layui-icon layui-icon-more"></i>
+									<i class="font_family icon-gengduo"></i>
 									<div class="layui-timeline-title">
 										<span>2020-08-12 15:13:20</span>
 										<span class="timeline-info">完成了项目协作任务1</span>
@@ -557,7 +301,7 @@
 		<div class="layui-col-md6">
 			<div class="bottom-right-box">
 				<div class="layui-card">
-					<div class="layui-card-header"><i class="layui-icon layui-icon-edit"></i>甘特图</div>
+					<div class="layui-card-header"><i class="font_family icon-baogaoxiezuo"></i>甘特图</div>
 					<div class="layui-card-body">
 						<div id="gtChart"></div>
 					</div>
@@ -571,6 +315,7 @@
 <script src="../../assets/js/jquery-1.9.1.min.js"></script>
 <script src="../../assets/plugins/layui/layui.js"></script>
 <script src="../../assets/js/index/main.js"></script>
+<script src="../../assets/icon/iconfont.js"></script>
 <script>
 	layui.use(['carousel'], function(){
 		var carousel = layui.carousel;

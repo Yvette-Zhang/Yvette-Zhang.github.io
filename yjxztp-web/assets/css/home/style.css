@@ -42,9 +42,35 @@
   border-radius: 20px;
   font-size: 24px;
   font-weight: 500;
-  padding: 30px 40px;
   box-sizing: border-box;
   margin-bottom: 20px;
+  background-image: url("../../images/home/card-bg.png");
+  background-repeat: no-repeat;
+  background-position: right -3px bottom;
+  background-size: contain;
+}
+
+.home-create div {
+  width: 100%;
+  height: 100%;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-position: right 40px center;
+}
+
+.home-create-project div {
+  background-image: url("../../images/home/project-icon.png");
+}
+
+.home-create-task div {
+  background-image: url("../../images/home/task-icon.png");
+}
+
+.home-create i {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .home-create:hover {
@@ -52,16 +78,43 @@
 }
 
 .home-create--mini {
-  padding: 15px 20px;
   height: 120px;
   font-size: 18px;
+  background-image: url("../../images/home/card-bg-sm.png");
+}
+
+.home-create--mini div {
+  padding: 15px 20px;
+  background-position: right 35px center;
+}
+
+.home-create-report div {
+  background-image: url("../../images/home/report-icon.png");
+}
+
+.home-create-outline div {
+  background-image: url("../../images/home/outline-icon.png");
+}
+
+.home-create--mini i {
+  font-size: 13px;
 }
 
 .home-dotted-box__img {
   max-width: 50px;
   margin-bottom: 10px;
+  height: 50px;
 }
-
+.home-dotted-box__img .icon{
+  width: 1em;
+  height: 1em;
+  font-size: 53px;
+}
+.home-dotted-box__img .outline-icon{
+  width: 1em;
+  height: 1em;
+  font-size: 51px;
+}
 .home-dotted-box__title {
   font-size: 14px;
   max-width: 100%;
@@ -98,14 +151,13 @@
 }
 
 .home-project__header {
-  height: 29px;
-  width: 40px;
   margin-right: 20px;
 }
 
-.home-project__header img {
-  width: 100%;
-  height: 100%;
+.home-project__header .icon {
+  width: 1em;
+  height: 1em;
+  font-size: 41px;
 }
 
 .home-project__body {
@@ -162,6 +214,7 @@
   flex-direction: column;
   align-items: center;
   margin-right: 20px;
+  font-weight: 700;
 }
 
 .task-icon__bg {
@@ -178,6 +231,7 @@
 
 .task-icon__bg i {
   color: #46c5b2;
+  font-size: 18px;
 }
 
 .task-icon__text {
@@ -198,7 +252,7 @@
 }
 
 .task-icon--red .task-icon__bg i {
-  color: #ca221c;
+  color: #FB3C35;
 }
 
 .task-icon--blue .task-icon__bg {
@@ -312,5 +366,17 @@
 
   .home-create--mini {
     height: 69px;
+  }
+
+  .home-create--mini div {
+    background-position: right 15px center;
+  }
+
+  .home-create-report div {
+    background-image: url("../../images/home/report-icon-sm.png");
+  }
+
+  .home-create-outline div {
+    background-image: url("../../images/home/outline-icon-sm.png");
   }
 }

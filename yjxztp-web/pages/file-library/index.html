@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
   <link rel="stylesheet" href="../../assets/css/common.css">
   <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/dropDown/dropDown.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css">
   <style>
     html,body{
       height: 100%;
@@ -34,9 +35,15 @@
     .tag-title-left{
       color: #0077FF;
     }
+    .tag-title-left i{
+      font-size: 18px;
+    }
     .tag-title-setting{
       color: #99A3BC;
       cursor: pointer;
+    }
+    .tag-title-setting i{
+      font-size: 18px;
     }
     .tag-list{
       padding-left: 24px;
@@ -53,6 +60,20 @@
       font-size: 20px;
       cursor: pointer;
     }
+		.color-tag{
+			display: flex;
+			width: 65%;
+		}
+		.color-circle{
+			width: 15px;
+		}
+		.color-name{
+			display: inline-block;
+			flex: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
     .all-tag{
       position: relative;
     }
@@ -68,7 +89,7 @@
       display: block;
       line-height: 48px;
       height: 48px;
-      padding-left: 48px;
+      padding-left: 24px;
       font-size: 16px;
       cursor: pointer;
     }
@@ -87,7 +108,7 @@
 
 <body>
   <div class="slide-menu">
-    <p><i class="layui-icon layui-icon-addition"></i>文件库</p>
+    <p><i class="font_family icon-wenjianku"></i>文件库</p>
     <ul class="menu-list">
       <li class="menu-item active" data-href="./recent-view.html" >最近浏览</li>
       <li class="menu-item" data-href="./my-library.html" >我的文件库</li>
@@ -98,58 +119,67 @@
     <div class="tag-box">
       <div class="tag-title">
         <div class="tag-title-left">
-          <i class="layui-icon layui-icon-note"></i>
+          <i class="font_family icon-fenpeibiaoqian"></i>
           <span>标签</span>
         </div>
         <div class="tag-title-setting" data-method="offset" data-type="auto">
-          <i class="layui-icon layui-icon-set"></i>
+          <i class="font_family icon-shezhi"></i>
         </div>
       </div>
+			<span class="create-tag" data-method="offset" data-type="auto">+ 新建标签</span>
       <ul class="tag-list">
         <li class="tag-item">
-          <div>
-            <span class="layui-badge-dot layui-bg-blue"></span>
-            <span class="color-name">蓝色</span>
+          <div class="color-tag">
+						<div class="color-circle">
+							<span class="layui-badge-dot layui-bg-blue"></span>
+						</div>
+            <span class="color-name" title="蓝色蓝色蓝色蓝色">蓝色蓝色蓝色蓝色</span>
           </div>
           <div>
             <span class="layui-badge">6</span>
           </div>
-          <i class="layui-icon layui-icon-more" data-dropdown="1"></i>
+          <i class="font_family icon-gengduo" data-dropdown="1"></i>
         </li>
         <li class="tag-item">
-          <div>
-            <span class="layui-badge-dot layui-bg-red"></span>
-            <span class="color-name">红色</span>
+          <div class="color-tag">
+						<div class="color-circle">
+							<span class="layui-badge-dot layui-bg-red"></span>
+						</div>
+            <span class="color-name" title="红色">红色</span>
           </div>
           <div>
             <span class="layui-badge">20</span>
           </div>
-          <i class="layui-icon layui-icon-more" data-dropdown="2"></i>
+          <i class="font_family icon-gengduo" data-dropdown="2"></i>
         </li>
         <li class="tag-item">
-          <div>
-            <span class="layui-badge-dot layui-bg-orange"></span>
-            <span class="color-name">黄色</span>
+          <div class="color-tag">
+						<div class="color-circle">
+							<span class="layui-badge-dot layui-bg-orange"></span>
+						</div>
+            <span class="color-name" title="黄色">黄色</span>
           </div>
           <div>
             <span class="layui-badge">49</span>
           </div>
-          <i class="layui-icon layui-icon-more" data-dropdown="3"></i>
+          <i class="font_family icon-gengduo" data-dropdown="3"></i>
         </li>
         <li class="tag-item">
-          <div class="all-tag">
-            <span class="layui-badge-dot layui-bg-black"></span>
-            <span class="layui-badge-dot layui-bg-black"></span>
+          <div class="all-tag color-tag">
+						<div class="color-circle">
+							<span class="layui-badge-dot layui-bg-black"></span>
+							<span class="layui-badge-dot layui-bg-black"></span>
+						</div>
             <span class="color-name">所有标签</span>
           </div>
           <div>
             <span class="layui-badge">120</span>
           </div>
-          <i class="layui-icon layui-icon-more" data-dropdown="4"></i>
+          <i class="font_family icon-gengduo" data-dropdown="4"></i>
         </li>
       </ul>
     </div>
-    <span class="create-tag" data-method="offset" data-type="auto">+ 新建标签</span>
+
   </div>
   <div id="chooseTag">
     <div id="colorSelect"></div>
@@ -179,8 +209,8 @@
               form = layui.form;
       // 左导航下拉菜单
       var dropDownData = [
-        {'type': 1, 'title': '编辑', 'icon': 'edit'},
-        {'type': 2, 'title': '删除', 'icon': 'delete'}
+        {'type': 1, 'title': '编辑', 'icon': 'bianji'},
+        {'type': 2, 'title': '删除', 'icon': 'shanchu'}
       ];
       $('.tag-item i').on('click', function () {
         var ele = $(this);
@@ -189,7 +219,7 @@
           position: 'right', // 下拉菜单定位 默认 bottom 类型：top、left、right、bottom
           className: 'my-drop', //自定义class 可根据此class自定义样式 默认为 空
           showIcon: true, //是否显示图标 默认false
-          iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
+          iconType: 'font_family icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
           zIndex: 1999, // 下拉层级 默认值999
           clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
           mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
@@ -197,20 +227,53 @@
           choose: function (data) { // 点击回调
             if(data.title === '编辑'){
               layer.open({
-                type: 1
-                ,content: $('#chooseTag')
-                , btn: '确定'
-                , title:'将标签分配给'
-                , fixed: false
-                , skin: 'layui-layer-radius'
-                , move: false // 禁止拖动
-                , btnAlign: 'c' //按钮居中
-                , shade: 0 //0不显示遮罩,
-                , shadeClose: true
-                , yes: function () {
-                  layer.closeAll();
-                },
-              })
+                type: 1,
+                title: '新建标签',
+                content: '<div class="tag-color-form">' +
+                        '<form class="layui-form" action="" lay-filter="tag-confirm"><div class="layui-form-item">' +
+                        '<div class="layui-input-inline" style="width: 150px;">' +
+                        '<input name="name" type="text" value="" lay-verify="required" autocomplete="off" placeholder="请输入标签名" class="layui-input">' +
+                        '</div>' +
+                        '<div class="layui-inline" style="left: -11px;">' +
+                        '<div id="tag-color"></div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="layui-input-block" style="margin-left:0px;text-align:center;">' +
+                        '<button type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="tag-confirm">确认</button>' +
+                        '<button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="tag-cancel">取消</button>' +
+                        '</div>' +
+                        '</form></div>',
+                success: function () {
+                  colorpicker.render({
+                    elem: '#tag-color',
+                    color: '#eb2f96',
+                    predefine: true, //开启预定义颜色
+                    alpha: true, //开启透明度
+                    format: 'rgb',
+                    colors: ['#eb2f96', '#f5222d', '#fa8c16', '#52c41a', '#13c2c2', '#1890ff', '#722ed1'], //自定义预定义颜色项
+
+                    done: function (color) {
+                      newColor = color;
+                    }
+                  });
+
+                  $('#tag-cancel').on('click', function () {
+                    layer.close(tagColorLayer);
+                  });
+
+                  form.render();
+
+                  form.on('submit(tag-confirm)', function (data) {
+                    newTagData = {
+                      color: newColor ? newColor : defaultColor,
+                      name: data.field.name,
+                      value: (new Date()).valueOf()
+                    }
+                    updateTag(newTagData);
+                    layer.close(tagColorLayer);
+                  });
+                }
+              });
             }
             console.log(data)
           }

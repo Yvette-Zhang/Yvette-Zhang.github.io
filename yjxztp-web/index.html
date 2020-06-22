@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./assets/plugins/layui/css/layui.css">
   <link rel="stylesheet" href="./assets/plugins/layui/layui_exts/dropDown/dropDown.css">
   <link rel="stylesheet" href="./assets/css/index/style.css">
+  <link rel="stylesheet" href="./assets/icon/iconfont.css">
 </head>
 
 <body class="index-body">
@@ -30,7 +31,7 @@
     <div class="index-header__right">
       <div class="index-notice">
         <button class="layui-btn layui-btn-text">
-          <i class="layui-icon layui-icon-notice"></i>
+          <i class="font_family icon-xiaoxi"></i>
         </button>
         <span class="layui-badge">6</span>
       </div>
@@ -45,10 +46,14 @@
   <div id="noticeCon" style="display: none;">
     <div class="notice-toolbar">
       <div class="dropdown-box">
-        <a class="notice-type layui-dropdown-link" data-dropdown="1" data-type="read-drop"><span>未读消息</span><i
-            class="layui-icon layui-icon-down"></i></a>
-        <a class="notice-type layui-dropdown-link" data-dropdown="2" data-type="category-drop"><span>类别</span><i
-            class="layui-icon layui-icon-down"></i></a>
+        <a class="notice-type layui-dropdown-link" data-dropdown="1" data-type="read-drop"><span>未读消息</span>
+          <!--          <i class="font_family icon-arrow-down"></i>-->
+          <i class="layui-icon layui-icon-down"></i>
+        </a>
+        <a class="notice-type layui-dropdown-link" data-dropdown="2" data-type="category-drop"><span>类别</span>
+          <i class="font_family icon-arrow-down"></i>
+          <i class="layui-icon layui-icon-down"></i>
+        </a>
       </div>
       <a class="layui-btn layui-btn-sm layui-btn-text" id="allRead">全部已读</a>
     </div>
@@ -57,7 +62,7 @@
         <li>
           <div class="notice-list-item_left">
             <div class="notice-list-item_icon type-one">
-              <i class="layui-icon layui-icon-rate-solid"></i>
+              <i class="font_family icon-renwufenpei"></i>
             </div>
           </div>
           <div class="notice-list-item_right">
@@ -80,7 +85,7 @@
         <li>
           <div class="notice-list-item_left">
             <div class="notice-list-item_icon type-two">
-              <i class="layui-icon layui-icon-rate-solid"></i>
+              <i class="font_family icon-baogaoxiezuo"></i>
             </div>
           </div>
           <div class="notice-list-item_right">
@@ -99,7 +104,7 @@
         <li>
           <div class="notice-list-item_left">
             <div class="notice-list-item_icon type-three">
-              <i class="layui-icon layui-icon-rate-solid"></i>
+              <i class="font_family icon-pingluntongzhi"></i>
             </div>
           </div>
           <div class="notice-list-item_right">
@@ -118,14 +123,14 @@
         <li>
           <div class="notice-list-item_left">
             <div class="notice-list-item_icon type-four">
-              <i class="layui-icon layui-icon-rate-solid"></i>
+              <i class="font_family icon-taoluntongzhi"></i>
             </div>
           </div>
           <div class="notice-list-item_right">
             <div class="notice-list-item_type">
               讨论通知
             </div>
-            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">报告协作：报告名称</div>
             <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
             <div class="notice-list-item_date">
               2020-05-21 14:27:49
@@ -137,91 +142,16 @@
         <li>
           <div class="notice-list-item_left">
             <div class="notice-list-item_icon type-five">
-              <i class="layui-icon layui-icon-rate-solid"></i>
+              <i class="font_family icon-fenxiangtongzhi"></i>
             </div>
           </div>
           <div class="notice-list-item_right">
             <div class="notice-list-item_type">
               文件分享通知
             </div>
-            <div class="notice-list-item_info">任务：编写报告</div>
+            <div class="notice-list-item_info">文件库：文件名称</div>
             <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
-            <div class="notice-list-item_date">
-              2020-05-21 14:27:49
-            </div>
-          </div>
-          <span class="notice-list-item_dot"></span>
-          <span class="notice-list-item_tips">已读</span>
-        </li>
-        <li>
-          <div class="notice-list-item_left">
-            <div class="notice-list-item_icon type-five">
-              <i class="layui-icon layui-icon-rate-solid"></i>
-            </div>
-          </div>
-          <div class="notice-list-item_right">
-            <div class="notice-list-item_type">
-              文件分享通知
-            </div>
-            <div class="notice-list-item_info">任务：编写报告</div>
-            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
-            <div class="notice-list-item_date">
-              2020-05-21 14:27:49
-            </div>
-          </div>
-          <span class="notice-list-item_dot"></span>
-          <span class="notice-list-item_tips">已读</span>
-        </li>
-        <li>
-          <div class="notice-list-item_left">
-            <div class="notice-list-item_icon type-five">
-              <i class="layui-icon layui-icon-rate-solid"></i>
-            </div>
-          </div>
-          <div class="notice-list-item_right">
-            <div class="notice-list-item_type">
-              文件分享通知
-            </div>
-            <div class="notice-list-item_info">任务：编写报告</div>
-            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
-            <div class="notice-list-item_date">
-              2020-05-21 14:27:49
-            </div>
-          </div>
-          <span class="notice-list-item_dot"></span>
-          <span class="notice-list-item_tips">已读</span>
-        </li>
-        <li>
-          <div class="notice-list-item_left">
-            <div class="notice-list-item_icon type-five">
-              <i class="layui-icon layui-icon-rate-solid"></i>
-            </div>
-          </div>
-          <div class="notice-list-item_right">
-            <div class="notice-list-item_type">
-              文件分享通知
-            </div>
-            <div class="notice-list-item_info">任务：编写报告</div>
-            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
-            <div class="notice-list-item_date">
-              2020-05-21 14:27:49
-            </div>
-          </div>
-          <span class="notice-list-item_dot"></span>
-          <span class="notice-list-item_tips">已读</span>
-        </li>
-        <li>
-          <div class="notice-list-item_left">
-            <div class="notice-list-item_icon type-five">
-              <i class="layui-icon layui-icon-rate-solid"></i>
-            </div>
-          </div>
-          <div class="notice-list-item_right">
-            <div class="notice-list-item_type">
-              文件分享通知
-            </div>
-            <div class="notice-list-item_info">任务：编写报告</div>
-            <div class="notice-list-item_info">内容：张三设置此任务为1.1.1审核的前置任务</div>
+            <div class="notice-list-item_info">备注：此文件为报告协作资料，不可分享</div>
             <div class="notice-list-item_date">
               2020-05-21 14:27:49
             </div>

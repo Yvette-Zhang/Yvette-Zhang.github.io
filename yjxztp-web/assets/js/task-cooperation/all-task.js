@@ -297,6 +297,7 @@ layui.use(["layer", "form"], function () {
       shadeClose: true,
       closeBtn: 0,
       move: false,
+      resize: false,
     });
   });
   // 切换列显隐

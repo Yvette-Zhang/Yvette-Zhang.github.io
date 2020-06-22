@@ -8,243 +8,8 @@
   <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
   <link rel="stylesheet" href="../../assets/css/common.css">
   <link rel="stylesheet" href="../../assets/plugins/datatables/datatable.css">
-  <style>
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-      box-sizing: border-box;
-      background-color: rgb(240, 243, 247);
-    }
-
-    body {
-      padding: 20px;
-    }
-
-    .layui-btn {
-      position: relative;
-    }
-
-    .layui-btn .layui-badge {
-      position: absolute;
-      background-color: #FB3C35;
-      height: 14px;
-      left: 5px;
-      top: 2px;
-      padding: 0 3px;
-      line-height: 14px;
-      border-radius: 7px;
-    }
-
-    .layui-row {
-      position: absolute;
-      top: 65px;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-    }
-
-    .layui-row .layui-card {
-      width: 100%;
-      height: 100%;
-    }
-
-    .layui-col-space20>* {
-      height: 100%;
-    }
-
-    .project-allview-card {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    .project-allview-card .layui-card-body {
-      position: absolute;
-      padding: 0 !important;
-      top: 30px;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-    }
-
-    .layui-card-body table.dataTable {
-      margin: 0;
-    }
-
-    .layui-tab-allview {
-      width: 100%;
-      text-align: center;
-      border: none;
-      height: 30px;
-    }
-
-    .layui-tab-allview li {
-      position: relative;
-      display: inline-block;
-      margin: 0 20px;
-      height: 30px;
-      padding: 0;
-      line-height: 16px;
-      color: #616874;
-      font-size: 16px;
-      border: none;
-    }
-
-    .layui-tab-allview .layui-this {
-      color: #0077FF;
-    }
-
-    .layui-tab-allview .layui-this:after {
-      position: absolute;
-      content: "";
-      left: 0;
-      right: 0;
-      height: 4px;
-      bottom: 0;
-      top: auto;
-      border-radius: 2px;
-      background-color: #0077FF;
-      border: none;
-    }
-
-    .project-allview-card .layui-tab {
-      width: 100%;
-      height: 100%;
-    }
-
-    .project-allview-card .layui-tab-content {
-      position: absolute;
-      padding: 0;
-      top: 40px;
-      bottom: 0;
-      left: 0;
-      right: -16px;
-    }
-
-    .project-allview-card .layui-tab-item {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      padding-bottom: 40px;
-      box-sizing: border-box;
-    }
-
-    .project-allview-card .project-report-item {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      padding-bottom: 0;
-      box-sizing: border-box;
-    }
-
-    .project-allview-card .project-allview-list {
-      width: 100%;
-      height: 100%;
-      padding-right: 16px;
-      box-sizing: border-box;
-      overflow: auto;
-    }
-
-    .project-allview-card .toolbar-bottom {
-      position: absolute;
-      left: -10px;
-      right: 10px;
-      bottom: 0;
-      display: flex;
-      background-color: #fff;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .project-allview-list-item {
-      display: flex;
-      padding: 30px 0 25px 0;
-    }
-
-    .project-allview-list-item+.project-allview-list-item {
-      border-top: 1px solid #E6E9F0;
-    }
-
-    .project-allview-list-item .project-allview-list-item_img {
-      width: 40px;
-      flex-shrink: 0;
-      height: 100%;
-    }
-
-    .project-allview-list-item .project-allview-list-item_msg {
-      flex: 1;
-      padding-left: 15px;
-      font-size: 14px;
-      line-height: 16px;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-
-    .project-allview-list-item .project-allview-list-item_title {
-      margin-bottom: 15px;
-      color: #212832;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .project-allview-list-item .project-allview-list-item_user {
-      color: #616874;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .project-allview-list-item .project-allview-list-item_right {
-      width: 100px;
-      font-size: 12px;
-      color: #B9C0C8;
-      line-height: 15px;
-      text-align: right;
-      line-height: 16px;
-      overflow: hidden;
-    }
-
-    .project-allview-list-item .project-allview-list-item_tool {
-      margin-bottom: 15px;
-      height: 16px;
-    }
-
-    .project-tool.layui-btn {
-      height: 16px;
-      line-height: 16px;
-      color: #99A3BC;
-    }
-
-    #projectDataTool {
-      font-size: 14px;
-      color: #616874;
-      line-height: 34px;
-    }
-
-    #projectDataTool .layui-form-switch {
-      margin: 0;
-    }
-
-    #projectDataTool .allow-list li {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 10px 0;
-      min-width: 150px;
-    }
-
-    #projectDataTool .tool-list li {
-      cursor: pointer;
-      padding-left: 5px;
-    }
-
-    #projectDataTool .tool-list li:hover {
-      background-color: #F0F3F7;
-      color: #0077FF;
-    }
-  </style>
+  <link rel="stylesheet" href="../../assets/css/project/project-allview.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css">
 </head>
 
 <body>
@@ -253,8 +18,8 @@
     <button class="layui-btn layui-btn-plain">批量创建任务</button>
     <button class="layui-btn layui-btn-plain">任务设置</button>
     <button class="layui-btn layui-btn-shadow">创建任务</button>
-    <button class="layui-btn layui-btn-text layui-btn-primary"><i class="layui-icon layui-icon-username"></i><span
-        class="layui-badge">6</span></button>
+    <button class="layui-btn layui-btn-text layui-btn-primary" id="uesr-btn"><i
+        class="font_family icon-chakanfenxiangchengyuan"></i><span class="layui-badge">6</span></button>
   </div>
   <div class="layui-row layui-col-space20">
     <div class="layui-col-md9">
@@ -263,8 +28,9 @@
           <div class="table-toolbar">
             <div class="table-toolbar-left">
               <div class="search">
-                <i class="layui-icon layui-icon-search"></i>
+                <i class="font_family icon-sousuo"></i>
                 <input class="search-ipt" type="text" placeholder="请输入项目名称，按“Enter”键进行搜索">
+                <i class="font_family icon-guanbi"></i>
               </div>
             </div>
             <div class="table-toolbar-right layui-form">
@@ -279,7 +45,7 @@
                 显示列 <i class="layui-icon layui-icon-down"></i>
               </button>
               <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
-                <i class="layui-icon layui-icon-refresh-3"></i>
+                <i class="layui-icon layui-icon-refresh"></i>
               </button>
             </div>
           </div>
@@ -299,7 +65,11 @@
               <div class="layui-tab-item layui-show">
                 <div class="project-allview-list">
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-ppt"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料项目参考资料项目参考资料项目参考资料">
                         项目参考资料项目参考资料项目参考资料项目参考资料</div>
@@ -308,13 +78,17 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-ppt"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -322,13 +96,17 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-W"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -336,13 +114,17 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-W"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -350,13 +132,17 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-pdf"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -364,13 +150,17 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-pdf"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -378,13 +168,17 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-exl"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -392,13 +186,17 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-exl"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -406,13 +204,17 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x40/e2e8f1/00067f">
+                    <div class="project-allview-list-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-exl"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -420,7 +222,7 @@
                     <div class="project-allview-list-item_right">
                       <div class="project-allview-list-item_tool">
                         <button class="layui-btn layui-btn-text layui-btn-primary project-tool"><i
-                            class="layui-icon layui-icon-more"></i></button>
+                            class="font_family icon-gengduo"></i></button>
                       </div>
                       <div class="project-allview-list-item_data">2020-01-01 10:00</div>
                     </div>
@@ -434,7 +236,11 @@
               <div class="layui-tab-item project-report-item">
                 <div class="project-allview-list">
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -445,7 +251,11 @@
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -456,7 +266,11 @@
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -467,7 +281,11 @@
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -478,7 +296,11 @@
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -489,7 +311,11 @@
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -500,7 +326,11 @@
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -511,7 +341,11 @@
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -522,7 +356,11 @@
                     </div>
                   </div>
                   <div class="project-allview-list-item">
-                    <img class="project-allview-list-item_img" src="https://dummyimage.com/40x50/e2e8f1/00067f">
+                    <div class="project-allview-report-item_img">
+                      <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-baogao"></use>
+                      </svg>
+                    </div>
                     <div class="project-allview-list-item_msg">
                       <div class="project-allview-list-item_title" title="项目参考资料">项目参考资料</div>
                       <div class="project-allview-list-item_user">张三</div>
@@ -541,6 +379,181 @@
     </div>
   </div>
 
+  <!-- 项目成员列表 -->
+  <script id="userList" type="text/html">
+    <ul>
+      {{#  layui.each(d, function(index, item){ }}
+      <li>
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">{{ item.stortName }}</span>
+          </span>
+          <span class="user-name">
+            {{ item.name }}
+            {{#  if(item.role){ }}
+            ({{ item.role }})
+            {{#  } }}
+          </span>
+
+        </div>
+        <div class="user-tool">
+          <button class="layui-btn layui-btn-text layui-btn-primary"><i class="font_family icon-gengduo"></i></button>
+        </div>
+      </li>
+      {{#  }); }}
+      {{#  if(d.length === 0){ }}
+      暂无成员
+      {{#  } }}
+    </ul>
+  </script>
+
+  <!-- 项目成员弹窗内容 -->
+  <div id="userInfo" style="display: none;">
+    <div class="user-search">
+      <input type="text" placeholder="搜索人员">
+      <i class="font_family icon-sousuo"></i>
+    </div>
+    <div id="user—list"></div>
+    <div class="bottom-warp" style="text-align: center;">
+      <button class="layui-btn layui-btn-plain" id="addUser">添加成员</button>
+    </div>
+  </div>
+
+  <!-- 添加成员操作弹窗内容 -->
+  <div id="shareLayer" class="layui-form" style="display: none;">
+    <div class="share-left">
+      <div class="share-left-item">
+        <div class="share-left__header">
+          <div class="share-left__header__title">添加成员</div>
+          <div class="share-left__header__mate">
+            <input type="text" class="layui-input">
+            <i id="shareSearch" class="layui-icon layui-icon-search"></i>
+          </div>
+        </div>
+        <div class="share-left__subheader">
+          <div class="share-left__subheader__left">已添加成员：</div>
+          <div class="share-left__subheader__right">78人</div>
+        </div>
+        <div class="share-left__content" style="height: 230px;">
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+        </div>
+      </div>
+      <button class="layui-btn layui-btn-shadow ">确定</button>
+      <button class="layui-btn layui-btn-primary">取消</button>
+    </div>
+    <div class="share-right">
+      <div class="share-right__header">
+        <img src="https://dummyimage.com/30x30/000/fff">
+        国家能源集团-项目研究
+      </div>
+      <div class="share-right__content">
+        <div class="share-right-select">
+          <input type="checkbox" lay-skin="primary" title="全选">
+          <div class="share-right-select__list">
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">按组织架构选择</div>
+              <i class="layui-icon layui-icon-right"></i>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">按项目选择</div>
+              <i class="layui-icon layui-icon-right"></i>
+            </div>
+          </div>
+        </div>
+        <div style="display: none;" class="share-right-select-detail">
+          <div class="share-right-select-detail__nav"><i class="layui-icon layui-icon-left"></i>按组织架构选择</div>
+          <div class="share-right-select__list">
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary" title="全选">
+              </div>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary" title="能源小组(5人)">
+              </div>
+              <i class="layui-icon layui-icon-right"></i>
+            </div>
+          </div>
+        </div>
+        <div style="display: none;" class="share-right-select-member">
+          <div class="share-right-select-member__nav"><i class="layui-icon layui-icon-left"></i>按组织架构选择</div>
+          <div class="share-right-select__list">
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary" title="全选">
+              </div>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary">
+                <div class="layui-avatar">平安</div>
+                王平安
+              </div>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary">
+                <div class="layui-avatar">平安</div>
+                王平安
+              </div>
+            </div>
+            <div class="share-right-select__list-item">
+              <div class="share-right-select__list-item__title">
+                <input type="checkbox" lay-skin="primary">
+                <div class="layui-avatar">平安</div>
+                王平安
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 项目成员权限弹窗内容 -->
+  <div id="userPermission" style="display: none;">
+    <div class="layui-form">
+      <ul>
+        <li>
+          <input type="checkbox" lay-skin="primary" title="项目负责人">
+        </li>
+        <li>
+          <input type="checkbox" lay-skin="primary" title="课题1负责人课题1负责人课题1负责人课题1负责人">
+        </li>
+        <li>
+          <input type="checkbox" lay-skin="primary" title="成员">
+        </li>
+      </ul>
+    </div>
+    <div class="bottom-warp">
+      <button class="layui-btn layui-btn-sm layui-btn-plain">移出项目</button>
+      <button class="layui-btn layui-btn-sm layui-btn-primary">移出课题</button>
+    </div>
+  </div>
+
+
+  <!-- 显隐列弹窗内容 -->
   <div style="display: none;" id="columnsVis">
     <div class="layer-box__header"></div>
     <div class="layer-box__body layui-form">
@@ -563,6 +576,8 @@
       </ul>
     </div>
   </div>
+
+  <!-- 项目资料操作弹窗内容 -->
   <div id="projectDataTool" style="display: none;">
     <div class="layui-form">
       <ul class="allow-list">
@@ -591,228 +606,9 @@
   <!-- 模拟数据 -->
   <script src="https://cdn.bootcdn.net/ajax/libs/Mock.js/1.0.1-beta3/mock-min.js"></script>
 
+  <script src="../../assets/js/project-management/project-allview.js"></script>
+  <script src="../../assets/icon/iconfont.js"></script>
 
-  <script>
-    // 模拟 ajax 请求数据
-    function MockData() {
-      return new Promise((r, j) => {
-        var data = Mock.mock({
-          "data|10-20": [{
-            "id|+1": 0,
-            "num|+1": 1,
-            "name|1": "@ctitle(3,8)",
-            "executor|1": "@cname",
-            "project|1": ["项目1", "项目2"],
-            "type|1": ["科研类", "创业类"],
-            "endtime|1": "@date",
-            "starttime|1": "@date",
-            "status|1": ["invalid", "normal", "done"],
-          },],
-        });
-        r(data.data);
-      });
-    };
-
-    function createIcon(icon) {
-      if (!icon) return "";
-      return `<i class="layui-icon">${icon}</i>`;
-    }
-
-    function Button(text, theme, size, radius, icon) {
-      if (!text) return null;
-      var baseClass = "layui-btn-";
-      var themeClass = theme ? baseClass + theme : "";
-      var sizeClass = size ? baseClass + size : "";
-      var radiusClass = radius ? baseClass + "radius" : "";
-      var BtnClass = `layui-btn datatable-btn ${themeClass} ${sizeClass} ${radiusClass}`;
-      return $(`<button class="${BtnClass}">${createIcon(icon)}${text}</button>`);
-    }
-
-    // 生成表格
-    var tableEl = $("#allview-table");
-    MockData().then(function (data) {
-      tableEl.DataTable({
-        scrollY: "calc(100vh - 235px)",
-        info: false,
-        paging: false,
-        searching: false,
-        order: [],
-        data: data,
-        columnDefs: [{
-          orderable: false,
-          targets: "_all"
-        }],
-        tips: true,
-        createdRow(row, data, dataIndex) {
-          // 状态 class
-          $(row).addClass(`datatable-status-${data.status}`);
-        },
-        columns: [{
-          title: "序号",
-          data: "num",
-          width: "30px",
-          tips: false
-        },
-        {
-          title: "任务名称",
-          data: "name",
-        },
-        {
-          title: "执行人",
-          data: "executor",
-          name: "executor",
-        },
-        {
-          title: "项目",
-          data: "project",
-          name: "project",
-          orderable: true,
-        },
-        {
-          title: "任务分类",
-          data: "type",
-          name: "type",
-        },
-        {
-          title: "截止时间",
-          data: "endtime",
-          name: "endtime",
-          orderable: true,
-        },
-        {
-          title: "创建时间",
-          data: "starttime",
-          name: "starttime",
-          orderable: true,
-        },
-        {
-          title: "操作",
-          data: null,
-          defaultContent: "",
-          width: "180px",
-          tips: false,
-          createdCell(cell, cellData, rowData, rowIndex, colIndex) {
-            if (rowData.status === "done" || rowData.status === "invalid") {
-              var restartBtn = new Button("重启", "", "sm");
-              restartBtn.on("click", function () {
-                $(this).trigger({
-                  type: "restartClick",
-                  cell,
-                },
-                  rowData
-                );
-              });
-            }
-            if (rowData.status === "normal") {
-              var doneBtn = new Button("完成", "", "sm");
-              doneBtn.on("click", function () {
-                $(this).trigger({
-                  type: "doneClick",
-                  cell,
-                },
-                  rowData
-                );
-              });
-            }
-            if (rowData.status !== "invalid") {
-              var subTaskBtn = new Button("+子任务", "", "sm");
-              subTaskBtn.on("click", function () {
-                $(this).trigger({
-                  type: "addSubTaskClick",
-                  cell,
-                },
-                  rowData
-                );
-              });
-            }
-            $(cell).append([restartBtn, doneBtn, subTaskBtn]);
-          },
-        },
-        ],
-      });
-    });
-
-    layui.use(["layer", "form", "element"], function () {
-      var layer = layui.layer,
-        form = layui.form,
-        element = layui.element;
-
-
-      var datatable = tableEl.DataTable();
-      var $search = $("#search");
-      // 监听操作栏按钮点击
-      tableEl.on("restartClick", function (e, data) {
-        layer.msg("重启" + JSON.stringify(data));
-      });
-      tableEl.on("doneClick", function (e, data) {
-        layer.msg("完成" + JSON.stringify(data));
-      });
-      tableEl.on("addSubTaskClick", function (e, data) {
-        layer.msg("+子任务" + JSON.stringify(data));
-      });
-      // 更新数据
-      $search.on("keyup", function (e) {
-        if (e.keyCode == 13) {
-          MockData().then(function (data) {
-            datatable.clear();
-            datatable.rows.add(data);
-            datatable.draw();
-          });
-        }
-      });
-      // 弹出式菜单
-      $("#colsvis").on("click", function (e) {
-        var layerDom = $(columnsVis);
-        layer.open({
-          triggerEle: $(this),
-          title: "",
-          type: 1,
-          offset: "eb",
-          content: layerDom,
-          shade: 0.001,
-          shadeClose: true,
-          closeBtn: 0,
-          move: false,
-        });
-      });
-      // 切换列显隐
-      form.on("switch", function (data) {
-        var column = datatable.column($(data.elem).attr("data-column") + ":name");
-        column.visible(data.elem.checked);
-      });
-      // 外部按列降序
-      $("#sortByEndtime").on("click", function () {
-        var column = datatable.column("endtime:name");
-        column.order('desc').draw();
-      });
-
-      // 项目资料操作
-      $('.project-tool').on('click', function () {
-        var $this = $(this);
-        var layerDom = $("#projectDataTool");
-        layer.open({
-          triggerEle: $this,
-          title: "",
-          type: 1,
-          offset: "eb",
-          content: layerDom,
-          shade: 0.001,
-          shadeClose: true,
-          closeBtn: 0,
-          move: false,
-        });
-      });
-
-      //是否允许下载
-
-      // 切换列显隐
-      form.on("switch(switch-allow)", function (data) {
-        console.log(data.elem.checked)
-      });
-
-
-    });
-  </script>
 </body>
 
 </html>

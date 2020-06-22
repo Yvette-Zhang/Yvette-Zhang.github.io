@@ -1,0 +1,101 @@
+body{
+    padding:20px 20px 0 20px;
+}
+.create-project{
+    width:500px;
+    height:150px;
+    margin: 40px 0;
+    padding: 30px;
+    box-sizing: border-box;
+    background:rgba(255,255,255,1);
+    box-shadow:0 2px 2px 1px rgba(208,105,109,0.15);
+    border-radius:20px;
+}
+.title{
+    font-size: 24px;
+    color: #CA221C;
+}
+.title i{
+    font-size: 20px;
+    font-weight: bold;
+}
+.project-list{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.project-item{
+    width: 17.7%;
+    height: 258px;
+    padding: 30px;
+    box-sizing: border-box;
+    border:1px solid transparent;
+    border-radius: 4px;
+    box-shadow:0 4px 4px 1px rgba(166,166,170,0.15);
+}
+.project-item:hover{
+    transition: all .5s;
+    border:1px solid  #0077FF ;
+    box-shadow:0 10px 22px 0 rgba(27,101,187,0.15);
+}
+.project-header{
+    position: relative;
+}
+.project-image{
+    width: 50px;
+    height: 40px;
+    margin-bottom: 15px;
+}
+.project-image svg{
+    width: 1em;
+    height: 1em;
+    font-size: 51px;
+}
+.project-btn{
+    display: inline-block;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    color: #99A3BC;
+    opacity: 0;
+    cursor: pointer;
+}
+.project-btn i{
+    font-size: 18px;
+    margin-right: 10px;
+}
+.project-item:hover .project-btn{
+    opacity: 1;
+    transition: all .5s;
+}
+.project-name{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid rgba(178, 178, 178, 0.28);
+}
+.project-title{
+    font-size: 18px;
+    color: #0077FF;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.project-content{
+    padding-top: 10px;
+}
+.project-content p{
+    color: #B9BFC7;
+}
+.project-content .project-info{
+    color:#616874;
+    position:relative;
+    line-height:20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}

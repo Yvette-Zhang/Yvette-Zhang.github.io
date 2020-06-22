@@ -6,87 +6,8 @@
   <title>项目管理</title>
   <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
   <link rel="stylesheet" href="../../assets/css/common.css">
-  <style>
-    body{
-      padding:20px 20px 0 20px;
-    }
-    .create-project{
-      width:500px;
-      height:150px;
-      margin: 40px 0;
-      padding: 30px;
-      box-sizing: border-box;
-      background:rgba(255,255,255,1);
-      box-shadow:0 2px 2px 1px rgba(208,105,109,0.15);
-      border-radius:20px;
-    }
-    .title{
-      font-size: 24px;
-      color: #CA221C;
-    }
-    .project-list{
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-    .project-item{
-      width: 17.7%;
-      height: 258px;
-      padding: 30px;
-      box-sizing: border-box;
-      border:1px solid transparent;
-      border-radius: 4px;
-      box-shadow:0 4px 4px 1px rgba(166,166,170,0.15);
-    }
-    .project-item:hover{
-      transition: all .5s;
-      border:1px solid  #0077FF ;
-      box-shadow:0 10px 22px 0 rgba(27,101,187,0.15);
-    }
-    .project-header{
-      position: relative;
-    }
-    .project-image{
-      width: 50px;
-      height: 40px;
-      margin-bottom: 15px;
-      background-color: #0f71ff;
-    }
-    .project-btn{
-      display: inline-block;
-      position: absolute;
-      right: -10px;
-      top: -10px;
-      color: #99A3BC;
-      opacity: 0;
-      cursor: pointer;
-    }
-    .project-btn i{
-      font-size: 18px;
-    }
-    .project-item:hover .project-btn{
-      opacity: 1;
-      transition: all .5s;
-    }
-    .project-name{
-      display: flex;
-      justify-content: space-between;
-      height: 40px;
-      line-height: 40px;
-      border-bottom: 1px solid rgba(178, 178, 178, 0.28);
-    }
-    .project-title{
-      font-size: 18px;
-      color: #0077FF;
-      cursor: pointer;
-    }
-    .project-content{
-      padding-top: 10px;
-    }
-    .project-content p:first-child{
-      color: #B9BFC7;
-    }
-  </style>
+  <link rel="stylesheet" href="../../assets/css/project/index.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css">
 </head>
 <body>
 <h2 class="page-title">项目管理</h2>
@@ -94,37 +15,48 @@
   <div class="layui-card-body">
     <div class="layui-row">
       <div class="search">
-        <i class="layui-icon layui-icon-search"></i>
+        <i class="font_family icon-sousuo"></i>
         <input class="search-ipt" type="text" placeholder="请输入项目名称，按“Enter”键进行搜索">
-        <i class="layui-icon layui-icon-close"></i>
+        <i class="font_family icon-guanbi"></i>
       </div>
     </div>
     <div class="create-project">
-      <h1 class="title"><i class="layui-icon layui-icon-addition"></i> 创建项目</h1>
+      <h1 class="title">+ 创建项目</h1>
     </div>
     <div class="project-list">
       <div class="project-item">
         <div class="project-header">
-          <div class="project-image"></div>
+          <div class="project-image">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-xiangmu"></use>
+            </svg>
+          </div>
           <div class="project-btn">
-            <i class="layui-icon layui-icon-edit"></i>
-            <i class="layui-icon layui-icon-delete"></i>
+            <i class="font_family icon-bianji"></i>
+            <i class="font_family icon-shanchu"></i>
           </div>
           <div class="project-name">
-            <span class="project-title">项目名称1</span>
+            <span class="project-title" title="项目名称1项目名称1项目名称1项目名称1项目名称1项目名称1">项目名称1项目名称1项目名称1项目名称1项目名称1项目名称1</span>
           </div>
         </div>
         <div class="project-content">
           <p>项目简介:</p>
-          <p>项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
+          <p class="project-info" >项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目
+            简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目
+            简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简
+            介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
         </div>
       </div>
       <div class="project-item">
         <div class="project-header">
-          <div class="project-image"></div>
+          <div class="project-image">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-xiangmu"></use>
+            </svg>
+          </div>
           <div class="project-btn">
-            <i class="layui-icon layui-icon-edit"></i>
-            <i class="layui-icon layui-icon-delete"></i>
+            <i class="font_family icon-bianji"></i>
+            <i class="font_family icon-shanchu"></i>
           </div>
           <div class="project-name">
             <span class="project-title">项目名称1</span>
@@ -132,15 +64,19 @@
         </div>
         <div class="project-content">
           <p>项目简介:</p>
-          <p>项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
+          <p class="project-info">项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
         </div>
       </div>
       <div class="project-item">
         <div class="project-header">
-          <div class="project-image"></div>
+          <div class="project-image">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-xiangmu"></use>
+            </svg>
+          </div>
           <div class="project-btn">
-            <i class="layui-icon layui-icon-edit"></i>
-            <i class="layui-icon layui-icon-delete"></i>
+            <i class="font_family icon-bianji"></i>
+            <i class="font_family icon-shanchu"></i>
           </div>
           <div class="project-name">
             <span class="project-title">项目名称1</span>
@@ -148,15 +84,19 @@
         </div>
         <div class="project-content">
           <p>项目简介:</p>
-          <p>项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
+          <p class="project-info">项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
         </div>
       </div>
       <div class="project-item">
         <div class="project-header">
-          <div class="project-image"></div>
+          <div class="project-image">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-xiangmu"></use>
+            </svg>
+          </div>
           <div class="project-btn">
-            <i class="layui-icon layui-icon-edit"></i>
-            <i class="layui-icon layui-icon-delete"></i>
+            <i class="font_family icon-bianji"></i>
+            <i class="font_family icon-shanchu"></i>
           </div>
           <div class="project-name">
             <span class="project-title">项目名称1</span>
@@ -164,15 +104,19 @@
         </div>
         <div class="project-content">
           <p>项目简介:</p>
-          <p>项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
+          <p class="project-info">项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
         </div>
       </div>
       <div class="project-item">
         <div class="project-header">
-          <div class="project-image"></div>
+          <div class="project-image">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-xiangmu"></use>
+            </svg>
+          </div>
           <div class="project-btn">
-            <i class="layui-icon layui-icon-edit"></i>
-            <i class="layui-icon layui-icon-delete"></i>
+            <i class="font_family icon-bianji"></i>
+            <i class="font_family icon-shanchu"></i>
           </div>
           <div class="project-name">
             <span class="project-title">项目名称1</span>
@@ -180,7 +124,7 @@
         </div>
         <div class="project-content">
           <p>项目简介:</p>
-          <p>项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
+          <p class="project-info">项目简介项目简介项目简介项目简介项目简介项目简介项目简介项目简介</p>
         </div>
       </div>
     </div>
@@ -191,6 +135,7 @@
 <script src="../../assets/js/jquery-1.9.1.min.js"></script>
 <script src="../../assets/plugins/layui/layui.js"></script>
 <script src="../../assets/js/index/main.js"></script>
+<script src="../../assets/icon/iconfont.js"></script>
 <script>
   $('.project-title').click(function(){
     window.parent.setPageUrl('./pages/project-management/project-menu.html')

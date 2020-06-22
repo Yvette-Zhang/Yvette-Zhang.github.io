@@ -56,7 +56,7 @@ table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_asc_disabled:before,
 table.dataTable thead .sorting_desc_disabled:before {
   right: 1em;
-  top: 7px;
+  top: 6px;
   content: "\e625";
   transform: rotate(180deg);
 }
@@ -68,7 +68,7 @@ table.dataTable thead .sorting_desc:after,
 table.dataTable thead .sorting_asc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:after {
   right: 1em;
-  bottom: 7px;
+  bottom: 6px;
   content: "\e625";
 }
 
@@ -104,6 +104,7 @@ table.dataTable.layui-table td {
 }
 table.dataTable {
   border: none !important;
+  margin: 0 !important;
 }
 
 table.dataTable thead tr {
@@ -114,6 +115,7 @@ table.dataTable thead th {
   border: none !important;
   color: #333;
   font-weight: bold;
+  padding: 10px 5px;
 }
 
 table.dataTable tbody tr:hover {
@@ -129,12 +131,15 @@ table.dataTable .dtrg-group td {
 .datatable-group-icon {
   margin-right: 10px;
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
   text-align: center;
-  line-height: 30px;
-  border-radius: 10px;
+  line-height: 22px;
+  border-radius: 4px;
   background: #f0f8ff;
+}
+.datatable-group-icon i {
+  font-size: 12px;
 }
 
 /* 固定表头 */
@@ -269,16 +274,11 @@ table.dataTable tr:hover .datatable-visibility * {
   visibility: visible;
 }
 
-td.select-checkbox {
-  padding-left: 20px !important;
-}
-
 .dataTable .layui-form-checkbox {
   min-width: 14px;
   min-height: 14px;
 }
 
-th.select-checkbox .layui-form-checkbox {
-  position: absolute;
-  top: 10px;
+.font_family.icon-shoucang {
+  color: rgb(255, 170, 28);
 }
