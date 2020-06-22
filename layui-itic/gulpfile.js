@@ -244,5 +244,5 @@ gulp.task('server', function (cb) {
   cb();
 });
 
-exports.default = gulp.series(clear, clearRelease, task.alljs, task.minjs, task.mobile, task.allcss, task.mincss, task.font, task.layuiExts, task.mv);
+exports.default = gulp.series(clear, clearRelease, task.mergeJs, task.alljs, task.minjs, task.mobile, task.allcss, task.mincss, task.font, task.layuiExts, task.mv);
 //exports.default = gulp.series(clear, clearRelease, task.layuiExts);

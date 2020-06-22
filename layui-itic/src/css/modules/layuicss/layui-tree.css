@@ -73,6 +73,9 @@
   margin: 0 10px;
   color: #c0c4cc;
 }
+.layui-tree-iconClick + .layui-tree-iconClick{
+  margin-left: 0;
+}
 .layui-tree-icon {
   height: 12px;
   line-height: 12px;

@@ -10,7 +10,7 @@
 </head>
 <style>
   body {
-    padding:0px 30px;
+    padding: 0px 30px;
   }
 </style>
 
@@ -20,44 +20,42 @@
       <br>
       <br>
       <blockquote class="layui-elem-quote">
-        <p>基本参数配置</p>
+        <p>基本使用参数配置</p>
         <pre class="layui-code">
-          el: $('#circle'), 
-          value: 25,   //表示环形的百分比
-          background: '#fff',  // 表示外部圆的颜色
-          color: '#f0f',   //通过改变参数来改变圆环的颜色
-          width: ['120px', '90px'],  //通过改变内圆的直径来改变圆环的宽度
-          deg: 90, // 表示环形的起始位置，起始位置为角度
+          基于:
+          layui-processCircle.css; 
+          jquery-1.9.1.min.js
+          ProcessCircle.js
+          调用：
+          circle({
+            el: $('#circle'), //需要设置进度环的元素
+            value: 25,   //表示环形的百分比
+            background: '#fff',  // 表示外部圆的颜色
+            color: '#f0f',   //通过改变参数来改变圆环的颜色
+            width: [120, 90],  //[外圆直径，内圆直径]通过改变来改变圆环的宽度
+            deg: 90, // 表示环形的起始位置，起始位置为角度
+          })
+          
         </pre>
-        <p>判断条件</p>
-        <pre class='layui-code'>
-          if (num + deg <= 180) {
-            right.css('transform', 'rotate(' + (deg - 180) + 'deg)')
-            rightwhite.css('transform', 'rotate(' + (num + deg) + 'deg)')
-          } else {
-            right.css('transform', 'rotate(' + (deg - 180) + 'deg)')
-            left.css('transform', 'rotate(' + (num + deg - 180) + 'deg)')
-          }
-        </pre> 
       </blockquote>
     </div>
     <div class="layui-col-md6">
       <div id="circle"></div>
     </div>
   </div>
-  
 
-  
+
+
   <script src="../examples/js/jquery-1.9.1.min.js"></script>
   <script src="../layui_exts/ProcessCircle/js/ProcessCircle.js"></script>
   <script>
     (function () {
       var a = circle({
         el: $('#circle'),
-        value:25,   //百分比
-        background: '#fff',  //大圆的颜色
-        color: '#f0f',   //圆环的颜色
-        width: ['120px', '90px'],  
+        value: 20, //百分比
+        background: '#fff', //大圆的颜色
+        color: '#f0f', //圆环的颜色
+        width: [200, 160],
         deg: 90, //起始位置 
       })
     })();

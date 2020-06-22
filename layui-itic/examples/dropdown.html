@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../layui_exts/dropDown/dropDown.css">
   <style>
     body {
-      padding:0px 50px;
+      padding: 0px 50px;
     }
   </style>
 </head>
@@ -30,7 +30,7 @@
         <pre class="layui-code">
           var dropDownData = [
             { 'type': 1, 'title': '删除文件', 'icon': 'addition', 'href': 'https://www.baidu.com/', 'target': '_blank' },
-            { 'type': 2, 'title': '添加文件', 'icon': 'delete' },
+            { 'type': 2, 'title': '添加文件', 'icon': 'delete', arrow: true },
             { 'type': 3, 'title': '分享', 'icon': 'share' },
             { 'type': 4, 'title': '更多', 'icon': 'share', 'disabled': true, 'children': [
                 { 'type': 6, 'title': '更多2-1', 'icon': 'share', 'disabled': true },
@@ -48,6 +48,7 @@
           //icon: 图标类型；
           //href: 链接；
           //target: 链接打开方式 默认本页面打开；_blank新页面打开
+          //arrow: 是否强制显示右箭头
           //disabled 是否禁选
     
           **暂时只支持两层的嵌套**
@@ -64,11 +65,14 @@
             zIndex: 1999, // Number 下拉层级 默认值999 （非必须）
             clickClose: true, // Boolean 点击下拉菜单选项是否关闭下拉菜单 默认true 
             mouseleaveClose: false, // Boolean 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
+            bodyClose: false, // boolean 点击body是否隐藏下拉菜单 默认true
             data: dropDownData, // Json 下拉菜单的数据 （必须）
             choose: function (data) { // 点击回调
               console.log(data);
             }
           });
+          // 销毁方法
+          dropDownEle.destroy();
         </pre>
       </blockquote>
     </div>
@@ -150,7 +154,7 @@
 
       var dropDownData = [
         { 'type': 1, 'title': '删除文件', 'icon': 'addition', 'href': 'https://www.baidu.com/', 'target': '_blank' },
-        { 'type': 2, 'title': '添加文件', 'icon': 'delete' },
+        { 'type': 2, 'title': '添加文件', 'icon': 'delete', 'arrow': true },
         { 'type': 3, 'title': '分享', 'icon': 'share' },
         {
           'type': 4, 'title': '更多', 'icon': 'share', 'disabled': true, 'children': [
@@ -182,13 +186,19 @@
           showIcon: true, //是否显示图标 默认false
           iconType: 'layui-icon', //icon图标类型 layui-icon layui自带图标；默认为 layui-icon，也可以是其他图标库的前缀
           zIndex: 1999, // 下拉层级 默认值999
-          clickClose: true, //点击下拉菜单选项是否关闭下拉菜单 默认true
+          clickClose: false, //点击下拉菜单选项是否关闭下拉菜单 默认true
           mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
           data: dropDownData, // 下拉菜单的数据
           choose: function (data) { // 点击回调
             console.log(data);
           }
         });
+
+        console.log(dropDownEle);
+
+        setTimeout(function () {
+          dropDownEle.destroy();
+        }, 2000)
 
       });
 
