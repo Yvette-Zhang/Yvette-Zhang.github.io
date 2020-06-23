@@ -107,13 +107,13 @@ body{
     white-space: nowrap;
 }
 .card-item{
-    width: 32%;
-    height:200px;
+    width: 100%;
+    height:100%;
     background:rgba(245,245,247,1);
     border-radius:10px;
     padding: 20px;
     box-sizing: border-box;
-    margin-right: 1.5%;
+
     margin-bottom: 5px;
     display: inline-block;
 }
@@ -122,10 +122,10 @@ body{
 }
 .card-header{
     display: flex;
-    height: 44px;
+    height: 51px;
+		margin-bottom: 10px;
 }
 .card-body{
-    height: 115px;
     overflow: hidden;
 }
 .card-img{
@@ -140,18 +140,25 @@ body{
 .card-title{
     flex: 1;
     padding-left: 5px;
+		padding-top: 7px;
+    overflow: hidden;
 }
 .card-title p{
     font-size: 16px;
     color: #212832;
+		text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .card-title .card-time{
     color: #99A3BC;
-    font-size: 14px;
+    font-size: 12px;
 }
 .member{
     color: #99A3BC;
-    margin: 10px 0;
+    margin: 6px 0;
+		font-size: 14px;
 }
 .member span{
     color: #616874;
@@ -161,7 +168,7 @@ body{
 }
 .info{
     display: flex;
-    height: 80px;
+		font-size: 14px;
 }
 .info span{
     color: #99A3BC;
@@ -169,7 +176,9 @@ body{
 .info p{
     display: inline-block;
     width: 78%;
+		line-height: 20px;
     color: #616874;
+		text-align: left;
     white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -228,6 +237,9 @@ body{
     overflow-y: auto;
     height: 100%;
 }
+.layui-timeline-item{
+    padding-bottom: 0;
+}
 .layui-timeline-item .layui-timeline-icon{
     width: 8px;
     height: 8px;
@@ -236,7 +248,7 @@ body{
     box-shadow: 0 8px 21px 0 rgba(0,119,255,0.4);
     border-radius: 50%;
     position: absolute;
-    top: 18px;
+    top: 20px;
     left: 81.5px;
 
 }
@@ -266,7 +278,12 @@ body{
     padding-left: 12px;
     display: inline-flex;
     line-height: 51px;
-    /*height: 51px;*/
+    min-height: auto;
+    height: auto;
+    overflow: auto;
+    transition: 1s;
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 .layui-timeline-content i{
     margin-right: 10px;
@@ -299,4 +316,15 @@ body{
     height: 330px;
     background: #cccccc;
     margin-top: 50px;
+}
+.swiper-button-next, .swiper-button-prev{
+		opacity: 0;
+}
+.swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 25px !important;
+}
+.card-list:hover .swiper-button-next,
+.card-list:hover .swiper-button-prev{
+    opacity: 1;
+    transition: .5s;
 }

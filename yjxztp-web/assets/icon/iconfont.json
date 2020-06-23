@@ -6,6 +6,48 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "15497330",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "15495440",
+      "name": "待认领",
+      "font_class": "dairenling",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "15495441",
+      "name": "上",
+      "font_class": "shang",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "15495444",
+      "name": "下",
+      "font_class": "xia",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "15495473",
+      "name": "右",
+      "font_class": "you",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "15495475",
+      "name": "左",
+      "font_class": "zuo",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
       "icon_id": "6076644",
       "name": "新建文件夹 蓝 icon",
       "font_class": "xinjianwenjianjialanicon",

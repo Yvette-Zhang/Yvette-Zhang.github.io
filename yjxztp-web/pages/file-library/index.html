@@ -10,21 +10,26 @@
   <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/dropDown/dropDown.css">
   <link rel="stylesheet" href="../../assets/icon/iconfont.css">
   <style>
-    html,body{
+    html,
+    body {
       height: 100%;
     }
-    body{
+
+    body {
       display: flex;
       overflow: hidden;
     }
-    .container{
+
+    .container {
       display: inline-block;
       flex: 1;
     }
-    .tag-box{
+
+    .tag-box {
       margin-top: 50px;
     }
-    .tag-title{
+
+    .tag-title {
       height: 48px;
       line-height: 48px;
       font-size: 18px;
@@ -32,58 +37,71 @@
       justify-content: space-between;
       padding-right: 30px;
     }
-    .tag-title-left{
+
+    .tag-title-left {
       color: #0077FF;
     }
-    .tag-title-left i{
+
+    .tag-title-left i {
       font-size: 18px;
     }
-    .tag-title-setting{
+
+    .tag-title-setting {
       color: #99A3BC;
       cursor: pointer;
     }
-    .tag-title-setting i{
+
+    .tag-title-setting i {
       font-size: 18px;
     }
-    .tag-list{
+
+    .tag-list {
       padding-left: 24px;
     }
-    .tag-item{
+
+    .tag-item {
       height: 48px;
       line-height: 48px;
       display: flex;
       justify-content: space-between;
       padding-right: 25px;
     }
-    .tag-item i{
+
+    .tag-item i {
       color: #99A3BC;
       font-size: 20px;
       cursor: pointer;
     }
-		.color-tag{
-			display: flex;
-			width: 65%;
-		}
-		.color-circle{
-			width: 15px;
-		}
-		.color-name{
-			display: inline-block;
-			flex: 1;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
-    .all-tag{
+
+    .color-tag {
+      display: flex;
+      width: 65%;
+    }
+
+    .color-circle {
+      width: 15px;
+    }
+
+    .color-name {
+      display: inline-block;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .all-tag {
       position: relative;
     }
-    .all-tag span:first-child{
+
+    .all-tag span:first-child {
       position: absolute;
       top: 20px;
       left: -6px;
       z-index: 999;
       border: 1px solid #fff;
     }
+
     .create-tag {
       color: #0077FF;
       display: block;
@@ -93,15 +111,21 @@
       font-size: 16px;
       cursor: pointer;
     }
-    .layui-layer{
+
+    .layui-layer {
       width: 20%;
     }
-    #chooseTag,#addTag{
+
+    #chooseTag,
+    #addTag {
       display: none;
       height: 300px;
     }
-    #publicTag{
+
+    #publicTag {
+      height: 260px;
       display: none;
+      overflow: auto;
     }
   </style>
 </head>
@@ -110,11 +134,11 @@
   <div class="slide-menu">
     <p><i class="font_family icon-wenjianku"></i>文件库</p>
     <ul class="menu-list">
-      <li class="menu-item active" data-href="./recent-view.html" >最近浏览</li>
-      <li class="menu-item" data-href="./my-library.html" >我的文件库</li>
-      <li class="menu-item" data-href="./share-file.html" >分享文件</li>
-      <li class="menu-item" data-href="./project-file.html" >项目文件</li>
-      <li class="menu-item" data-href="./recycle-bin.html" >回收站</li>
+      <li class="menu-item active" data-href="./recent-view.html">最近浏览</li>
+      <li class="menu-item" data-href="./my-library.html">我的文件库</li>
+      <li class="menu-item" data-href="./share-file.html">分享文件</li>
+      <li class="menu-item" data-href="./project-file.html">项目文件</li>
+      <li class="menu-item" data-href="./recycle-bin.html">回收站</li>
     </ul>
     <div class="tag-box">
       <div class="tag-title">
@@ -126,13 +150,13 @@
           <i class="font_family icon-shezhi"></i>
         </div>
       </div>
-			<span class="create-tag" data-method="offset" data-type="auto">+ 新建标签</span>
+      <span class="create-tag" data-method="offset" data-type="auto">+ 新建标签</span>
       <ul class="tag-list">
         <li class="tag-item">
           <div class="color-tag">
-						<div class="color-circle">
-							<span class="layui-badge-dot layui-bg-blue"></span>
-						</div>
+            <div class="color-circle">
+              <span class="layui-badge-dot layui-bg-blue"></span>
+            </div>
             <span class="color-name" title="蓝色蓝色蓝色蓝色">蓝色蓝色蓝色蓝色</span>
           </div>
           <div>
@@ -142,9 +166,9 @@
         </li>
         <li class="tag-item">
           <div class="color-tag">
-						<div class="color-circle">
-							<span class="layui-badge-dot layui-bg-red"></span>
-						</div>
+            <div class="color-circle">
+              <span class="layui-badge-dot layui-bg-red"></span>
+            </div>
             <span class="color-name" title="红色">红色</span>
           </div>
           <div>
@@ -154,9 +178,9 @@
         </li>
         <li class="tag-item">
           <div class="color-tag">
-						<div class="color-circle">
-							<span class="layui-badge-dot layui-bg-orange"></span>
-						</div>
+            <div class="color-circle">
+              <span class="layui-badge-dot layui-bg-orange"></span>
+            </div>
             <span class="color-name" title="黄色">黄色</span>
           </div>
           <div>
@@ -166,16 +190,16 @@
         </li>
         <li class="tag-item">
           <div class="all-tag color-tag">
-						<div class="color-circle">
-							<span class="layui-badge-dot layui-bg-black"></span>
-							<span class="layui-badge-dot layui-bg-black"></span>
-						</div>
+            <div class="color-circle">
+              <span class="layui-badge-dot layui-bg-black"></span>
+              <span class="layui-badge-dot layui-bg-black"></span>
+            </div>
             <span class="color-name">所有标签</span>
           </div>
           <div>
             <span class="layui-badge">120</span>
           </div>
-          <i class="font_family icon-gengduo" data-dropdown="4"></i>
+          <i class="font_family icon-xia"></i>
         </li>
       </ul>
     </div>
@@ -189,30 +213,48 @@
   </div>
   <div id="publicTag">
     <div class="publicTree">
-
     </div>
   </div>
   <div class="container">
-    <iframe style="width: 100%;height: 100%;" src="./recent-view.html" id="iframe" frameborder="0" ></iframe>
+    <iframe style="width: 100%;height: 100%;" src="./recent-view.html" id="iframe" frameborder="0"></iframe>
+  </div>
+  <!-- 颜色选择 -->
+  <div id="colorpicker" style="display: none;">
+    <div class="tag-color-form">
+      <form class="layui-form" action="" lay-filter="tag-confirm">
+        <div class="layui-form-item">
+          <div class="layui-input-inline" style="width: 169px;">
+            <input name="name" type="text" value="" lay-verify="required" autocomplete="off" placeholder="请输入标签名"
+              class="layui-input">
+          </div>
+          <div class="layui-inline" style="left: -11px;">
+            <div id="tag-color"></div>
+          </div>
+        </div>
+        <div class="layui-input-block" style="margin-left:0px;text-align:center;">
+          <button type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="tag-confirm">确认</button>
+          <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="tag-cancel">取消</button>
+        </div>
+      </form>
+    </div>
   </div>
   <script src="../../assets/js/jquery-1.9.1.min.js"></script>
   <script src="../../assets/plugins/layui/layui.js"></script>
-  <script src="../../assets/plugins/layui/layui_exts/xm-select/xm-select.js"></script>
   <script>
     layui.config({
       base: '../../assets/plugins/layui/layui_exts/dropDown/'
-    }).use(['dropDown','layer','colorpicker','form','tree'], function () {
+    }).use(['dropDown', 'layer', 'colorpicker', 'form', 'tree'], function () {
       var dropDown = layui.dropDown,
-              layer = layui.layer,
-              tree = layui.tree,
-              colorpicker = layui.colorpicker,
-              form = layui.form;
+        layer = layui.layer,
+        tree = layui.tree,
+        colorpicker = layui.colorpicker,
+        form = layui.form;
       // 左导航下拉菜单
       var dropDownData = [
-        {'type': 1, 'title': '编辑', 'icon': 'bianji'},
-        {'type': 2, 'title': '删除', 'icon': 'shanchu'}
+        { 'type': 1, 'title': '编辑', 'icon': 'bianji' },
+        { 'type': 2, 'title': '删除', 'icon': 'shanchu' }
       ];
-      $('.tag-item i').on('click', function () {
+      $('.tag-item .icon-gengduo').on('click', function () {
         var ele = $(this);
         var dropDownEle = dropDown.render({
           ele: ele, // 绑定下拉菜单的元素 （jq对象）
@@ -225,24 +267,14 @@
           mouseleaveClose: false, // 鼠标离开下拉菜单下拉菜单是否隐藏 默认true
           data: dropDownData, // 下拉菜单的数据
           choose: function (data) { // 点击回调
-            if(data.title === '编辑'){
-              layer.open({
+            if (data.title === '编辑') {
+              var colorpickerDom = $("#colorpicker");
+              var tagColorLayer = layer.open({
                 type: 1,
-                title: '新建标签',
-                content: '<div class="tag-color-form">' +
-                        '<form class="layui-form" action="" lay-filter="tag-confirm"><div class="layui-form-item">' +
-                        '<div class="layui-input-inline" style="width: 150px;">' +
-                        '<input name="name" type="text" value="" lay-verify="required" autocomplete="off" placeholder="请输入标签名" class="layui-input">' +
-                        '</div>' +
-                        '<div class="layui-inline" style="left: -11px;">' +
-                        '<div id="tag-color"></div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="layui-input-block" style="margin-left:0px;text-align:center;">' +
-                        '<button type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="tag-confirm">确认</button>' +
-                        '<button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="tag-cancel">取消</button>' +
-                        '</div>' +
-                        '</form></div>',
+                title: '编辑标签',
+                resize: false,
+                move: false,
+                content: colorpickerDom,
                 success: function () {
                   colorpicker.render({
                     elem: '#tag-color',
@@ -260,7 +292,9 @@
                   $('#tag-cancel').on('click', function () {
                     layer.close(tagColorLayer);
                   });
-
+                  form.val("tag-confirm", {
+                    name: ''
+                  })
                   form.render();
 
                   form.on('submit(tag-confirm)', function (data) {
@@ -269,37 +303,27 @@
                       name: data.field.name,
                       value: (new Date()).valueOf()
                     }
-                    updateTag(newTagData);
+                    // updateTag(newTagData);
                     layer.close(tagColorLayer);
                   });
                 }
               });
             }
-            console.log(data)
           }
         });
       });
       //新建标签弹窗
       var newTagData = {
-                name: '',
-                value: '',
-                color: ''
-              },
-              defaultColor = '#eb2f96',
-              newColor = '';
-      var data = [
-        { name: '标签一', value: 1, color: '#eb2f96' },
-        { name: '标签二', value: 2, color: '#f5222d' },
-        { name: '标签三', value: 3, color: '#fa8c16' },
-        { name: '标签四', value: 4, color: '#52c41a' },
-        { name: '标签五', value: 5, color: '#13c2c2' },
-        { name: '标签六', value: 6, color: '#1890ff' },
-        { name: '标签七', value: 7, color: '#722ed1' }
-      ];
+        name: '',
+        value: '',
+        color: ''
+      },
+        defaultColor = '#eb2f96',
+        newColor = '';
       var active = {
         offset: function (othis) {
           var type = othis.data('type')
-                  , text = othis.text();
+            , text = othis.text();
           layer.open({
             triggerEle: othis // 触发弹窗的元素 jq对象
             , type: 1
@@ -308,48 +332,29 @@
             // , content: '<div style="padding: 20px">' + text + '</div>'
             , content: $('#addTag')
             , btn: '确定'
-            , title:'将标签分配给'
+            , title: '将标签分配给'
             , fixed: false
             , skin: 'layui-layer-radius'
+            , resize: false
             , move: false // 禁止拖动
             , btnAlign: 'c' //按钮居中
             , shade: 0 //0不显示遮罩,
             , shadeClose: true
             , yes: function () {
-                layer.closeAll();
+              layer.closeAll();
             },
           });
         }
       };
 
-      function updateTag(addData) {
-        data.push(addData);
-        setTimeout(function () {
-          tagColorSelect.opened();
-        }, 0);
-        tagColorSelect.update({
-          data: data
-        })
-      }
-
       $('.create-tag').on('click', function () {
+        var colorpickerDom = $("#colorpicker");
         var tagColorLayer = layer.open({
           type: 1,
+          resize: false,
+          move: false,// 禁止拖动
           title: '新建标签',
-          content: '<div class="tag-color-form">' +
-                  '<form class="layui-form" action="" lay-filter="tag-confirm"><div class="layui-form-item">' +
-                  '<div class="layui-input-inline" style="width: 150px;">' +
-                  '<input name="name" type="text" value="" lay-verify="required" autocomplete="off" placeholder="请输入标签名" class="layui-input">' +
-                  '</div>' +
-                  '<div class="layui-inline" style="left: -11px;">' +
-                  '<div id="tag-color"></div>' +
-                  '</div>' +
-                  '</div>' +
-                  '<div class="layui-input-block" style="margin-left:0px;text-align:center;">' +
-                  '<button type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="tag-confirm">确认</button>' +
-                  '<button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="tag-cancel">取消</button>' +
-                  '</div>' +
-                  '</form></div>',
+          content: colorpickerDom,
           success: function () {
             colorpicker.render({
               elem: '#tag-color',
@@ -367,7 +372,9 @@
             $('#tag-cancel').on('click', function () {
               layer.close(tagColorLayer);
             });
-
+            form.val("tag-confirm", {
+              name: ''
+            })
             form.render();
 
             form.on('submit(tag-confirm)', function (data) {
@@ -376,111 +383,190 @@
                 name: data.field.name,
                 value: (new Date()).valueOf()
               }
-              updateTag(newTagData);
+              // updateTag(newTagData);
               layer.close(tagColorLayer);
             });
           }
         });
       });
 
-      // 编辑标签
-      var tagColorSelect = xmSelect.render({
-        el: '#colorSelect',
-        theme: {
-          color: '#aaaaaa', //主题颜色
-        },
-        data: data,
-                filterable: true, //是否显示搜索
-                template({ item }) { // 自定义渲染选项
-          return '<span class="xm-tag-dot" style="background-color: ' + item.color + '"></span>' + item.name
-        },
-      });
 
       // 分配公有标签
-      var treeData  = [{
-        title: '江西'
-        ,id: 1
-        ,children: [{
-          title: '南昌'
-          ,id: 1000
-          ,children: [{
-            title: '青山湖区'
-            ,id: 10001
-          },{
-            title: '高新区'
-            ,id: 10002
+      var treeData = [{
+        title: '公有标签'
+        , id: 1
+        , color: '#FB3B35' //颜色
+        , level: 1 //级数
+        , children: [{
+          title: '标签一一'
+          , id: 1000
+          , color: '#45C5B1'
+          , children: [{
+            title: '标签一一一'
+            , id: 10001
+            , color: '#0077FF'
+          }, {
+            title: '标签一一二'
+            , id: 10002
+            , color: '#0077FF'
           }]
-        },{
-          title: '九江'
-          ,id: 1001
-        },{
-          title: '赣州'
-          ,id: 1002
+        }, {
+          title: '标签一二'
+          , id: 1001
+          , color: '#0077FF'
+        }, {
+          title: '标签一三'
+          , id: 1002
+          , color: '#0077FF'
         }]
-      },{
-        title: '广西'
-        ,id: 2
-        ,children: [{
-          title: '南宁'
-          ,id: 2000
-        },{
-          title: '桂林'
-          ,id: 2001
-        }]
-      },{
-        title: '陕西'
-        ,id: 3
-        ,children: [{
-          title: '西安'
-          ,id: 3000
-        },{
-          title: '延安'
-          ,id: 3001
-        }]
-      }]
+      }];
       tree.render({
         elem: '#publicTag'
-        ,data: treeData
-        ,edit: ['add', 'update', 'del'] //操作节点的图标
-        ,click: function(obj){
+        , data: treeData
+        , edit: ['add', 'update', 'del'] //操作节点的图标
+        , delNoneLevel: 1 //设置第几级节点不允许删除操作(根据数据中的level)
+        , updateNoneLevel: 1 //设置第几级节点不允许编辑操作(根据数据中的level)
+        , showLine: false
+        , template: function (item) {
+          var str = '';
+          if (item.level == 1) {
+            str = '<div class="layui-tree-tag"><span>' + item.title + '</span></div>'
+          } else {
+            str = '<div class="layui-tree-tag"><span class="layui-tree-tag-graph layui-tree-tag-diamond" style="background-color: ' + item.color + '"></span><span>' + item.title + '</span></div>'
+          }
+          return str
+        }
+        , click: function (obj) {
           layer.msg(JSON.stringify(obj.data));
+        }
+        , customOperate: true // 是否开启自定义操作事件
+        , operate: function (obj) {
+          var colorpickerDom = $("#colorpicker");
+          if (obj.type == "add") {
+
+            var tagColorLayer = layer.open({
+              type: 1,
+              title: '新建公有标签',
+              resize: false,
+              move: false,
+              content: colorpickerDom,
+              success: function () {
+                colorpicker.render({
+                  elem: '#tag-color',
+                  color: '#eb2f96',
+                  predefine: true, //开启预定义颜色
+                  alpha: true, //开启透明度
+                  format: 'rgb',
+                  colors: ['#eb2f96', '#f5222d', '#fa8c16', '#52c41a', '#13c2c2', '#1890ff', '#722ed1'], //自定义预定义颜色项
+
+                  done: function (color) {
+                    newColor = color;
+                  }
+                });
+
+                $('#tag-cancel').on('click', function () {
+                  layer.close(tagColorLayer);
+                });
+                form.val("tag-confirm", {
+                  name: ''
+                })
+                form.render();
+
+                form.on('submit(tag-confirm)', function (data) {
+                  newTagData = {
+                    color: newColor ? newColor : defaultColor,
+                    name: data.field.name,
+                    value: (new Date()).valueOf()
+                  }
+                  // updateTag(newTagData);
+                  layer.close(tagColorLayer);
+                });
+              }
+            });
+          } else if (obj.type == "update") {
+            var tagColorLayer = layer.open({
+              type: 1,
+              title: '编辑公有标签',
+              resize: false,
+              move: false,
+              content: colorpickerDom,
+              success: function () {
+                colorpicker.render({
+                  elem: '#tag-color',
+                  color: '#eb2f96',
+                  predefine: true, //开启预定义颜色
+                  alpha: true, //开启透明度
+                  format: 'rgb',
+                  colors: ['#eb2f96', '#f5222d', '#fa8c16', '#52c41a', '#13c2c2', '#1890ff', '#722ed1'], //自定义预定义颜色项
+
+                  done: function (color) {
+                    newColor = color;
+                  }
+                });
+
+                $('#tag-cancel').on('click', function () {
+                  layer.close(tagColorLayer);
+                });
+                form.val("tag-confirm", {
+                  name: ''
+                })
+                form.render();
+                form.on('submit(tag-confirm)', function (data) {
+                  newTagData = {
+                    color: newColor ? newColor : defaultColor,
+                    name: data.field.name,
+                    value: (new Date()).valueOf()
+                  }
+                  // updateTag(newTagData);
+                  layer.close(tagColorLayer);
+                });
+              }
+            });
+          } else if (obj.type == "del") {
+            layer.confirm('是否删除“' + obj.data.title + '”节点', { icon: 3, title: '提示' }, function (index) {
+              //do something
+
+              layer.close(index);
+            });
+          }
+          console.log(obj);
         }
       });
       var publicTagChoose = {
         offset: function (othis) {
           var type = othis.data('type')
-                  , text = othis.text();
+            , text = othis.text();
           layer.open({
             triggerEle: othis // 触发弹窗的元素 jq对象
             , type: 1
-            , offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            , offset: 'er' //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
             , id: 'layerDemo' + type //防止重复弹出
             // , content: '<div style="padding: 20px">' + text + '</div>'
             , content: $('#publicTag')
-            , btn: '确定'
-            , title:'设置公有标签'
+            , title: '设置公有标签'
             , fixed: false
             , skin: 'layui-layer-radius'
             , move: false // 禁止拖动
             , btnAlign: 'c' //按钮居中
-            , shade: 0 //0不显示遮罩,
+            , shade: 0.001 //0不显示遮罩,
             , shadeClose: true
+            , resize: false
             , yes: function () {
               layer.closeAll();
             },
           });
         }
       };
-      $('.tag-title-setting').on('click',function(){
+      $('.tag-title-setting').on('click', function () {
         var othis = $(this),
           method = othis.data('method');
-          publicTagChoose[method] ? publicTagChoose[method].call(this, othis) : '';
+        publicTagChoose[method] ? publicTagChoose[method].call(this, othis) : '';
       })
 
 
     });
 
-    $(".menu-item").on("click", function() {
+    $(".menu-item").on("click", function () {
       var title = document.title.split("-");
       title[1] = $(this).text();
       document.title = title.join("-");

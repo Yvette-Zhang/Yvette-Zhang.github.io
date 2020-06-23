@@ -282,3 +282,8 @@ table.dataTable tr:hover .datatable-visibility * {
 .font_family.icon-shoucang {
   color: rgb(255, 170, 28);
 }
+
+.datatable-has-action {
+  cursor: pointer;
+  color: #2b79f6;
+}

@@ -23,6 +23,11 @@
       top: -5px;
     }
 
+    .filetable-tag-item--public {
+      border-radius: 0;
+      transform: rotate(45deg);
+    }
+
     .file-box {
       display: flex;
       align-items: center;
@@ -43,7 +48,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
     }
 
     .file-box__content__name {
@@ -54,6 +58,7 @@
       overflow: hidden;
       white-space: nowrap;
       max-width: 275px;
+      line-height: 22px;
     }
 
     .file-box__content__mate {
@@ -267,6 +272,11 @@
       color: #99A3BC;
     }
 
+    .private-tag-cell,
+    .public-tag-cell {
+      cursor: pointer;
+    }
+
     /* 分享成员 */
     .user-layer .user-search {
       position: relative;
@@ -394,6 +404,93 @@
     .comment-submit {
       float: right;
     }
+
+    #related th:last-child {
+      width: 200px;
+      text-align: left;
+    }
+
+    #related tr td:last-child {
+      width: 200px;
+      text-align: left;
+    }
+
+    .tags-layer {
+      max-height: 420px;
+    }
+
+    .tags-layer .layui-layer-content {
+      height: auto !important;
+    }
+
+    #showTags {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+    }
+
+    .show-tags-list {
+      width: 100%;
+      border-bottom: 1px solid #E5E9EF;
+    }
+
+    .show-tags-list li {
+      display: flex;
+      line-height: 36px;
+      align-items: center;
+      padding-left: 5px;
+      padding-right: 5px;
+      box-sizing: border-box;
+    }
+
+    .show-tags-list li span {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .show-tags-list li:hover {
+      background-color: #EFF3F7;
+    }
+
+    .show-tags-list li i {
+      color: #616774;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .show-tags-list li:hover i {
+      color: #3B67F3;
+    }
+
+    .show-tags-list .tag-graph {
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+    }
+
+    .show-public-layer.layui-layer-page .layui-layer-content,
+    .show-private-layer.layui-layer-page .layui-layer-content {
+      padding-top: 5px;
+      padding-bottom: 10px;
+      overflow: auto;
+      box-sizing: border-box;
+    }
+
+    .show-public-layer .tag-graph {
+      transform: rotate(45deg);
+    }
+
+    .show-private-layer .tag-graph {
+      border-radius: 50%;
+    }
+
+    .layui-layer-page .show-tags-split {
+      padding: 15px 0;
+      font-size: 14px;
+      color: #212732;
+    }
   </style>
 </head>
 
@@ -409,8 +506,8 @@
         <div class="table-toolbar-tool">
           <div class="table-toolbar-left">
             <div class="search">
-              <i class="font_family icon-sousuo"></i>
               <input class="search-ipt" type="text" placeholder="请输入项目名称，按“Enter”键进行搜索">
+              <i class="font_family icon-sousuo"></i>
               <i class="font_family icon-guanbi"></i>
             </div>
           </div>
@@ -422,10 +519,12 @@
             <button id="share" data-tips="分享" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
               <i class="font_family icon-fenxiang"></i>
             </button>
-            <button data-tips="分配公有标签" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+            <button id="publicTag" data-tips="分配公有标签"
+              class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
               <i class="font_family icon-gongyoubiaoqian"></i>
             </button>
-            <button data-tips="分配私有标签" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+            <button id="privateTag" data-tips="分配私有标签"
+              class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
               <i class="font_family icon-fenpeibiaoqian"></i>
             </button>
             <button data-tips="导出" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
@@ -468,6 +567,11 @@
         <table id="my-library-table" class="layui-table" lay-skin='line'></table>
       </form>
     </div>
+  </div>
+  <!-- 分配标签树弹窗 -->
+  <div id="tagLayer" style="display: none;">
+    <input type="text" placeholder="输入关键字" class="layui-input">
+    <div id="tagsTree" style="width: 100%;margin-top: 15px;max-height: 275px;overflow: auto;"></div>
   </div>
   <!-- 显示列弹窗 -->
   <div style="display: none;" id="columnsVis">
@@ -685,6 +789,33 @@
       <button id="addToSubmit" class="layui-btn layui-btn-shadow">添加</button>
     </div>
   </div>
+  <!-- 查看标签弹出框 -->
+  <div id="showTags" style="display: none;">
+    <ul class="show-tags-list">
+      <li>
+        <div class="tag-graph" style="background-color: #0077FF;"></div>
+        <span>标签一标签一标签一标签一标签一标签一</span>
+        <i class="font_family icon-guanbi"></i>
+      </li>
+      <li>
+        <div class="tag-graph" style="background-color: #0077FF;"></div>
+        <span>标签一</span>
+        <i class="font_family icon-guanbi"></i>
+      </li>
+      <li>
+        <div class="tag-graph" style="background-color: #0077FF;"></div>
+        <span>标签一</span>
+        <i class="font_family icon-guanbi"></i>
+      </li>
+      <li>
+        <div class="tag-graph" style="background-color: #0077FF;"></div>
+        <span>标签一</span>
+        <i class="font_family icon-guanbi"></i>
+      </li>
+    </ul>
+    <p class="show-tags-split">分配其他标签</p>
+    <div id="showTagsTree" style="width: 100%;"></div>
+  </div>
   <!-- 评论 -->
   <div style="display: none;" id="comment" class="layui-form">
     <div class="comment-list">
@@ -730,7 +861,635 @@
       <button class="layui-btn comment-submit layui-btn-shadow">发送</button>
     </div>
   </div>
-
+  <!-- 历史版本弹出层 -->
+  <div id="history" style="display: none;">
+    <div class="layui-titleO">
+      <p class="h4">研究协作平台项目-用户需求调研报告</p>
+      <div class="head_ptoto"><span class="span">创建者:</span><span class="layui-avatar layui-avatar-sm"><span
+            class="layui-avatar-text">田甜</span></span><span class="layui-head_photo_span">田甜</span></div>
+    </div>
+    <div class="main-div">
+      <div class="table-title">
+        <table>
+          <thead>
+            <tr>
+              <th>更新时间</th>
+              <th>大小</th>
+              <th>更新人</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <ul class="layui-timeline">
+        <li class="layui-timeline-item">
+          <div class="layui-timeline-icon"></div>
+          <div class="layui-timeline-content layui-text">
+            <div class="timeline-time">
+              <p class="timeline-time_pO">2020</p>
+              <p class="timeline-time_p1">06-09</p>
+            </div>
+            <div class="sticky-btn-area">
+              <div class="sticky-btn"> <i class="layui-icon layui-icon_top">&#xe61a;</i> </div>
+            </div>
+            <div class="list-num"><span>12</span></div>
+            <div class="sticky-div">
+              <table class="sticky-table">
+                <tbody>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text">打开</span> <span class="red-text">最新版</span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text">打开</span> <span class="red-text">最新版</span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text">打开</span> <span class="red-text">最新版</span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text">打开</span> <span class="red-text">最新版</span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text">打开</span> <span class="red-text">最新版</span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text">打开</span> <span class="red-text">最新版</span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text">打开</span> <span class="red-text">最新版</span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text">打开</span> <span class="red-text">最新版</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <li class="layui-timeline-item" style="margin-top: 0;">
+          <div class="layui-timeline-icon"></div>
+          <div class="layui-timeline-content layui-text" style="margin-top: 0;">
+            <div class="timeline-time-single">
+              <p>06-08</p>
+            </div>
+            <div class="sticky-btn-area">
+              <div class="sticky-btn"> <i class="layui-icon layui-icon_top">&#xe61a;</i> </div>
+            </div>
+            <div class="list-num">16</div>
+            <div class="sticky-div">
+              <table class="sticky-table">
+                <tbody>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <li class="layui-timeline-item" style="margin-top: 0;">
+          <div class="layui-timeline-icon"></div>
+          <div class="layui-timeline-content layui-text" style="margin-top: 0;">
+            <div class="timeline-time-single">
+              <p>06-07</p>
+            </div>
+            <div class="sticky-btn-area">
+              <div class="sticky-btn"> <i class="layui-icon layui-icon_top">&#xe61a;</i> </div>
+            </div>
+            <div class="list-num">16</div>
+            <div class="sticky-div">
+              <table class="sticky-table">
+                <tbody>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>324.4KB</td>
+                    <td>张三</td>
+                    <td><span class="blue-text blue-text_yulan">预览</span> <span class="red-text red-text_icon"> <i
+                          class="layui-icon layui-icon-more"></i> </span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- 相关联弹出层 -->
+  <div id="related" style="display: none;">
+    <div class="layui-titleO">
+      <p class="h4">研究协作平台项目-用户需求调研报告</p>
+      <div class="head_ptoto"><span class="span">创建者:</span><span class="layui-avatar layui-avatar-sm"><span
+            class="layui-avatar-text">田甜</span></span><span class="layui-head_photo_span">田甜</span></div>
+    </div>
+    <div class="main-div">
+      <div class="table-title">
+        <table>
+          <thead>
+            <tr>
+              <th>关联时间</th>
+              <th>关联人</th>
+              <th>相关联</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <ul class="layui-timeline">
+        <li class="layui-timeline-item">
+          <div class="layui-timeline-icon"></div>
+          <div class="layui-timeline-content layui-text">
+            <div class="timeline-time">
+              <p class="timeline-time_pO">2020</p>
+              <p class="timeline-time_p1">06-09</p>
+            </div>
+            <div class="sticky-btn-area">
+              <div class="sticky-btn"> <i class="layui-icon layui-icon_top">&#xe61a;</i> </div>
+            </div>
+            <div class="list-num"><span>12</span></div>
+            <div class="sticky-div">
+              <table class="sticky-table">
+                <tbody>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <li class="layui-timeline-item" style="margin-top: 0;">
+          <div class="layui-timeline-icon"></div>
+          <div class="layui-timeline-content layui-text" style="margin-top: 0;">
+            <div class="timeline-time-single">
+              <p>06-08</p>
+            </div>
+            <div class="sticky-btn-area">
+              <div class="sticky-btn"> <i class="layui-icon layui-icon_top">&#xe61a;</i> </div>
+            </div>
+            <div class="list-num">16</div>
+            <div class="sticky-div">
+              <table class="sticky-table">
+                <tbody>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <li class="layui-timeline-item" style="margin-top: 0;">
+          <div class="layui-timeline-icon"></div>
+          <div class="layui-timeline-content layui-text" style="margin-top: 0;">
+            <div class="timeline-time-single">
+              <p>06-07</p>
+            </div>
+            <div class="sticky-btn-area">
+              <div class="sticky-btn"> <i class="layui-icon layui-icon_top">&#xe61a;</i> </div>
+            </div>
+            <div class="list-num">16</div>
+            <div class="sticky-div">
+              <table class="sticky-table">
+                <tbody>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                  <tr>
+                    <td>12:14:42</td>
+                    <td>张三</td>
+                    <td>324.4KB</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
   <!-- layui -->
   <script src="../../assets/plugins/layui/layui.js"></script>
   <!-- datatables -->

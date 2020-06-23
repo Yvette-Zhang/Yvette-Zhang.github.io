@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>思维导图</title>
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1833677_2tcq4smozzy.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css">
+  <link rel="stylesheet" href="../../assets/plugins/mindmap/css/ui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #myMinderEditor {
+      position: relative;
+      flex: 1;
+    }
+
+    .page-title a {
+      color: #99A3BB;
+      font-size: 20px;
+      margin-right: 5px;
+    }
+
+    .editor-header .panel-button-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .online-user {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+    }
+
+    .online-user__title {
+      margin-right: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(33, 40, 50, 1);
+    }
+
+    .online-user__item {
+      margin: 0 7px;
+    }
+
+    .online-user .layui-btn {
+      margin-left: 14px;
+    }
+
+    .log-item {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .log-item__avatar {
+      margin-right: 10px;
+    }
+
+    .log-item__content {
+      flex: 1;
+    }
+
+    .log-item__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      line-height: 35px;
+      font-size: 14px;
+      color: #212832;
+    }
+
+    .log-item__main {
+      color: #616874;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="editor-header">
+    <h2 class="page-title"><a class="layui-icon layui-icon-left"></a>新能源协作平台项目
+    </h2>
+    <div class="panel-button-group">
+      <div class="online-user">
+        <div class="online-user__title">在线人员：</div>
+        <div class="layui-avatar online-user__item">平安</div>
+        <div class="layui-avatar online-user__item">平安</div>
+        <div class="layui-avatar online-user__item">平安</div>
+        <div class="layui-avatar online-user__item">平安</div>
+        <div class="layui-avatar online-user__item">平安</div>
+        <div class="layui-avatar online-user__item">平安</div>
+        <button class="layui-btn layui-btn-text layui-btn-sm">
+          更多 <i class="font_family icon-xia"></i>
+        </button>
+      </div>
+      <button class="layui-btn" id="edit">完成</button>
+      <button class="layui-btn layui-btn-plain" id="save">保存版本</button>
+      <button class="layui-btn layui-btn-plain" id="versionLogBtn">版本记录</button>
+      <button class="layui-btn layui-btn-shadow" id="buildTaskAndIndex">生成任务+目录</button>
+    </div>
+  </div>
+  <div id="myMinderEditor"></div>
+  <div id="versionLog" style="display: none;">
+    <div class="log-item">
+      <div class="log-item__avatar">
+        <div class="layui-avatar">源源</div>
+      </div>
+      <div class="log-item__content">
+        <div class="log-item__header">
+          <div class="log-item__name">源源</div>
+          <div class="log-item__action">
+            <button class="layui-btn layui-btn-text layui-btn-sm">
+              还原
+            </button>
+          </div>
+        </div>
+        <div class="log-item__main">
+          保存版本时间：2020-10-12 12:12:12
+        </div>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-item__avatar">
+        <div class="layui-avatar">源源</div>
+      </div>
+      <div class="log-item__content">
+        <div class="log-item__header">
+          <div class="log-item__name">源源</div>
+          <div class="log-item__action">
+            <button class="layui-btn layui-btn-text layui-btn-sm">
+              还原
+            </button>
+          </div>
+        </div>
+        <div class="log-item__main">
+          保存版本时间：2020-10-12 12:12:12
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/plugins/mindmap/js/ui.js"></script>
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <script>
+    layui.use(["layer"], function () {
+      var layer = layui.layer;
+      // 初始化mindmap
+      var myminder = initMinderEditor({
+        selector: "#myMinderEditor"
+      });
+      // 保存
+      $('#save').on('click', function () {
+        uiHub.$notify({
+          title: "保存",
+          message: JSON.stringify(myminder.exportJson())
+        })
+      })
+      // 生成任务+目录
+      $('#buildTaskAndIndex').on('click', function () {
+        uiHub.$notify({
+          title: "生成任务+目录",
+          message: JSON.stringify(myminder.exportJson())
+        })
+      });
+      // 完成
+      (function () {
+        $("#edit").on('click', function () {
+          if (myminder.minder.getStatus() === 'normal') {
+            myminder.setEditorMode('readonly')
+            $(this).text('编辑')
+          } else {
+            myminder.setEditorMode('normal')
+            $(this).text('完成')
+          }
+        })
+      })();
+      var uiHub = myminder.uiHub;
+      uiHub.$on('contentChange', (data) => {
+        uiHub.$notify({
+          title: "内容发生变化",
+          message: JSON.stringify(data)
+        })
+      });
+
+      // 历史版本弹出层
+      $('#versionLogBtn').on('click', function () {
+        var layerDom = $("#versionLog");
+        layer.open({
+          title: '版本记录',
+          type: 1,
+          anim: -1,
+          shadeClose: true,
+          offset: 'r',
+          shade: 0.001,
+          shadeClose: true,
+          skin: 'notice-layer layui-anim layui-anim-rl layui-layer-openRight',
+          area: '440px',
+          zIndex: '99',
+          content: layerDom,
+          move: false,
+          success: function (layero) {
+            layer.setTop(layero);
+          }
+        });
+      })
+    })
+
+  </script>
+</body>
+
+</html>

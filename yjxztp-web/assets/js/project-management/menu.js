@@ -59,6 +59,7 @@ layui.config({
 								, title:'创建课题'
 								, fixed: false
 								, skin: 'layui-layer-radius'
+								, resize: false
 								, move: false // 禁止拖动
 								, btnAlign: 'c' //按钮居中
 								, shade: 0 //0不显示遮罩,

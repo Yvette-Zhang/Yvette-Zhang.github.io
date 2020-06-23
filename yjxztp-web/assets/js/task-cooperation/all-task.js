@@ -179,7 +179,7 @@ MockData().then(function (data) {
       {
         title: "任务名称",
         data: "name",
-        className: "main-column",
+        className: "main-column datatable-has-action",
       },
       {
         title: "执行人",
@@ -304,5 +304,10 @@ layui.use(["layer", "form"], function () {
   form.on("switch", function (data) {
     var column = datatable.column($(data.elem).attr("data-column") + ":name");
     column.visible(data.elem.checked);
+  });
+  // 点击任务名称
+  $(".datatable-has-action").on("click", function () {
+    var rowData = datatable.row(this).data();
+    console.log(rowData);
   });
 });

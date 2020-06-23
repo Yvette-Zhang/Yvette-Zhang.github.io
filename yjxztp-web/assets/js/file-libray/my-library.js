@@ -26,8 +26,18 @@ function MockData() {
           // 失效、正常
           "status|1": ["invalid", "normal", "normal"],
           // 标签
-          "tags|0-3": ["@color"],
-          "publicTag|0-3": ["@ctitle(3,5)"],
+          "tags|0-3": [
+            {
+              color: "@color",
+              name: "@ctitle(3,5)",
+            },
+          ],
+          "publicTag|0-3": [
+            {
+              color: "@color",
+              name: "@ctitle(3,5)",
+            },
+          ],
           // 文件类型，other 为其他文件
           "type|1": [
             "word",
@@ -170,6 +180,7 @@ MockData().then(function (data) {
             false,
             "lishibanben"
           );
+          historyBtn.attr("data-tips", "历史版本");
           historyBtn.on("click", function (e) {
             e.preventDefault();
             $(this).trigger(
@@ -183,6 +194,7 @@ MockData().then(function (data) {
           });
           const moreBtn = new Button("", "primary", "sm", false, "gengduo");
           moreBtn.attr("data-dropdown", "more" + rowData.id);
+          moreBtn.attr("data-tips", "更多");
           moreBtn.on("click", function (e) {
             e.preventDefault();
             $(this).trigger(
@@ -195,6 +207,7 @@ MockData().then(function (data) {
             );
           });
           const startBtn = new Button("", "primary", "sm", false, "shoucang1");
+          startBtn.attr("data-tips", "收藏");
           startBtn.on("click", function (e) {
             e.preventDefault();
             $(this).trigger(
@@ -207,7 +220,7 @@ MockData().then(function (data) {
             );
           });
           const unstartBtn = new Button("", "primary", "sm", false, "shoucang");
-
+          unstartBtn.attr("data-tips", "取消收藏");
           unstartBtn.on("click", function (e) {
             e.preventDefault();
             $(this).trigger(
@@ -235,6 +248,7 @@ MockData().then(function (data) {
         tips: false,
         defaultContent: "",
         width: "20px",
+        className: "private-tag-cell",
         render: function () {
           return "";
         },
@@ -243,19 +257,39 @@ MockData().then(function (data) {
           cellData.forEach((item, index) => {
             tagsContainer.append(
               $(
-                `<div class="filetable-tag-item" style="background: ${item};right: ${
-                  (index + 1) * 5
-                }px;"></div>`
+                `<div class="filetable-tag-item" style="background: ${
+                  item.color
+                };right: ${(index + 1) * 5}px;"></div>`
               )
             );
           });
+          tagsContainer.children().attr("data-tips", "私有标签");
           $(cell).append(tagsContainer);
         },
       },
       {
-        title: "公有标签",
+        title: "",
         data: "publicTag",
         name: "publicTag",
+        width: "25px",
+        className: "public-tag-cell",
+        render: function () {
+          return "";
+        },
+        createdCell(cell, cellData) {
+          const tagsContainer = $('<div class="filetable-tag"></div>');
+          cellData.forEach((item, index) => {
+            tagsContainer.append(
+              $(
+                `<div class="filetable-tag-item filetable-tag-item--public" style="background: ${
+                  item.color
+                };right: ${(index + 1) * 5}px;"></div>`
+              )
+            );
+          });
+          tagsContainer.children().attr("data-tips", "公有标签");
+          $(cell).append(tagsContainer);
+        },
       },
       {
         title: "上传时间",
@@ -313,6 +347,7 @@ MockData().then(function (data) {
         title: "相关联",
         data: "link",
         name: "link",
+        className: "link-cell datatable-has-action",
         // 默认隐藏
         visible: false,
       },
@@ -517,8 +552,265 @@ layui
       // 获取所选项
       // datatable.rows({ selected: true });
       // 监听操作栏按钮点击
+      // 历史版本
       tableEl.on("historyClick", function (e, data) {
-        layer.msg("历史" + JSON.stringify(data));
+        var layerDom = $("#history");
+        layer.open({
+          triggerEle: $(e.el),
+          title: "历史版本",
+          type: 1,
+          offset: "er",
+          content: layerDom,
+          shade: 0.001,
+          shadeClose: true,
+          area: ["596px", "599px"],
+          closeBtn: 1,
+          move: false,
+          resize: false,
+        });
+      });
+      // 历史版本、相关连弹窗内折叠事件
+      $(".sticky-btn").click(function () {
+        let closest = $(this).closest(".layui-timeline-item");
+        closest.toggleClass("on");
+        if (closest.hasClass("on")) {
+          let height = closest.find(".sticky-div").height();
+          closest.find(".layui-timeline-content").css("min-height", height);
+        } else {
+          closest.find(".layui-timeline-content").css("min-height", "30px");
+          closest.find(".layui-timeline-content").css("height", "30px");
+        }
+      });
+      $(".layui-timeline-item").each((i, item) => {
+        item = $(item);
+        if (item.hasClass("on")) {
+          let height = item.find(".sticky-div").height();
+          item.find(".layui-timeline-content").css("min-height", height);
+        } else {
+          item.find(".layui-timeline-content").css("min-height", "30px");
+          item.find(".layui-timeline-content").css("height", "30px");
+        }
+      });
+
+      // 查看标签树
+      tree.render({
+        elem: "#showTagsTree",
+        data: [],
+        id: "showTagsTree", //定义索引
+        showCheckbox: true,
+        showLine: false,
+        selfChecked: true, // 是否开启节点独立选择
+        oncheck: function (obj) {
+          console.log(obj);
+        },
+      });
+      // 私有有标签点击
+      $("#my-library-table tbody").on(
+        "click",
+        ".private-tag-cell",
+        function () {
+          var rowData = datatable.row(this).data();
+          var cellData = datatable.cell(this).data();
+          var treeData = [
+            {
+              title: "标签一",
+              id: 1,
+              color: "#FB3B35", //颜色
+              level: 1, //级数
+            },
+            {
+              title: "标签二",
+              id: 2,
+              color: "#0077FF",
+              level: 1, //级数
+            },
+            {
+              title: "标签三",
+              id: 3,
+              color: "#0077FF",
+              level: 1, //级数
+            },
+            {
+              title: "标签四",
+              id: 3,
+              color: "#0077FF",
+              level: 1, //级数
+            },
+            {
+              title: "标签五",
+              id: 3,
+              color: "#0077FF",
+              level: 1, //级数
+            },
+            {
+              title: "标签六",
+              id: 3,
+              color: "#0077FF",
+              level: 1, //级数
+            },
+          ];
+
+          tree.reload("showTagsTree", {
+            data: treeData,
+            template: function (item) {
+              var str =
+                '<div class="layui-tree-tag"><span class="layui-tree-tag-graph layui-tree-tag-circle" style="background-color: ' +
+                item.color +
+                '"></span><span>' +
+                item.title +
+                "</span></div>";
+              return str;
+            },
+          });
+          if (cellData) {
+            console.log(rowData);
+            var layerDom = $("#showTags");
+            layer.open({
+              title: "已分配私有有标签（4）",
+              area: ["260px", "420px"],
+              type: 1,
+              content: layerDom,
+              shade: 0.1,
+              shadeClose: true,
+              closeBtn: 0,
+              skin: "show-private-layer",
+              move: false,
+              closeBtn: 1,
+              resize: false,
+            });
+          }
+        }
+      );
+      // 公有标签点击
+      $("#my-library-table tbody").on("click", ".public-tag-cell", function () {
+        var rowData = datatable.row(this).data();
+        var cellData = datatable.cell(this).data();
+        var treeData = [
+          {
+            title: "标签一",
+            id: 1,
+            color: "#FB3B35", //颜色
+            level: 1, //级数
+            children: [
+              {
+                title: "标签一一",
+                id: 1000,
+                color: "#45C5B1",
+                children: [
+                  {
+                    title: "标签一一一",
+                    id: 10001,
+                    color: "#0077FF",
+                  },
+                  {
+                    title: "标签一一二",
+                    id: 10002,
+                    color: "#0077FF",
+                  },
+                ],
+              },
+              {
+                title: "标签一二",
+                id: 1001,
+                color: "#0077FF",
+              },
+              {
+                title: "标签一三",
+                id: 1002,
+                color: "#0077FF",
+              },
+            ],
+          },
+          {
+            title: "标签二",
+            id: 2,
+            color: "#0077FF",
+            level: 1, //级数
+            children: [
+              {
+                title: "标签二一",
+                id: 2000,
+                color: "#0077FF",
+              },
+              {
+                title: "标签二二",
+                id: 2001,
+                color: "#0077FF",
+              },
+            ],
+          },
+          {
+            title: "标签三",
+            id: 3,
+            color: "#0077FF",
+            level: 1, //级数
+            children: [
+              {
+                title: "标签三一",
+                id: 3000,
+                color: "#0077FF",
+              },
+              {
+                title: "标签三二",
+                id: 3001,
+                color: "#0077FF",
+              },
+            ],
+          },
+        ];
+
+        tree.reload("showTagsTree", {
+          data: treeData,
+          template: function (item) {
+            var str =
+              '<div class="layui-tree-tag"><span class="layui-tree-tag-graph layui-tree-tag-diamond" style="background-color: ' +
+              item.color +
+              '"></span><span>' +
+              item.title +
+              "</span></div>";
+            return str;
+          },
+        });
+        if (cellData) {
+          console.log(rowData);
+          var layerDom = $("#showTags");
+          layer.open({
+            title: "已分配公有有标签（4）",
+            area: ["260px", "420px"],
+            type: 1,
+            content: layerDom,
+            shade: 0.1,
+            shadeClose: true,
+            closeBtn: 0,
+            skin: "show-public-layer",
+            move: false,
+            closeBtn: 1,
+            resize: false,
+          });
+        }
+      });
+      // 相关联点击
+      $("#my-library-table tbody").on("click", ".link-cell", function () {
+        var rowData = datatable.row(this).data();
+        var cellData = datatable.cell(this).data();
+        if (cellData) {
+          console.log(rowData);
+          var layerDom = $("#related");
+          layer.open({
+            title: "相关联",
+            area: ["596px", "599px"],
+            type: 1,
+            offset: "auto",
+            content: layerDom,
+            maxWidth: 596,
+            shade: 0.1,
+            shadeClose: true,
+            closeBtn: 0,
+            move: false,
+            closeBtn: 1,
+            resize: false,
+          });
+        }
       });
       // 分享成员
       var shareUser = [
@@ -719,6 +1011,193 @@ layui
       tableEl.on("unstarClick", function (e, data) {
         layer.msg("取消收藏" + JSON.stringify(data));
       });
+      // 标签树
+      tree.render({
+        elem: "#tagsTree",
+        data: [],
+        id: "tagsTree", //定义索引
+        showCheckbox: true,
+        showLine: false,
+        selfChecked: true, // 是否开启节点独立选择
+        oncheck: function (obj) {
+          console.log(obj);
+        },
+      });
+      // 分配公有标签
+      $("#publicTag").on("click", function () {
+        var treeData = [
+          {
+            title: "标签一",
+            id: 1,
+            color: "#FB3B35", //颜色
+            level: 1, //级数
+            children: [
+              {
+                title: "标签一一",
+                id: 1000,
+                color: "#45C5B1",
+                children: [
+                  {
+                    title: "标签一一一",
+                    id: 10001,
+                    color: "#0077FF",
+                  },
+                  {
+                    title: "标签一一二",
+                    id: 10002,
+                    color: "#0077FF",
+                  },
+                ],
+              },
+              {
+                title: "标签一二",
+                id: 1001,
+                color: "#0077FF",
+              },
+              {
+                title: "标签一三",
+                id: 1002,
+                color: "#0077FF",
+              },
+            ],
+          },
+          {
+            title: "标签二",
+            id: 2,
+            color: "#0077FF",
+            level: 1, //级数
+            children: [
+              {
+                title: "标签二一",
+                id: 2000,
+                color: "#0077FF",
+              },
+              {
+                title: "标签二二",
+                id: 2001,
+                color: "#0077FF",
+              },
+            ],
+          },
+          {
+            title: "标签三",
+            id: 3,
+            color: "#0077FF",
+            level: 1, //级数
+            children: [
+              {
+                title: "标签三一",
+                id: 3000,
+                color: "#0077FF",
+              },
+              {
+                title: "标签三二",
+                id: 3001,
+                color: "#0077FF",
+              },
+            ],
+          },
+        ];
+
+        tree.reload("tagsTree", {
+          data: treeData,
+          template: function (item) {
+            var str =
+              '<div class="layui-tree-tag"><span class="layui-tree-tag-graph layui-tree-tag-diamond" style="background-color: ' +
+              item.color +
+              '"></span><span>' +
+              item.title +
+              "</span></div>";
+            return str;
+          },
+        });
+        var tagsLayerDom = $("#tagLayer");
+        layer.open({
+          triggerEle: $(this),
+          title: "将公有标签分配给“某课题小组报告",
+          type: 1,
+          offset: "eb",
+          area: ["260px"],
+          content: tagsLayerDom,
+          shade: 0.001,
+          shadeClose: true,
+          closeBtn: 1,
+          skin: "tags-layer",
+          move: false,
+          resize: false,
+        });
+      });
+
+      // 分配私有标签
+      $("#privateTag").on("click", function () {
+        var treeData = [
+          {
+            title: "标签一",
+            id: 1,
+            color: "#FB3B35", //颜色
+            level: 1, //级数
+          },
+          {
+            title: "标签二",
+            id: 2,
+            color: "#0077FF",
+            level: 1, //级数
+          },
+          {
+            title: "标签三",
+            id: 3,
+            color: "#0077FF",
+            level: 1, //级数
+          },
+          {
+            title: "标签四",
+            id: 3,
+            color: "#0077FF",
+            level: 1, //级数
+          },
+          {
+            title: "标签五",
+            id: 3,
+            color: "#0077FF",
+            level: 1, //级数
+          },
+          {
+            title: "标签六",
+            id: 3,
+            color: "#0077FF",
+            level: 1, //级数
+          },
+        ];
+
+        tree.reload("tagsTree", {
+          data: treeData,
+          template: function (item) {
+            var str =
+              '<div class="layui-tree-tag"><span class="layui-tree-tag-graph layui-tree-tag-circle" style="background-color: ' +
+              item.color +
+              '"></span><span>' +
+              item.title +
+              "</span></div>";
+            return str;
+          },
+        });
+        var tagsLayerDom = $("#tagLayer");
+
+        layer.open({
+          triggerEle: $(this),
+          title: "将私有标签分配给“某课题小组报告",
+          type: 1,
+          offset: "eb",
+          area: ["260px"],
+          content: tagsLayerDom,
+          shade: 0.001,
+          shadeClose: true,
+          closeBtn: 1,
+          skin: "tags-layer",
+          move: false,
+          resize: false,
+        });
+      });
 
       // 弹出式菜单
       $("#colsvis").on("click", function (e) {
@@ -759,6 +1238,7 @@ layui
           tips_index = null;
         },
       });
+
       // 分享弹出层
       $("#share").on("click", function () {
         var layerDom = $("#shareLayer");
@@ -773,6 +1253,7 @@ layui
           closeBtn: 0,
           move: false,
           closeBtn: 1,
+          resize: false,
         });
       });
       // 日期选择器

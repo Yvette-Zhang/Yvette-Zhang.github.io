@@ -8,9 +8,38 @@
 	<link rel="stylesheet" href="../../assets/css/common.css">
 	<link rel="stylesheet" href="../../assets/icon/iconfont.css">
 	<link rel="stylesheet" href="../../assets/css/project/overview.css">
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="../../assets/plugins/swiper/swiper.min.css">
+	<style>
+		.swiper-container {
+			width: 100%;
+			height: 100%;
+		}
+		.swiper-slide {
+			text-align: center;
+			font-size: 18px;
+			background: #fff;
+			width: 32%;
+			height: 200px;
+			margin-right: 1.5%;
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		}
+	</style>
 </head>
 <body>
-<h2 class="page-title"><a class="layui-icon layui-icon-left" href="#" onclick="javascript:history.go(-1);"></a>新能源协作平台项目</h2>
+<h2 class="page-title"><a class="font_family icon-zuo" href="./index.html"></a>新能源协作平台项目</h2>
 <div class="layui-row layui-col-space20">
 	<div class="layui-col-md8" style="width: 71.8%">
 		<div class="top-box">
@@ -53,112 +82,134 @@
 			<div class="layui-card">
 				<div class="layui-card-header"><i class="font_family icon-baogaoxiezuo"></i>课题信息</div>
 				<div class="layui-card-body">
-					<div class="card-list">
-						<div class="card-item">
-							<div class="card-header">
-								<div class="card-img">
-									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#icon-keti"></use>
-									</svg>
+						<div class="card-list">
+							<!-- Swiper -->
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="card-item">
+											<div class="card-header">
+												<div class="card-img">
+													<svg class="icon" aria-hidden="true">
+														<use xlink:href="#icon-keti"></use>
+													</svg>
+												</div>
+												<div class="card-title">
+													<p title="课题1课题1课题1课题1课题1">课题1课题1课题1课题1课题1</p>
+													<p class="card-time">2020.05.11-2022.01.01</p>
+												</div>
+											</div>
+											<div class="card-body">
+												<div class="member">成员：<span><span class="first-member">王晓晨</span>、<span class="second-member">张靓颖</span>等</span><span class="num">45</span>人</div>
+												<div class="info">
+													<span>详情：</span>
+													<p>
+														这里是详情这里是详情这里是
+														详情这里是详情这里是详情这
+														这里是详情。这里是详情这里
+														是详情这里是详情这里是详
+														这里是详情这这里是详情。
+														这里是详情这里是详情这里是
+														详情这里是详情这里是详情这
+														这里是详情。
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="card-item">
+											<div class="card-header">
+												<div class="card-img">
+													<svg class="icon" aria-hidden="true">
+														<use xlink:href="#icon-keti"></use>
+													</svg>
+												</div>
+												<div class="card-title">
+													<p >课题1</p>
+													<p class="card-time">2020.05.11-2022.01.01</p>
+												</div>
+											</div>
+											<div class="card-body">
+												<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
+												<div class="info">
+													<span>详情：</span>
+													<p>
+														这里是详情这里是详情这里是
+														详情这里是详情这里是详情这
+														这里是详情。
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="card-item">
+											<div class="card-header">
+												<div class="card-img">
+													<svg class="icon" aria-hidden="true">
+														<use xlink:href="#icon-keti"></use>
+													</svg>
+												</div>
+												<div class="card-title">
+													<p >课题1</p>
+													<p class="card-time">2020.05.11-2022.01.01</p>
+												</div>
+											</div>
+											<div class="card-body">
+												<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
+												<div class="info">
+													<span>详情：</span>
+													<p>
+														这里是详情这里是详情这里是
+														详情这里是详情这里是详情这
+														这里是详情。
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="card-item">
+											<div class="card-header">
+												<div class="card-img">
+													<svg class="icon" aria-hidden="true">
+														<use xlink:href="#icon-keti"></use>
+													</svg>
+												</div>
+												<div class="card-title">
+													<p >课题1</p>
+													<p class="card-time">2020.05.11-2022.01.01</p>
+												</div>
+											</div>
+											<div class="card-body">
+												<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
+												<div class="info">
+													<span>详情：</span>
+													<p>
+														这里是详情这里是详情这里是
+														详情这里是详情这里是详情这
+														这里是详情。
+													</p>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
-								<div class="card-title">
-									<p >课题1</p>
-									<p class="card-time">2020.05.11-2022.01.01</p>
-								</div>
+								<!-- Add Pagination -->
+								<div class="swiper-pagination"></div>
+								<!-- 如果需要导航按钮 -->
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+
+								<!-- 如果需要滚动条 -->
+								<div class="swiper-scrollbar"></div>
 							</div>
-							<div class="card-body">
-								<div class="member">成员：<span><span class="first-member">王晓晨</span>、<span class="second-member">张靓颖</span>等</span><span class="num">45</span>人</div>
-								<div class="info">
-									<span>详情：</span>
-									<p>
-										这里是详情这里是详情这里是
-										详情这里是详情这里是详情这
-										这里是详情。这里是详情这里
-										是详情这里是详情这里是详
-										这里是详情这这里是详情。
-										这里是详情这里是详情这里是
-										详情这里是详情这里是详情这
-										这里是详情。
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card-item">
-							<div class="card-header">
-								<div class="card-img">
-									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#icon-keti"></use>
-									</svg>
-								</div>
-								<div class="card-title">
-									<p >课题1</p>
-									<p class="card-time">2020.05.11-2022.01.01</p>
-								</div>
-							</div>
-							<div class="card-body">
-								<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
-								<div class="info">
-									<span>详情：</span>
-									<p>
-										这里是详情这里是详情这里是
-										详情这里是详情这里是详情这
-										这里是详情。
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card-item">
-							<div class="card-header">
-								<div class="card-img">
-									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#icon-keti"></use>
-									</svg>
-								</div>
-								<div class="card-title">
-									<p >课题1</p>
-									<p class="card-time">2020.05.11-2022.01.01</p>
-								</div>
-							</div>
-							<div class="card-body">
-								<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
-								<div class="info">
-									<span>详情：</span>
-									<p>
-										这里是详情这里是详情这里是
-										详情这里是详情这里是详情这
-										这里是详情。
-									</p>
-								</div>
-							</div>
-						</div>
-						<div class="card-item">
-							<div class="card-header">
-								<div class="card-img">
-									<svg class="icon" aria-hidden="true">
-										<use xlink:href="#icon-keti"></use>
-									</svg>
-								</div>
-								<div class="card-title">
-									<p >课题1</p>
-									<p class="card-time">2020.05.11-2022.01.01</p>
-								</div>
-							</div>
-							<div class="card-body">
-								<div class="member">成员：<span>王晓晨、张靓颖等</span><span class="num">45</span>人</div>
-								<div class="info">
-									<span>详情：</span>
-									<p>
-										这里是详情这里是详情这里是
-										详情这里是详情这里是详情这
-										这里是详情。
-									</p>
-								</div>
-							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 	<div class="layui-col-md3" style="width: 28%">
 		<div class="right-box">
@@ -205,7 +256,7 @@
 					<div class="chart-legend">
 						<div class="chart-legend-item">
 							<div>
-								<div class="legend-icon" style="background:rgba(101,101,239,.1);color:#6565EF;"><i class="font_family icon-jinri"></i></div>
+								<div class="legend-icon" style="background:rgba(101,101,239,.1);color:#6565EF;"><i class="font_family icon-dairenling"></i></div>
 								<span class="legend-progress">待认领</span>
 							</div>
 							<span class="legend-number">1</span>
@@ -303,28 +354,21 @@
 				<div class="layui-card">
 					<div class="layui-card-header"><i class="font_family icon-baogaoxiezuo"></i>甘特图</div>
 					<div class="layui-card-body">
-						<div id="gtChart"></div>
+						<div id="gtChart">
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.min.js"></script>
 <script src="../../assets/js/jquery-1.9.1.min.js"></script>
 <script src="../../assets/plugins/layui/layui.js"></script>
 <script src="../../assets/js/index/main.js"></script>
 <script src="../../assets/icon/iconfont.js"></script>
+<script src="../../assets/plugins/swiper/swiper.min.js"></script>
 <script>
-	layui.use(['carousel'], function(){
-		var carousel = layui.carousel;
-		//常规轮播
-		carousel.render({
-			elem: '#test1'
-			,arrow: 'always'
-		});
-	})
 
 	renderChart();
 	function renderChart(){
@@ -418,6 +462,33 @@
 			window.addEventListener('resize',function () {
 					myChart.resize();
 			})
+	}
+
+	var swiper = new Swiper('.swiper-container', {
+			slidesPerView: 'auto',
+			autoplay:{
+					delay: 2000,//1秒切换一次
+			},
+			loop: true, // 循环模式选项
+			// 如果需要滚动条
+			scrollbar: {
+					el: '.swiper-scrollbar',
+			},
+			// 如果需要前进后退按钮
+			navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+			},
+			pagination: {
+					el: '.swiper-pagination',
+					clickable: true,
+			},
+	});
+	swiper.el.onmouseover = function(){ //鼠标放上暂停轮播
+			swiper.autoplay.stop();
+	}
+	swiper.el.onmouseleave = function(){
+			swiper.autoplay.start();
 	}
 </script>
 </body>

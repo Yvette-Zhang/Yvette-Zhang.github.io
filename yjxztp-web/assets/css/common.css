@@ -32,6 +32,7 @@
   background-color: #f0f3f7;
   box-sizing: border-box;
   line-height: 1.3;
+  cursor: pointer;
 }
 
 .search-ipt:focus::-webkit-input-placeholder {
@@ -46,10 +47,13 @@
   cursor: pointer;
 }
 
-.search i:first-child {
+.search:hover .icon-sousuo{
+  color: #0077ff;
+}
+.search .icon-sousuo {
   top: 3px;
   left: 10px;
-  color: #0077ff;
+  color: #99A3BB;
 }
 
 .search i:last-child {
@@ -58,8 +62,10 @@
   color: #99A3BC;
   display: none;
 }
-
-.search .search-ipt:focus+i {
+.search-ipt:focus + .icon-sousuo{
+  color: #0077ff;
+}
+.search-ipt:focus ~ .icon-guanbi{
   display: inline;
 }
 
