@@ -90,7 +90,9 @@ layui.define('form', function (exports) {
     , onlyIconControl: false  //是否仅允许节点左侧图标控制展开收缩
     , isJump: false  //是否允许点击节点时弹出新窗口跳转
     , edit: false  //是否开启节点的操作图标
-
+    , showSearch: false //是否开启搜索
+    , customOperate: false //是否开启自定义节点操作
+    , selfChecked: false //是否开启节点独立选择 
     , text: {
       defaultNodeName: '未命名' //节点默认名称
       , none: '无数据'  //数据为空时的文本提示
@@ -129,6 +131,10 @@ layui.define('form', function (exports) {
 
     var othis = options.elem = $(options.elem);
     if (!othis[0]) return;
+
+    if (options.showSearch) {
+      temp.prepend('<input type="text" class="layui-input layui-tree-search" placeholder="请输入关键字进行过滤">')
+    }
 
     //索引
     that.key = options.id || that.index;
@@ -239,7 +245,25 @@ layui.define('form', function (exports) {
               add: '<i class="' + iconPrefix + options.iconMap['add'] + '" data-type="add"></i>'
               , update: '<i class="' + iconPrefix + options.iconMap['update'] + '" data-type="update"></i>'
               , del: '<i class="' + iconPrefix + options.iconMap['del'] + '" data-type="del"></i>'
-            }, arr = ['<div class="layui-btn-group layui-tree-btnGroup">'];
+            };
+            if (options.delNoneLevel && options.delNoneLevel == item.level) {
+              editIcon = {
+                add: '<i class="' + iconPrefix + options.iconMap['add'] + '" data-type="add"></i>'
+                , update: '<i class="' + iconPrefix + options.iconMap['update'] + '" data-type="update"></i>'
+              }
+            };
+            if (options.updateNoneLevel && options.updateNoneLevel == item.level) {
+              editIcon = {
+                add: '<i class="' + iconPrefix + options.iconMap['add'] + '" data-type="add"></i>'
+                , del: '<i class="' + iconPrefix + options.iconMap['del'] + '" data-type="del"></i>'
+              }
+            };
+            if (options.updateNoneLevel == options.delNoneLevel && options.delNoneLevel && options.delNoneLevel == item.level && options.updateNoneLevel && options.updateNoneLevel == item.level) {
+              editIcon = {
+                add: '<i class="' + iconPrefix + options.iconMap['add'] + '" data-type="add"></i>'
+              }
+            }
+            var arr = ['<div class="layui-btn-group layui-tree-btnGroup">'];
             if (options.edit === true) {
               options.edit = ['update', 'del']
             }
@@ -357,6 +381,8 @@ layui.define('form', function (exports) {
 
     if (elemCheckbox.prop('disabled')) return;
 
+    if (options.selfChecked) return;
+
     //同步子节点选中状态
     if (typeof item.children === 'object' || elem.find('.' + ELEM_PACK)[0]) {
       var childs = elem.find('.' + ELEM_PACK).find('input[same="layuiTreeCheck"]');
@@ -445,6 +471,10 @@ layui.define('form', function (exports) {
           , type: type
           , elem: elem
         };
+      if (options.customOperate) {
+        options.operate && options.operate(returnObj);
+        return
+      }
       //增加
       if (type == 'add') {
         //若节点本身无子节点

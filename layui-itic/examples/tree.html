@@ -15,12 +15,14 @@
 
   <style>
     body {
-      padding: 100px;
+      padding: 50px 100px;
     }
 
     #test1,
-    #test2 {
-      margin-bottom: 100px;
+    #test2,
+    #test3,
+    #test4 {
+      margin-bottom: 40px;
       width: 400px;
     }
   </style>
@@ -29,8 +31,8 @@
 <body>
 
   <div class="layui-btn-container">
-    <button type="button" class="layui-btn" lay-demo="getChecked">获取选中数据</button>
-    <button type="button" class="layui-btn" lay-demo="setChecked">设置节点勾选</button>
+    <!-- <button type="button" class="layui-btn" lay-demo="getChecked">获取选中数据</button>
+    <button type="button" class="layui-btn" lay-demo="setChecked">设置节点勾选</button> -->
     <button type="button" class="layui-btn" lay-demo="reload">重载实例</button>
   </div>
 
@@ -44,6 +46,46 @@
 
     <div id="test1"></div>
     <div id="test2"></div>
+    <blockquote class="layui-elem-quote" style="margin-top: 20px;">
+      自定义节点 增加了 template 参数，可根据数据自定义显示方式
+      示例：
+      <pre class="layui-code">
+        tree.render({
+          ...
+          template: function (item) {
+            var str = '&lt;div class="layui-tree-tag"&gt;&lt;span class="layui-tree-tag-graph layui-tree-tag-diamond"
+            style="background-color: ' + item.color + '"&gt;&lt;/span&gt;&lt;span&gt;' + item.title +
+            '&lt;/span&gt;&lt;/div&gt;'
+            return str
+          }
+        });
+      </pre>
+    </blockquote>
+    <div id="test3"></div>
+    <blockquote class="layui-elem-quote" style="margin-top: 20px;">
+      设置某级节点不可删除 delNoneLevel Number类型，数据中需添加level字段，表示数据是第几级
+      <br>
+      设置某级节点不可编辑 updateNoneLevel Number类型，数据中需添加level字段，表示数据是第几级
+      <br>
+      自定义节点操作 增加参数customOperate Boolean类型 默认为false
+      <br>
+      增加是否开启节点独立选择 selfChecked Boolean类型 默认为false
+      <br>
+      默认将使用layui自带的事件，如果为true可根据点击类型自定义事件内容
+      <br>
+      示例：
+      <pre class="layui-code">
+        tree.render({
+          ...
+          customOperate: true,
+          operate: function (obj) {
+            console.log(obj);
+          }
+        });
+      </pre>
+
+    </blockquote>
+    <div id="test4"></div>
 
     <script src="../src/layui.js"></script>
     <script>
@@ -58,117 +100,150 @@
         var data1 = [{
           title: '一级1'
           , id: 1
+          , color: '#FB3C36'
+          , level: 1
           , children: [{
             title: '二级1-1'
             , id: 3
             , href: 'https://www.layui.com/doc/'
+            , color: '#FB3C36'
             , children: [{
               title: '三级1-1-3'
               , id: 23
+              , color: '#FB3C36'
               , children: [{
                 title: '四级1-1-3-1'
                 , id: 24
+                , color: '#FB3C36'
                 , children: [{
                   title: '五级1-1-3-1-1'
                   , id: 30
+                  , color: '#FB3C36'
                 }, {
                   title: '五级1-1-3-1-2'
                   , id: 31
+                  , color: '#FB3C36'
                 }]
               }]
             }, {
               title: '三级1-1-1'
               , id: 7
               , checked: true
+              , color: '#FB3C36'
               , children: [{
                 title: '四级1-1-1-1'
                 , id: 15
                 //,checked: true
                 , href: 'https://www.layui.com/doc/base/infrastructure.html'
+                , color: '#FB3C36'
               }]
             }, {
               title: '三级1-1-2'
               , id: 8
+              , color: '#FB3C36'
               , children: [{
                 title: '四级1-1-2-1'
                 , id: 32
+                , color: '#FB3C36'
               }]
             }]
           }, {
             title: '二级1-2'
             , id: 4
             , spread: true
+            , color: '#FB3C36'
             , children: [{
               title: '三级1-2-1'
               , id: 9
               , checked: true
               , disabled: true
+              , color: '#FB3C36'
             }, {
               title: '三级1-2-2'
               , id: 10
+              , color: '#FB3C36'
             }]
           }, {
             title: '二级1-3'
             , id: 20
+            , color: '#FB3C36'
             , children: [{
               title: '三级1-3-1'
               , id: 21
+              , color: '#FB3C36'
             }, {
               title: '三级1-3-2'
               , id: 22
+              , color: '#FB3C36'
             }]
           }]
         }, {
           title: '一级2'
           , id: 2
           , spread: true
+          , color: '#FB3C36'
+          , level: 1
           , children: [{
             title: '二级2-1'
             , id: 5
             , spread: true
+            , color: '#FB3C36'
             , children: [{
               title: '三级2-1-1'
               , id: 11
+              , color: '#FB3C36'
             }, {
               title: '三级2-1-2'
               , id: 12
+              , color: '#FB3C36'
             }]
           }, {
             title: '二级2-2'
             , id: 6
             , checked: true
+            , color: '#FB3C36'
             , children: [{
               title: '三级2-2-1'
               , id: 13
+              , color: '#FB3C36'
             }, {
               title: '三级2-2-2'
               , id: 14
               , disabled: true
+              , color: '#FB3C36'
             }]
           }]
         }, {
           title: '一级3'
           , id: 16
+          , color: '#FB3C36'
+          , level: 1
           , children: [{
             title: '二级3-1'
             , id: 17
             , fixed: true
+            , color: '#FB3C36'
             , children: [{
               title: '三级3-1-1'
               , id: 18
+              , color: '#FB3C36'
             }, {
               title: '三级3-1-2'
               , id: 19
+              , color: '#FB3C36'
             }]
           }, {
             title: '二级3-2'
             , id: 27
+            , color: '#FB3C36'
             , children: [{
               title: '三级3-2-1'
               , id: 28
+              , color: '#FB3C36'
             }, {
               title: '三级3-2-2'
               , id: 29
+              , color: '#FB3C36'
             }]
           }]
         }];
@@ -201,6 +276,70 @@
             console.log(obj);
           }
           , oncheck: function (obj) {
+            console.log(obj);
+          }
+          , operate: function (obj) {
+            var type = obj.type;
+            if (type == 'add') {
+              //ajax操作，返回key值
+              return index++;
+            } else if (type == 'update') {
+              console.log(obj.elem.find('.layui-tree-txt').html());
+            } else if (type == 'del') {
+              console.log(obj);
+            };
+          }
+          , showCheckbox: true  //是否显示复选框
+          , accordion: 0  //是否开启手风琴模式
+
+          , onlyIconControl: true //是否仅允许节点左侧图标控制展开收缩
+          , isJump: 0  //点击文案跳转地址
+          , edit: true  //操作节点图标
+          , selfChecked: true // 是否开启节点独立选择
+        });
+
+        //按钮事件
+        // util.event('lay-demo', {
+        //   getChecked: function (othis) {
+        //     var checkedData = tree.getChecked('demoId1');
+        //     layer.alert(JSON.stringify(checkedData), { shade: 0 });
+        //     console.log(checkedData);
+        //   }
+        //   , setChecked: function () {
+        //     console.log(1111);
+        //     tree.setChecked('demoId1', [1000, 1001, 1002]);
+        //   }
+        //   , reload: function () {
+        //     tree.reload('demoId1', {
+
+        //     });
+        //   }
+        // });
+
+        tree.render({
+          elem: '#test2'
+          , data: data1
+          , parentIcon: true
+          //,expandClick: false
+          // ,showLine: false //关闭连接线
+          , click: function (obj, state) {
+            console.log(obj);
+          }
+          , oncheck: function (obj, checked, child) {
+            if (checked) {
+              console.log(obj[0]);
+            }
+          }
+        });
+
+        tree.render({
+          elem: '#test3'
+          , data: data1
+          , click: function (obj) {
+            layer.msg(JSON.stringify(obj.data));
+            console.log(obj);
+          }
+          , oncheck: function (obj) {
             //console.log(obj);
           }
           , operate: function (obj) {
@@ -221,41 +360,47 @@
           , isJump: 0  //点击文案跳转地址
           , edit: true,  //操作节点图标
           template: function (item) {
-            var str = '<span>' + item.title + '</span>'
+            var str = '<div class="layui-tree-tag"><span class="layui-tree-tag-graph layui-tree-tag-diamond" style="background-color: ' + item.color + '"></span><span>' + item.title + '</span></div>'
             return str
           }
         });
 
-        //按钮事件
-        util.event('lay-demo', {
-          getChecked: function (othis) {
-            var checkedData = tree.getChecked('demoId1');
-            layer.alert(JSON.stringify(checkedData), { shade: 0 });
-            console.log(checkedData);
-          }
-          , setChecked: function () {
-            tree.setChecked('demoId1', [1000, 1001, 1002]);
-          }
-          , reload: function () {
-            tree.reload('demoId1', {
-
-            });
-          }
-        });
-
         tree.render({
-          elem: '#test2'
+          elem: '#test4'
           , data: data1
-          , parentIcon: true
-          //,expandClick: false
-          // ,showLine: false //关闭连接线
-          , click: function (obj, state) {
+          , click: function (obj) {
+            layer.msg(JSON.stringify(obj.data));
             console.log(obj);
           }
-          , oncheck: function (obj, checked, child) {
-            if (checked) {
-              console.log(obj[0]);
-            }
+          , oncheck: function (obj) {
+            //console.log(obj);
+          }
+          , operate: function (obj) {
+            var type = obj.type;
+            if (type == 'add') {
+              //ajax操作，返回key值
+              return index++;
+            } else if (type == 'update') {
+              console.log(obj.elem.find('.layui-tree-txt').html());
+            } else if (type == 'del') {
+              console.log(obj);
+            };
+          }
+          , showCheckbox: true  //是否显示复选框
+          , accordion: 0  //是否开启手风琴模式
+          , onlyIconControl: true //是否仅允许节点左侧图标控制展开收缩
+          , isJump: 0  //点击文案跳转地址
+          , edit: ['add', 'update', 'del']  //操作节点图标
+          , delNoneLevel: 1 //设置第几级节点不允许删除操作
+          , updateNoneLevel: 1 //设置第几级节点不允许编辑操作(根据数据中的level)
+          , selfChecked: true // 是否独立选择
+          , template: function (item) {
+            var str = '<div class="layui-tree-tag"><span class="layui-tree-tag-graph layui-tree-tag-circle" style="background-color: ' + item.color + '"></span><span>' + item.title + '</span></div>'
+            return str
+          },
+          customOperate: true,
+          operate: function (obj) {
+            console.log(obj);
           }
         });
 

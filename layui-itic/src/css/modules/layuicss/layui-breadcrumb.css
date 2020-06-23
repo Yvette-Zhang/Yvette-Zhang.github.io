@@ -10,10 +10,10 @@
   color: #999 !important;
 }
 .layui-breadcrumb a:hover {
-  color: #5fb878 !important;
+  color: #0077FF !important;
 }
 .layui-breadcrumb a cite {
-  color: #666;
+  color: #616774;
   font-style: normal;
 }
 .layui-breadcrumb span[lay-separator] {

@@ -90,6 +90,12 @@ layui.define([
         computeLeft = margin;
         computeTop = yy + hh + 5;
       }
+      if (yy - $(document).scrollTop() + hh + dHH > wH) {
+        computeTop = 'auto';
+        $('.layui-dropdown').css({
+          'bottom': 15
+        })
+      }
       $('.layui-dropdown').css({
         'left': computeLeft || xx - dWW - 5,
         'top': computeTop || yy,
@@ -99,6 +105,12 @@ layui.define([
       if (xx + ww + dHH > dW) {
         computeLeft = dW - dWW - margin;
         computeTop = yy + hh + 5;
+      }
+      if (yy - $(document).scrollTop() + hh + dHH > wH) {
+        computeTop = 'auto';
+        $('.layui-dropdown').css({
+          'bottom': 15
+        })
       }
       $('.layui-dropdown').css({
         'left': computeLeft || xx + ww + 5,
@@ -173,7 +185,8 @@ layui.define([
       }
     } else {
       for (var i = 0; i < l; i++) {
-        var d = data[i];
+        var d = data[i],
+          arrowStr = '';
         if (d.children && d.children.length) {
           var subD = d.children,
             sL = subD.length;

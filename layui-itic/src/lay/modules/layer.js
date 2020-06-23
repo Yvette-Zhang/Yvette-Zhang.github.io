@@ -456,6 +456,10 @@
           }
           that.offsetTop = computeTop || eleY;
           that.offsetLeft = computeLeft || eleX + eleW;
+          if (eleY - win.scrollTop() + eleH + area[1] > wH) {
+            that.offsetTop = 'auto';
+          }
+          layero.css({ bottom: 15 });
           layero.css({ top: that.offsetTop, left: that.offsetLeft, position: 'absolute' });
           return
         } else if (config.offset === 'et' && triggerEle) { //触发元素上方
@@ -487,6 +491,11 @@
           }
           that.offsetTop = computeTop || eleY;
           that.offsetLeft = computeLeft || eleX - area[0];
+
+          if (eleY - win.scrollTop() + eleH + area[1] > wH) {
+            that.offsetTop = 'auto';
+          }
+          layero.css({ bottom: 15 });
           layero.css({ top: that.offsetTop, left: that.offsetLeft, position: 'absolute' });
           return
         } else {

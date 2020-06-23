@@ -1,6 +1,7 @@
 /** 树组件 By star1029 **/
 .layui-tree {
   line-height: 22px;
+  color: #626874;
 }
 .layui-tree .layui-form-checkbox {
   margin: 0 !important;
@@ -31,6 +32,8 @@
   padding: 3px 0;
   height: 20px;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 .layui-tree-entry:hover {
   background-color: #eee;
@@ -39,7 +42,7 @@
   background-color: rgba(0, 0, 0, 0);
 }
 .layui-tree-line .layui-tree-entry:hover .layui-tree-txt {
-  color: #999;
+  color: #0078ff;
   text-decoration: underline;
   transition: 0.3s;
 }
@@ -73,7 +76,7 @@
   margin: 0 10px;
   color: #c0c4cc;
 }
-.layui-tree-iconClick + .layui-tree-iconClick{
+.layui-tree-iconClick + .layui-tree-iconClick {
   margin-left: 0;
 }
 .layui-tree-icon {
@@ -153,4 +156,19 @@
 .layui-tree-emptyText {
   text-align: center;
   color: #999;
+}
+
+.layui-tree-tag-graph {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.layui-tree-tag-diamond {
+  transform: rotate(45deg);
+}
+
+.layui-tree-tag-circle {
+  border-radius: 50%;
 }
