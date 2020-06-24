@@ -179,6 +179,16 @@ var argv = require('minimist')(process.argv.slice(2), {
         .pipe(gulp.dest('./' + dir + '/font'));
     }
 
+    //复制js文件夹
+    , js: function (ver) {
+      var src = [
+        './js/*'
+      ];
+
+      return gulp.src(src)
+        .pipe(gulp.dest('./dist/js'));
+    }
+
     //复制layui_exts
     , layuiExts: function () {
 
@@ -186,8 +196,8 @@ var argv = require('minimist')(process.argv.slice(2), {
         './layui_exts/**/*',
         '!./layui_exts/treeTable/json/*',
         '!./layui_exts/**/json',
-      ]
-      
+      ];
+
       return gulp.src(src)
         .pipe(gulp.dest('./dist/layui_exts'));
     }
@@ -244,5 +254,5 @@ gulp.task('server', function (cb) {
   cb();
 });
 
-exports.default = gulp.series(clear, clearRelease, task.mergeJs, task.alljs, task.minjs, task.mobile, task.allcss, task.mincss, task.font, task.layuiExts, task.mv);
+exports.default = gulp.series(clear, clearRelease, task.mergeJs, task.alljs, task.minjs, task.mobile, task.allcss, task.mincss, task.font, task.js, task.layuiExts, task.mv);
 //exports.default = gulp.series(clear, clearRelease, task.layuiExts);
