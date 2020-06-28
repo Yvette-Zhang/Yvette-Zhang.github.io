@@ -163,6 +163,7 @@ MockData().then(function (data) {
         title: "",
         tips: false,
         className: "treegrid-control",
+        width: "5%",
         data: function (item) {
           if (item.children && item.children.length) {
             return "<span><i class='layui-icon layui-icon-triangle-r'></i></span>";
@@ -205,7 +206,7 @@ MockData().then(function (data) {
         title: "操作",
         data: null,
         defaultContent: "",
-        width: "180px",
+        width: "140px",
         tips: false,
         createdCell(cell, cellData, rowData, rowIndex, colIndex) {
           if (rowData.status === "done" || rowData.status === "invalid") {

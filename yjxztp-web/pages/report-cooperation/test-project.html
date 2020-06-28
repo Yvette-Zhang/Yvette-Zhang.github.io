@@ -208,8 +208,14 @@
     $('.outline-box').on('click', '.outline-item', function () {
       window.top.setPageUrl('./pages/report-cooperation/mindmap.html')
     })
+    $('.outline-box .outline-item i').on('click',function(e){
+      e.stopPropagation();
+    })
     $('.report-item').on('click', function () {
       parent.location.href = './edit-report.html';
+    })
+    $('.report-item  i').on('click',function(e){
+      e.stopPropagation();
     })
   </script>
 </body>

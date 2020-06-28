@@ -62,38 +62,41 @@ MockData().then(function (data) {
         className: "main-column datatable-has-action",
       },
       {
-        title: "执行人",
-        data: "executor",
-        name: "executor",
-      },
-      {
         title: "项目",
         data: "project",
         name: "project",
-        orderable: true,
+      },
+      {
+        title: "执行人",
+        data: "executor",
+        name: "executor",
+        width: "80px",
       },
       {
         title: "任务分类",
         data: "type",
         name: "type",
+        width: "80px",
       },
       {
         title: "截止时间",
         data: "endtime",
         name: "endtime",
         orderable: true,
+        width: "80px",
       },
       {
         title: "创建时间",
         data: "starttime",
         name: "starttime",
         orderable: true,
+        width: "80px",
       },
       {
         title: "操作",
         data: null,
         defaultContent: "",
-        width: "180px",
+        width: "140px",
         tips: false,
         createdCell(cell, cellData, rowData, rowIndex, colIndex) {
           if (rowData.status === "done" || rowData.status === "invalid") {

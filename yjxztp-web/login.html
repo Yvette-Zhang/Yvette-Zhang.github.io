@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>重大项目云协同专用软件 - 登录</title>
+  <link rel="stylesheet" href="./assets/icon/iconfont.css">
+  <link rel="stylesheet" href="./assets/css/login.css">
+</head>
+
+<body>
+  <div class="login-logo">
+    <img class="logo-img" src="./assets/images/logo.png">
+    重大项目云协同专用软件
+  </div>
+  <div class="login-box">
+    <div class="login-title">账号登录</div>
+    <form class="login-form">
+      <div class="login-tips"></div>
+      <div class="form-item">
+        <label><i class="font_family icon-zhanghao"></i>账号</label>
+        <input type="text" name="userName" autocapitalize="off">
+      </div>
+      <div class="form-item">
+        <label><i class="font_family icon-mimaffffffpx"></i>密码</label>
+        <input type="password" name="password" autocapitalize="off">
+      </div>
+      <!-- 初始状态 -->
+      <div class="form-btn">登录</div>
+      <!-- 输完账号密码状态 -->
+      <!-- <div class="form-btn form-btn-pass">登录</div> -->
+      <p class="form-msg">如有问题请联系管理员</p>
+    </form>
+  </div>
+  <script src="./assets/js/jquery-1.9.1.min.js"></script>
+  <script>
+    $(function () {
+      // 登录按钮登录
+      $(".form-btn").on("click", function () {
+        login();
+      });
+
+      function login() {
+        location.href = "index.html";
+      }
+    })
+  </script>
+</body>
+
+</html>

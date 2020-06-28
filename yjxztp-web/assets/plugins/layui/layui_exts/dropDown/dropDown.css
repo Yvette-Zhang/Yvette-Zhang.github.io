@@ -93,6 +93,7 @@
   pointer-events: none;
 }
 
+.layui-dropdown-menu-item.menu-active,
 .layui-dropdown-menu-item:hover,
 .layui-dropdown-menu-submenu:hover {
   background-color: #e6f7ff;

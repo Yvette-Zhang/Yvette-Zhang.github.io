@@ -28,6 +28,8 @@ p{
     color: #616774;
     font-size: 16px;
     cursor: pointer;
+    background-color: transparent;
+    transition: 0.3s;
 }
 .topic-submenu.active,
 .topic-submenu:hover {

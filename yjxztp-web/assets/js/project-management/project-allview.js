@@ -2,21 +2,23 @@
 function MockData() {
   return new Promise((r, j) => {
     var data = Mock.mock({
-      "data|10-20": [{
-        "id|+1": 0,
-        "num|+1": 1,
-        "name|1": "@ctitle(3,8)",
-        "executor|1": "@cname",
-        "project|1": ["项目1", "项目2"],
-        "type|1": ["科研类", "创业类"],
-        "endtime|1": "@date",
-        "starttime|1": "@date",
-        "status|1": ["invalid", "normal", "done"],
-      },],
+      "data|10-20": [
+        {
+          "id|+1": 0,
+          "num|+1": 1,
+          "name|1": "@ctitle(3,8)",
+          "executor|1": "@cname",
+          "project|1": ["项目1", "项目2"],
+          "type|1": ["科研类", "创业类"],
+          "endtime|1": "@date",
+          "starttime|1": "@date",
+          "status|1": ["invalid", "normal", "done"],
+        },
+      ],
     });
     r(data.data);
   });
-};
+}
 
 function createIcon(icon) {
   if (!icon) return "";
@@ -43,96 +45,104 @@ MockData().then(function (data) {
     searching: false,
     order: [],
     data: data,
-    columnDefs: [{
-      orderable: false,
-      targets: "_all"
-    }],
-    tips: true,
+    columnDefs: [
+      {
+        orderable: false,
+        targets: "_all",
+      },
+    ],
     createdRow(row, data, dataIndex) {
       // 状态 class
       $(row).addClass(`datatable-status-${data.status}`);
     },
-    columns: [{
-      title: "序号",
-      data: "num",
-      width: "30px",
-      tips: false
-    },
-    {
-      title: "任务名称",
-      data: "name",
-    },
-    {
-      title: "执行人",
-      data: "executor",
-      name: "executor",
-    },
-    {
-      title: "项目",
-      data: "project",
-      name: "project",
-      orderable: true,
-    },
-    {
-      title: "任务分类",
-      data: "type",
-      name: "type",
-    },
-    {
-      title: "截止时间",
-      data: "endtime",
-      name: "endtime",
-      orderable: true,
-    },
-    {
-      title: "创建时间",
-      data: "starttime",
-      name: "starttime",
-      orderable: true,
-    },
-    {
-      title: "操作",
-      data: null,
-      defaultContent: "",
-      width: "180px",
-      tips: false,
-      createdCell(cell, cellData, rowData, rowIndex, colIndex) {
-        if (rowData.status === "done" || rowData.status === "invalid") {
-          var restartBtn = new Button("重启", "", "sm");
-          restartBtn.on("click", function () {
-            $(this).trigger({
-              type: "restartClick",
-              cell,
-            },
-              rowData
-            );
-          });
-        }
-        if (rowData.status === "normal") {
-          var doneBtn = new Button("完成", "", "sm");
-          doneBtn.on("click", function () {
-            $(this).trigger({
-              type: "doneClick",
-              cell,
-            },
-              rowData
-            );
-          });
-        }
-        if (rowData.status !== "invalid") {
-          var subTaskBtn = new Button("+子任务", "", "sm");
-          subTaskBtn.on("click", function () {
-            $(this).trigger({
-              type: "addSubTaskClick",
-              cell,
-            },
-              rowData
-            );
-          });
-        }
-        $(cell).append([restartBtn, doneBtn, subTaskBtn]);
+    columns: [
+      {
+        title: "序号",
+        data: "num",
+        width: "30px",
+        tips: false,
       },
-    },
+      {
+        title: "任务名称",
+        data: "name",
+      },
+      {
+        title: "项目",
+        data: "project",
+        name: "project",
+      },
+      {
+        title: "执行人",
+        data: "executor",
+        name: "executor",
+        width: "80px",
+      },
+      {
+        title: "任务分类",
+        data: "type",
+        name: "type",
+        width: "80px",
+      },
+      {
+        title: "截止时间",
+        data: "endtime",
+        name: "endtime",
+        orderable: true,
+        width: "80px",
+      },
+      {
+        title: "创建时间",
+        data: "starttime",
+        name: "starttime",
+        orderable: true,
+        width: "80px",
+      },
+      {
+        title: "操作",
+        data: null,
+        defaultContent: "",
+        width: "140px",
+        tips: false,
+        createdCell(cell, cellData, rowData, rowIndex, colIndex) {
+          if (rowData.status === "done" || rowData.status === "invalid") {
+            var restartBtn = new Button("重启", "", "sm");
+            restartBtn.on("click", function () {
+              $(this).trigger(
+                {
+                  type: "restartClick",
+                  cell,
+                },
+                rowData
+              );
+            });
+          }
+          if (rowData.status === "normal") {
+            var doneBtn = new Button("完成", "", "sm");
+            doneBtn.on("click", function () {
+              $(this).trigger(
+                {
+                  type: "doneClick",
+                  cell,
+                },
+                rowData
+              );
+            });
+          }
+          if (rowData.status !== "invalid") {
+            var subTaskBtn = new Button("+子任务", "", "sm");
+            subTaskBtn.on("click", function () {
+              $(this).trigger(
+                {
+                  type: "addSubTaskClick",
+                  cell,
+                },
+                rowData
+              );
+            });
+          }
+          $(cell).append([restartBtn, doneBtn, subTaskBtn]);
+        },
+      },
     ],
   });
 });
@@ -154,77 +164,80 @@ layui.use(["layer", "form", "element", "laytpl"], function () {
       offset: "eb",
       content: layerDom,
       shade: 0.001,
-      area: '320px',
+      area: "320px",
       shadeClose: true,
-      skin: 'user-layer',
+      skin: "user-layer",
       closeBtn: 1,
       resize: false,
       move: false,
     });
   });
 
-  var userData = [{
-    name: '张三',
-    stortName: '张三',
-    value: 1,
-    role: '项目负责人'
-  },
-  {
-    name: '张三',
-    stortName: '张三',
-    value: 2,
-    role: '课题1负责人'
-  },
-  {
-    name: '张三',
-    stortName: '张三',
-    value: 3,
-    role: '课题2负责人'
-  },
-  {
-    name: '张三',
-    stortName: '张三',
-    value: 4,
-    role: ''
-  },
-  {
-    name: '张三',
-    stortName: '张三',
-    value: 5,
-    role: ''
-  },
-  {
-    name: '张三',
-    stortName: '张三',
-    value: 6,
-    role: ''
-  },
-  {
-    name: '张三',
-    stortName: '张三',
-    value: 7,
-    role: ''
-  },
-  {
-    name: '张三',
-    stortName: '张三',
-    value: 8,
-    role: ''
-  }, {
-    name: '张三',
-    stortName: '张三',
-    value: 9,
-    role: ''
-  }, {
-    name: '张三',
-    stortName: '张三',
-    value: 10,
-    role: ''
-  }
+  var userData = [
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 1,
+      role: "项目负责人",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 2,
+      role: "课题1负责人",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 3,
+      role: "课题2负责人",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 4,
+      role: "",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 5,
+      role: "",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 6,
+      role: "",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 7,
+      role: "",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 8,
+      role: "",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 9,
+      role: "",
+    },
+    {
+      name: "张三",
+      stortName: "张三",
+      value: 10,
+      role: "",
+    },
   ];
 
   var userTpl = userList.innerHTML,
-    userDom = document.getElementById('user—list');
+    userDom = document.getElementById("user—list");
   laytpl(userTpl).render(userData, function (html) {
     userDom.innerHTML = html;
   });
@@ -239,9 +252,9 @@ layui.use(["layer", "form", "element", "laytpl"], function () {
       offset: "el",
       content: layerDom,
       shade: 0.001,
-      area: '180px',
+      area: "180px",
       shadeClose: true,
-      skin: 'permission-layer',
+      skin: "permission-layer",
       closeBtn: 1,
       resize: false,
       move: false,
@@ -257,7 +270,7 @@ layui.use(["layer", "form", "element", "laytpl"], function () {
       offset: "auto",
       content: layerDom,
       maxWidth: 596,
-      maxHeight : 450,
+      maxHeight: 450,
       shade: 0.1,
       resize: false,
       shadeClose: true,
@@ -351,11 +364,11 @@ layui.use(["layer", "form", "element", "laytpl"], function () {
   // 外部按列降序
   $("#sortByEndtime").on("click", function () {
     var column = datatable.column("endtime:name");
-    column.order('desc').draw();
+    column.order("desc").draw();
   });
 
   // 项目资料操作
-  $('.project-tool').on('click', function () {
+  $(".project-tool").on("click", function () {
     var $this = $(this);
     var layerDom = $("#projectDataTool");
     layer.open({
@@ -374,8 +387,6 @@ layui.use(["layer", "form", "element", "laytpl"], function () {
 
   //是否允许下载
   form.on("switch(switch-allow)", function (data) {
-    console.log(data.elem.checked)
+    console.log(data.elem.checked);
   });
-
-
 });

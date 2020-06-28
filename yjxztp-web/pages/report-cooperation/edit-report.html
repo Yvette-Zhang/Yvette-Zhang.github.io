@@ -1,39 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>编辑报告</title>
-	<link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
-	<link rel="stylesheet" href="../../assets/css/common.css">
-	<link rel="stylesheet" href="../../assets/css/report/edit-report.css">
-	<link rel="stylesheet" href="../../assets/icon/iconfont.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>编辑报告</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css">
+  <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/dropDown/dropDown.css">
+  <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/at/css/jquery.atwho.css">
+  <link rel="stylesheet" href="../../assets/css/report/edit-report.css">
 </head>
+
 <body>
-	<div class="title">
-		<h2 class="page-title"><a class="font_family icon-zuo" href="./index.html"></a>协作课题报告</h2>
-		<div class="right-tool">
-			<span>在线人员：</span>
-			<div class="avatar">
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-				<button class="layui-btn layui-btn-sm layui-btn-text">更多 <i class="font_family icon-xia"></i></button>
+  <div class="edit-report-con">
+    <div class="title">
+      <h2 class="page-title"><a class="font_family icon-zuo" href="./index.html"></a>协作课题报告</h2>
+      <div class="right-tool">
+        <span>在线人员：</span>
+        <div class="avatar-online">
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <button class="layui-btn layui-btn-sm layui-btn-text">更多 <i class="font_family icon-xia"></i></button>
+        </div>
+        <div class="btn-box">
+          <button class="layui-btn" id="showAll">查看全文</button>
+          <div class="other-btn">
+            <button class="layui-btn layui-btn-plain" id="goback">返回</button>
+            <button class="layui-btn" id="save">保存版本</button>
+            <button class="layui-btn layui-btn-text" id="more" data-dropdown="moreBtn"><i
+                class="font_family icon-gengduo"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <!--<div class="header"></div>-->
+      <!--<div class="left-tree"></div>-->
+    </div>
+  </div>
+  <!--讨论弹窗-->
+  <div id="taolun" style="display: none;">
+    <div class="qunzhu">
+      <div class="qunzhu-header">
+        <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+        <span class="qunzhu-name">李四</span>的讨论群
+      </div>
+      <button class="layui-btn layui-btn-sm layui-btn-primary">结束讨论</button>
+    </div>
+    <div class="summary">
+      <p>
+        由中国国电集团公司和神华集团有限责任公司两家世界500强企业合并重组而成，于2017年11月28日正式挂牌成立，是中央直管炭生产公司、火力发电公司、风力发电公司和煤制油煤化工公司。
+        由中国国电集团公司和神华集团有限责任公司两家世界500强企业合并重组而成
+      </p>
+    </div>
+    <div class="bottom-box">
+      <div class="btn-arrow">
+        <button class="layui-btn layui-btn-sm layui-btn-text layui-btn-primary">
+          <i class="font_family icon-xia"></i>
+        </button>
+      </div>
+      <div class="avatar-box">
+        <div class="avatar-taolun">
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+        </div>
+        <div class="button-box">
+          <i class="font_family icon-tianjia" id="add-member"></i>
+        </div>
+      </div>
+      <div class="chat-box">
+        <div class="chat-item others">
+          <div class="chat-left">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-right">
+            <span class="chat-name">李四</span>
+            <div class="chat-content">
+              <p>域立法，修改野生动物保护法、传染病防治法、障法等。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item mine">
+          <div class="chat-right">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-left">
+            <div class="chehui">
+              <span class="chat-name">李四</span>
+              <a href="" class="layui-btn layui-btn-sm layui-btn-text">撤回</a>
+            </div>
+            <div class="chat-content">
+              <p>我同意这个说法是正确的，非常好我同意这个说法是正确的，非常好。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item others">
+          <div class="chat-left">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-right">
+            <span class="chat-name">李四</span>
+            <div class="chat-content">
+              <p>域立法，修改野生动物保护法、传染病防治法、障法等。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item mine">
+          <div class="chat-right">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-left">
+            <div class="chehui">
+              <span class="chat-name">李四</span>
+              <a href="" class="layui-btn layui-btn-sm layui-btn-text">撤回</a>
+            </div>
+            <div class="chat-content">
+              <p>我同意这个说法是正确的，非常好我同意这个说法是正确的，非常好。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item others">
+          <div class="chat-left">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-right">
+            <span class="chat-name">李四</span>
+            <div class="chat-content">
+              <p>域立法，修改野生动物保护法、传染病防治法、障法等。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item mine">
+          <div class="chat-right">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-left">
+            <div class="chehui">
+              <span class="chat-name">李四</span>
+              <a href="" class="layui-btn layui-btn-sm layui-btn-text">撤回</a>
+            </div>
+            <div class="chat-content">
+              <p>我同意这个说法是正确的，非常好我同意这个说法是正确的，非常好。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item others">
+          <div class="chat-left">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-right">
+            <span class="chat-name">李四</span>
+            <div class="chat-content">
+              <p>域立法，修改野生动物保护法、传染病防治法、障法等。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item mine">
+          <div class="chat-right">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-left">
+            <div class="chehui">
+              <span class="chat-name">李四</span>
+              <a href="" class="layui-btn layui-btn-sm layui-btn-text">撤回</a>
+            </div>
+            <div class="chat-content">
+              <p>我同意这个说法是正确的，非常好我同意这个说法是正确的，非常好。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item others">
+          <div class="chat-left">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-right">
+            <span class="chat-name">李四</span>
+            <div class="chat-content">
+              <p>域立法，修改野生动物保护法、传染病防治法、障法等。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-item others">
+          <div class="chat-left">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <div class="chat-right">
+            <span class="chat-name">李四</span>
+            <div class="chat-content">
+              <p>域立法，修改野生动物保护法、传染病防治法、障法等。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="comment-input">
+      <div class="comment-input__header">
+        <div class="comment-input__name">输入内容</div>
+        <div class="comment-input__tools">
+          <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+            <i class="font_family icon-shangchuan"></i>
+          </button>
+          <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+            <i class="font_family icon-guanlian"></i>
+          </button>
+          <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+            <i class="font_family icon-fujian"></i>
+          </button>
+        </div>
+      </div>
+      <div class="comment-input-box">
+        <div id="commentCon" class="comment-input-text" contenteditable="true" placeholder="@ 提及他人"></div>
+        <div class="comment-input-placeholder">@ 提及他人</div>
+        <button class="layui-btn">
+          发送
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--讨论记录列表-->
+  <div id="taolunjilu" style="display: none;">
+    <ul class="julu-list">
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+      <li class="jilu-item">
+        <p>创建讨论时间：<span class="jilu-time">2020-06-06 11:29:49</span></p>
+        <div class="jilu-member">
+          <div class="jilu-avatar">
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+            <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
+          </div>
+          <i class="font_family icon-you"></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--讨论详情弹窗-->
+  <div class="taolun-info" style="display: none">
+    <div class="top-box">
+      <p>参与人：</p>
+      <div class="name-list">
+        <div class="share-left__content">
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            小阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            小阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <span class="layui-badge layui-bg-gray">
+            小阳光<i class="layui-icon layui-icon-close"></i>
+          </span>
+          <button class="layui-btn layui-btn-sm layui-btn-text">更多 <i class="font_family icon-xia"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-box">
+      <div class="comment-item">
+        <div class="comment-item__avatar">
+          <div class="layui-avatar">豆豆</div>
+        </div>
+        <div class="comment-item__content">
+          <div class="comment-item__header">
+            <div class="comment-item__title">豆豆</div>
+            <div class="comment-item__time">2020-01-01 10:00</div>
+          </div>
+          <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+        </div>
+      </div>
+      <div class="comment-item">
+        <div class="comment-item__avatar">
+          <div class="layui-avatar">豆豆</div>
+        </div>
+        <div class="comment-item__content">
+          <div class="comment-item__header">
+            <div class="comment-item__title">豆豆</div>
+            <div class="comment-item__time">2020-01-01 10:00</div>
+          </div>
+          <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+        </div>
+      </div>
+      <div class="comment-item">
+        <div class="comment-item__avatar">
+          <div class="layui-avatar">豆豆</div>
+        </div>
+        <div class="comment-item__content">
+          <div class="comment-item__header">
+            <div class="comment-item__title">豆豆</div>
+            <div class="comment-item__time">2020-01-01 10:00</div>
+          </div>
+          <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+          <div class="comment-item__file">
+            <div class="comment-item__img">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-ppt"></use>
+              </svg>
+            </div>
+            <span class="comment-item__filename">好好写代码.ppt</span>
+          </div>
+        </div>
+      </div>
+			<div class="comment-item">
+				<div class="comment-item__avatar">
+					<div class="layui-avatar">豆豆</div>
+				</div>
+				<div class="comment-item__content">
+					<div class="comment-item__header">
+						<div class="comment-item__title">豆豆</div>
+						<div class="comment-item__time">2020-01-01 10:00</div>
+					</div>
+					<div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+					<div class="comment-item__file">
+						<div class="comment-item__img">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-ppt"></use>
+							</svg>
+						</div>
+						<span class="comment-item__filename">好好写代码.ppt</span>
+					</div>
+				</div>
 			</div>
-			<div class="btn-box">
-				<button class="layui-btn">查看全文</button>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<!--<div class="header"></div>-->
-		<!--<div class="left-tree"></div>-->
-	</div>
+    </div>
+  </div>
+  <!--评论弹窗-->
+  <div class="pinglun" style="display: none">
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-item">
+      <div class="comment-item__avatar">
+        <div class="layui-avatar">豆豆</div>
+      </div>
+      <div class="comment-item__content">
+        <div class="comment-item__header">
+          <div class="comment-item__title">豆豆</div>
+          <div class="comment-item__time">2020-01-01 10:00</div>
+        </div>
+        <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+      </div>
+    </div>
+    <div class="comment-input">
+      <div class="comment-input__header">
+        <div class="comment-input__name">输入内容</div>
+        <div class="comment-input__tools">
+          <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+            <i class="font_family icon-shangchuan"></i>
+          </button>
+          <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+            <i class="font_family icon-guanlian"></i>
+          </button>
+          <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+            <i class="font_family icon-fujian"></i>
+          </button>
+        </div>
+      </div>
+      <div class="comment-input-box">
+        <div id="pinglunCon" class="comment-input-text" contenteditable="true" placeholder="@ 提及他人"></div>
+        <div class="comment-input-placeholder">@ 提及他人</div>
+        <button class="layui-btn">
+          发送
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- 成员弹窗 -->
+  <div id="memberLayer" style="display: none;">
+    <div class="search">
+      <input class="search-ipt" type="text" placeholder="请输入项目名称，按“Enter”键进行搜索">
+      <i class="font_family icon-sousuo"></i>
+      <i class="font_family icon-guanbi"></i>
+    </div>
+
+    <ul class="member-list">
+      <li>
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="member-authority">
+          <span>可编辑</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li>
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="member-authority">
+          <span>可编辑</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li>
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="member-authority">
+          <span>可编辑</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li>
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="member-authority">
+          <span>可编辑</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li>
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="member-authority">
+          <span>可编辑</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li>
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="member-authority">
+          <span>可编辑</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- 版本记录弹窗 -->
+  <div id="versionHistory" style="display: none;">
+    <ul class="version-list">
+      <li data-version="2020-05-27 13:56:17">
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四李四李四李四李四李四李四李四李四李四李四
+          </span>
+        </div>
+        <div class="version-time">
+          <span>2020-05-27 13:56:17的版本</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li data-version="2020-05-27 13:56:17">
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="version-time">
+          <span>2020-05-27的版本</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li data-version="2020-05-27 13:56:17">
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="version-time">
+          <span>2020-05-27的版本</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li data-version="2020-05-27 13:56:17">
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="version-time">
+          <span>2020-05-27的版本</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li data-version="2020-05-27 13:56:17">
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="version-time">
+          <span>2020-05-27的版本</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+      <li data-version="2020-05-27 13:56:17">
+        <div class="user-msg">
+          <span class="layui-avatar layui-avatar-sm">
+            <span class="layui-avatar-text">李四</span>
+          </span>
+          <span class="layui-avatar-name">
+            李四
+          </span>
+        </div>
+        <div class="version-time">
+          <span>2020-05-27的版本</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- 版本内容 -->
+  <div id="versionMain" style="display: none;">
+    <div class="version-con">
+      <div class="version-containter">
+
+      </div>
+    </div>
+    <div class="version-footer">
+      <a class="layui-btn layui-btn-shadow">恢复</a>
+    </div>
+  </div>
+
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+
+  <script src="../../assets/plugins/layui/layui_exts/at/js/jquery.caret.min.js"></script>
+  <script src="../../assets/plugins/layui/layui_exts/at/js/jquery.atwho.min.js"></script>
+  <script src="../../assets/js/report-cooperation/edit-report.js"></script>
+  <script src="../../assets/icon/iconfont.js"></script>
+
 </body>
+
 </html>

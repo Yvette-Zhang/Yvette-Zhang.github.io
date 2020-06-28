@@ -169,6 +169,7 @@ table.dataTable .datatable-btn {
   background: #0000;
   color: #2b79f6;
   font-size: 1em;
+  padding: 0 5px;
 }
 
 table.dataTable .datatable-btn.layui-btn-text {

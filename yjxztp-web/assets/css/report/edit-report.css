@@ -1,52 +1,463 @@
-body{
-		padding: 0 20px 20px 20px;
-		box-sizing: border-box;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
-.title{
-		width: 100%;
-		height: 75px;
-		line-height: 75px;
-		display: flex;
-		box-sizing: border-box;
-		align-items: center;
-		justify-content: space-between;
+.edit-report-con {
+  padding: 0 20px 20px 20px;
+  box-sizing: border-box;
 }
-.title .page-title{
-		margin-bottom: 0;
+.title {
+  width: 100%;
+  height: 75px;
+  line-height: 75px;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
 }
-.page-title a{
-		font-size: 18px;
-		color: #99A3BB;
-		margin-right: 5px;
+.title .page-title {
+  margin-bottom: 0;
 }
-.container{
-		width: 100%;
-		height: 930px;
-		background: #fff;
-		box-shadow:0 0 8px 0 rgba(28,29,49,0.05);
-		border-radius:10px;
-		display: flex;
-		flex-direction: column;
+.page-title a {
+  font-size: 18px;
+  color: #99a3bb;
+  margin-right: 5px;
 }
-.header{
-		width: 100%;
-		height: 40px;
-		box-shadow:0 4px 8px 0 rgba(28,29,49,0.05);
-		border-radius:10px 10px 0 0;
+.container {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 8px 0 rgba(28, 29, 49, 0.05);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
-.left-tree{
-		width: 250px;
-		height: 910px;
-		box-shadow:0 4px 8px 0 rgba(28,29,49,0.05);
-		border-radius:10px 0 10px 20px;
-		margin-bottom: 20px;
+.header {
+  width: 100%;
+  height: 40px;
+  box-shadow: 0 4px 8px 0 rgba(28, 29, 49, 0.05);
+  border-radius: 10px 10px 0 0;
 }
-.right-tool{
-		display: flex;
+.left-tree {
+  width: 250px;
+  height: 910px;
+  box-shadow: 0 4px 8px 0 rgba(28, 29, 49, 0.05);
+  border-radius: 10px 0 10px 20px;
+  margin-bottom: 20px;
 }
-.avatar .layui-avatar{
-		margin-right: 5px;
+.right-tool {
+  display: flex;
+  padding-right: 5px;
 }
-.btn-box{
-		margin-left: 30px;
+.avatar-online .layui-avatar {
+  margin-right: 5px;
+}
+.btn-box {
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+}
+.btn-box .other-btn {
+  display: none;
+}
+#more i {
+  color: #99a3bc;
+  font-size: 22px;
+}
+.more-drop {
+  left: 1235px;
+  top: 68.7639px;
+  z-index: 1999;
+  display: block;
+  width: 256px;
+}
+#taolun {
+  position: relative;
+}
+.taolun-layer {
+  overflow: hidden !important;
+}
+.taolun-layer .layui-layer-content {
+  padding-top: 0 !important;
+  overflow: hidden;
+}
+.qunzhu {
+  height: 67px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e6e9f0;
+}
+.summary {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.summary p {
+  color: #616874;
+  margin-top: 10px;
+}
+.btn-arrow {
+  width: 100%;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #e6e9f0;
+  display: flex;
+}
+.btn-arrow button {
+  display: block;
+  margin: 0 auto;
+}
+.btn-arrow button i {
+  color: #0077ff;
+}
+.avatar-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e6e9f0;
+}
+.avatar-taolun {
+  height: 75px;
+  width: 78%;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 75px;
+  padding-left: 5px;
+}
+.avatar-taolun .layui-avatar {
+  margin-right: 5px;
+}
+.button-box {
+  width: 68px;
+  height: 75px;
+  background: #fff;
+  display: inline-block;
+  line-height: 75px;
+  text-align: center;
+}
+.button-box i {
+  font-size: 41px;
+  color: #0077ff;
+  cursor: pointer;
+}
+.chat-box {
+  max-height: 490px;
+  overflow-y: scroll;
+  padding: 5px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+.chat-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+.mine {
+  flex-direction: row-reverse;
+}
+.chat-left {
+  margin-right: 10px;
+}
+.others .chat-right,
+.mine .chat-left {
+  margin-top: 5px;
+}
+.chat-content {
+  margin-top: 5px;
+}
+.chehui {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  height: 22px;
+}
+.chehui a {
+  font-size: 12px;
+}
+.chat-name {
+  font-size: 12px;
+}
+.mine .chat-content {
+  background: rgba(245, 246, 247, 1);
+  border: 1px solid rgba(230, 233, 240, 1);
+  border-radius: 10px 0 10px 10px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+.comment-input {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 90%;
+  background-color: white;
+  padding: 20px 0;
+}
+
+.comment-input__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-input__name {
+  font-size: 16px;
+  color: #212832;
+}
+
+.comment-input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-input-box p {
+  height: 36px;
+  border: 1px solid rgba(213, 216, 224, 1);
+  border-radius: 4px;
+}
+
+.comment-input-box .comment-input-text {
+  flex: 1;
+  height: 34px;
+  box-sizing: border-box;
+  border: 1px solid #d5d8e0;
+  border-radius: 4px;
+  padding: 3px 10px;
+  overflow: auto;
+}
+
+.comment-input-box .comment-input-placeholder {
+  position: absolute;
+  left: 10px;
+  top: 3px;
+  font-size: 14px;
+  color: #cccccc;
+  z-index: -1;
+}
+.comment-input-box .comment-input-text:focus + .comment-input-placeholder {
+  display: none;
+}
+.jilu-item {
+  margin-bottom: 10px;
+}
+.jilu-item p {
+  color: #212832;
+  font-size: 14px;
+}
+.jilu-member {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(230, 233, 240, 1);
+}
+.jilu-avatar .layui-avatar {
+  margin-right: 5px;
+}
+.jilu-member i {
+  color: #99a3bc;
+  cursor: pointer;
+}
+.share-left__content {
+  height: 80px;
+  border: 1px solid rgba(235, 231, 231, 1);
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.share-left__content .layui-badge {
+  margin-bottom: 10px;
+  height: 24px;
+  border-radius: 4px;
+  margin-right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.share-left .layui-badge i {
+  font-size: 10px;
+  cursor: pointer;
+  color: #99a3bb;
+}
+.bottom-box {
+  /*max-height: 270px; */
+  /* margin-top: 10px; */
+  /* padding-top: 10px; */
+  overflow: auto;
+  position: absolute;
+  top: 164px;
+  left: 0;
+  width: 360px;
+}
+#taolun .bottom-box {
+  overflow: auto;
+  position: absolute;
+  top: 164px;
+  left: 0;
+  width: 360px;
+}
+.taolun-info .bottom-box {
+  margin-top: 10px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  overflow: auto;
+  max-height: 270px;
+}
+.taolun-info .bottom-box .comment-item:last-child {
+  margin: 0;
+}
+.comment-item {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.comment-item__avatar {
+  margin-right: 10px;
+  padding-left: 5px;
+}
+
+.comment-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 35px;
+}
+
+.comment-item__title {
+  font-size: 14px;
+  color: #212832;
+}
+
+.comment-item__time {
+  color: #b9c0c8;
+  font-size: 12px;
+}
+
+.comment-item__main {
+  color: #616874;
+  font-size: 12px;
+}
+.comment-item__file {
+  display: flex;
+  margin-top: 10px;
+}
+.comment-item__img .icon {
+  width: 1em;
+  height: 1em;
+  font-size: 20px;
+}
+.comment-item__filename {
+  color: #0077fe;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+.pinglun {
+  margin-bottom: 75px;
+}
+
+/* 成员弹窗样式 */
+.member-layer .search {
+  width: 100%;
+}
+
+.member-list {
+  position: absolute;
+  top: 50px;
+  bottom: 20px;
+  left: 20px;
+  right: 15px;
+  margin-top: 20px;
+  padding-right: 5px;
+  overflow: auto;
+}
+
+.member-list li,
+.version-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 34px;
+  box-sizing: border-box;
+  padding-left: 5px;
+  overflow: hidden;
+  color: #616774;
+}
+
+.member-list li + li,
+.version-list li + li {
+  margin-top: 15px;
+}
+
+.user-msg {
+  display: flex;
+  height: 34px;
+  align-items: center;
+}
+
+.user-msg .layui-avatar-name {
+  margin-left: 8px;
+  max-width: 125px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.member-list .member-authority {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.member-authority i,
+.version-time i {
+  font-size: 12px;
+  color: #99a3bb;
+}
+
+.member-drop {
+  width: 150px;
+  border-radius: 10px;
+}
+
+/* 历史版本弹窗 */
+.version-list li {
+  cursor: pointer;
+}
+.version-list .version-time {
+  color: #212732;
+}
+
+/* 版本内容样式 */
+#versionMain .version-con {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  right: 10px;
+  height: 505px;
+  overflow: auto;
+}
+#versionMain .version-containter {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+}
+#versionMain .version-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  padding-top: 15px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  text-align: right;
+  background-color: rgba(255, 255, 255, 0.5);
 }

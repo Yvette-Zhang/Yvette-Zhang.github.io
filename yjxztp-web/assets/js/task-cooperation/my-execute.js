@@ -108,31 +108,34 @@ MockData().then(function (data) {
         className: "main-column datatable-has-action",
       },
       {
-        title: "执行人",
-        data: "executor",
-        name: "executor",
-      },
-      {
         title: "项目",
         data: "project",
         name: "project",
       },
       {
+        title: "执行人",
+        data: "executor",
+        name: "executor",
+        width: "80px",
+      },
+      {
         title: "任务分类",
         data: "type",
         name: "type",
+        width: "80px",
       },
       {
         title: "截止时间",
         data: "endtime",
         name: "endtime",
         orderable: true,
+        width: "80px",
       },
       {
         title: "操作",
         data: null,
         defaultContent: "",
-        width: "180px",
+        width: "140px",
         tips: false,
         createdCell(cell, cellData, rowData, rowIndex, colIndex) {
           if (rowData.status === "done" || rowData.status === "invalid") {
@@ -215,9 +218,69 @@ layui.use(["layer", "form"], function () {
     var column = datatable.column($(data.elem).attr("data-column") + ":name");
     column.visible(data.elem.checked);
   });
-  // 点击任务名称
+  // 点击任务名称弹出侧边栏
   $(".datatable-has-action").on("click", function () {
     var rowData = datatable.row(this).data();
-    console.log(rowData);
+    var layerDom = $("#task-detail");
+    // var layer = top.layer;
+    var taskDetail = top.layer.open({
+      title: false,
+      type: 1,
+      anim: -1,
+      shadeClose: true,
+      closeBtn: false,
+      offset: "r",
+      shade: 0.001,
+      skin:
+        "notice-layer task-detail-layer layui-anim layui-anim-rl layui-layer-openRight",
+      area: "520px",
+      zIndex: "99",
+      content: layerDom.html(),
+      move: false,
+      resize: false,
+      success() {
+        // top.layer.setTop(0);
+        var $ = top.$;
+        var content = $(".task-detail-layer");
+        content.on("click", "#close", function () {
+          top.layer.close(taskDetail);
+        });
+        content.on("click", "#more", function () {
+          // 更多弹窗
+        });
+
+        var userObj = [
+          { id: 1, name: "老大", sName: "老大" },
+          { id: 2, name: "老大", sName: "老大" },
+          { id: 3, name: "老大", sName: "老大" },
+          { id: 4, name: "老大", sName: "老大" },
+          { id: 5, name: "老大", sName: "老大" },
+          { id: 6, name: "老大", sName: "老大" },
+          { id: 7, name: "老大", sName: "老大" },
+          { id: 8, name: "老大", sName: "老大" },
+          { id: 9, name: "老大", sName: "老大" },
+          { id: 10, name: "老大", sName: "老大" },
+        ];
+        var at_config = {
+          at: "@", //触发字符
+          data: userObj, //数据 json格式
+          headerTpl: "", // 弹出菜单的标题
+          insertTpl: "<span data-userId=${id}>@${name}</span>", // 选中菜单显示的内容
+          displayTpl:
+            '<li><span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">${sName}</span></span>${name}</li>', // 这个是显示的弹出菜单里面的内容
+          searchKey: "name", // 搜索键匹配的值
+          startWithSpace: true, // 是否匹配at之前的空格 默认为true
+          limit: 200, // 弹出菜单显示的条目数
+        };
+        $inputor = content.find("#commentCon").atwho(at_config);
+        $inputor.blur(function () {
+          if ($(this).text().trim()) {
+            content.find(".comment-input-placeholder").hide();
+          } else {
+            content.find(".comment-input-placeholder").show();
+          }
+        });
+      },
+    });
   });
 });

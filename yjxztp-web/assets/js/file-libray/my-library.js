@@ -335,21 +335,24 @@ MockData().then(function (data) {
         title: "下载次数",
         data: "download",
         name: "download",
+        // 默认隐藏
         orderable: true,
+        visible: false,
       },
       {
         title: "被引用次数",
         data: "quote",
         name: "quote",
         orderable: true,
+        // 默认隐藏
+        visible: false,
       },
       {
         title: "相关联",
         data: "link",
         name: "link",
+        width: "80px",
         className: "link-cell datatable-has-action",
-        // 默认隐藏
-        visible: false,
       },
     ],
   });
@@ -1216,12 +1219,27 @@ layui
         });
       });
       // 切换列显隐
-      form.on("switch", function (data) {
-        var column = datatable.column(
-          $(data.elem).attr("data-column") + ":name"
-        );
-        column.visible(data.elem.checked);
-      });
+      (function () {
+        // 这里设置默认显示的个数
+        var currCount = 4;
+        // 这里设置最多显示的个数
+        var maxCount = 4;
+        form.on("switch", function (data) {
+          data.elem.checked ? currCount++ : currCount--;
+          if (currCount > maxCount && data.elem.checked) {
+            // 这里写具体多少列
+            layer.msg("最多显示5列");
+            data.elem.checked = false;
+            currCount--;
+            form.render();
+            return;
+          }
+          var column = datatable.column(
+            $(data.elem).attr("data-column") + ":name"
+          );
+          column.visible(data.elem.checked);
+        });
+      })();
       // 工具栏显示 tips
       var tips_index;
       $("[data-tips]").on({
