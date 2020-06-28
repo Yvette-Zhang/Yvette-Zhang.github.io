@@ -73,7 +73,19 @@ body {
   width: 256px;
 }
 #taolun {
-  position: relative;
+		position: absolute;
+		bottom: 0;
+		top: 0;
+		left: 20px;
+		right: 20px;
+}
+#taolun .bottom-box {
+		overflow: auto;
+		position: absolute;
+		top: 164px;
+		bottom: 0;
+		left: 0;
+		width: 360px;
 }
 .taolun-layer {
   overflow: hidden !important;
@@ -146,11 +158,16 @@ body {
   cursor: pointer;
 }
 .chat-box {
-  max-height: 490px;
-  overflow-y: scroll;
-  padding: 5px;
-  margin-top: 10px;
-  box-sizing: border-box;
+		/*max-height: 490px;*/
+		overflow-y: scroll;
+		padding: 5px;
+		/* margin-top: 10px; */
+		/* box-sizing: border-box; */
+		position: absolute;
+		top: 120px;
+		bottom: 100px;
+		left: 0;
+		right: 0;
 }
 .chat-item {
   display: flex;
@@ -286,23 +303,14 @@ body {
   cursor: pointer;
   color: #99a3bb;
 }
-.bottom-box {
-  /*max-height: 270px; */
-  /* margin-top: 10px; */
-  /* padding-top: 10px; */
-  overflow: auto;
-  position: absolute;
-  top: 164px;
-  left: 0;
-  width: 360px;
-}
-#taolun .bottom-box {
-  overflow: auto;
-  position: absolute;
-  top: 164px;
-  left: 0;
-  width: 360px;
-}
+/*.bottom-box {*/
+  /*overflow: auto;*/
+  /*position: absolute;*/
+  /*top: 164px;*/
+  /*left: 0;*/
+  /*width: 360px;*/
+/*}*/
+
 .taolun-info .bottom-box {
   margin-top: 10px;
   padding-top: 10px;
