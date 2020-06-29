@@ -21,7 +21,8 @@
     #test1,
     #test2,
     #test3,
-    #test4 {
+    #test4,
+    #test5 {
       margin-bottom: 40px;
       width: 400px;
     }
@@ -67,9 +68,19 @@
       <br>
       设置某级节点不可编辑 updateNoneLevel Number类型，数据中需添加level字段，表示数据是第几级
       <br>
-      自定义节点操作 增加参数customOperate Boolean类型 默认为false
-      <br>
       增加是否开启节点独立选择 selfChecked Boolean类型 默认为false
+      <br>
+      增加是否开启节点的锁定功能 locking Boolean类型 默认为false
+      <br>
+      增加锁定图标的class lockingIcon Array类型 第一个为数据中locking为true的图标 第二个为数据中locking为false的图标
+      <br>
+      例如： lockingIcon: ['layui-icon layui-icon-password', 'layui-icon layui-icon-survey']
+      <br>
+      增加是否开启固定宽显示省略号功能 textOverflow Boolean类型 默认为false
+      <br>
+      增加是否显示树标题的title功能 title Boolean类型 默认为false
+      <br>
+      自定义节点操作 增加参数customOperate Boolean类型 默认为false
       <br>
       默认将使用layui自带的事件，如果为true可根据点击类型自定义事件内容
       <br>
@@ -86,6 +97,7 @@
 
     </blockquote>
     <div id="test4"></div>
+    <div id="test5" style="width: 200px;"></div>
 
     <script src="../src/layui.js"></script>
     <script>
@@ -98,35 +110,42 @@
 
         //数据源
         var data1 = [{
-          title: '一级1'
+          title: '一级1一级1一级1一级1一级1一级1一级1一级1'
           , id: 1
           , color: '#FB3C36'
           , level: 1
+          , locking: true
           , children: [{
             title: '二级1-1'
             , id: 3
+            , locking: true
             , href: 'https://www.layui.com/doc/'
             , color: '#FB3C36'
             , children: [{
               title: '三级1-1-3'
               , id: 23
               , color: '#FB3C36'
+              , locking: true
               , children: [{
                 title: '四级1-1-3-1'
                 , id: 24
                 , color: '#FB3C36'
+                , locking: true
                 , children: [{
                   title: '五级1-1-3-1-1'
                   , id: 30
                   , color: '#FB3C36'
+                  , locking: true
                 }, {
                   title: '五级1-1-3-1-2'
                   , id: 31
                   , color: '#FB3C36'
+                  , locking: true
                 }]
               }]
             }, {
               title: '三级1-1-1'
+              , locking: true
               , id: 7
               , checked: true
               , color: '#FB3C36'
@@ -134,6 +153,7 @@
                 title: '四级1-1-1-1'
                 , id: 15
                 //,checked: true
+                , locking: true
                 , href: 'https://www.layui.com/doc/base/infrastructure.html'
                 , color: '#FB3C36'
               }]
@@ -141,9 +161,11 @@
               title: '三级1-1-2'
               , id: 8
               , color: '#FB3C36'
+              , locking: true
               , children: [{
                 title: '四级1-1-2-1'
                 , id: 32
+                , locking: true
                 , color: '#FB3C36'
               }]
             }]
@@ -151,6 +173,7 @@
             title: '二级1-2'
             , id: 4
             , spread: true
+            , locking: true
             , color: '#FB3C36'
             , children: [{
               title: '三级1-2-1'
@@ -158,22 +181,27 @@
               , checked: true
               , disabled: true
               , color: '#FB3C36'
+              , locking: true
             }, {
               title: '三级1-2-2'
               , id: 10
+              , locking: true
               , color: '#FB3C36'
             }]
           }, {
             title: '二级1-3'
             , id: 20
             , color: '#FB3C36'
+            , locking: true
             , children: [{
               title: '三级1-3-1'
               , id: 21
+              , locking: true
               , color: '#FB3C36'
             }, {
               title: '三级1-3-2'
               , id: 22
+              , locking: true
               , color: '#FB3C36'
             }]
           }]
@@ -183,32 +211,39 @@
           , spread: true
           , color: '#FB3C36'
           , level: 1
+          , locking: true
           , children: [{
             title: '二级2-1'
             , id: 5
             , spread: true
             , color: '#FB3C36'
+            , locking: true
             , children: [{
               title: '三级2-1-1'
               , id: 11
+              , locking: true
               , color: '#FB3C36'
             }, {
               title: '三级2-1-2'
               , id: 12
+              , locking: true
               , color: '#FB3C36'
             }]
           }, {
             title: '二级2-2'
             , id: 6
+            , locking: true
             , checked: true
             , color: '#FB3C36'
             , children: [{
               title: '三级2-2-1'
               , id: 13
+              , locking: true
               , color: '#FB3C36'
             }, {
               title: '三级2-2-2'
               , id: 14
+              , locking: true
               , disabled: true
               , color: '#FB3C36'
             }]
@@ -218,31 +253,38 @@
           , id: 16
           , color: '#FB3C36'
           , level: 1
+          , locking: false
           , children: [{
             title: '二级3-1'
             , id: 17
             , fixed: true
+            , locking: false
             , color: '#FB3C36'
             , children: [{
               title: '三级3-1-1'
               , id: 18
+              , locking: false
               , color: '#FB3C36'
             }, {
               title: '三级3-1-2'
               , id: 19
+              , locking: false
               , color: '#FB3C36'
             }]
           }, {
             title: '二级3-2'
             , id: 27
+            , locking: false
             , color: '#FB3C36'
             , children: [{
               title: '三级3-2-1'
               , id: 28
+              , locking: false
               , color: '#FB3C36'
             }, {
               title: '三级3-2-2'
               , id: 29
+              , locking: false
               , color: '#FB3C36'
             }]
           }]
@@ -404,7 +446,52 @@
           }
         });
 
+        tree.render({
+          elem: '#test5'
+          , data: data1
+          , click: function (obj) {
+            layer.msg(JSON.stringify(obj.data));
+            console.log(obj);
+            $('.layui-tree .layui-tree-entry').removeClass('layui-tree-active');
+            obj.elem.children('.layui-tree-entry').addClass('layui-tree-active');
+          }
+          , oncheck: function (obj) {
+            //console.log(obj);
+          }
+          , operate: function (obj) {
+            var type = obj.type;
+            if (type == 'add') {
+              //ajax操作，返回key值
+              return index++;
+            } else if (type == 'update') {
+              console.log(obj.elem.find('.layui-tree-txt').html());
+            } else if (type == 'del') {
+              console.log(obj);
+            };
+          }
+          , showLine: false //是否开启链接线
+          , accordion: 0  //是否开启手风琴模式
+          , onlyIconControl: true //是否仅允许节点左侧图标控制展开收缩
+          , isJump: 0  //点击文案跳转地址
+          , edit: ['add', 'update', 'del']  //操作节点图标
+          , delNoneLevel: 1 //设置第几级节点不允许删除操作
+          , updateNoneLevel: 1 //设置第几级节点不允许编辑操作(根据数据中的level)
+          , locking: true // 是否开启节点的锁定功能
+          , lockingIcon: ['layui-icon layui-icon-password', 'layui-icon layui-icon-survey'] //锁定图标的class
+          , textOverflow: true //是否开启固定宽显示省略号
+          , title: true //是否显示树标题的title
+          , customOperate: true  //是否开启自定义节点操作
+          , operate: function (obj) {
+            console.log(obj);
+          },
+          lockClick: function (obj) { //锁定图标点击回调
+            console.log(obj);
+          }
+        });
+
       });
+
+
     </script>
 
 </body>

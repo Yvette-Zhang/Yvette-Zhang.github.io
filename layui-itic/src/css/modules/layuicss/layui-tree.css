@@ -38,6 +38,15 @@
 .layui-tree-entry:hover {
   background-color: #eee;
 }
+
+.layui-tree-entry.layui-tree-active {
+  background-color: #f0f3f7;
+}
+
+.layui-tree-entry.layui-tree-active .layui-tree-txt {
+  color: #0077ff;
+}
+
 .layui-tree-line .layui-tree-entry:hover {
   background-color: rgba(0, 0, 0, 0);
 }
@@ -100,7 +109,7 @@
   content: "";
   position: absolute;
   left: 4px;
-  top: 3px;
+  top: 5px;
   z-index: 100;
   width: 0;
   height: 0;
@@ -171,4 +180,51 @@
 
 .layui-tree-tag-circle {
   border-radius: 50%;
+}
+
+/* 开启固定宽显示省略号样式 */
+.layui-tree-overflow {
+  overflow: hidden;
+}
+.layui-tree-overflow .layui-tree-entry {
+  display: flex;
+}
+
+.layui-tree-overflow .layui-tree-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.layui-tree-overflow .layui-tree-btnGroup {
+  max-width: 60px;
+}
+
+.layui-tree-overflow .layui-tree-txt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.layui-tree-overflow .layui-tree-locking {
+  width: 20px;
+  margin-left: auto;
+  text-align: center;
+  margin-right: 4px;
+}
+
+.layui-tree-locking i {
+  cursor: pointer;
+}
+
+.layui-tree-locking-icon {
+  font-size: 16px;
+}
+
+.layui-tree-locking-true {
+  color: #46c5b2;
+}
+
+.layui-tree-locking-false {
+  color: #99a3bc;
 }

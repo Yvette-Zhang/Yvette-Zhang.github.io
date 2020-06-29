@@ -93,6 +93,10 @@ layui.define('form', function (exports) {
     , showSearch: false //是否开启搜索
     , customOperate: false //是否开启自定义节点操作
     , selfChecked: false //是否开启节点独立选择 
+    , locking: false //是否开启节点的锁定功能
+    , lockingIcon: ['layui-icon layui-icon-survey', 'layui-icon layui-icon-password'] //锁定图标的class
+    , textOverflow: false //是否开启固定宽显示省略号
+    , title: false //是否显示树标题的title
     , text: {
       defaultNodeName: '未命名' //节点默认名称
       , none: '无数据'  //数据为空时的文本提示
@@ -126,7 +130,7 @@ layui.define('form', function (exports) {
 
     that.checkids = [];
 
-    var temp = $('<div class="layui-tree' + (options.showCheckbox ? " layui-form" : "") + (options.showLine ? " layui-tree-line" : "") + '" lay-filter="LAY-tree-' + that.index + '"></div>');
+    var temp = $('<div class="layui-tree' + (options.textOverflow ? " layui-tree-overflow" : "") + (options.showCheckbox ? " layui-form" : "") + (options.showLine ? " layui-tree-line" : "") + '" lay-filter="LAY-tree-' + that.index + '"></div>');
     that.tree(temp);
 
     var othis = options.elem = $(options.elem);
@@ -228,9 +232,9 @@ layui.define('form', function (exports) {
               }
             } else {
               if (options.isJump && item.href) {
-                return '<a href="' + item.href + '" target="_blank" class="' + ELEM_TEXT + '">' + (item.title || item.label || options.text.defaultNodeName) + '</a>';
+                return '<a title="' + (options.title ? item.title : '') + '" href="' + item.href + '" target="_blank" class="' + ELEM_TEXT + '">' + (item.title || item.label || options.text.defaultNodeName) + '</a>';
               } else {
-                return '<span class="' + ELEM_TEXT + (item.disabled ? ' ' + DISABLED : '') + '">' + (item.title || item.label || options.text.defaultNodeName) + '</span>';
+                return '<span title="' + (options.title ? item.title : '') + '" class="' + ELEM_TEXT + (item.disabled ? ' ' + DISABLED : '') + '">' + (item.title || item.label || options.text.defaultNodeName) + '</span>';
               }
             }
           }()
@@ -275,6 +279,16 @@ layui.define('form', function (exports) {
               return arr.join('') + '</div>';
             }
           }()
+          //节点锁定图标
+          , function () {
+            if (!options.locking) return '';
+            if (item.locking) {
+              return '<div class="layui-tree-locking"><i class="layui-tree-locking-icon layui-tree-locking-true ' + options.lockingIcon[0] + '"></i></div>'
+            } else {
+              return '<div class="layui-tree-locking"><i class="layui-tree-locking-icon layui-tree-locking-false ' + options.lockingIcon[1] + '"></i></div>'
+            }
+
+          }()
           , '</div></div>'].join(''));
 
       //如果有子节点，则递归继续生成树
@@ -318,6 +332,7 @@ layui.define('form', function (exports) {
       , elemMain = entry.children('.' + ELEM_MAIN)
       , elemIcon = entry.find('.' + ICON_CLICK)
       , elemText = entry.find('.' + ELEM_TEXT)
+      , elemlockIcon = entry.find('.layui-tree-locking-icon')
       , touchOpen = options.onlyIconControl ? elemIcon : elemMain //判断展开通过节点还是箭头图标
       , state = '';
 
@@ -371,6 +386,16 @@ layui.define('form', function (exports) {
         , data: item
       });
     });
+
+    // 锁定图标点击
+    elemlockIcon.on('click', function () {
+      var othis = $(this);
+      //点击产生的回调
+      options.lockClick && options.lockClick({
+        el: othis
+        , data: item
+      });
+    })
   };
 
   //计算复选框选中状态

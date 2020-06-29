@@ -25,7 +25,6 @@ body{
     justify-content: space-between;
 }
 .project-item{
-    width: 17.7%;
     height: 258px;
     padding: 30px;
     box-sizing: border-box;

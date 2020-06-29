@@ -10,10 +10,11 @@
   <link rel="stylesheet" href="../../assets/icon/iconfont.css">
   <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/dropDown/dropDown.css">
   <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/at/css/jquery.atwho.css">
+  <link rel="stylesheet" href="../../assets/plugins/ckeditor/ckeditor.css">
   <link rel="stylesheet" href="../../assets/css/report/edit-report.css">
 </head>
 
-<body>
+<body data-editor="DecoupledDocumentEditor" data-collaboration="false">
   <div class="edit-report-con">
     <div class="title">
       <h2 class="page-title"><a class="font_family icon-zuo" href="./index.html"></a>协作课题报告</h2>
@@ -43,9 +44,88 @@
       </div>
     </div>
     <div class="container">
-      <!--<div class="header"></div>-->
-      <!--<div class="left-tree"></div>-->
+      <div class="centered">
+        <div class="row">
+          <div class="document-editor__toolbar"></div>
+        </div>
+        <div class="row row-editor">
+          <div class="editor">
+            <h2>Bilingual Personality Disorder</h2>
+            <figure class="image image-style-side"><img
+                src="https://c.cksource.com/a/1/img/docs/sample-image-bilingual-personality-disorder.jpg">
+              <figcaption>One language, one person.</figcaption>
+            </figure>
+            <p>
+              This may be the first time you hear about this made-up disorder but
+              it actually isn’t so far from the truth. Even the studies that were conducted almost half a century show
+              that
+              <strong>the language you speak has more effects on you than you realise</strong>.
+            </p>
+            <p>
+              One of the very first experiments conducted on this topic dates back to 1964.
+              <a href="https://www.researchgate.net/publication/9440038_Language_and_TAT_content_in_bilinguals">In the
+                experiment</a>
+              designed by linguist Ervin-Tripp who is an authority expert in psycholinguistic and sociolinguistic
+              studies,
+              adults who are bilingual in English in French were showed series of pictures and were asked to create
+              3-minute stories.
+              In the end participants emphasized drastically different dynamics for stories in English and French.
+            </p>
+            <p>
+              Another ground-breaking experiment which included bilingual Japanese women married to American men in
+              San
+              Francisco were
+              asked to complete sentences. The goal of the experiment was to investigate whether or not human feelings
+              and thoughts
+              are expressed differently in <strong>different language mindsets</strong>.
+              <Here>is a sample from the the experiment:</Here>
+            </p>
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>English</th>
+                  <th>Japanese</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Real friends should</td>
+                  <td>Be very frank</td>
+                  <td>Help each other</td>
+                </tr>
+                <tr>
+                  <td>I will probably become</td>
+                  <td>A teacher</td>
+                  <td>A housewife</td>
+                </tr>
+                <tr>
+                  <td>When there is a conflict with family</td>
+                  <td>I do what I want</td>
+                  <td>It's a time of great unhappiness</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              More recent <a href="https://books.google.pl/books?id=1LMhWGHGkRUC">studies</a> show, the language a
+              person speaks affects
+              their cognition, behaviour, emotions and hence <strong>their personality</strong>.
+              This shouldn’t come as a surprise
+              <a href="https://en.wikipedia.org/wiki/Lateralization_of_brain_function">since we already know</a> that
+              different regions
+              of the brain become more active depending on the person’s activity at hand. Since structure, information
+              and especially
+              <strong>the culture</strong> of languages varies substantially and the language a person speaks is an
+              essential element of daily life.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="left-tree">
+        <div class="tree-con" id="reportTree"></div>
+      </div>
     </div>
+  </div>
   </div>
   <!--讨论弹窗-->
   <div id="taolun" style="display: none;">
@@ -440,26 +520,26 @@
           </div>
         </div>
       </div>
-			<div class="comment-item">
-				<div class="comment-item__avatar">
-					<div class="layui-avatar">豆豆</div>
-				</div>
-				<div class="comment-item__content">
-					<div class="comment-item__header">
-						<div class="comment-item__title">豆豆</div>
-						<div class="comment-item__time">2020-01-01 10:00</div>
-					</div>
-					<div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
-					<div class="comment-item__file">
-						<div class="comment-item__img">
-							<svg class="icon" aria-hidden="true">
-								<use xlink:href="#icon-ppt"></use>
-							</svg>
-						</div>
-						<span class="comment-item__filename">好好写代码.ppt</span>
-					</div>
-				</div>
-			</div>
+      <div class="comment-item">
+        <div class="comment-item__avatar">
+          <div class="layui-avatar">豆豆</div>
+        </div>
+        <div class="comment-item__content">
+          <div class="comment-item__header">
+            <div class="comment-item__title">豆豆</div>
+            <div class="comment-item__time">2020-01-01 10:00</div>
+          </div>
+          <div class="comment-item__main">评论内容评论内容评论内容评论论内容评论论内内容内容内 内容评论内容评论内容评论内。</div>
+          <div class="comment-item__file">
+            <div class="comment-item__img">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-ppt"></use>
+              </svg>
+            </div>
+            <span class="comment-item__filename">好好写代码.ppt</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!--评论弹窗-->
@@ -607,6 +687,100 @@
         </button>
       </div>
     </div>
+  </div>
+  <!-- 任务弹窗 -->
+  <div id="taskLayer" style="display: none;">
+    <div class="task-tool">
+      <div class="task-tool-item">
+        <span>添加任务</span>
+        <a class="layui-btn layui-btn-circle"><i class="layui-icon layui-icon-add-1"></i></a>
+      </div>
+      <div class="task-tool-item">
+        <span>关联任务</span>
+        <a class="layui-btn layui-btn-circle"><i class="font_family icon-guanlian"></i></a>
+      </div>
+    </div>
+    <ul class="task-lists">
+      <li>
+        <div class="task-status task-status-undone">
+          <span class="task-status-dot"></span>
+          未完成
+        </div>
+        <div class="task-msg">
+          <p class="task-title" title="1 编写报告">1 编写报告1 编写报告1 编写报告1 编写报告1 编写报告1 编写报告</p>
+          <p class="task-people">张三</p>
+        </div>
+        <div class="task-list-operat">
+          <a><i class="layui-icon layui-icon-add-1"></i>子任务</a>
+        </div>
+      </li>
+      <li>
+        <div class="task-status">
+          <span class="task-status-dot"></span>
+          已完成
+        </div>
+        <div class="task-msg">
+          <p class="task-title" title="1 编写报告">1 编写报告</p>
+          <p class="task-people">张三</p>
+        </div>
+        <div class="task-list-operat">
+          <a><i class="layui-icon layui-icon-add-1"></i>子任务</a>
+        </div>
+      </li>
+      <li>
+        <div class="task-status">
+          <span class="task-status-dot"></span>
+          已完成
+        </div>
+        <div class="task-msg">
+          <p class="task-title" title="1 编写报告">1 编写报告</p>
+          <p class="task-people">张三</p>
+        </div>
+        <div class="task-list-operat">
+          <a><i class="layui-icon layui-icon-add-1"></i>子任务</a>
+        </div>
+      </li>
+      <li>
+        <div class="task-status">
+          <span class="task-status-dot"></span>
+          已完成
+        </div>
+        <div class="task-msg">
+          <p class="task-title" title="1 编写报告">1 编写报告</p>
+          <p class="task-people">张三</p>
+        </div>
+        <div class="task-list-operat">
+          <a><i class="layui-icon layui-icon-add-1"></i>子任务</a>
+        </div>
+      </li>
+      <li>
+        <div class="task-status">
+          <span class="task-status-dot"></span>
+          已完成
+        </div>
+        <div class="task-msg">
+          <p class="task-title" title="1 编写报告">1 编写报告</p>
+          <p class="task-people">张三</p>
+        </div>
+        <div class="task-list-operat">
+          <a><i class="layui-icon layui-icon-add-1"></i>子任务</a>
+        </div>
+      </li>
+      <li>
+        <div class="task-status">
+          <span class="task-status-dot"></span>
+          已完成
+        </div>
+        <div class="task-msg">
+          <p class="task-title" title="1 编写报告">1 编写报告</p>
+          <p class="task-people">张三</p>
+        </div>
+        <div class="task-list-operat">
+          <a><i class="layui-icon layui-icon-add-1"></i>子任务</a>
+        </div>
+      </li>
+    </ul>
+
   </div>
   <!-- 成员弹窗 -->
   <div id="memberLayer" style="display: none;">
@@ -792,7 +966,7 @@
       </li>
     </ul>
   </div>
-  <!-- 版本内容 -->
+  <!-- 版本内容弹窗 -->
   <div id="versionMain" style="display: none;">
     <div class="version-con">
       <div class="version-containter">
@@ -803,14 +977,242 @@
       <a class="layui-btn layui-btn-shadow">恢复</a>
     </div>
   </div>
-
+  <!--一键排版-->
+  <div id="paiban" style="display: none;">
+    <ul class="style-list">
+      <li class="style-item" id="level1">
+        <p class="style-title">报告标题</p>
+        <div class="style-content">
+          <span class="separator">|</span>
+          <div class="xm-select-font"></div>
+          <span class="separator">|</span>
+          <div class="xm-select-size"></div>
+          <span class="separator">|</span>
+          <div class="font-style">
+            <span class="font-style-box color-picker">
+              <i class="font_family icon-zitiyanse"></i>
+              <span class="color-tag tag1"></span>
+            </span>
+            <span class="font-style-box"><i class="font_family icon-qingxie"></i></span>
+            <span class="font-style-box"><i class="font_family icon-B"></i></span>
+            <span class="font-style-box"><i class="font_family icon-U"></i></span>
+          </div>
+          <span class="separator">|</span>
+        </div>
+      </li>
+      <li class="style-item" id="level2">
+        <p class="style-title">标题1</p>
+        <div class="style-content">
+          <span class="separator">|</span>
+          <div class="xm-select-font"></div>
+          <span class="separator">|</span>
+          <div class="xm-select-size"></div>
+          <span class="separator">|</span>
+          <div class="font-style">
+            <span class="font-style-box color-picker">
+              <i class="font_family icon-zitiyanse"></i>
+              <span class="color-tag tag2"></span>
+            </span>
+            <span class="font-style-box"><i class="font_family icon-qingxie"></i></span>
+            <span class="font-style-box"><i class="font_family icon-B"></i></span>
+            <span class="font-style-box"><i class="font_family icon-U"></i></span>
+          </div>
+          <span class="separator">|</span>
+        </div>
+      </li>
+      <li class="style-item" id="level3">
+        <p class="style-title">标题2</p>
+        <div class="style-content">
+          <span class="separator">|</span>
+          <div class="xm-select-font"></div>
+          <span class="separator">|</span>
+          <div class="xm-select-size"></div>
+          <span class="separator">|</span>
+          <div class="font-style">
+            <span class="font-style-box color-picker">
+              <i class="font_family icon-zitiyanse"></i>
+              <span class="color-tag tag3"></span>
+            </span>
+            <span class="font-style-box"><i class="font_family icon-qingxie"></i></span>
+            <span class="font-style-box"><i class="font_family icon-B"></i></span>
+            <span class="font-style-box"><i class="font_family icon-U"></i></span>
+          </div>
+          <span class="separator">|</span>
+        </div>
+      </li>
+      <li class="style-item" id="level4">
+        <p class="style-title">标题3</p>
+        <div class="style-content">
+          <span class="separator">|</span>
+          <div class="xm-select-font"></div>
+          <span class="separator">|</span>
+          <div class="xm-select-size"></div>
+          <span class="separator">|</span>
+          <div class="font-style">
+            <span class="font-style-box color-picker">
+              <i class="font_family icon-zitiyanse"></i>
+              <span class="color-tag tag4"></span>
+            </span>
+            <span class="font-style-box"><i class="font_family icon-qingxie"></i></span>
+            <span class="font-style-box"><i class="font_family icon-B"></i></span>
+            <span class="font-style-box"><i class="font_family icon-U"></i></span>
+          </div>
+          <span class="separator">|</span>
+        </div>
+      </li>
+      <li class="style-item" id="level5">
+        <p class="style-title">标题4</p>
+        <div class="style-content">
+          <span class="separator">|</span>
+          <div class="xm-select-font"></div>
+          <span class="separator">|</span>
+          <div class="xm-select-size"></div>
+          <span class="separator">|</span>
+          <div class="font-style">
+            <span class="font-style-box color-picker">
+              <i class="font_family icon-zitiyanse"></i>
+              <span class="color-tag tag5"></span>
+            </span>
+            <span class="font-style-box"><i class="font_family icon-qingxie"></i></span>
+            <span class="font-style-box"><i class="font_family icon-B"></i></span>
+            <span class="font-style-box"><i class="font_family icon-U"></i></span>
+          </div>
+          <span class="separator">|</span>
+        </div>
+      </li>
+      <li class="style-item" id="level6">
+        <p class="style-title">标题5</p>
+        <div class="style-content">
+          <span class="separator">|</span>
+          <div class="xm-select-font"></div>
+          <span class="separator">|</span>
+          <div class="xm-select-size"></div>
+          <span class="separator">|</span>
+          <div class="font-style">
+            <span class="font-style-box color-picker">
+              <i class="font_family icon-zitiyanse"></i>
+              <span class="color-tag tag6"></span>
+            </span>
+            <span class="font-style-box"><i class="font_family icon-qingxie"></i></span>
+            <span class="font-style-box"><i class="font_family icon-B"></i></span>
+            <span class="font-style-box"><i class="font_family icon-U"></i></span>
+          </div>
+          <span class="separator">|</span>
+        </div>
+      </li>
+      <li class="style-item" id="level7">
+        <p class="style-title">正文</p>
+        <div class="style-content">
+          <span class="separator">|</span>
+          <div class="xm-select-font"></div>
+          <span class="separator">|</span>
+          <div class="xm-select-size"></div>
+          <span class="separator">|</span>
+          <div class="font-style">
+            <span class="font-style-box color-picker">
+              <i class="font_family icon-zitiyanse"></i>
+              <span class="color-tag tag7"></span>
+            </span>
+            <span class="font-style-box"><i class="font_family icon-qingxie"></i></span>
+            <span class="font-style-box"><i class="font_family icon-B"></i></span>
+            <span class="font-style-box"><i class="font_family icon-U"></i></span>
+          </div>
+          <span class="separator">|</span>
+        </div>
+      </li>
+    </ul>
+  </div>
   <script src="../../assets/js/jquery-1.9.1.min.js"></script>
   <script src="../../assets/plugins/layui/layui.js"></script>
-
   <script src="../../assets/plugins/layui/layui_exts/at/js/jquery.caret.min.js"></script>
   <script src="../../assets/plugins/layui/layui_exts/at/js/jquery.atwho.min.js"></script>
+  <script src="../../assets/plugins/layui/layui_exts/xm-select/xm-select.js"></script>
   <script src="../../assets/js/report-cooperation/edit-report.js"></script>
   <script src="../../assets/icon/iconfont.js"></script>
+  <script src="../../assets/plugins/ckeditor/ckeditor.js"></script>
+  <script>
+    DecoupledDocumentEditor
+      .create(document.querySelector('.editor'), {
+
+        toolbar: {
+          items: [
+            'heading',
+            '|',
+            'fontSize',
+            'fontFamily',
+            '|',
+            'bold',
+            'italic',
+            'fontColor',
+            'underline',
+            'strikethrough',
+            'highlight',
+            'fontBackgroundColor',
+            '|',
+            'alignment',
+            'indent',
+            'outdent',
+            'horizontalLine',
+            'pageBreak',
+            'blockQuote',
+            'link',
+            'todoList',
+            '|',
+            'numberedList',
+            'bulletedList',
+            '|',
+            'code',
+            'codeBlock',
+            'MathType',
+            'ChemType',
+            'specialCharacters',
+            '|',
+            'imageUpload',
+            'insertTable',
+            'mediaEmbed',
+            '|',
+            'undo',
+            'redo',
+            'CKFinder',
+            'exportPdf'
+          ]
+        },
+        language: 'zh-cn',
+        image: {
+          toolbar: [
+            'imageTextAlternative',
+            'imageStyle:full',
+            'imageStyle:side'
+          ]
+        },
+        table: {
+          contentToolbar: [
+            'tableColumn',
+            'tableRow',
+            'mergeTableCells',
+            'tableCellProperties',
+            'tableProperties'
+          ]
+        },
+        licenseKey: '',
+
+      })
+      .then(editor => {
+        window.editor = editor;
+
+        // Set a custom container for the toolbar.
+        document.querySelector('.document-editor__toolbar').appendChild(editor.ui.view.toolbar.element);
+        document.querySelector('.ck-toolbar').classList.add('ck-reset_all');
+      })
+      .catch(error => {
+        console.error('Oops, something gone wrong!');
+        console.error(
+          'Please, report the following error in the https://github.com/ckeditor/ckeditor5 with the build id and the error stack trace:'
+        );
+        console.warn('Build id: ycuqx6ofe0p2-h74cw3t3cfmg');
+        console.error(error);
+      });
+  </script>
 
 </body>
 
