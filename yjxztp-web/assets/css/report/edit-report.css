@@ -56,7 +56,7 @@ body {
 .container .left-tree {
   position: absolute;
   left: 0;
-  top: 40px;
+  top: 20px;
   bottom: 16px;
   width: 250px;
   padding-top: 40px;
@@ -130,6 +130,7 @@ body {
   top: 0;
   left: 20px;
   right: 20px;
+  font-size: 14px;
 }
 
 #taolun .bottom-box {
@@ -287,7 +288,6 @@ body {
 .comment-input {
   position: fixed;
   bottom: 0;
-  height: 50px;
   width: 90%;
   background-color: white;
   padding: 20px 0;
@@ -327,6 +327,10 @@ body {
   overflow: auto;
 }
 
+.comment-input-box .comment-input-text:focus {
+  border: 2px solid #f0f3f7 !important;
+}
+
 .comment-input-box .comment-input-placeholder {
   position: absolute;
   left: 10px;
@@ -336,7 +340,7 @@ body {
   z-index: -1;
 }
 
-.comment-input-box .comment-input-text:focus+.comment-input-placeholder {
+.comment-input-box .comment-input-text:focus + .comment-input-placeholder {
   display: none;
 }
 
@@ -403,7 +407,7 @@ body {
   padding-top: 10px;
   box-sizing: border-box;
   overflow: auto;
-  max-height: 270px;
+  max-height: 265px;
 }
 
 .taolun-info .bottom-box .comment-item:last-child {
@@ -457,6 +461,7 @@ body {
   color: #0077fe;
   margin-left: 10px;
   text-decoration: underline;
+  font-size: 14px;
 }
 
 .pinglun {
@@ -491,8 +496,8 @@ body {
   color: #616774;
 }
 
-.member-list li+li,
-.version-list li+li {
+.member-list li + li,
+.version-list li + li {
   margin-top: 15px;
 }
 
@@ -504,7 +509,7 @@ body {
 
 .user-msg .layui-avatar-name {
   margin-left: 8px;
-  max-width: 125px;
+  max-width: 120px;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -533,6 +538,7 @@ body {
 }
 
 .version-list .version-time {
+  font-size: 14px;
   color: #212732;
 }
 
@@ -616,7 +622,7 @@ body {
   border: none;
 }
 
-.style-content xm-select>.xm-icon {
+.style-content xm-select > .xm-icon {
   border-top-color: #2f343c;
 }
 
@@ -632,21 +638,21 @@ body {
   display: none;
 }
 
-.style-content xm-select>.xm-tips {
+.style-content xm-select > .xm-tips {
   color: #212832;
 }
 
-.style-content xm-select>.xm-body .xm-option-content {
+.style-content xm-select > .xm-body .xm-option-content {
   display: block;
   padding-left: 0;
 }
 
-.style-content xm-select>.xm-body {
+.style-content xm-select > .xm-body {
   width: 120%;
   left: -6px;
 }
 
-.style-content xm-select>.xm-label .scroll .label-content {
+.style-content xm-select > .xm-label .scroll .label-content {
   display: flex;
   padding: 0 30px 3px 10px;
 }
@@ -735,7 +741,7 @@ body {
   font-size: 14px;
 }
 
-.task-lists li+li {
+.task-lists li + li {
   margin-top: 18px;
 }
 
@@ -791,4 +797,28 @@ body {
 
 .task-lists .task-list-operat i {
   font-size: 14px;
+}
+
+.doc-toolbar {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  margin-left: 440px;
+  z-index: 5;
+}
+
+.doc-toolbar .layui-btn {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #99a3bc;
+}
+
+.doc-toolbar .layui-btn i {
+  font-size: 18px !important;
+}
+
+.doc-toolbar .layui-btn:hover {
+  background-color: #f0f3f7;
 }

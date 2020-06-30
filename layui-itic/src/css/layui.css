@@ -268,6 +268,9 @@
 
 .layui-avatar .layui-avatar-text {
   font-size: 14px;
+  display: inline-block;
+  width: 82%;
+  overflow: hidden;
 }
 
 .layui-avatar-lg .layui-avatar-text {
@@ -276,6 +279,7 @@
 
 .layui-avatar-sm .layui-avatar-text {
   font-size: 12px;
+	width: 87%;
 }
 
 .layui-avatar-img {
@@ -5734,6 +5738,7 @@ hr {
 }
 .layui-tree-spread
   > .layui-tree-entry
+  > .layui-tree-main
   > .layui-tree-iconClick
   > .layui-tree-iconArrow:after {
   transform: rotate(90deg) translate(3px, 4px);
@@ -5806,7 +5811,6 @@ hr {
 
 .layui-tree-overflow .layui-tree-main {
   display: flex;
-  flex: 1;
   overflow: hidden;
 }
 
@@ -5822,6 +5826,7 @@ hr {
 
 .layui-tree-overflow .layui-tree-locking {
   width: 20px;
+  flex-shrink: 0;
   margin-left: auto;
   text-align: center;
   margin-right: 4px;
@@ -5836,11 +5841,11 @@ hr {
 }
 
 .layui-tree-locking-true {
-  color: #46c5b2;
+  color: #99a3bc;
 }
 
 .layui-tree-locking-false {
-  color: #99a3bc;
+  color: #46c5b2;
 }
 
 /** 文件上传 **/

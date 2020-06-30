@@ -303,7 +303,7 @@
 .task-detail-layer.layui-layer-page .layui-layer-content {
   top: 0;
   padding-top: 0;
-  padding-bottom: 80px;
+  padding-bottom: 105px;
 }
 .task-detail__header {
   display: flex;
@@ -311,9 +311,10 @@
   align-items: center;
   height: 52px;
   position: relative;
-  margin-bottom: 20px;
+  margin: 0 20px 20px 20px;
+  border-bottom: 1px solid #e6e9f0;
 }
-.task-header{
+.task-header {
   position: fixed;
   background-color: #fff;
   width: 100%;
@@ -321,17 +322,15 @@
   top: 0;
   z-index: 999;
 }
-.btn-box{
+.btn-box {
   margin-top: 75px;
 }
-.task-detail__header::after {
-  content: "";
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: 0;
-  height: 1px;
-  background-color: #e6e9f0;
+
+.task-detail__header__left {
+  height: 52px;
+  line-height: 52px;
+  font-size: 16px;
+  color: #212832;
 }
 
 .add-pretask-btn i {
@@ -439,7 +438,6 @@
 .comment-input {
   position: fixed;
   bottom: 0;
-  height: 50px;
   width: 470px;
   background-color: white;
   padding: 20px 0;
@@ -477,6 +475,10 @@
   border-radius: 4px;
   padding: 3px 10px;
   overflow: auto;
+}
+
+.comment-input-box .comment-input-text:focus {
+  border: 2px solid #d5d8e0 !important;
 }
 
 .comment-input-box .comment-input-placeholder {

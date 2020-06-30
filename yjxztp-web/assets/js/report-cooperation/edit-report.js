@@ -411,7 +411,7 @@ $('#goback').on('click', function () {
   $('#showAll').show();
 })
 // 讨论详情弹窗
-$('.julu-list .jilu-item i').on('click', function () {
+$('.jilu-list').on('click','.jilu-item i', function () {
   // var $this = $(this);
   var layerDom = $(".taolun-info");
   layer.open({

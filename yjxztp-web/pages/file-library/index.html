@@ -254,7 +254,7 @@
         { 'type': 1, 'title': '编辑', 'icon': 'bianji' },
         { 'type': 2, 'title': '删除', 'icon': 'shanchu' }
       ];
-      $('.tag-item .icon-gengduo').on('click', function () {
+      $('.tag-list').on('click', '.tag-item .icon-gengduo',function () {
         var ele = $(this);
         var dropDownEle = dropDown.render({
           ele: ele, // 绑定下拉菜单的元素 （jq对象）

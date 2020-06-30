@@ -1,18 +1,18 @@
-// var topicList = [{
-// 	title:'课题1课题1课题1课题1'
-// },{
-// 	title:'课题2'
-// },{
-// 	title:'课题3'
-// }];
-// renderTopic();
-// function renderTopic(){
-// 	topicList.map(function(v,i){
-// 		var topicStr = '';
-// 		topicStr += `<li class="topic-submenu"><span title="${v.title}" data-href="./project-topic.html">${v.title}</span><i class="layui-icon layui-icon-more" data-dropdown="${i}"></i></li>`;
-// 		$('.menu-list').append(topicStr)
-// 	})
-// }
+/*var topicList = [{
+	title:'课题1课题1课题1课题1'
+},{
+	title:'课题2222'
+},{
+	title:'课题3'
+}];
+renderTopic();
+function renderTopic(){
+	var topicStr = '';
+	for(var i = 0; i<topicList.length;i++){
+		topicStr += `<li class="topic-submenu"><span title="${topicList[i].title}" data-href="./project-topic.html">${topicList[i].title}</span><i class="font_family icon-gengduo" data-dropdown="${i}"></i></li>`;
+	}
+	$('.menu-list').append(topicStr)
+}*/
 
 
 layui.config({
@@ -26,7 +26,7 @@ layui.config({
 				{ 'type': 1, 'title': '编辑', 'icon': 'bianji' },
 				{ 'type': 2, 'title': '删除', 'icon': 'shanchu' }
 		];
-		$('.topic-submenu i').on('click',function(){
+		$('.menu-list').on('click','.topic-submenu i',function(e){
 				var ele = $(this);
 				var dropDownEle = dropDown.render({
 						ele: ele, // 绑定下拉菜单的元素 （jq对象）
@@ -67,8 +67,8 @@ layui.config({
 								, yes: function () {
 										var data = form.val('createTopic');
 										var topicName = data.topicName;
-										var topicDom = `<li class="topic-submenu"><span>${topicName}</span><i class="layui-icon layui-icon-more" data-dropdown="4"></i></li>`
-										// $('.menu-list').append(topicDom)
+										var topicDom = `<li class="topic-submenu" data-href="./project-topic.html"><span title="${topicName}">${topicName}</span><i class="font_family icon-gengduo" data-dropdown="3"></i></li>`
+										$('.menu-list').append(topicDom)
 										layer.closeAll();
 								},
 						});
@@ -92,8 +92,9 @@ $(".menu-item").on("click", function() {
 		$(this).addClass("active");
 });
 
-$('.topic-submenu').on("click", function() {
+$('.menu-list').on("click",'.topic-submenu',function() {
 		var title = document.title.split("-");
+		console.log(title)
 		title[1] = $(this).text();
 		document.title = title.join("-");
 		$("#iframe").attr("src", $(this).attr("data-href"));

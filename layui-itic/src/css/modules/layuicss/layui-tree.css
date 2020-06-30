@@ -120,6 +120,7 @@
 }
 .layui-tree-spread
   > .layui-tree-entry
+  > .layui-tree-main
   > .layui-tree-iconClick
   > .layui-tree-iconArrow:after {
   transform: rotate(90deg) translate(3px, 4px);
@@ -192,7 +193,6 @@
 
 .layui-tree-overflow .layui-tree-main {
   display: flex;
-  flex: 1;
   overflow: hidden;
 }
 
@@ -208,6 +208,7 @@
 
 .layui-tree-overflow .layui-tree-locking {
   width: 20px;
+  flex-shrink: 0;
   margin-left: auto;
   text-align: center;
   margin-right: 4px;
@@ -222,9 +223,9 @@
 }
 
 .layui-tree-locking-true {
-  color: #46c5b2;
+  color: #99a3bc;
 }
 
 .layui-tree-locking-false {
-  color: #99a3bc;
+  color: #46c5b2;
 }

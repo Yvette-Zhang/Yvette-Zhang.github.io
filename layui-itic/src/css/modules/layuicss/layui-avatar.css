@@ -64,6 +64,9 @@
 
 .layui-avatar .layui-avatar-text {
   font-size: 14px;
+  display: inline-block;
+  width: 82%;
+  overflow: hidden;
 }
 
 .layui-avatar-lg .layui-avatar-text {
@@ -72,6 +75,7 @@
 
 .layui-avatar-sm .layui-avatar-text {
   font-size: 12px;
+	width: 87%;
 }
 
 .layui-avatar-img {
