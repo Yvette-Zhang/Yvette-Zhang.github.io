@@ -31,6 +31,79 @@
 
 <body>
 
+  <blockquote class="layui-elem-quote">
+    <p>tree组件新增参数说明</p>
+    <table class="layui-table" style="width: 100%">
+      <thead>
+        <tr>
+          <th>参数选项</th>
+          <th>类型</th>
+          <th>说明</th>
+          <th>示例值</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>template</td>
+          <td>function</td>
+          <td>自定义模板</td>
+          <td>可参考下面示例代码</td>
+        </tr>
+        <tr>
+          <td>delNoneLevel</td>
+          <td>Number</td>
+          <td>设置某级节点不可删除，需要在数据中添加level字段，表示数据是第几级</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>updateNoneLevel</td>
+          <td>Number</td>
+          <td>设置某级节点不可编辑，需要在数据中添加level字段，表示数据是第几级</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>selfChecked</td>
+          <td>Boolean</td>
+          <td>增加是否开启节点独立选择（开启此功能layui自带获取选中数据的方法会失效，需要自行监听选中事件及处理数据）</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>locking</td>
+          <td>Boolean</td>
+          <td>增加是否开启节点的锁定功能（需要在data中添加locking参数true或者false）</td>
+          <td>false</td>
+        </tr>
+        <tr>
+          <td>lockingIcon</td>
+          <td>Array</td>
+          <td>增加锁定图标的class，第一个为true时的icon，第二个为false时的icon，需要依赖锁定功能</td>
+          <td>['layui-icon layui-icon-password', 'layui-icon layui-icon-survey']</td>
+        </tr>
+
+        <tr>
+          <td>textOverflow</td>
+          <td>Boolean</td>
+          <td>是否开启固定宽显示省略号功能</td>
+          <td>false</td>
+        </tr>
+
+        <tr>
+          <td>title</td>
+          <td>Boolean</td>
+          <td>是否显示树标题的title功能</td>
+          <td>false</td>
+        </tr>
+
+        <tr>
+          <td>customOperate</td>
+          <td>Boolean</td>
+          <td>是否开启节点自定义操作事件</td>
+          <td>false</td>
+        </tr>
+      </tbody>
+    </table>
+  </blockquote>
+
   <div class="layui-btn-container">
     <!-- <button type="button" class="layui-btn" lay-demo="getChecked">获取选中数据</button>
     <button type="button" class="layui-btn" lay-demo="setChecked">设置节点勾选</button> -->
@@ -86,9 +159,34 @@
       <br>
       示例：
       <pre class="layui-code">
-        tree.render({
+        var data = [{
+          title: '一级1一级1一级1一级1一级1一级1一级1一级1'
+          , id: 1
+          , color: '#FB3C36'
+          , level: 1
+          , locking: true
+          , children: [{
+            ...
+          }]
+          
+        }, {
           ...
-          customOperate: true,
+        }]
+        tree.render({
+          data: data
+          , ...
+          , showLine: false //是否开启链接线
+          , accordion: 0 //是否开启手风琴模式
+          , onlyIconControl: true //是否仅允许节点左侧图标控制展开收缩
+          , isJump: 0 //点击文案跳转地址
+          , edit: ['add', 'update', 'del'] //操作节点图标
+          , delNoneLevel: 1 //设置第几级节点不允许删除操作
+          , updateNoneLevel: 1 //设置第几级节点不允许编辑操作(根据数据中的level)
+          , locking: true // 是否开启节点的锁定功能
+          , lockingIcon: ['layui-icon layui-icon-password', 'layui-icon layui-icon-survey'] //锁定图标的class
+          , textOverflow: true //是否开启固定宽显示省略号
+          , title: true //是否显示树标题的title
+          , customOperate: true //是否开启自定义节点操作
           operate: function (obj) {
             console.log(obj);
           }

@@ -214,3 +214,8 @@
   font-size: 14px;
   color: #616874;
 }
+
+/* 修复文件库模块标题过长会挤出图标的bug */
+.file-box__icon {
+  flex-shrink: 0;
+}

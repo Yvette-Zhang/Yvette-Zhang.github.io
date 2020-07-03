@@ -74,6 +74,25 @@
           $inputor = $('#inputor').atwho(at_config);
          
         </pre>
+        <p>使用iframe方式可有效避免at定位不准确bug</p>
+        <p>示例：</p>
+        <pre>
+          &lt;div class="inputor" style="overflow: hidden">
+            &lt;iframe src="" id="iframe1" style="width: 100%; height: 100%; border: 0px;"></iframe>
+          &lt;/div>
+          var ifr = $('#iframe1')[0],
+            doc = ifr.contentDocument || iframe.contentWindow.document,
+            ifrBody;
+          if ((ifrBody = doc.body) == null) {
+          // For IE
+          doc.write("&lt;body>&lt;/body>")
+            ifrBody = doc.body
+          }
+          ifrBody.contentEditable = true
+          ifrBody.id = 'ifrBody'
+          ifrBody.innerHTML = ''
+          $(ifrBody).atwho('setIframe', ifr).atwho(at_config)
+        </pre>
       </blockquote>
     </div>
     <div class="layui-col-md6">
@@ -81,6 +100,11 @@
       <textarea id="inputor" class="inputor">我来试试textarea@的提及功能 @</textarea>
       <span class="clickMe">点我</span>
       <input id="inputor-t" type="text" name="title" placeholder="请输入内容" autocomplete="off" class="layui-input">
+
+      <br>
+      <div class="inputor" style="overflow: hidden">
+        <iframe src="" id="iframe1" style="width: 100%; height: 100%; border: 0px;"></iframe>
+      </div>
     </div>
   </div>
 
@@ -142,6 +166,19 @@
     $inputorT = $('#inputor-t').atwho('setIframe').atwho(at_config2);
     $inputorT.caret('pos', 47);
     $inputorT.focus().atwho('run');
+
+    var ifr = $('#iframe1')[0],
+      doc = ifr.contentDocument || iframe.contentWindow.document,
+      ifrBody;
+    if ((ifrBody = doc.body) == null) {
+      // For IE
+      doc.write("<body></body>")
+      ifrBody = doc.body
+    }
+    ifrBody.contentEditable = true
+    ifrBody.id = 'ifrBody'
+    ifrBody.innerHTML = ''
+    $(ifrBody).atwho('setIframe', ifr).atwho(at_config)
 
   </script>
 </body>

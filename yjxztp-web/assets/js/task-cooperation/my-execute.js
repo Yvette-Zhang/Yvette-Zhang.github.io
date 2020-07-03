@@ -265,20 +265,36 @@ layui.use(["layer", "form"], function () {
           at: "@", //触发字符
           data: userObj, //数据 json格式
           headerTpl: "", // 弹出菜单的标题
-          insertTpl: "<span data-userId=${id}>@${name}</span>", // 选中菜单显示的内容
-          displayTpl:
-            '<li><span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">${sName}</span></span>${name}</li>', // 这个是显示的弹出菜单里面的内容
+          insertTpl: "<span data-userId=${id}>@${name}&nbsp;</span>", // 选中菜单显示的内容
+          displayTpl: '<li><span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">${sName}</span></span>${name}</li>', // 这个是显示的弹出菜单里面的内容
           searchKey: "name", // 搜索键匹配的值
-          startWithSpace: true, // 是否匹配at之前的空格 默认为true
+          startWithSpace: false, // 是否匹配at之前的空格 默认为true
           limit: 200, // 弹出菜单显示的条目数
+          callbacks: {
+
+          }
         };
-        $inputor = content.find("#commentCon").atwho(at_config);
-        $inputor.blur(function () {
+        var ifr = content.find("#iframeEdit")[0],
+          doc = ifr.contentDocument || iframe.contentWindow.document,
+          ifrBody;
+        if ((ifrBody = doc.body) == null) {
+          doc.write("<body></body>")
+          ifrBody = doc.body
+        }
+        ifrBody.contentEditable = true
+        ifrBody.id = 'ifrBody';
+        ifrBody.style.cssText = "padding: 3px 10px; margin: 0;box-sizing: border-box;font-size: 14px;color: #212832";
+        ifrBody.innerHTML = '';
+        $(ifrBody).atwho('setIframe', ifr).atwho(at_config)
+        $(ifrBody).blur(function () {
           if ($(this).text().trim()) {
             content.find(".comment-input-placeholder").hide();
           } else {
             content.find(".comment-input-placeholder").show();
           }
+        });
+        $(ifrBody).focus(function () {
+          content.find(".comment-input-placeholder").hide();
         });
       },
     });

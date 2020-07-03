@@ -477,12 +477,6 @@
   box-sizing: border-box;
   border: 1px solid #d5d8e0;
   border-radius: 4px;
-  padding: 3px 10px;
-  overflow: auto;
-}
-
-.comment-input-box .comment-input-text:focus {
-  border: 2px solid #d5d8e0 !important;
 }
 
 .comment-input-box .comment-input-placeholder {

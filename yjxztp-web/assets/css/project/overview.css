@@ -240,6 +240,7 @@ body{
 }
 .layui-timeline-item{
     padding-bottom: 0;
+    display: flex;
 }
 .layui-timeline-item .layui-timeline-icon{
     width: 8px;
@@ -250,7 +251,7 @@ body{
     border-radius: 50%;
     position: absolute;
     top: 20px;
-    left: 81.5px;
+    left: 123.5px;
 
 }
 .layui-timeline-item.active .layui-timeline-icon{
@@ -259,24 +260,28 @@ body{
 .layui-timeline-item:before {
     content: "";
     position: absolute;
-    left: 87px;
+    left: 129px;
     top: 20px;
     z-index: 0;
     width: 1px;
     height: 100%;
 }
 .layui-timeline-item .avatar{
-    display: inline-block;
+    display: flex;
+    padding-top: 8px;
 }
 .avatar .avatar-name{
     margin: 0 10px;
-    height: 40px;
-    line-height: 40px;
     display: inline-block;
+    width: 70px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-top: 5px;
 }
 .layui-timeline-content {
     width: 74%;
-    padding-left: 12px;
+    padding-left: 20px;
     display: inline-flex;
     line-height: 51px;
     min-height: auto;

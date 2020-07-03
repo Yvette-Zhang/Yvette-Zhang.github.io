@@ -96,7 +96,15 @@
 .layui-dropdown-menu-item.menu-active,
 .layui-dropdown-menu-item:hover,
 .layui-dropdown-menu-submenu:hover {
-  background-color: #e6f7ff;
+  background-color: #f0f3f7;
+  transition: 0.3s all;
+}
+
+.layui-dropdown-menu-item.menu-active > a,
+.layui-dropdown-menu-item:hover > a,
+.layui-dropdown-menu-submenu:hover > a {
+  color: #0077ff;
+  transition: 0.3s all;
 }
 
 .layui-dropdown-menu-item-disabled:hover {
