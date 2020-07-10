@@ -1,0 +1,110 @@
+.layui-tab {
+  margin-top: 20px;
+}
+.layui-tab-title {
+  border-bottom: none;
+}
+.layui-tab-content {
+  padding: 0;
+}
+.layui_tab_btn > .layui-tab-title li {
+  box-sizing: border-box;
+}
+
+.loans-identity span {
+  width: 84px;
+  height: 34px;
+  display: inline-block;
+  line-height: 34px;
+  border: 1px solid rgba(48, 140, 87, 1);
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  color: #308c57;
+  cursor: pointer;
+}
+.loans-identity span.selected {
+  background: #308c57;
+  color: #fff;
+}
+.loans-identity .person {
+  margin-right: 20px;
+}
+.top-card {
+  padding: 10px;
+  box-sizing: border-box;
+}
+.card-title {
+  color: #313332;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.green-underline {
+  color: #308c57;
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+}
+.green-underline:after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #43c267;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+.form-title {
+  color: #308c57;
+  font-size: 14px;
+  margin-right: 15px;
+}
+.add-item {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+.add-item-btn {
+  width: 18px !important;
+  height: 18px;
+  line-height: 18px;
+}
+.add-item-btn i,
+.add-card-btn i {
+  font-size: 12px !important;
+  font-weight: bold;
+}
+.item-card .subcard:first-child .add-card-btn {
+  display: none;
+}
+.subcard {
+  width: 55%;
+  position: relative;
+}
+.add-card-btn {
+  width: 18px !important;
+  height: 18px;
+  line-height: 18px;
+  background: #ff8700;
+  position: absolute;
+  top: 50%;
+  right: -35px;
+  margin-top: -9px;
+}
+.add-card-btn:hover {
+  background-color: #ff6d05;
+}
+.subcard .layui-card .layui-card-body:first-child {
+  padding-left: 0;
+}
+.layui-form-label {
+  width: 120px;
+}
+.layui-input-block {
+  margin-left: 120px;
+}
+.button-item {
+  margin: 30px 0 !important;
+}

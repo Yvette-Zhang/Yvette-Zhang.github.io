@@ -1,0 +1,145 @@
+.personal_title:before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 3px;
+  height: 20px;
+  background: #308C57;
+  border-radius: 2px;
+}
+
+.personal_title {
+  color: #308C57;
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.layui-card-body {
+  font-size: 14px;
+  font-weight: 400;
+  color: #313332;
+}
+
+.personal_header_box {
+  height: 157px;
+  border-bottom: 1px solid #f0f2f5;
+  padding-top: 67px;
+}
+
+.personal_header_box .box_title {
+  margin-left: 97px;
+  width: 65px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.personal_header_box .box_img {
+  width: 100px;
+  height: 100px;
+  margin-left: 173px;
+  margin-top: -19px;
+  border-radius: 50%;
+  background: url(https://dummyimage.com/100x100/43C267/000) no-repeat;
+}
+
+.personal_header_box .box_btn {
+  color: rgba(48, 140, 87, 1);
+  margin-left: 195px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.personal_name_box .box_name,
+.personal_phone_box .box_phone,
+.personal_address_box .box_address,
+.personal_sex_box .box_sex {
+  width: 214px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: -148px;
+}
+
+.personal_sex_box .box_sex {
+  width: 40px;
+}
+
+.personal_sex_box .box_m,
+.personal_phone_box .box_tel,
+.personal_name_box .box_zjj {
+  width: 674px;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.personal_phone_box .box_tel,
+.personal_name_box .box_zjj {
+  margin-left: -148px;
+}
+
+.personal_address_box .box_bj {
+  width: 674px;
+  margin-left: -148px;
+}
+
+
+.container-box .personal_name_box,
+.container-box .personal_phone_box,
+.container-box .personal_sex_box,
+.container-box .personal_address_box {
+  height: 98px;
+  border-bottom: 1px solid #f0f2f5;
+  display: flex;
+  position: relative;
+}
+
+.container-box .personal_address_box {
+  height: auto;
+}
+
+.personal_address_box .box_address {
+  margin-bottom: 41px;
+}
+
+.personal_name_box .box_name,
+.personal_phone_box .box_phone,
+.personal_sex_box .box_sex,
+.personal_address_box .box_address {
+  margin-left: 95px;
+  margin-top: 42px;
+}
+
+.personal_name_box .box_zjj,
+.personal_phone_box .box_tel,
+.personal_sex_box .box_m {
+  margin-top: 42px;
+}
+
+.personal_address_box .box_bj {
+  margin-top: 40px;
+}
+
+.personal_phone_box .box_xiugai,
+.personal_sex_box .box_xiugai,
+.personal_address_box .box_xiugai {
+  cursor: pointer;
+  color: #43c267;
+  position: absolute;
+  right: 268px;
+  top: 42px;
+}

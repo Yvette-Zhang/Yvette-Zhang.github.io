@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>卖出订单</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/supplier-backstage/sell-orders.css">
+</head>
+
+<body class="iframe-page">
+  <p class="page-title">卖出订单</p>
+  <!--表单-->
+  <div class="layui-card sell-form-card">
+    <div class="layui-card-body">
+      <form class="layui-form sell-form" action="">
+        <div class="layui-form-item">
+          <div class="layui-inline">
+            <label class="layui-form-label">订单日期:</label>
+            <div class="layui-input-inline">
+              <input type="text" class="layui-input" name="orderDate" id="orderDate" placeholder="请选择订单日期">
+            </div>
+          </div>
+          <div class="layui-inline">
+            <label class="layui-form-label">产品名称:</label>
+            <div class="layui-input-inline">
+              <input type="text" name="productName" autocomplete="off" placeholder="请输入产品名称" class="layui-input">
+            </div>
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-inline">
+            <label class="layui-form-label">订单状态:</label>
+            <div class="layui-input-inline">
+              <select name="orderStatus" lay-filter="orderStatus">
+                <option value=""></option>
+                <option value="0">已完成</option>
+                <option value="1" selected="">待发货</option>
+                <option value="2">已取消</option>
+              </select>
+            </div>
+          </div>
+          <div class="layui-inline">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit">查询</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--表格-->
+  <div class="layui-card sell-table-card">
+    <div class="layui-card-body">
+      <table class="layui-hide" id="order-table" lay-filter="orderTable"></table>
+    </div>
+  </div>
+
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <script>
+    layui.use(['form', 'table', 'layer', 'rate', 'element', 'laydate'], function () {
+      var form = layui.form,
+        element = layui.element,
+        layer = layui.layer,
+        rate = layui.rate,
+        laydate = layui.laydate,
+        table = layui.table;
+
+      var totalityStar = 0,
+        serviceStar = 0,
+        qualityStar = 0;
+      //监听提交
+      // form.on('submit(formDemo)', function(data){
+      // 	layer.msg(JSON.stringify(data.field));
+      // 	return false;
+      // });
+
+      //日期时间范围
+      laydate.render({
+        elem: '#orderDate'
+        , range: true
+      });
+
+      // 表格
+      table.render({
+        elem: '#order-table'
+        , skin: 'line' //行边框风格
+        , cols: [[
+          { field: 'orderId', minWidth: 150, title: '订单编号' }
+          , { field: 'orderDate', width: 150, title: '订单日期' }
+          , { field: 'orderName', minWidth: 150, title: '产品名称',templet: function(d){
+              var orderName = d.orderName;
+              var html = '';
+              for(var i=0; i<orderName.length; i++){
+                html += '<span class="rowspan-cell" title="'+orderName[i]+'">'+ orderName[i] +'</span>';
+              }
+              return html;
+            } }
+          , { field: 'orderPrice', width: 80, title: '单价' ,templet: function(d){
+              var orderPrice = d.orderPrice;
+              var html = '';
+              for(var i=0; i<orderPrice.length; i++){
+                html += '<span class="rowspan-cell" title="'+orderPrice[i]+'">'+ orderPrice[i] +'</span>';
+              }
+              return html;
+            }}
+          , { field: 'buyerName', title: '买家用户名', width: 150 }
+          , { field: 'orderStatus', width: 150, title: '订单状态' }
+        ]],
+        data: [{
+          "orderId": "1000110001100011000110001100011000110001"
+          , "orderDate": "2016-10-14 12:00"
+          , "orderName": ["番茄番茄番茄番茄番茄番茄番茄番茄番茄番茄番茄番茄番茄番茄","土豆"]
+          , "orderPrice": ["6/kg","3/kg"]
+          , "buyerName": "小明小明小明小明小明小明小明小明"
+          , "orderStatus": "待评价"
+        },{
+          "orderId": "10003"
+          , "orderDate": "2016-12-01 10:00"
+          , "orderName": ["花生"]
+          , "orderPrice": ["12/kg"]
+          , "buyerName": "小红"
+          , "orderStatus": "待评价"
+        }, {
+          "orderId": "10003"
+          , "orderDate": "2016-12-01 10:00"
+          , "orderName": ["黄瓜"]
+          , "orderPrice": ["10/kg"]
+          , "buyerName": "小红"
+          , "orderStatus": "待评价"
+        }, {
+          "orderId": "10005"
+          , "orderDate": "2016-11-14 16:00"
+          , "orderName": ["豆角"]
+          , "orderPrice": ["6/kg"]
+          , "buyerName": "小丽"
+          , "orderStatus": "待评价"
+        }]
+        , page: true
+        , done: function () {
+          // merge(res, curr, count);
+        }
+      });
+      //监听工具条
+      table.on('tool(orderTable)', function (obj) {
+        var data = obj.data;
+        if (obj.event === 'appraise') {
+          layer.msg('orderId：' + data.orderId + ' 的评价');
+          layer.open({
+            type: 1
+            , title: '评价'
+            , area: ['600px', '430px']
+            , offset: 'auto'
+            , id: 'appraise-layer' //防止重复弹出
+            , content: $('#appraise-form')
+            , move: false
+            , resize: false
+            , btn: '确定'
+            , btnAlign: 'c' //按钮居中
+            , shade: 0.1 //显示遮罩
+            , yes: function () {
+              var data = form.val('appraiseForm');
+              data.totalityStar = totalityStar;
+              data.serviceStar = serviceStar;
+              data.qualityStar = qualityStar;
+              alert(JSON.stringify(data));
+              layer.closeAll();
+            }
+          });
+        } else if (obj.event === 'view') {
+          layer.msg('orderId：' + data.orderId + ' 的查看操作');
+        }
+      });
+      //评价--总体评分
+      rate.render({
+        elem: '.totality-star',
+        value: totalityStar, //初始值
+        choose: function (value) {
+          totalityStar = value;
+        }
+      });
+      //评价--服务评分
+      rate.render({
+        elem: '.service-star',
+        value: serviceStar,//初始值
+        choose: function (value) {
+          serviceStar = value;
+        }
+      });
+
+      //产品质量
+      rate.render({
+        elem: '.quality-star',
+        value: qualityStar, //初始值
+        choose: function (value) {
+          qualityStar = value;
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

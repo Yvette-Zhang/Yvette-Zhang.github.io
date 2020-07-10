@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>农业服务交易平台</title>
+  <link rel="stylesheet" href="./assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="./assets/icon/iconfont.css">
+  <link rel="stylesheet" href="./assets/css/common.css">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <script src="./assets/js/jquery-1.9.1.min.js"></script>
+  <script src="./assets/plugins/layui/layui.js"></script>
+  <script src="./assets/js/include.js"></script>
+</head>
+
+<body>
+  <include src="./pages/common/header.html"></include>
+  <ul class="header-nav container-box">
+    <li>
+      <a class="header-nav-select" href="./index.html">农业服务</a>
+    </li>
+    <li>
+      <a href="javascript:;">农产品</a>
+    </li>
+    <li>
+      <a href="./pages/agricultural-management/index.html">农贷管理</a>
+    </li>
+  </ul>
+
+  <div class="container-box">
+    <div class="layui-card">
+      <div class="layui-card-body goods-filter">
+        <div class="goods-filter-item">
+          <div class="goods-filter-item-type">产品分类：</div>
+          <ul class="goods-filter-item-list" id="goodsSort">
+            <li class="goods-filter-select">全部</li>
+            <li>农资</li>
+            <li>金融</li>
+          </ul>
+        </div>
+        <div class="goods-filter-item">
+          <div class="goods-filter-item-type">产品品类：</div>
+          <ul class="goods-filter-item-list" id="goodsCategory">
+            <li class="goods-filter-select">全部</li>
+            <li>疫苗</li>
+            <li>化肥</li>
+            <li>种苗</li>
+            <li>农具</li>
+            <li>人工</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container-box goods-box clearfix">
+    <div class="goods-item">
+      <a href="./pages/agricultural-services/product-details.html" title="" target="_blank">
+        <div class="goods-img"
+          style="background: url('https://dummyimage.com/285x230/eee/fff') center/cover no-repeat;;"></div>
+        <div class="goods-msg">
+          <div class="goods-price">7.90<span>元/株</span></div>
+          <div class="goods-type">越冬番茄种苗批发</div>
+        </div>
+        <div class="goods-commit">
+          <div class="goods-volume">成交量：<span>56790</span></div>
+          <div class="goods-assess">评价：<span>1.2万</span></div>
+          <div class="goods-source">惠农农业</div>
+        </div>
+      </a>
+    </div>
+    <div class="goods-item">
+      <a href="./pages/agricultural-services/product-details.html" title="" target="_blank">
+        <div class="goods-img"
+          style="background: url('https://dummyimage.com/285x230/eee/fff') center/cover no-repeat;;"></div>
+        <div class="goods-msg">
+          <div class="goods-price">7.90<span>元/株</span></div>
+          <div class="goods-type">越冬番茄种苗批发</div>
+        </div>
+        <div class="goods-commit">
+          <div class="goods-volume">成交量：<span>56790</span></div>
+          <div class="goods-assess">评价：<span>1.2万</span></div>
+          <div class="goods-source">惠农农业</div>
+        </div>
+      </a>
+    </div>
+    <div class="goods-item">
+      <a href="./pages/agricultural-services/product-details.html" title="" target="_blank">
+        <div class="goods-img"
+          style="background: url('https://dummyimage.com/285x230/eee/fff') center/cover no-repeat;;"></div>
+        <div class="goods-msg">
+          <div class="goods-price">7.90<span>元/株</span></div>
+          <div class="goods-type">越冬番茄种苗批发</div>
+        </div>
+        <div class="goods-commit">
+          <div class="goods-volume">成交量：<span>56790</span></div>
+          <div class="goods-assess">评价：<span>1.2万</span></div>
+          <div class="goods-source">惠农农业</div>
+        </div>
+      </a>
+    </div>
+    <div class="goods-item">
+      <a href="./pages/agricultural-services/product-details.html" title="" target="_blank">
+        <div class="goods-img"
+          style="background: url('https://dummyimage.com/285x230/eee/fff') center/cover no-repeat;;"></div>
+        <div class="goods-msg">
+          <div class="goods-price">7.90<span>元/株</span></div>
+          <div class="goods-type">越冬番茄种苗批发</div>
+        </div>
+        <div class="goods-commit">
+          <div class="goods-volume">成交量：<span>56790</span></div>
+          <div class="goods-assess">评价：<span>1.2万</span></div>
+          <div class="goods-source">惠农农业</div>
+        </div>
+      </a>
+    </div>
+    <div class="goods-item">
+      <a href="./pages/agricultural-services/product-details.html" title="" target="_blank">
+        <div class="goods-img"
+          style="background: url('https://dummyimage.com/285x230/eee/fff') center/cover no-repeat;;"></div>
+        <div class="goods-msg">
+          <div class="goods-price">7.90<span>元/株</span></div>
+          <div class="goods-type">越冬番茄种苗批发</div>
+        </div>
+        <div class="goods-commit">
+          <div class="goods-volume">成交量：<span>56790</span></div>
+          <div class="goods-assess">评价：<span>1.2万</span></div>
+          <div class="goods-source">惠农农业</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <include src="./pages/common/footer.html"></include>
+
+  <script src="./assets/js/include.js"></script>
+  <script>
+    $(function () {
+      $("body").on("click", "#goodsSort li", function () {
+        var $this = $(this);
+        $("#goodsSort li").removeClass("goods-filter-select");
+        $this.addClass("goods-filter-select")
+      });
+      $("body").on("click", "#goodsCategory li", function () {
+        var $this = $(this);
+        $("#goodsCategory li").removeClass("goods-filter-select");
+        $this.addClass("goods-filter-select")
+      })
+    })
+  </script>
+</body>
+
+</html>

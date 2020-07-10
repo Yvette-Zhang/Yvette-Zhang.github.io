@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>农业服务交易平台</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/breeding-management/production-records.css">
+</head>
+
+<body>
+  <div class="container-supplier-backstage">
+    <div class="title-border-left">生产动态记录</div>
+    <div class="layui-col-md12">
+      <div class="layui-card" style="height: calc(100vh - 70px);">
+        <div class="layui-card-body">
+          <form class="layui-form" action="">
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label"><span class="layui-form-required">*</span>批次编号:</label>
+              <div class="layui-input-block">
+                <select name="productCategory" lay-filter="productCategory">
+                  <option value="">请选择批次编号</option>
+                  <option value="0">001</option>
+                  <option value="1">002</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label production_profit">利润</label>
+            </div>
+
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">利润总额:</label>
+              <div class="layui-input-block layui-input-suffix">
+                <input type="text" name="productSpecs" lay-verify="specs" autocomplete="off"
+                  class="layui-input">
+                <span class="layui-input-suffix_unit">元</span> 
+              </div>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">头均利润:</label>
+              <div class="layui-input-block layui-input-suffix">
+                <input type="text" name="productSpecs" lay-verify="specs" autocomplete="off"
+                  class="layui-input">
+                  <span class="layui-input-suffix_unit">元</span>
+              </div>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label production_profit">指标</label>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">日龄:</label>
+              <div class="layui-input-block layui-input-suffix">
+                <input type="text" name="productSpecs" lay-verify="specs" autocomplete="off"
+                  class="layui-input">
+                  <span class="layui-input-suffix_unit">天</span>
+              </div>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">猪猫体重:</label>
+              <div class="layui-input-block layui-input-suffix">
+                <input type="text" name="productSpecs" lay-verify="specs" autocomplete="off"
+                  class="layui-input">
+                  <span class="layui-input-suffix_unit">千克</span>
+              </div>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">预估体重:</label>
+              <div class="layui-input-block layui-input-suffix">
+                <input type="text" name="productSpecs" lay-verify="specs" autocomplete="off"
+                  class="layui-input">
+                  <span class="layui-input-suffix_unit">千克</span>
+              </div>
+            </div>
+            
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">上市率:</label>
+              <div class="layui-input-block layui-input-suffix">
+                <input type="text" name="productSpecs" lay-verify="specs" autocomplete="off"
+                  class="layui-input">
+                  <span class="layui-input-suffix_unit">%</span>
+              </div>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">头均药费:</label>
+              <div class="layui-input-block layui-input-suffix">
+                <input type="text" name="productSpecs" lay-verify="specs" autocomplete="off"
+                  class="layui-input">
+                  <span class="layui-input-suffix_unit">元</span>
+              </div>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">料肉比:</label>
+              <div class="layui-input-block layui-input-suffix">
+                <input type="text" name="productSpecs" lay-verify="specs" autocomplete="off"
+                  class="layui-input">
+                  <span class="layui-input-suffix_unit">%</span>
+              </div>
+            </div>
+
+            <div class="layui-form-item layui-col-md4">
+              <label class="layui-form-label">记录日期:</label>
+              <div class="layui-input-block">
+                <input type="text" name="productSpecs" id="date" lay-verify="date" autocomplete="off" placeholder=" 2020-12-01" 
+                  class="layui-input">
+              </div>
+            </div>
+
+            <div class="layui-form-item"></div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+      var form = layui.form
+      ,layer = layui.layer
+      ,layedit = layui.layedit
+      ,laydate = layui.laydate;
+      
+      //日期
+      laydate.render({
+        elem: '#date'
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+.top-box .layui-card-body ,
+.bottom-box .layui-card-body{
+		padding: 20px;
+		box-sizing: border-box;
+}
+.layui-card .layui-card-body:first-child {
+		 padding-top: 20px;
+}
+.top-box{
+		color: #7C807F;
+		font-size: 14px;
+		margin-bottom: 20px;
+}
+.bottom-box{
+		margin-bottom: 84px;
+}
+.shop-title{
+		color: #313332;
+		font-size: 16px;
+		height: 30px;
+}
+.top-box .shop-item{
+		display: flex;
+		align-items: center;
+		margin: 15px 0;
+}
+.shop-identity i{
+		font-size: 18px;
+		margin-right: 5px;
+		color: #43C267;
+}
+.item-name{
+		width: 60px;
+		margin-right: 10px;
+		text-align: right;
+}
+.item-content{
+		flex: 1;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+}
+.top-box .shop-address{
+		align-items: flex-start;
+}
+.address{
+		flex: 1;
+}
+.ability-list{
+		display: flex;
+		padding: 30px 0;
+		margin-top: 15px;
+		justify-content: space-around;
+		align-items: center;
+}
+.ability-item{
+		color: #7C807F;
+		font-size: 14px;
+		text-align: center;
+}
+.ability-num{
+		color: #313332;
+		font-size: 24px;
+		margin-bottom: 10px;
+}
+.separate-line{
+		width:1px;
+		height:30px;
+		background:#DCDFE6;
+
+}

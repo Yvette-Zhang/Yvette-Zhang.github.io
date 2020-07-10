@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>农业服务交易平台</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+  <div id="leftNav">
+    <ul class="left-nav">
+      <li class="select" data-href="./release-products.html">
+        <i class="iconfont icon-fabu"></i>
+        发布产品
+      </li>
+      <li data-href="./my-products.html">
+        <i class="iconfont icon-chanpin"></i>
+        我的产品
+      </li>
+      <li data-href="./sell-orders.html">
+        <i class="iconfont icon-dingdan"></i>
+        卖出订单
+      </li>
+    </ul>
+  </div>
+
+  <div id="rightCon">
+    <iframe src="./release-products.html" id="rightPage" frameborder="0"></iframe>
+  </div>
+
+
+
+  <script>
+    $(function () {
+      $("#leftNav").on("click", ".left-nav li", function () {
+        var $this = $(this),
+          iframeSrc = $this.attr("data-href");
+        if (iframeSrc) {
+          $(".left-nav li").removeClass("select");
+          $this.addClass("select");
+          $("#rightPage").attr("src", iframeSrc);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

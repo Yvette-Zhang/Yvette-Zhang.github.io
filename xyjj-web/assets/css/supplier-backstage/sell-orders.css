@@ -1,0 +1,29 @@
+.page-title {
+  color: #313332;
+}
+.sell-form .layui-form-item .layui-input-inline {
+  float: left;
+  width: 300px;
+  margin-right: 10px;
+}
+.sell-table-card .layui-table .layui-table-cell {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sell-table-card .layui-table-page {
+  text-align: right;
+}
+.sell-table-card .layui-laypage .layui-laypage-curr .layui-laypage-em {
+  background-color: #43c267;
+}
+.sell-table-card .layui-card-body {
+  padding: 0 0 10px 0 !important;
+}
+.rowspan-cell{
+		display: block;
+		height: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+}

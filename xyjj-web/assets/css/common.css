@@ -1,0 +1,368 @@
+html,
+body {
+  width: 100%;
+  background-color: #f8fafc;
+}
+.iframe-page {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+.container-box {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* 头部样式 */
+.top-nav {
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #308c57;
+}
+.top-nav-box {
+  line-height: 40px;
+}
+.top-nav-fl {
+  float: left;
+}
+.top-nav-fr {
+  float: right;
+  height: 40px;
+}
+.top-nav-fr > li {
+  position: relative;
+  float: left;
+}
+
+.top-nav-fr .separator {
+  padding: 0 6px;
+}
+
+.top-nav-fr .top-nav-item a {
+  display: block;
+  color: #fff;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.top-nav-fr i {
+  display: inline-block;
+  font-size: 12px;
+}
+
+.top-nav-fr li:hover .top-nav-item {
+  background-color: #43c267;
+}
+
+.top-nav-fr .top-nav-item a:hover {
+  color: #fff;
+}
+
+.top-nav-fr li:hover .top-nav-sub {
+  display: block;
+}
+
+.top-nav-fr .top-nav-sub {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background-color: #fff;
+  padding: 10px 20px;
+  min-width: 100px;
+  line-height: 30px;
+  box-sizing: border-box;
+  color: #626665;
+  box-shadow: 0px 2px 10px 0px rgba(203, 203, 203, 0.25);
+  border: 1px solid rgba(220, 223, 230, 1);
+  border-radius: 0px 0px 6px 6px;
+  z-index: 9;
+}
+
+.top-nav-fr .top-nav-sub a {
+  color: #626665;
+  cursor: pointer;
+}
+
+.top-nav-fr .top-nav-sub a:hover {
+  color: #308c57;
+}
+
+#header {
+  width: 100%;
+  height: 140px;
+  font-size: 14px;
+  background-color: #fff;
+}
+
+.header-box {
+  position: relative;
+  overflow: hidden;
+  height: 140px;
+}
+
+.header-logo {
+  float: left;
+  margin-left: 70px;
+  margin-top: 30px;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: bold;
+  color: #308c57;
+}
+
+.header-logo:hover {
+  color: #308c57;
+}
+
+.header-search {
+  position: relative;
+  float: right;
+  width: 600px;
+  height: 38px;
+  margin-top: 30px;
+  border: 2px solid #308c57;
+  box-sizing: border-box;
+  border-radius: 18px;
+}
+
+.header-search-option {
+  position: absolute;
+  width: 99px;
+  height: 34px;
+  left: 0;
+  right: 0;
+  line-height: 34px;
+  text-align: center;
+  color: #313332;
+  border-right: 1px solid #308c57;
+  cursor: pointer;
+}
+
+.header-search-option_type:hover {
+  color: #313332;
+}
+
+.header-search-option i {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.header-search-option_list {
+  position: absolute;
+  display: none;
+  width: 100px;
+  box-sizing: border-box;
+  padding: 5px 0;
+  color: #626665;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+}
+
+.header-search-option_list li {
+  cursor: pointer;
+}
+
+.header-search-option_list li:hover,
+.header-search-option_list li.option_list_select {
+  background-color: #f3f3f3;
+}
+
+.header-search-input {
+  position: absolute;
+  height: 34px;
+  width: 399px;
+  top: 0;
+  left: 10px;
+  line-height: 34px;
+  padding: 0 10px;
+  color: #313332;
+  background-color: transparent;
+  border: none;
+  box-sizing: border-box;
+}
+
+.header-search-btn {
+  position: absolute;
+  height: 34px;
+  width: 98px;
+  right: -1px;
+  top: 0;
+  line-height: 36px;
+  text-align: center;
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
+  background-color: #308c57;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.header-search-btn:hover {
+  background-color: #30ab64;
+}
+
+.header-nav {
+  position: absolute;
+  height: 40px;
+  left: 50%;
+  top: 139px;
+  margin-left: -600px;
+  line-height: 40px;
+  font-size: 20px;
+  overflow: hidden;
+  color: #313332;
+  border-bottom: 1px solid #308c57;
+}
+
+.header-nav li {
+  float: left;
+}
+
+.header-nav li + li {
+  margin-left: 130px;
+}
+
+.header-nav a {
+  display: block;
+  padding: 0 20px;
+  transition: all 0.3s;
+}
+
+.header-nav .header-nav-select,
+.header-nav a:hover {
+  background-color: #308c57;
+  color: #fff;
+  font-weight: bold;
+}
+
+.layui-layer.account-binding-layer .layui-layer-content {
+  padding-right: 50px;
+}
+
+/* 底部 */
+.footer {
+  width: 100%;
+  font-size: 14px;
+  background-color: #313332;
+  height: 373px;
+}
+
+.footer-help {
+  overflow: hidden;
+  height: 204px;
+  margin-bottom: 30px;
+  padding-top: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(196, 204, 201, 0.2);
+}
+
+.footer-help-item {
+  width: 25%;
+  float: left;
+  padding-left: 70px;
+  box-sizing: border-box;
+}
+
+.footer-help-item_title {
+  font-size: 18px;
+  color: #43c267;
+  font-weight: bold;
+}
+
+.footer-help-item_title i {
+  margin-right: 8px;
+  font-size: 30px;
+  color: #43c267;
+  vertical-align: middle;
+  font-weight: 400;
+}
+.footer-help-item_nav {
+  box-sizing: border-box;
+  padding-left: 43px;
+  margin-top: 4px;
+}
+
+.footer-help-item_nav,
+.footer-help-item_nav a {
+  color: #939997;
+}
+
+.footer-help-item_nav a:hover {
+  color: #308c57;
+}
+
+.footer-help-item_nav li {
+  margin-bottom: 10px;
+  line-height: 24px;
+}
+
+.footer-help-item_nav .attention-img {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.footer-help-item_nav .attention-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.footer-erm-box {
+  padding-top: 5px;
+}
+
+.footer-ewm {
+  width: 90px;
+  height: 90px;
+  background-color: #fff;
+}
+
+.footer-msg {
+  margin-bottom: 14px;
+  text-align: center;
+  color: #8c9290;
+  line-height: 16px;
+}
+
+/* 清除浮动 */
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+/* 页面标题 */
+.page-title {
+  position: relative;
+  color: #308c57;
+  font-size: 20px;
+  padding: 18px 10px 11px;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+.page-title:before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 3px;
+  height: 20px;
+  background: #308c57;
+  border-radius: 2px;
+}

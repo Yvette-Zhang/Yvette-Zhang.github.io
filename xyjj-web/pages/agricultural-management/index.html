@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>农贷管理</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/index.css">
+  <link rel="stylesheet" href="../../assets/css/agricultural-management/index.css">
+</head>
+
+<body>
+  <include src="../common/header.html"></include>
+  <ul class="header-nav container-box">
+    <li>
+      <a href="../../index.html">农业服务</a>
+    </li>
+    <li>
+      <a href="javascript:;">农产品</a>
+    </li>
+    <li>
+      <a class="header-nav-select" href="./index.html">农贷管理</a>
+    </li>
+  </ul>
+  <div class="container-box">
+    <div class="layui-tab layui-tab-brief layui_tab_btn">
+      <ul class="layui-tab-title">
+        <li class="layui-this">贷款计算器</li>
+        <li>收益计算器</li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+          <div class="layui-card">
+            <div class="layui-card-body">
+              <div class="layui-form-item ">
+                <label class="layui-form-label">我是</label>
+                <div class="layui-input-block loans-identity">
+                  <span class="person selected">个人</span>
+                  <span class="artel">合作社</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form class="layui-form" action="" lay-filter="loan-calculator-form">
+            <!--我现在有-->
+            <div class="layui-card top-card">
+              <div class="layui-card-body">
+                <p class="card-title now">我现在有</p>
+                <p>
+                  <span class="green-underline">畜牧业-牛</span>
+                </p>
+                <!--存栏量-->
+                <div class="add-item">
+                  <span class="form-title">存栏量</span>
+                  <a href="" class="layui-btn layui-btn-sm layui-btn-circle add-item-btn"><i
+                      class="layui-icon layui-icon-addition"></i></a>
+                </div>
+                <div class="cunlan-card item-card">
+                  <div class="subcard">
+                    <div class="layui-card">
+                      <div class="layui-card-body">
+                        <div class="layui-form-item">
+                          <label class="layui-form-label">类型</label>
+                          <div class="layui-input-block">
+                            <div class="xm-select-demo " id="tree0"></div>
+                          </div>
+                        </div>
+                        <div class="layui-form-item">
+                          <div class="layui-inline">
+                            <label class="layui-form-label">数量</label>
+                            <div class="layui-input-inline layui-input-suffix">
+                              <input type="text" name="cunlanNumber" lay-verify="" autocomplete="off"
+                                placeholder="请输入数量" class="layui-input">
+                              <span class="layui-input-suffix_unit">头</span>
+                            </div>
+                          </div>
+                          <div class="layui-inline">
+                            <div class="layui-input-inline">
+                              <select name="siyangType" lay-filter="siyangType">
+                                <option value="">请选择饲养方式</option>
+                                <option value="0">散圈</option>
+                                <option value="1">栓绳</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="" class="layui-btn layui-btn-sm layui-btn-circle add-card-btn"><i
+                        class="layui-icon layui-icon-subtraction"></i></a>
+                  </div>
+                  <div class="subcard">
+                    <div class="layui-card">
+                      <div class="layui-card-body">
+                        <div class="layui-form-item">
+                          <label class="layui-form-label">类型</label>
+                          <div class="layui-input-block">
+                            <div class="xm-select-demo" id="tree1"></div>
+                          </div>
+                        </div>
+                        <div class="layui-form-item">
+                          <div class="layui-inline">
+                            <label class="layui-form-label">数量</label>
+                            <div class="layui-input-inline layui-input-suffix">
+                              <input type="text" name="cunlanNumber" lay-verify="" autocomplete="off"
+                                placeholder="请输入数量" class="layui-input">
+                              <span class="layui-input-suffix_unit">头</span>
+                            </div>
+                          </div>
+                          <div class="layui-inline">
+                            <div class="layui-input-inline">
+                              <select name="siyangType" lay-filter="siyangType">
+                                <option value="">请选择饲养方式</option>
+                                <option value="0">散圈</option>
+                                <option value="1">栓绳</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="" class="layui-btn layui-btn-sm layui-btn-circle add-card-btn"><i
+                        class="layui-icon layui-icon-subtraction"></i></a>
+                  </div>
+                </div>
+                <div class="add-item">
+                  <span class="form-title">饲料存量</span>
+                  <a href="" class="layui-btn layui-btn-sm layui-btn-circle add-item-btn"><i
+                      class="layui-icon layui-icon-addition"></i></a>
+                </div>
+                <div class="siliao-card item-card">
+                  <div class="subcard">
+                    <div class="layui-card">
+                      <div class="layui-card-body">
+                        <div class="layui-form-item">
+                          <div class="layui-inline">
+                            <label class="layui-form-label">饲料类型</label>
+                            <div class="layui-input-inline">
+                              <select name="siliaoType" lay-filter="siliaoType">
+                                <option value="">请选择饲养类型</option>
+                                <option value="0">青贮</option>
+                                <option value="1">黄贮</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="layui-inline">
+                            <div class="layui-input-inline layui-input-suffix">
+                              <input type="text" name="siliaoNumber" lay-verify="" autocomplete="off"
+                                placeholder="请输入饲料存量" class="layui-input">
+                              <span class="layui-input-suffix_unit">吨</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="" class="layui-btn layui-btn-sm layui-btn-circle add-card-btn"><i
+                        class="layui-icon layui-icon-subtraction"></i></a>
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                  <label class="layui-form-label">抵押比例</label>
+                  <div class="layui-input-block">
+                    <input type="radio" name="dybl" value="30%" title="30%" checked="">
+                    <input type="radio" name="dybl" value="40%" title="40%">
+                    <input type="radio" name="dybl" value="50%" title="50%">
+                    <input type="radio" name="dybl" value="自定义" title="自定义">
+                    <div style="display: inline-block">
+                      <input type="text" name="dyblCustom" lay-verify="" autocomplete="off" placeholder="请输入文字"
+                        class="layui-input">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--我的生产能力-->
+            <div class="layui-card bottom-card">
+              <div class="layui-card-body">
+                <p class="card-title now">我的生产能力</p>
+                <!--生产场所情况-->
+                <div class="add-item">
+                  <span class="form-title">生产场所情况</span>
+                  <a href="" class="layui-btn layui-btn-sm layui-btn-circle add-item-btn"><i
+                      class="layui-icon layui-icon-addition"></i></a>
+                </div>
+                <div class="place-card item-card">
+                  <div class="subcard ">
+                    <div class="layui-card">
+                      <div class="layui-card-body">
+                        <div class="layui-form-item">
+                          <div class="layui-form-item">
+                            <div class="layui-inline">
+                              <label class="layui-form-label">生产场所</label>
+                              <div class="layui-input-inline">
+                                <select name="productionPlace" lay-filter="productionPlace">
+                                  <option value="">请选择生产场所情况</option>
+                                  <option value="0">圈舍(平方米)</option>
+                                  <option value="1">饲料库(吨)</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="layui-inline">
+                              <div class="layui-input-inline layui-input-suffix">
+                                <input type="text" name="placeArea" lay-verify="" autocomplete="off" placeholder="请输入面积"
+                                  class="layui-input">
+                                <span class="layui-input-suffix_unit">平方米</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="" class="layui-btn layui-btn-sm layui-btn-circle add-card-btn"><i
+                        class="layui-icon layui-icon-subtraction"></i></a>
+                  </div>
+                </div>
+                <div class="subcard">
+                  <div class="add-item">
+                    <span class="form-title">养殖经验</span>
+                  </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">养殖年数</label>
+                    <div class="layui-input-block layui-input-suffix">
+                      <input type="text" name="yangzhiYear" lay-verify="" autocomplete="off" placeholder="请输入养殖年数"
+                        class="layui-input">
+                      <span class="layui-input-suffix_unit">年</span>
+                    </div>
+                  </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">养殖最大规模</label>
+                    <div class="layui-input-block layui-input-suffix">
+                      <input type="text" name="yangzhiSize" lay-verify="" autocomplete="off" placeholder="请输入养殖最大规模"
+                        class="layui-input">
+                      <span class="layui-input-suffix_unit">头</span>
+                    </div>
+                  </div>
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">贷款计划用途</label>
+                    <div class="layui-input-block">
+                      <div id="plain-purpose" class="xm-select-demo"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-form-item button-item">
+              <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="calculate">计算</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="layui-tab-item ">
+        </div>
+      </div>
+    </div>
+  </div>
+  <include src="../common/footer.html"></include>
+  <script src="../../assets/js/include.js"></script>
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <script src="../../assets/plugins/layui/layui_exts/xm-select/xm-select.js"></script>
+  <script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use(['element', 'form'], function () {
+      var element = layui.element,
+        form = layui.form;
+      // 存栏量--类型下拉树
+      $('.cunlan-card').find('.xm-select-demo').each(function (index, value) {
+        var tree = xmSelect.render({
+          el: '#tree' + index,
+          model: { label: { type: 'text' } },
+          radio: true,
+          clickClose: true,
+          tree: {
+            show: true,
+            strict: false,
+            expandedKeys: [-1],
+          },
+          height: 'auto',
+          data() {
+            return [
+              {
+                name: '销售员', value: -1, children: [
+                  { name: '张三', value: 100, selected: true, children: [] },
+                  { name: '李四1', value: 2, selected: true },
+                  { name: '王五1', value: 3, disabled: true },
+                ]
+              },
+              {
+                name: '奖品', value: -2, children: [
+                  {
+                    name: '奖品3', value: -3, children: [
+                      { name: '苹果3', value: 14, selected: true },
+                      { name: '香蕉3', value: 15 },
+                      { name: '葡萄3', value: 16 },
+                    ]
+                  },
+                  { name: '苹果2', value: 4, selected: true, disabled: true },
+                  { name: '香蕉2', value: 5 },
+                  { name: '葡萄2', value: 6 },
+                ]
+              },
+            ]
+          }
+        })
+      })
+
+
+      // 生产能力-贷款计划用途
+      var plainPurpose = xmSelect.render({
+        el: '#plain-purpose',
+        model: { label: { type: 'text' } },
+        radio: true,
+        clickClose: true,
+        tree: {
+          show: true,
+          strict: false,
+          expandedKeys: [-1],
+        },
+        height: 'auto',
+        data() {
+          return [
+            {
+              name: '销售员', value: -1, children: [
+                { name: '张三', value: 100, selected: true, children: [] },
+                { name: '李四1', value: 2, selected: true },
+                { name: '王五1', value: 3, disabled: true },
+              ]
+            },
+            {
+              name: '奖品', value: -2, children: [
+                {
+                  name: '奖品3', value: -3, children: [
+                    { name: '苹果3', value: 14, selected: true },
+                    { name: '香蕉3', value: 15 },
+                    { name: '葡萄3', value: 16 },
+                  ]
+                },
+                { name: '苹果2', value: 4, selected: true, disabled: true },
+                { name: '香蕉2', value: 5 },
+                { name: '葡萄2', value: 6 },
+              ]
+            },
+          ]
+        }
+      });
+
+      //监听提交
+      form.on('submit(calculate)', function (data) {
+        layer.alert(JSON.stringify(data.field), {
+          title: '最终的提交信息'
+        })
+        window.open('./count-result.html');
+      });
+    });
+  </script>
+</body>
+
+</html>

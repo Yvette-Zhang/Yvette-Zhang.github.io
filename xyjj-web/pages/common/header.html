@@ -1,0 +1,184 @@
+<div class="top-nav">
+  <div class="container-box top-nav-box">
+    <p class="top-nav-fl">
+      欢迎来到农业服务交易平台！
+    </p>
+    <ul class="top-nav-fr">
+      <li>
+        <div class="top-nav-item">
+          <a>
+            <span>superyuan</span>
+            <i class="layui-icon layui-icon-down"></i>
+          </a>
+        </div>
+        <ul class="top-nav-sub">
+          <li>
+            <a data-select="personal">个人中心</a>
+          </li>
+          <li>
+            <a href="javascript:;" id="accountBinding">账号绑定</a>
+          </li>
+          <li>
+            <a href="javascript:;" id="logOut">退出登录</a>
+          </li>
+        </ul>
+      </li>
+      <li class="separator">/</li>
+      <li>
+        <div class="top-nav-item">
+          <a data-select="myOrder">我的订单</a>
+        </div>
+      </li>
+      <li class="separator">/</li>
+      <li>
+        <div class="top-nav-item">
+          <a data-select="supplier">供应商后台</a>
+        </div>
+      </li>
+      <li class="separator">/</li>
+      <li>
+        <div class="top-nav-item">
+          <a data-select="lender">贷款户管理</a>
+        </div>
+      </li>
+      <li class="separator">/</li>
+      <li>
+        <div class="top-nav-item">
+          <a data-select="breeding">养殖管理</a>
+        </div>
+      </li>
+      <li class="separator">/</li>
+      <li>
+        <div class="top-nav-item">
+          <a href="javascript:;">农业基层数字化管理</a>
+        </div>
+      </li>
+      <li class="separator">/</li>
+      <li>
+        <div class="top-nav-item">
+          <a href="javascript:;">手机版</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="header">
+  <div class="container-box header-box">
+    <a class="header-logo" href="./index.html">农业服务交易平台</a>
+    <div class="header-search">
+      <!-- <div class="header-search-option">
+        <a class="header-search-option_type" id="optionType">
+          <span>产品名称</span>
+          <i class="layui-icon layui-icon-down"></i>
+        </a>
+        <ul class="header-search-option_list" id="optionList">
+          <li class="option_list_select">产品名称</li>
+          <li>产品描述</li>
+        </ul>
+      </div> -->
+      <input class="header-search-input" type="text" placeholder="搜索产品名称/产品详情" />
+      <div class="header-search-btn">
+        搜索
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 绑定账号内容 -->
+<!-- <div id="accountBindingCon" style="display: none;">
+  <form class="layui-form" action="" lay-filter="accountBindingForm">
+    <div class="layui-form-item">
+      <label class="layui-form-label">
+        <span class="layui-form-required">*</span>
+        绑定方式
+      </label>
+      <div class="layui-input-block">
+        <select name="accountType" lay-verify="required">
+          <option value="0">绑定码</option>
+          <option value="1">手机号</option>
+          <option value="2">身份证</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="layui-form-item">
+      <label class="layui-form-label">
+        <span class="layui-form-required">*</span>
+        绑定信息
+      </label>
+      <div class="layui-input-block">
+        <input type="text" name="accountMsg" lay-verify="required" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn" lay-submit lay-filter="accountSubmit">绑定</button>
+      </div>
+    </div>
+  </form>
+</div> -->
+
+<script>
+  layui.use(['form', 'layer'], function () {
+    // $("#optionType").on("click", function (e) {
+    //   $("#optionList").slideToggle();
+    //   $(document).one('click', function () {
+    //     $("#optionList").slideUp();
+    //   });
+    //   e.stopPropagation();
+    // });
+    // $("#optionList li").on("click", function () {
+    //   var $this = $(this),
+    //     typeText = $this.text();
+    //   $("#optionList li").removeClass("option_list_select");
+    //   $this.addClass("option_list_select");
+    //   $("#optionType span").text(typeText);
+    //   $("#optionList").slideUp();
+    // });
+    // 绑定账号
+    // $("#accountBinding").on("click", function () {
+    //   var bindingLayer = layer.open({
+    //     type: 1,
+    //     title: "绑定账号",
+    //     offset: 'auto',
+    //     area: '460px',
+    //     content: $('#accountBindingCon'),
+    //     move: false,
+    //     resize: false,
+    //     shadeClose: true,
+    //     skin: "account-binding-layer",
+    //     yes: function () {
+    //       form.on('submit(accountSubmit)', function (data) {
+
+    //       });
+    //     }
+    //   })
+    // });
+
+    //退出登录
+    $("#logOut").on("click", function () {
+      var logConfirm = layer.confirm('您是否确认退出登录？', {
+        title: "提示",
+        btn: ["确认", "取消"] //按钮
+      }, function () {
+        layer.close(logConfirm);
+      }, function () {
+
+      });
+    });
+
+    // 顶部导航点击
+    $(".top-nav-fr a").on("click", function () {
+      var $this = $(this),
+        dataSleect = $this.attr("data-select");
+      if (dataSleect) {
+        sessionStorage.setItem("adminSelect", dataSleect);
+        console.log(sessionStorage.getItem("adminSelect"));
+        location.href = "./pages/common/admin.html";
+      }
+    })
+
+  });
+</script>

@@ -1,0 +1,63 @@
+body {
+  padding: 20px;
+  box-sizing: border-box;
+  background: #F7F9FB;
+}
+
+.container-supplier-backstage .layui-card {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.title-border-left {
+  height: 20px;
+  line-height: 20px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #313332;
+  font-weight: bold;
+  border-left: 3px solid #308C57;
+}
+
+.upload-restyle {
+  float: left;
+  width: 100px;
+  height: 100px;
+  padding-top: 23px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #939997;
+  border: 1px dashed #43C267;
+  border-radius: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#product-type {
+  position: absolute;
+  top: 4px;
+  right: -38px;
+  font-size: 14px;
+  color: #FF8E18;
+  cursor: default;
+}
+
+.production_profit{
+  width:120px;
+  height:40px;
+  background:rgba(236,249,240,1);
+  border-radius:0px 20px 20px 0px;
+  font-size:16px;
+  font-weight:400;
+  color:rgba(67,194,103,1);
+  line-height: 40px;
+  text-align: center;
+  margin-left: -20px;
+  cursor: pointer;
+  margin-top: 29px;
+  margin-bottom: 15px;
+}
+
+

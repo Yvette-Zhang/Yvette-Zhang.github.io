@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>农业服务交易平台</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/agricultural-management/count-result.css">
+</head>
+
+<body>
+  <include src="../common/header.html"></include>
+  <ul class="header-nav container-box">
+    <li>
+      <a href="../../index.html">农业服务</a>
+    </li>
+    <li>
+      <a href="javascript:;">农产品</a>
+    </li>
+    <li>
+      <a class="header-nav-select" href="./index.html">农贷管理</a>
+    </li>
+  </ul>
+  <div class="container-box">
+    <div class="layui-tab layui-tab-brief layui_tab_btn">
+      <ul class="layui-tab-title">
+        <li>贷款计算器</li>
+        <li class="layui-this">收益计算器</li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+
+        </div>
+
+        <div class="layui-tab-item layui-show result-box">
+          <div class="layui-card">
+            <div class="layui-card-body result-total">
+              <img src="../../assets/images/agricultural-management/count-result-icon.png" alt="计算成功" />
+              <div class="result-con">
+                <div class="result-item">
+                  <p class="result-lable">预计收入：</p>
+                  <p class="result-msg">
+                    <span class="result-num">10-20</span>
+                    <span class="result-unit">万元</span>
+                  </p>
+                </div>
+                <div class="result-item">
+                  <p class="result-lable">预计利润：</p>
+                  <p class="result-msg">
+                    <span class="result-num">10-20</span>
+                    <span class="result-unit">万元</span>
+                  </p>
+                </div>
+                <div class="result-item">
+                  <p class="result-lable">已支付成本：</p>
+                  <p class="result-msg">
+                    <span class="result-num">10-20</span>
+                    <span class="result-unit">万元</span>
+                  </p>
+                </div>
+                <div class="result-item">
+                  <p class="result-lable">待支付成本：</p>
+                  <p class="result-msg">
+                    <span class="result-num">10-20</span>
+                    <span class="result-unit">万元</span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="layui-card">
+            <div class="layui-card-body result-table-card">
+              <p class="result-table-title">收入利润明细</p>
+
+              <div class="result-table-box">
+                <table class="layui-table result-table">
+                  <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>类别</th>
+                      <th>项目</th>
+                      <th>细项</th>
+                      <th>数量</th>
+                      <th>单价</th>
+                      <th>金额</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>成本<span class="item-type done">已支付</span></td>
+                      <td>牛</td>
+                      <td>架子牛</td>
+                      <td>200*1300斤</td>
+                      <td>300元</td>
+                      <td>1000元</td>
+                    </tr>
+                    <tr>
+                      <td>成本<span class="item-type done">已支付</span></td>
+                      <td>牛</td>
+                      <td>架子牛</td>
+                      <td>200*1300斤</td>
+                      <td>300元</td>
+                      <td>1000元</td>
+                    </tr>
+                    <tr>
+                      <td>成本<span class="item-type done">已支付</span></td>
+                      <td>牛</td>
+                      <td>架子牛</td>
+                      <td>200*1300斤</td>
+                      <td>300元</td>
+                      <td>1000元</td>
+                    </tr>
+                    <tr>
+                      <td>成本<span class="item-type">待支付</span></td>
+                      <td>牛</td>
+                      <td>架子牛</td>
+                      <td>200*1300斤</td>
+                      <td>300元</td>
+                      <td>1000元</td>
+                    </tr>
+                    <tr>
+                      <td>成本<span class="item-type">待支付</span></td>
+                      <td>牛</td>
+                      <td>架子牛</td>
+                      <td>200*1300斤</td>
+                      <td>300元</td>
+                      <td>1000元</td>
+                    </tr>
+                    <tr>
+                      <td>利润</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="result-bottom-warp">
+                <a class="layui-btn">确认</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include src="../common/footer.html"></include>
+  <script src="../../assets/js/include.js"></script>
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function () {
+      var element = layui.element;
+
+      //…
+    });
+  </script>
+</body>
+
+</html>

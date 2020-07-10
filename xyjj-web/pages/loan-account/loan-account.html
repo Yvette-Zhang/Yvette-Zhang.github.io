@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贷款户监控</title>
+</head>
+<link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+<link rel="stylesheet" href="../../assets/css/common.css">
+<link rel="stylesheet" href="../../assets/css/loan-account/loan-account.css">
+<link rel="stylesheet" href="../../assets/icon/iconfont.css">
+
+<body>
+  <div class="account">
+    <!-- 农贷户管理 -->
+    <div class="layui-card">
+      <div class="layui-card-body">
+        <div class="manage_title">
+          农贷户管理
+        </div>
+        <ul class="manage_list">
+          <li class="body_list_loan">
+            <div class="list_count">
+              <span>560,000</span>
+              <span>总贷款额</span>
+            </div>
+            <i class="iconfont list_img icon-daikuan"></i>
+          </li>
+          <li class="body_list_feed">
+            <div class="list_count">
+              <span>79,438</span>
+              <span>总饲料数量</span>
+            </div>
+            <i class="iconfont list_img icon-siliaotoufang"></i>
+          </li>
+          <li class="body_list_cattle">
+            <div class="list_count">
+              <span>167,900</span>
+              <span>总养牛数量</span>
+            </div>
+            <i class="iconfont list_img icon-yangzhichang"></i>
+          </li>
+          <li class="body_list_still">
+            <div class="list_count">
+              <span>560,000</span>
+              <span>本月总还款额</span>
+            </div>
+            <i class="iconfont list_img icon-huankuan1"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 用户列表 -->
+    <div class="layui-card">
+      <div class="layui-card-body">
+        <div class="account_user_list">
+          <div class="manage_title">
+            用户列表
+          </div>
+          <div class="layui-row layui-col-space20">
+            <div class="layui-col-md3">
+              <div class="layui-card">
+                <div class="layui-card-body">
+                  <ul class="user_list">
+                    <li class="user_item">
+                      <div class="layui_panel_container_item">
+                        <div class="layui_panel_arrow"></div>
+                        <div class="layui_panel_box">
+                          <div class="layui_panel_img">张</div>
+                          <ul class="layui_panel_item">
+                            <li class="layui_panel_list">张晓峰</li>
+                            <li class="layui_panel_listo">联系方式:183****9999</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="user_item">
+                      <div class="layui_panel_container_item">
+                        <div class="layui_panel_arrow"></div>
+                        <div class="layui_panel_box">
+                          <div class="layui_panel_img">刘</div>
+                          <ul class="layui_panel_item">
+                            <li class="layui_panel_list">刘洋</li>
+                            <li class="layui_panel_listo">联系方式:183****9999</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="user_item">
+                      <div class="layui_panel_container_item active">
+                        <div class="layui_panel_arrow"></div>
+                        <div class="layui_panel_box">
+                          <div class="layui_panel_img">养</div>
+                          <ul class="layui_panel_item">
+                            <li class="layui_panel_list">养殖合作社</li>
+                            <li class="layui_panel_listo">联系方式:183****9999</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="user_item">
+                      <div class="layui_panel_container_item">
+                        <div class="layui_panel_arrow"></div>
+                        <div class="layui_panel_box">
+                          <div class="layui_panel_img">王</div>
+                          <ul class="layui_panel_item">
+                            <li class="layui_panel_list">王大海</li>
+                            <li class="layui_panel_listo">联系方式:183****9999</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="user_item">
+                      <div class="layui_panel_container_item">
+                        <div class="layui_panel_arrow"></div>
+                        <div class="layui_panel_box">
+                          <div class="layui_panel_img">李</div>
+                          <ul class="layui_panel_item">
+                            <li class="layui_panel_list">李晓丽</li>
+                            <li class="layui_panel_listo">联系方式:183****9999</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="user_item">
+                      <div class="layui_panel_container_item">
+                        <div class="layui_panel_arrow"></div>
+                        <div class="layui_panel_box">
+                          <div class="layui_panel_img">周</div>
+                          <ul class="layui_panel_item">
+                            <li class="layui_panel_list">周晓月</li>
+                            <li class="layui_panel_listo">联系方式:183****9999</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="layui-col-md9">
+              <div class="layui-card">
+                <div class="layui-card-body">
+                  <div class="production_tab">
+                    <div class="layui-tab layui-tab-brief layui_tab_btn">
+                      <ul class="layui-tab-title">
+                        <li class="layui-this">生产区域监控</li>
+                        <li>详细信息</li>
+                      </ul>
+                      <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                          1
+                        </div>
+                        <div class="layui-tab-item">
+                          2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="layui-card">
+                <div class="layui-card-body">
+                  <div class="production_tab">
+                    <div class="layui-tab layui-tab-brief layui_tab_btn">
+                      <ul class="layui-tab-title">
+                        <li class="layui-this">生产区域监控</li>
+                        <li>详细信息</li>
+                      </ul>
+                      <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                          1
+                        </div>
+                        <div class="layui-tab-item">
+                          2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="layui-card on">
+                <div class="layui-card-body">
+                  <div class="production_tab">
+                    <div class="layui-tab layui-tab-brief layui_tab_btn">
+                      <ul class="layui-tab-title">
+                        <li class="layui-this">生产区域监控</li>
+                        <li>详细信息</li>
+                      </ul>
+                      <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                          <div class="information_box">
+                            <div class="video_surveillance">
+                               
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+                            <div class="video_surveillance">
+                                
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+                            <div class="video_surveillance">
+                               
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+                            <div class="video_surveillance">
+
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+                            <div class="video_surveillance">
+                                
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+                            <div class="video_surveillance">
+                               
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+                            <div class="video_surveillance">
+                               
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+                            <div class="video_surveillance">
+                               
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+                            <div class="video_surveillance">
+                               
+                              <div class="video_context">
+                                <span class="video_yzh">养殖合作社-01</span>
+                                <span class="video_year">2020-06-08</span>
+                                <span class="video_data">星期日</span>
+                                <span class="video_time">12:24:34</span>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div class="layui-tab-item">
+                          <div class="information_box">
+                            <div class="information_basic">
+                              <div class="basic_title">
+                                <i class="iconfont icon-jibenxinxi1 basic_icon"></i>
+                                <p class="basic_info">基本信息</p>
+                              </div>
+                              <div class="basic_countent">
+                                <div class="countent_cooperation">
+
+                                  <span class="cooperation-hz">合作社名称:</span>
+                                  <span class="cooperation-yz">众悦养殖合作社</span>
+                                  <span class="cooperation-name">负责人姓名:</span>
+                                  <span class="cooperation-user">张三</span>
+
+                                </div>
+                                <div class="countent_phone">
+                                  <span class="cooperation-tel">联系电话:</span>
+                                  <span class="cooperation-dh">134****8888</span>
+                                  <span class="cooperation-time">成立时间:</span>
+                                  <span class="cooperation-year">2019年08月09日</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="information_credit">
+                              <div class="basic_title">
+                                <i class="iconfont icon-daikuanguanli basic_icon"></i>
+                                <p class="basic_info">信用贷款信息</p>
+                              </div>
+                              <div class="basic_countent">
+                                <p class="countent_daikuan">贷款信息:</p>
+                                <p class="countent_time" title="1、2019年05月03日 贷款对象xxx 贷款金额xxx 偿还日期2022年05月03日">
+                                  1、2019年05月03日 贷款对象xxx 贷款金额xxx 偿还日期2022年05月03日</p>
+                                <p class="countent_time" title="2、2019年05月03日 贷款对象xxx 贷款金额xxx 偿还日期2022年05月03日">
+                                  2、2019年05月03日 贷款对象xxx 贷款金额xxx 偿还日期2022年05月03日</p>
+                                <div class="countent_credit">
+                                  <span class="credit_info">信用信息:</span>
+                                  <div class="credit_jilu">良好、无不良记录</div>
+                                </div>
+
+                              </div>
+                            </div>
+                            <div class="information_assets">
+                              <div class="basic_title">
+                                <i class="iconfont icon-zichanphone basic_icon"></i>
+                                <p class="basic_info">资产信息</p>
+                              </div>
+                              <div class="assets_countent">
+                                <div class="assets_content">
+                                  <span class="nongji">拥有农机:</span>
+                                  <span class="tlj">拖拉机24998台</span>
+                                </div>
+                                <div class="assets_xuan">旋耕机98台</div>
+
+                                <div class="assets_content">
+                                  <span class="nongji">养殖信息:</span>
+                                  <span class="tlj">牛780台</span>
+                                </div>
+                                <div class="assets_xuan">猪12890头</div>
+                              </div>
+                            </div>
+                            <div class="information_production">
+                              <div class="basic_title">
+                                <i class="iconfont icon-zizhi-xiangqing basic_icon"></i>
+                                <p class="basic_info">生产资质信息</p>
+                              </div>
+                              <div class="assets_countent">
+                                <div class="assets_content">
+                                  <span class="nongji">生产种植者所属种类:</span>
+                                  <span class="tlj">家庭农场</span>
+                                </div>
+                                <div class="assets_xuan">
+                                  <span class="xuna_type">供应商种类:</span>
+                                  <span class="xuan_nongzi">农资供应商</span>
+                                </div>
+
+                                <div class="assets_content">
+                                  <span class="yingye">营业执照:</span>
+                                  <span class="details">详情</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="information_management">
+                              <div class="basic_title">
+                                <i class="iconfont icon-jingyingfenxi basic_icon"></i>
+                                <p class="basic_info">生产经营信息</p>
+                              </div>
+                              <div class="assets_countent">
+                                <div class="assets_content">
+                                  <span class="nongji">往期利润率:</span>
+                                  <span class="tlj">2018年10%</span>
+                                </div>
+                                <div class="assets_xuan">2019年5%</div>
+
+                                <div class="assets_content">
+                                  <span class="yingye">签订合同:</span>
+                                  <span class="details">详情</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="information_assets">
+                              <div class="basic_title">
+                                <i class="iconfont icon-zichanphone basic_icon"></i>
+                                <p class="basic_info">资产信息</p>
+                              </div>
+                              <div class="assets_countent">
+                                <div class="assets_content">
+                                  <span class="nongji">拥有农机:</span>
+                                  <span class="tlj">拖拉机24998台</span>
+                                </div>
+                                <div class="assets_xuan">旋耕机98台</div>
+
+                                <div class="assets_content">
+                                  <span class="nongji">养殖信息:</span>
+                                  <span class="tlj">牛780台</span>
+                                </div>
+                                <div class="assets_xuan">猪12890头</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="layui-card">
+                <div class="layui-card-body">
+                  <div class="production_tab">
+                    <div class="layui-tab layui-tab-brief layui_tab_btn">
+                      <ul class="layui-tab-title">
+                        <li class="layui-this">生产区域监控</li>
+                        <li>详细信息</li>
+                      </ul>
+                      <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                          1
+                        </div>
+                        <div class="layui-tab-item">
+                          2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="layui-card">
+                <div class="layui-card-body">
+                  <div class="production_tab">
+                    <div class="layui-tab layui-tab-brief layui_tab_btn">
+                      <ul class="layui-tab-title">
+                        <li class="layui-this">生产区域监控</li>
+                        <li>详细信息</li>
+                      </ul>
+                      <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                          1
+                        </div>
+                        <div class="layui-tab-item">
+                          2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="layui-card">
+                <div class="layui-card-body">
+                  <div class="production_tab">
+                    <div class="layui-tab layui-tab-brief layui_tab_btn">
+                      <ul class="layui-tab-title">
+                        <li class="layui-this">生产区域监控</li>
+                        <li>详细信息</li>
+                      </ul>
+                      <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                          67
+                        </div>
+                        <div class="layui-tab-item">
+                          76
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <script src="../../assets/icon/iconfont.js"></script>
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script>
+    //注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function () {
+      var element = layui.element;
+
+      //…
+
+      $('.user_item .layui_panel_container_item').each(function (i) {
+        $(this).click(function () {
+          $('.user_item .layui_panel_container_item').removeClass("active").eq(i).addClass("active");
+          $('.layui-col-md9 .layui-card').removeClass("on").eq(i).addClass("on");
+        })
+      })
+    });
+  </script>
+</body>
+
+</html>

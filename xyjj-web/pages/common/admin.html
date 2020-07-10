@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>农业服务交易平台</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css">
+  <link rel="stylesheet" href="../../assets/css/common.css">
+  <link rel="stylesheet" href="../../assets/css/admin.css">
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+</head>
+
+<body>
+  <div class="header">
+    <h2>农业服务交易平台</h2>
+    <ul class="admin-nav">
+      <li>
+        <a href="../../index.html">首页</a>
+      </li>
+      <li data-select="myOrder" data-href="../buyer-backstage/my-order.html">
+        <a>我的订单</a>
+      </li>
+      <li data-select="supplier" data-href="../supplier-backstage/index.html">
+        <a>供应商后台</a>
+      </li>
+      <li data-select="lender" data-href="../loan-account/loan-account.html">
+        <a>贷款户管理</a>
+      </li>
+      <li data-select="breeding" data-href="../breeding-management/index.html">
+        <a>养殖管理</a>
+      </li>
+    </ul>
+    <div class="user-box">
+      <div class="user-img">
+        <img src="https://dummyimage.com/38x38/eee/fff" alt="user">
+      </div>
+      <div class="user-name">
+        <span>admin</span>
+        <i class="layui-icon layui-icon-down"></i>
+      </div>
+      <ul class="top-nav-sub">
+        <li data-select="personal" data-href="../buyer-backstage/personal-information.html">
+          <a>个人中心</a>
+        </li>
+        <li>
+          <a href="javascript:;">账号绑定</a>
+        </li>
+        <li>
+          <a href="javascript:;">退出登录</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="admin-pages">
+    <iframe id="adminPage" frameborder="0"></iframe>
+  </div>
+  <!-- <div id="leftNav">
+    <ul class="left-nav">
+      <li class="select" data-href="./release-products.html">
+        <i class="iconfont icon-fabu"></i>
+        发布产品
+      </li>
+      <li>
+        <i class="iconfont icon-chanpin"></i>
+        我的产品
+      </li>
+      <li>
+        <i class="iconfont icon-dingdan"></i>
+        卖出订单
+      </li>
+    </ul>
+  </div>
+
+  <div id="rightCon">
+    <iframe src="./release-products.html" id="rightPage" frameborder="0"></iframe>
+  </div> -->
+
+
+
+  <script>
+    $(function () {
+      var adminSelect = sessionStorage.getItem("adminSelect"),
+        iframeEle = $("#adminPage");
+
+      if (adminSelect) {
+        var selectEle = $(".admin-nav li[data-select='" + adminSelect + "']");
+        if (!selectEle.length) {
+          selectEle = $(".top-nav-sub li[data-select='" + adminSelect + "']");
+        };
+        selectHref = selectEle.attr("data-href");
+        selectEle.addClass("select");
+        iframeEle.attr("src", selectHref);
+        sessionStorage.removeItem("adminSelect");
+      } else {
+        location.href = "../../index.html";
+      };
+
+      $(".header").on("click", "li", function () {
+        var $this = $(this),
+          iframeSrc = $this.attr("data-href");
+        if (iframeSrc) {
+          $(".admin-nav li").removeClass("select");
+          $this.addClass("select");
+          iframeEle.attr("src", iframeSrc);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

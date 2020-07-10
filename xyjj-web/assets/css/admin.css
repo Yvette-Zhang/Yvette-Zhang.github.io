@@ -1,0 +1,189 @@
+.header {
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  top: 0;
+  left: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #308c57;
+  line-height: 70px;
+  font-size: 14px;
+  color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 100;
+}
+
+.header h2 {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  font-size: 28px;
+  color: #fff;
+}
+
+.admin-nav {
+  display: inline-block;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.admin-nav li {
+  float: left;
+}
+
+.admin-nav li + li {
+  margin-left: 50px;
+}
+
+.admin-nav li a {
+  display: block;
+  color: #fff;
+  transition: all 0.3s;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.admin-nav .select,
+.admin-nav li a:hover {
+  background-color: #43c267;
+  color: #fff;
+}
+
+.header .user-box {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  cursor: pointer;
+  color: #fff;
+}
+
+.header .user-box:hover {
+  color: #fff;
+}
+
+.user-box > div {
+  display: inline-block;
+}
+
+.user-box .user-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.user-box .user-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.user-box .user-name {
+  margin-left: 6px;
+}
+
+.user-box .user-name i {
+  font-size: 12px;
+}
+
+.user-box:hover .top-nav-sub {
+  display: block;
+}
+
+.top-nav-sub {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  background-color: #fff;
+  padding: 10px 20px;
+  min-width: 100px;
+  line-height: 30px;
+  box-sizing: border-box;
+  color: #626665;
+  box-shadow: 0px 2px 10px 0px rgba(203, 203, 203, 0.25);
+  border: 1px solid rgba(220, 223, 230, 1);
+  border-radius: 6px;
+  z-index: 9;
+}
+
+.top-nav-fr .top-nav-sub a {
+  color: #626665;
+}
+
+.top-nav-sub a:hover {
+  color: #308c57;
+}
+
+.admin-pages {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#adminPage {
+  width: 100%;
+  height: 100%;
+}
+
+#leftNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  background-color: #fff;
+  box-shadow: 0px 5px 10px 0px rgba(203, 203, 203, 0.25);
+}
+
+.left-nav {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.left-nav li {
+  height: 60px;
+  line-height: 60px;
+  padding-left: 25px;
+  padding-right: 10px;
+  font-size: 16px;
+  color: #626665;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.left-nav li i {
+  margin-right: 3px;
+  font-size: 20px;
+  font-weight: 400 !important;
+}
+
+.left-nav li:hover,
+.left-nav .select {
+  background-color: rgba(67, 194, 103, 0.1);
+  color: #43c267;
+  border-right: 4px solid #43c267;
+  font-weight: bold;
+}
+
+#rightCon {
+  position: absolute;
+  left: 240px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#rightPage {
+  width: 100%;
+  height: 100%;
+}

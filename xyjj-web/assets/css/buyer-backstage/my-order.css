@@ -1,0 +1,64 @@
+.order-form .layui-form-item .text-input{
+		width: 15px;
+		height: 34px;
+		line-height: 34px;
+}
+.layui-form-item .layui-input-inline {
+		float: left;
+		width: 300px;
+		margin-right: 10px;
+}
+#appraise-form{
+		padding-right: 70px;
+}
+#appraise-form .layui-form-item .layui-form-label{
+		color: #626665;
+		font-size: 16px;
+}
+#appraise-form .layui-rate {
+		padding: 5px 5px 10px 0;
+}
+#appraise-form .layui-rate li i.layui-icon {
+		font-size: 18px;
+}
+#appraise-form .layui-textarea {
+		width: 70%;
+}
+#appraise-layer{
+		padding-bottom: 0;
+}
+#appraise-layer .layui-layer-btn {
+		 padding-top: 0;
+}
+.layui-layer .layui-layer-btn .layui-layer-btn0{
+		width: 100px;
+		height: 34px;
+		background: rgba(67,194,103,1);
+		border-radius: 6px;
+		border: none;
+		line-height: 34px;
+}
+.layui-layer .layui-layer-setwin {
+		right: 30px;
+}
+.order-table-card .layui-table-page{
+		text-align: right;
+}
+.order-table-card .layui-laypage .layui-laypage-curr .layui-laypage-em {
+		background-color: #43C267;
+}
+.order-table-card .layui-table .layui-table-cell{
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+}
+.order-table-card  .layui-card-body {
+		padding: 0 0 10px 0 !important;
+}
+.rowspan-cell{
+		display: block;
+		height: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+}
