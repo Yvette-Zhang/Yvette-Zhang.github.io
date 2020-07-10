@@ -4,61 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>思维导图</title>
-  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1833677_2tcq4smozzy.css">
-  <link rel="stylesheet" href="./css/ui.css">
+  <title>kikoyfb</title>
 </head>
 
 <body>
-  <script src="./js/ui.js"></script>
-  <script>
-    window.addEventListener("load", () => {
-      const myminder = initMinderEditor({
-        data: {
-          data: {
-            text: "中心主题"
-          },
-          children: [
-            {
-              data: {
-                text: "分支主题"
-              }
-            },
-            {
-              data: {
-                text: "分支主题"
-              }
-            }
-          ]
-        }
-      })
-      const { uiHub } = myminder;
-      uiHub.$on('buildTaskAndIndex', (data) => {
-        uiHub.$notify({
-          title: "生成任务+目录",
-          message: JSON.stringify(data)
-        })
-      });
-      uiHub.$on('buildTask', (data) => {
-        uiHub.$notify({
-          title: "生成任务",
-          message: JSON.stringify(data)
-        })
-      });
-      uiHub.$on('save', (data) => {
-        uiHub.$notify({
-          title: "保存版本",
-          message: JSON.stringify(data)
-        })
-      });
-      uiHub.$on('contentChange', (data) => {
-        uiHub.$notify({
-          title: "内容发生变化",
-          message: JSON.stringify(data)
-        })
-      });
-    });
-  </script>
+  <div>何许人也！</div>
+
 </body>
+
 
 </html>
