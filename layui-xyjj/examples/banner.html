@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Swiper demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="../layui_exts/swiper/css/swiper.min.css">
+
+	<!-- Demo styles -->
+	<style>
+		html, body {
+			position: relative;
+			height: 100%;
+		}
+		body {
+			font-size: 14px;
+			color:#000;
+			margin: 0;
+			padding: 0;
+		}
+		.swiper-container {
+			width: 400px;
+			height: 400px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.swiper-slide {
+			background-size: cover;
+			background-position: center;
+		}
+		.gallery-top {
+			height: 400px;
+			width: 400px;
+		}
+		.gallery-thumbs {
+			width: 400px;
+			height: 65px;
+			box-sizing: border-box;
+			margin-top: 10px;
+		}
+		.gallery-thumbs .swiper-slide {
+			height: 60px;
+			width: 60px !important;
+		}
+		.gallery-thumbs .swiper-slide-thumb-active {
+			border:1px solid #308C57;
+			border-radius:2px;
+		}
+
+	</style>
+</head>
+<body>
+<!-- Swiper -->
+<div class="swiper-container gallery-top">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" style="background-color: #ffb3b0;"></div>
+		<div class="swiper-slide" style="background-color: #ffe9a2;"></div>
+		<div class="swiper-slide" style="background-color: #b5e0ff"></div>
+		<div class="swiper-slide" style="background-color: #b8ffc4"></div>
+		<div class="swiper-slide" style="background-color: #f6c7ff"></div>
+	</div>
+</div>
+<div class="swiper-container gallery-thumbs">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" style="background-color: #ffb3b0"></div>
+		<div class="swiper-slide" style="background-color: #ffe9a2"></div>
+		<div class="swiper-slide" style="background-color: #b5e0ff"></div>
+		<div class="swiper-slide" style="background-color: #b8ffc4"></div>
+		<div class="swiper-slide" style="background-color: #f6c7ff"></div>
+	</div>
+</div>
+
+<!-- Swiper JS -->
+<script src="../layui_exts/swiper/js/swiper.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+	var galleryThumbs = new Swiper('.gallery-thumbs', {
+		spaceBetween: 25,
+		slidesPerView: 5,
+		loop: true,
+		autoplay: true,
+		freeMode: true,
+		loopedSlides: 5, //looped slides should be the same
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+	});
+	var galleryTop = new Swiper('.gallery-top', {
+		spaceBetween: 10,
+		loop:true,
+		autoplay: true,
+		loopedSlides: 5, //looped slides should be the same
+		thumbs: {
+			swiper: galleryThumbs,
+		},
+	});
+</script>
+</body>
+</html>

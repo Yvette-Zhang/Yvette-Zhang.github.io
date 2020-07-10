@@ -1,0 +1,67 @@
+/** Tag **/
+.layui-tag {
+  display: inline-block;
+  padding: 0 7px;
+  margin: 0 8px 0 0;
+  line-height: 20px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  cursor: default;
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+
+.layui-tag:hover {
+  opacity: 0.85;
+}
+
+.layui-tag .layui-icon-close {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+
+.layui-tag .layui-icon-close:hover {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.layui-tag-text {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.layui-tag-text .layui-tag-dot {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 50%;
+  vertical-align: -1px;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.layui-tag-text .layui-colorpicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.layui-tag-text .layui-colorpicker span {
+  display: none;
+}

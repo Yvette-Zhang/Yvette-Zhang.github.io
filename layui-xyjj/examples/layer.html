@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>layer弹层 - layui</title>
+
+  <link rel="stylesheet" href="../src/css/layui.css">
+
+  <style>
+    body {
+      padding: 80px 30px 30px 30px;
+    }
+
+    #layerDemo {
+      margin: 20px 0;
+    }
+
+    button {
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-md6">
+      <blockquote class="layui-elem-quote">
+        <p>扩展抽屉及弹出框圆角效果，使用此功能时需要自定义layer弹出层的skin属性</p>
+        <table class="layui-table" style="width: 100%">
+          <thead>
+            <tr>
+              <th>值</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>skin: 'layui-anim layui-anim-rl layui-layer-openRight',</td>
+              <td>右抽屉</td>
+            </tr>
+            <tr>
+              <td>skin: 'layui-anim layui-anim-lr layui-layer-openLeft',</td>
+              <td>左抽屉</td>
+            </tr>
+            <tr>
+              <td>skin: 'layui-anim layui-anim-tb layui-layer-openTop',</td>
+              <td>上抽屉</td>
+            </tr>
+            <tr>
+              <td>skin: 'layui-anim layui-anim-bt layui-layer-openBottom',</td>
+              <td>下抽屉</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>为了适应需求在layui弹出层插件layer参数offset中增加了几个参数</p>
+        <table class="layui-table" style="width: 100%">
+
+          <thead>
+            <tr>
+              <th>值</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>offset: 'et'</td>
+              <td>快捷设置定位到点击元素的上方</td>
+            </tr>
+            <tr>
+              <td>offset: 'er'</td>
+              <td>快捷设置定位到点击元素的右方</td>
+            </tr>
+            <tr>
+              <td>offset: 'eb'</td>
+              <td>快捷设置定位到点击元素的下方</td>
+            </tr>
+            <tr>
+              <td>offset: 'el'</td>
+              <td>快捷设置定位到点击元素的左方</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>使用上面几个参数时必需传入triggerEle: ele; (ele)点击元素的jq对象 </p>
+        <p>例如</p>
+        <pre class="layui-code">
+            layer.open({
+              triggerEle: othis // 触发弹窗的元素 jq对象
+              , type: 1
+              , offset: 'el'
+              ...
+            });
+          </pre>
+
+        <p>鼠标hover触发tips</p>
+        <p>例如</p>
+        <pre class="layui-code">
+            var tips_index;
+            
+            $('.demo2').on({
+              mouseover: function () {
+                var type = $(this).data('type');
+                tips_index = layer.tips('我是测试的下', this, {
+                  tips: type,
+                  time: 0,
+                  skin: 'demo-test4'
+                });
+              },
+              mouseout: function () {
+                layer.close(tips_index);
+              }
+            });
+          </pre>
+
+        <p>具体效果可看下方示例</p>
+      </blockquote>
+    </div>
+    <div class="layui-col-md6">
+      <button class="layui-btn layui-btn-primary demo" data-type="test">Alert</button>
+      <button class="layui-btn demo" data-type="test2">Confirm</button>
+      <button class="layui-btn demo" data-type="test3">Msg</button>
+      <button class="layui-btn demo2" data-type="3">Tips下</button>
+      <button class="layui-btn demo2" data-type="1">Tips上</button>
+
+      <button class="layui-btn demo2" data-type="4">Tips左</button>
+      <button class="layui-btn demo2" data-type="2">Tips右</button>
+      <span class="demo2" data-type="3">试试文字Tips上</span>
+      <button class="layui-btn demo" data-type="test5">Page</button>
+      <button class="layui-btn demo" data-type="test6">Iframe</button>
+      <button class="layui-btn demo" data-type="test7">Prompt</button>
+      <button class="layui-btn demo" data-type="test8">Tab</button>
+      <button class="layui-btn demo" data-type="test9">右抽屉</button>
+      <button class="layui-btn demo" data-type="test10">左抽屉</button>
+      <button class="layui-btn demo" data-type="test11">上抽屉</button>
+      <button class="layui-btn demo" data-type="test12">下抽屉</button>
+      <div id="layerDemo">
+        <button data-method="offset" data-type="t" class="layui-btn layui-btn-normal">上弹出</button>
+        <button data-method="offset" data-type="r" class="layui-btn layui-btn-normal">右弹出</button>
+        <button data-method="offset" data-type="b" class="layui-btn layui-btn-normal">下弹出</button>
+        <button data-method="offset" data-type="l" class="layui-btn layui-btn-normal">左弹出</button>
+        <button data-method="offset" data-type="lt" class="layui-btn layui-btn-normal">左上弹出</button>
+        <button data-method="offset" data-type="lb" class="layui-btn layui-btn-normal">左下弹出</button>
+        <button data-method="offset" data-type="rt" class="layui-btn layui-btn-normal">右上弹出</button>
+        <button data-method="offset" data-type="rb" class="layui-btn layui-btn-normal">右下弹出</button>
+        <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal">居中弹出</button>
+        <button data-method="offset" data-type="et" class="layui-btn layui-btn-normal">点击元素上弹出</button>
+        <button data-method="offset" data-type="er" class="layui-btn layui-btn-normal">点击元素右弹出</button>
+        <button data-method="offset" data-type="eb" class="layui-btn layui-btn-normal">点击元素下弹出</button>
+        <button data-method="offset" data-type="el" class="layui-btn layui-btn-normal">点击元素左弹出</button>
+      </div>
+      <a href="http://layer.layui.com/" target="_blank" class="layui-btn demo">更多例子</a>
+
+      <div id="test11111" style="display: none;padding: 20px;">
+        <button class="layui-btn demo" data-type="test13">左抽屉</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="../src/layui.js"></script>
+  <script>
+    layui.use('layer', function () {
+      var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+
+      //触发事件
+      var active = {
+        test: function () {
+          layer.alert('你好么，体验者');
+        }
+        , test2: function () {
+          layer.confirm('您是如何看待前端开发？', {
+            btn: ['重要', '奇葩'] //按钮
+          }, function () {
+            layer.msg('的确很重要', { icon: 1 });
+          }, function () {
+            layer.msg('也可以这样', {
+              time: 20000, //20s后自动关闭
+              btn: ['明白了', '知道了']
+            });
+          });
+        }
+        , test3: function () {
+          layer.msg('玩命提示中');
+        }
+        , test4: function () {
+          layer.tips('我是测试的下', this, {
+            tips: 3,
+            time: 2000,
+            skin: 'demo-test4'
+          });
+        }
+        , test41: function () {
+          layer.tips('我是测试的上', this, {
+            tips: 1,
+            time: 2000,
+            skin: 'demo-test4'
+          });
+        }
+        , test42: function () {
+          layer.tips('我是测试的左', this, {
+            tips: 4,
+            time: 2000,
+            skin: 'demo-test4'
+          });
+        }
+        , test43: function () {
+          layer.tips('我是测试的右', this, {
+            time: 2000,
+            skin: 'demo-test4'
+          });
+        }
+        , test44: function () {
+          layer.tips('我是测试的下', this, {
+            tips: 3,
+            time: 2000,
+            skin: 'demo-test4'
+          });
+        }
+        , test5: function () {
+          layer.open({
+            title: '更新论坛信息',
+            type: 1,
+            anim: 2,
+            skin: 'layui-layer-rim',
+            area: ['500px', '580px'],
+            content: $('#test11111'),
+            zIndex: '9999'
+          });
+        }
+        , test6: function () {
+          layer.open({
+            type: 2
+            , content: 'http://fly.layui.com/'
+            , area: ['375px', '500px']
+            , maxmin: true
+            , zIndex: '9999'
+          });
+        }
+        , test7: function () {
+          layer.prompt({ title: '输入任何口令，并确认', formType: 1 }, function (pass, index) {
+            layer.close(index);
+            layer.prompt({ title: '随便写点啥，并确认', formType: 2 }, function (text, index) {
+              layer.close(index);
+              layer.msg('演示完毕！您的口令：' + pass + '<br>您最后写下了：' + text);
+            });
+          });
+        }
+        , test8: function () {
+          layer.tab({
+            area: ['600px', '300px'],
+            tab: [{
+              title: 'TAB1',
+              content: '内容1'
+            }, {
+              title: 'TAB2',
+              content: '内容2'
+            }, {
+              title: 'TAB3',
+              content: '内容3'
+            }]
+          });
+        }
+        , test9: function () {
+          layer.open({
+            title: '右侧抽屉',
+            type: 1,
+            anim: -1,
+            shadeClose: true,
+            offset: 'r',
+            //shade: 0,
+            skin: 'layui-anim layui-anim-rl layui-layer-openRight',
+            area: '400px',
+            zIndex: '99',
+            content: $('#test11111'),
+            success: function (layero) {
+              layer.setTop(layero);
+            }
+          });
+        }
+        , test10: function () {
+          layer.open({
+            title: '左侧抽屉',
+            type: 1,
+            anim: -1,
+            shadeClose: true,
+            offset: 'l',
+            shade: 0,
+            skin: 'layui-anim layui-anim-lr layui-layer-openLeft',
+            area: '400px',
+            content: '#test222',
+            success: function (layero) {
+              layer.setTop(layero);
+            }
+          });
+        }
+        , test11: function () {
+          layer.open({
+            title: '上侧抽屉',
+            type: 1,
+            anim: -1,
+            shadeClose: true,
+            offset: 't',
+            shade: 0,
+            skin: 'layui-anim layui-anim-tb layui-layer-openTop',
+            area: ['100%', '300px'],
+            content: '#test333',
+            success: function (layero) {
+              layer.setTop(layero);
+            }
+          });
+        }
+        , test12: function () {
+          layer.open({
+            title: '下侧抽屉',
+            type: 1,
+            anim: -1,
+            shadeClose: true,
+            offset: 'b',
+            shade: 0,
+            skin: 'layui-anim layui-anim-bt layui-layer-openBottom',
+            area: ['100%', '300px'],
+            content: '#test444',
+            success: function (layero) {
+              layer.setTop(layero);
+            }
+          });
+        }
+        , test13: function () {
+          layer.open({
+            title: '左侧抽屉',
+            type: 1,
+            anim: -1,
+            shadeClose: true,
+            offset: 'r',
+            //shade: 0,
+            skin: 'layui-anim layui-anim-rl layui-layer-openRight',
+            area: '300px',
+            zIndex: '99999',
+            content: '#test555',
+            success: function (layero) {
+              layer.setTop(layero);
+            }
+          });
+        }
+      };
+      $('.demo').on('click', function () {
+        var type = $(this).data('type');
+        active[type] ? active[type].call(this) : '';
+      });
+
+      var tips_index;
+
+      $('.demo2').on({
+        mouseover: function () {
+          var type = $(this).data('type');
+          tips_index = layer.tips('我是测试的下', this, {
+            tips: type,
+            time: 0,
+            skin: 'demo-test4'
+          });
+        },
+        mouseout: function () {
+          layer.close(tips_index);
+        }
+      });
+
+      var active2 = {
+
+        offset: function (othis) {
+          var type = othis.data('type')
+            , text = othis.text();
+
+          layer.open({
+            triggerEle: othis // 触发弹窗的元素 jq对象
+            , type: 1
+            , offset: type //具体配置参考：http://www.layui.com/doc/modules/layer.html#offset
+            , id: 'layerDemo' + type //防止重复弹出
+            , content: '<div style="padding: 20px 100px;">' + text + '</div>'
+            , btn: '关闭全部'
+            , fixed: false
+            , skin: 'layui-layer-radius'
+            , move: false // 禁止拖动
+            , btnAlign: 'c' //按钮居中
+            , shade: 0 //0不显示遮罩,
+            , shadeClose: true
+            , yes: function () {
+              layer.closeAll();
+            },
+          });
+        }
+      };
+
+      $('#layerDemo .layui-btn').on('click', function () {
+        var othis = $(this),
+          method = othis.data('method');
+        active2[method] ? active2[method].call(this, othis) : '';
+      });
+    });
+  </script>
+</body>
+
+</html>

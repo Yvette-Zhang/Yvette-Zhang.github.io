@@ -1,0 +1,52 @@
+{
+  "name": "layui-src",
+  "realname": "layui",
+  "version": "2.5.6",
+  "independents": {
+    "layim": "3.9.1"
+  },
+  "description": "Classic modular front-end component library",
+  "main": "dist/layui.js",
+  "license": "MIT",
+  "scripts": {
+    "gulp": "gulp",
+    "server": "gulp server"
+  },
+  "repository": "git+ssh://git@github.com/sentsin/layui.git",
+  "author": [
+    "sentsin <xu@sentsin.com>"
+  ],
+  "homepage": "https://www.layui.com",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^2.2.2",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.0 ",
+    "gulp-header": "^1.8.8",
+    "gulp-if": "^2.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "gulp-zip": "^4.0.0",
+    "minimist": "^1.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/sentsin/layui/issues"
+  },
+  "directories": {
+    "doc": "doc",
+    "example": "examples",
+    "test": "test"
+  },
+  "dependencies": {
+    "browser-sync": "^2.26.7",
+    "serve": "^11.3.1"
+  },
+  "keywords": [
+    "layui",
+    "ui",
+    "JavaScript Framework",
+    "toolkit",
+    "front-end component library"
+  ]
+}

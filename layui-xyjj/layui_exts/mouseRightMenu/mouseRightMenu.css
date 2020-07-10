@@ -1,0 +1,35 @@
+.layer-skin-mouse-right-menu {
+	border-radius: 5px !important;
+}
+
+.layer-skin-mouse-right-menu .layui-layer-content {
+	overflow-x: hidden !important;
+}
+
+.mouse-right-menu {
+	padding: 5px 0;
+}
+
+.mouse-right-menu .enian_menu .text {
+	padding-left: 10px;
+	line-height: 40px;
+}
+
+.mouse-right-menu .enian_menu .disable {
+	pointer-events: none;
+	color: #C9C9C9;
+	cursor: not-allowed;
+}
+
+.mouse-right-menu .enian_menu {
+	width: 100%;
+	height: 40px;
+	border-bottom: 1px solid #eee;
+}
+.mouse-right-menu .enian_menu:last-child{ 
+	border-bottom:none;
+}
+.mouse-right-menu .enian_menu .text:hover {
+	cursor: pointer;
+	background: #f2f2f2;
+}

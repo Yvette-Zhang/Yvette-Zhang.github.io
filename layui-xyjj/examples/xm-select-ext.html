@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xm-select 扩展（标签）</title>
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      box-sizing: border-box;
+      padding: 0px 30px;
+    }
+
+    .layui-btn.doc {
+      position: absolute;
+      right: 50px;
+      top: 30px;
+      z-index: 10;
+    }
+
+    #xm-demo {
+      width: 300px;
+    }
+
+    .tag-color-form {
+      padding: 20px 0;
+    }
+
+    .tag-color-form .layui-form-item {
+      padding-left: 35px;
+    }
+
+    xm-select>.xm-body .xm-option-content .layui-icon {
+      position: absolute;
+      right: 0px;
+    }
+
+    #xm-demo2 xm-select>.xm-label .xm-label-block>span {
+      color: #616874;
+    }
+
+    #xm-demo2 xm-select>.xm-label .xm-label-block>i {
+      color: #616874;
+    }
+
+    #xm-demo2 xm-select>.xm-body .xm-option-content {
+      color: #616874 !important;
+    }
+
+    #xm-demo2 xm-select>.xm-body .xm-option.selected.hide-icon .xm-option-content {
+      color: #616874 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <a href="./xm-select.html" class="layui-btn doc">文档</a> -->
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-md6">
+
+      <blockquote class="layui-elem-quote" style="margin-top: 20px;">
+        <p>在下拉多选的基础上扩展的下拉标签</p>
+        <p>数据格式</p>
+        <pre class="layui-code">
+        var data = [
+          { name: '标签一', value: 1, color: '#eb2f96' },
+          { name: '标签二', value: 2, color: '#f5222d' },
+          { name: '标签三', value: 3, color: '#fa8c16' },
+          { name: '标签四', value: 4, color: '#52c41a' },
+          { name: '标签五', value: 5, color: '#13c2c2' },
+          { name: '标签六', value: 6, color: '#1890ff' },
+          { name: '标签七', value: 7, color: '#722ed1' }
+        ];
+      调用方式
+      xmSelect.render({
+        el: '#xm-demo',
+        ...
+        theme: {
+          color: '#0077FF', //主题颜色
+        },
+        data: data, 
+        filterable: true, //是否显示搜索
+        template({ item }) { // 自定义渲染选项
+          return '&lt;span class="xm-tag-dot" style="background-color: ' + item.color + '"&gt;&lt;/span&gt;' + item.name
+        },
+      })
+      </pre>
+      </blockquote>
+    </div>
+    <div class="layui-col-md6">
+      <br>
+      <div id="xm-demo"></div>
+      <div id="xm-demo2" style="margin-top:300px;"></div>
+    </div>
+  </div>
+
+
+
+  <script src="./js/jquery-1.9.1.min.js"></script>
+  <script src="../src/layui.js"></script>
+  <script src="../layui_exts/xm-select/xm-select.js"></script>
+  <script>
+    layui.use(['layer', 'colorpicker', 'form'], function () {
+
+      var layer = layui.layer,
+        colorpicker = layui.colorpicker,
+        form = layui.form;
+      var tagColorLayer;
+
+      var data = [
+        { name: '标签一', value: 1, color: '#eb2f96' },
+        { name: '标签二', value: 2, color: '#f5222d' },
+        { name: '标签三', value: 3, color: '#fa8c16' },
+        { name: '标签四', value: 4, color: '#52c41a' },
+        { name: '标签五', value: 5, color: '#13c2c2' },
+        { name: '标签六', value: 6, color: '#1890ff' },
+        { name: '标签七', value: 7, color: '#722ed1' }
+      ];
+
+      var newTagData = {
+        name: '',
+        value: '',
+        color: ''
+      },
+        defaultColor = '#eb2f96',
+        newColor = '';
+
+      var tagColorSelect = xmSelect.render({
+        el: '#xm-demo',
+        model: {
+          icon: 'hidden',
+        },
+        theme: {
+          color: '#0077FF',
+        },
+        // content: '11111',
+        toolbar: {
+          // show: true,
+          // list: ['ALL', 'CLEAR', {
+          //   name: '新建标签',
+          //   icon: 'layui-icon layui-icon-addition',
+          //   method(data) {
+          //     tagColorLayer = layer.open({
+          //       type: 1,
+          //       title: '新建标签',
+          //       content: '<div class="tag-color-form">' +
+          //         '<form class="layui-form" action="" lay-filter="tag-confirm"><div class="layui-form-item">' +
+          //         '<div class="layui-input-inline" style="width: 150px;">' +
+          //         '<input name="name" type="text" value="" lay-verify="required" autocomplete="off" placeholder="请输入标签名" class="layui-input">' +
+          //         '</div>' +
+          //         '<div class="layui-inline" style="left: -11px;">' +
+          //         '<div id="tag-color"></div>' +
+          //         '</div>' +
+          //         '</div>' +
+          //         '<div class="layui-input-block" style="margin-left:0px;text-align:center;">' +
+          //         '<button type="button" class="layui-btn layui-btn-sm" lay-submit="" lay-filter="tag-confirm">确认</button>' +
+          //         '<button type="button" class="layui-btn layui-btn-primary layui-btn-sm" id="tag-cancel">取消</button>' +
+          //         '</div>' +
+          //         '</form></div>',
+          //       success: function () {
+          //         colorpicker.render({
+          //           elem: '#tag-color',
+          //           color: '#eb2f96',
+          //           predefine: true, //开启预定义颜色
+          //           alpha: true, //开启透明度
+          //           format: 'rgb',
+          //           colors: ['#eb2f96', '#f5222d', '#fa8c16', '#52c41a', '#13c2c2', '#1890ff', '#722ed1'], //自定义预定义颜色项
+
+          //           done: function (color) {
+          //             newColor = color;
+          //           }
+          //         });
+
+          //         $('#tag-cancel').on('click', function () {
+          //           layer.close(tagColorLayer);
+          //         });
+
+          //         form.render();
+
+          //         form.on('submit(tag-confirm)', function (data) {
+
+          //           newTagData = {
+          //             color: newColor ? newColor : defaultColor,
+          //             name: data.field.name,
+          //             value: (new Date()).valueOf()
+          //           }
+          //           updateTag(newTagData);
+          //           layer.close(tagColorLayer);
+          //         });
+          //       }
+          //     })
+          //   }
+          // }]
+        },
+        filterable: true,
+        template({ item }) {
+          return '<span class="xm-tag-dot" style="background-color: ' + item.color + '"></span>' + item.name
+        },
+        create: function (val, arr) {
+          var addData = {
+            name: val,
+            value: val,
+            color: '#eb2f96'
+          }
+          data.unshift(addData);
+          // tagColorSelect.update({
+          //   data: data
+          // });
+          //返回一个创建成功的对象, val是搜索的数据, arr是搜索后的当前页面数据
+          return addData
+        },
+        on: function ({ arr, change, isAdd }) {
+          console.log(arr);
+          console.log(change);
+          console.log(isAdd);
+        },
+        data: data
+      });
+
+      tagColorSelect.opened();
+
+      function updateTag(addData) {
+        data.push(addData);
+        setTimeout(function () {
+          tagColorSelect.opened();
+        }, 0);
+        tagColorSelect.update({
+          data: data
+        })
+      }
+
+      $('body').on('click', '#xm-demo .xm-tag-del', function () {
+        console.log($(this).attr('data-id'));
+        return false
+      })
+
+      var tagColorSelect = xmSelect.render({
+        el: '#xm-demo2',
+        model: {
+          icon: 'hidden',
+        },
+        theme: {
+          color: '#f0f3f7',
+        },
+        data: data
+      })
+
+    })
+  </script>
+</body>
+
+</html>

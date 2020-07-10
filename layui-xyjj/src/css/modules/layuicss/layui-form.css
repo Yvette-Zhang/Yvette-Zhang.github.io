@@ -1,0 +1,773 @@
+/** 表单 **/
+.layui-form {
+  color: #616565;
+}
+
+.layui-input,
+.layui-textarea,
+.layui-select {
+  height: 34px;
+  line-height: 32px;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #fff;
+  border-color: #dcdfe6;
+  border-radius: 6px;
+  color: #626665;
+}
+
+.layui-input-date {
+  position: relative;
+}
+
+.layui-input-date .layui-input {
+  background-color: transparent;
+}
+
+.layui-input-date::before {
+  position: absolute;
+  content: "\e61a";
+  line-height: 34px;
+  font-family: layui-icon !important;
+  font-size: 12px;
+  right: 8px;
+  -webkit-font-smoothing: antialiased;
+  z-index: -1;
+  color: #939997;
+}
+
+.layui-input::-webkit-input-placeholder,
+.layui-textarea::-webkit-input-placeholder,
+.layui-select::-webkit-input-placeholder {
+  color: #c4ccc9;
+}
+
+.layui-input,
+.layui-textarea {
+  display: block;
+  width: 100%;
+  padding-left: 10px;
+}
+
+/* .layui-input:hover,
+.layui-textarea:hover {
+  border-color: #61a1f8 !important;
+} */
+
+.layui-input:focus,
+.layui-textarea:focus {
+  border-color: #61a1f8 !important;
+}
+
+input:disabled,
+.layui-input:disabled,
+.layui-textarea:disabled {
+  border: 1px solid #dcdfe6;
+  background-color: #f3f3f3;
+  color: #939997;
+  cursor: not-allowed;
+}
+
+.layui-textarea {
+  position: relative;
+  min-height: 100px;
+  height: auto;
+  line-height: 20px;
+  padding: 6px 10px;
+  resize: vertical;
+}
+
+.layui-select {
+  padding: 0 10px;
+}
+
+.layui-form select,
+.layui-form input[type="checkbox"],
+.layui-form input[type="radio"] {
+  display: none;
+}
+
+.layui-form *[lay-ignore] {
+  display: initial;
+}
+
+.layui-form-item {
+  margin-bottom: 15px;
+  clear: both;
+  *zoom: 1;
+}
+
+.layui-form-item:last-child {
+  margin-bottom: 0;
+}
+
+.layui-form-item:after {
+  content: "\20";
+  clear: both;
+  *zoom: 1;
+  display: block;
+  height: 0;
+}
+
+.layui-form-label {
+  position: relative;
+  float: left;
+  display: block;
+  padding: 0 15px;
+  line-height: 34px;
+  width: 110px;
+  font-size: 14px;
+  color: #313332;
+  font-weight: 400;
+  text-align: right;
+  box-sizing: border-box;
+}
+
+.layui-form-required {
+  color: #f84926;
+}
+
+.layui-form-label-col {
+  display: block;
+  float: none;
+  padding: 9px 0;
+  line-height: 20px;
+  text-align: left;
+}
+
+.layui-form-item .layui-inline {
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.layui-input-block,
+.layui-input-inline {
+  position: relative;
+}
+
+.layui-input-block {
+  margin-left: 110px;
+  min-height: 34px;
+}
+
+.layui-input-inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.layui-form-item .layui-input-inline {
+  float: left;
+  width: 190px;
+  margin-right: 10px;
+}
+
+.layui-form-text .layui-input-inline {
+  width: auto;
+}
+
+.layui-input-suffix {
+  position: relative;
+}
+
+.layui-input-suffix .layui-input {
+  padding-right: 60px;
+}
+
+.layui-input-suffix .layui-input-suffix_unit {
+  position: absolute;
+  width: 50px;
+  top: 0;
+  right: 10px;
+  line-height: 34px;
+  text-align: right;
+  font-size: 14px;
+  color: #626665;
+}
+
+/* 分割块 */
+.layui-form-mid {
+  position: relative;
+  float: left;
+  display: block;
+  line-height: 34px;
+  margin-right: 10px;
+}
+
+/* 警告域 */
+.layui-form-danger:focus,
+.layui-form-danger + .layui-form-select .layui-input {
+  border-color: #ff5722 !important;
+}
+
+/* 下拉选择 */
+.layui-form-select {
+  position: relative;
+}
+
+.layui-form-select .layui-input {
+  padding-right: 30px;
+  cursor: pointer;
+}
+
+.layui-form-select .layui-edge {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 14px;
+  color: #939997;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.layui-form-select dl {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 42px;
+  padding: 5px 0;
+  z-index: 899;
+  min-width: 100%;
+  border: 1px solid #d2d2d2;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+}
+
+.layui-form-select dl dt,
+.layui-form-select dl dd {
+  padding: 0 10px;
+  line-height: 36px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.layui-form-select dl dt {
+  font-size: 12px;
+  color: #999;
+}
+
+.layui-form-select dl dd {
+  cursor: pointer;
+}
+
+.layui-form-select dl dd:hover {
+  background-color: #f3f3f3;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
+.layui-form-select .layui-select-group dd {
+  padding-left: 20px;
+}
+
+.layui-form-select dl dd.layui-select-tips {
+  padding-left: 10px !important;
+  color: #999;
+}
+
+.layui-form-select dl dd.layui-this {
+  background-color: #43c267;
+  color: #fff;
+}
+
+.layui-form-select dl dd.layui-disabled {
+  background-color: #fff;
+}
+
+.layui-form-selected dl {
+  display: block;
+}
+
+.layui-form-selected .layui-edge {
+  margin-top: -9px;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.layui-form-selected .layui-edge {
+  margin-top: -3px\0;
+}
+
+:root .layui-form-selected .layui-edge {
+  margin-top: -9px\0 / IE9;
+}
+
+.layui-form-selectup dl {
+  top: auto;
+  bottom: 42px;
+}
+
+.layui-select-none {
+  margin: 5px 0;
+  text-align: center;
+  color: #999;
+}
+
+.layui-select-disabled .layui-disabled {
+  border-color: #dcdfe6 !important;
+  background-color: #f3f3f3;
+  color: #939997;
+}
+
+.layui-disabled div {
+  color: #939997;
+}
+
+.layui-select-disabled .layui-edge {
+  border-top-color: #d2d2d2;
+}
+
+/* 复选框 */
+.layui-form-checkbox {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 10px;
+  padding-right: 30px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 0;
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+  box-sizing: border-box;
+}
+
+.layui-form-checkbox * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.layui-form-checkbox span {
+  padding: 0 10px;
+  height: 100%;
+  font-size: 14px;
+  border-radius: 4px 0 0 4px;
+  background-color: #d2d2d2;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.layui-form-checkbox:hover span {
+  background-color: #c2c2c2;
+}
+
+.layui-form-checkbox i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 28px;
+  border: 1px solid #d2d2d2;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.layui-form-checkbox:hover i {
+  border-color: #c2c2c2;
+  color: #c2c2c2;
+}
+
+.layui-form-checked,
+.layui-form-checked:hover {
+  border-color: #43c267;
+}
+
+.layui-form-checked span,
+.layui-form-checked:hover span {
+  background-color: #43c267;
+}
+
+.layui-form-checked i,
+.layui-form-checked:hover i {
+  color: #43c267;
+}
+
+.layui-form-item .layui-form-checkbox {
+  margin-top: 4px;
+}
+
+/* 复选框-原始风格 */
+.layui-form-checkbox[lay-skin="primary"] {
+  height: auto !important;
+  line-height: normal !important;
+  min-width: 18px;
+  min-height: 18px;
+  border: none !important;
+  margin-right: 0;
+  padding-left: 28px;
+  padding-right: 0;
+  background: none;
+}
+
+.layui-form-checkbox[lay-skin="primary"] span {
+  padding-left: 0;
+  padding-right: 15px;
+  line-height: 18px;
+  background: none;
+  color: #666;
+}
+
+.layui-form-checkbox[lay-skin="primary"] i {
+  right: auto;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  border: 1px solid #d2d2d2;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+}
+
+.layui-form-checkbox[lay-skin="primary"]:hover i {
+  border-color: #43c267;
+  color: #fff;
+}
+
+.layui-form-checked[lay-skin="primary"] i {
+  border-color: #43c267 !important;
+  background-color: #43c267;
+  color: #fff;
+}
+
+.layui-checkbox-disbaled[lay-skin="primary"] span {
+  background: none !important;
+  color: #939997;
+}
+
+.layui-checkbox-disbaled[lay-skin="primary"]:hover i {
+  border-color: #d2d2d2;
+}
+
+.layui-form-item .layui-form-checkbox[lay-skin="primary"] {
+  margin-top: 10px;
+}
+
+/* 复选框-开关风格 */
+.layui-form-switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: 16px;
+  padding: 0 5px;
+  line-height: 16px;
+  min-width: 30px;
+  margin-top: 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: rgba(228, 232, 237, 1);
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+  box-sizing: border-box;
+}
+
+.layui-form-switch i {
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: 0.1s linear;
+  transition: 0.1s linear;
+}
+
+.layui-form-switch em {
+  position: relative;
+  top: 0;
+  width: 25px;
+  margin-left: 21px;
+  padding: 0 !important;
+  text-align: center !important;
+  color: #999 !important;
+  font-style: normal !important;
+  font-size: 12px;
+}
+
+.layui-form-onswitch {
+  border-color: #43c267;
+  background-color: #43c267;
+}
+
+.layui-form-onswitch i {
+  left: 100%;
+  margin-left: -15px;
+}
+
+.layui-form-onswitch em {
+  margin-left: 5px;
+  margin-right: 21px;
+  color: #fff !important;
+}
+
+.layui-checkbox-disbaled {
+  border-color: #e2e2e2 !important;
+}
+
+.layui-checkbox-disbaled span {
+  background-color: #e2e2e2 !important;
+}
+
+.layui-checkbox-disbaled i {
+  border-color: #e2e2e2 !important;
+}
+
+.layui-checkbox-disbaled:hover i {
+  color: #fff !important;
+}
+
+/* 单选框 */
+*[lay-radio] {
+  display: none;
+}
+
+.layui-form-radio {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 28px;
+  margin: 6px 10px 0 0;
+  padding-right: 10px;
+  cursor: pointer;
+  font-size: 0;
+}
+
+.layui-form-radio * {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.layui-form-radio > i {
+  margin-right: 8px;
+  font-size: 16px;
+  color: #f3f3f3;
+}
+
+.layui-form-radioed > i,
+.layui-form-radio > i:hover {
+  color: #43c267;
+}
+
+.layui-form-radioed {
+  color: #43c267;
+}
+
+.layui-radio-disbaled > i {
+  color: #e2e2e2 !important;
+}
+
+/* 表单方框风格 */
+.layui-form-pane .layui-form-label {
+  width: 110px;
+  padding: 0 15px;
+  height: 34px;
+  line-height: 34px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px 0 0 4px;
+  text-align: center;
+  background-color: #fbfbfb;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+}
+
+.layui-form-pane .layui-input-inline {
+  margin-left: -1px;
+}
+
+.layui-form-pane .layui-input-block {
+  margin-left: 110px;
+  left: -1px;
+}
+
+.layui-form-pane .layui-input {
+  border-radius: 0 4px 4px 0;
+}
+
+.layui-form-pane .layui-form-text .layui-form-label {
+  float: none;
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.layui-form-pane .layui-form-text .layui-input-inline {
+  display: block;
+  margin: 0;
+  top: -1px;
+  clear: both;
+}
+
+.layui-form-pane .layui-form-text .layui-input-block {
+  margin: 0;
+  left: 0;
+  top: -1px;
+}
+
+.layui-form-pane .layui-form-text .layui-textarea {
+  min-height: 100px;
+  border-radius: 0 0 4px 4px;
+}
+
+.layui-form-pane .layui-form-checkbox {
+  margin: 4px 0 4px 10px;
+}
+
+.layui-form-pane .layui-form-switch,
+.layui-form-pane .layui-form-radio {
+  margin-top: 6px;
+  margin-left: 10px;
+}
+
+.layui-form-pane .layui-form-item[pane] {
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.layui-form-pane .layui-form-item[pane] .layui-form-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-width: 0px;
+  border-right-width: 1px;
+}
+
+.layui-form-pane .layui-form-item[pane] .layui-input-inline {
+  margin-left: 110px;
+}
+
+/** 表单响应式 **/
+@media screen and (max-width: 450px) {
+  .layui-form-item .layui-form-label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .layui-form-item .layui-inline {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 20px;
+    clear: both;
+  }
+
+  .layui-form-item .layui-inline:after {
+    content: "\20";
+    clear: both;
+    display: block;
+    height: 0;
+  }
+
+  .layui-form-item .layui-input-inline {
+    display: block;
+    float: none;
+    left: -3px;
+    width: auto;
+    margin: 0 0 10px 112px;
+  }
+
+  .layui-form-item .layui-input-inline + .layui-form-mid {
+    margin-left: 110px;
+    top: -5px;
+    padding: 0;
+  }
+
+  .layui-form-item .layui-form-checkbox {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+/* label左对齐 */
+.layui-form-label-left .layui-form-label {
+  text-align: left;
+}
+
+.layui-form-label-icon .layui-form-label {
+  padding-left: 20px;
+}
+
+.layui-form-label i {
+  margin-right: 3px;
+}
+
+.layui-form-label-icon .layui-form-label i {
+  position: absolute;
+  left: 0;
+}
+
+/* label上对齐 */
+.layui-form-label-top .layui-form-label {
+  position: relative;
+  display: block;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+  color: #616874;
+}
+
+.layui-form-label-top .layui-form-item {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.layui-form-label-top .layui-input-block {
+  margin-left: 0;
+}
+
+.layui-form-label-icon .layui-form-label {
+  padding-left: 20px;
+}
+
+.layui-form-label i {
+  margin-right: 3px;
+}
+
+.layui-form-label-icon .layui-form-label i {
+  position: absolute;
+  left: 0;
+}
+
+/* 新增表单 */
+.layui-addFrom i {
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  line-height: 18px;
+}
+.layui-addFrom .add {
+  color: #fff;
+  background: #00c65b;
+  border-radius: 50%;
+}
+.layui-addFrom .del {
+  color: #fff;
+  background: #ff8700;
+  border-radius: 50%;
+}

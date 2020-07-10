@@ -1,0 +1,163 @@
+.layui-dropdown-link {
+  display: inline-block;
+  font-size: 14px;
+  color: #1890ff;
+  cursor: pointer;
+}
+
+.layui-dropdown-link:hover {
+  color: #1890ff;
+}
+
+.layui-dropdown-link + .layui-dropdown-link {
+  margin-left: 10px;
+}
+
+.layui-dropdown-link i {
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+.layui-dropdown {
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  line-height: 1.5;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: 999;
+  display: none;
+}
+
+.layui-dropdown::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 0;
+  left: -10px;
+  bottom: -10px;
+  z-index: -999;
+  opacity: 0;
+}
+
+.layui-dropdown a:hover {
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.layui-dropdown-menu {
+  position: relative;
+  padding: 4px 0;
+  text-align: left;
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transform: translateZ(0);
+}
+
+.layui-dropdown-menu-item,
+.layui-dropdown-menu-submenu-title {
+  margin: 0;
+  padding: 5px 12px;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.layui-dropdown-menu-item > a {
+  display: block;
+  margin: -5px -12px;
+  padding: 5px 12px;
+  color: rgba(0, 0, 0, 0.65);
+  transition: all 0.3s;
+}
+
+.layui-dropdown-menu-item > a > span {
+  margin-left: 5px;
+  float: right;
+}
+
+.layui-dropdown-menu-item > a > span > .layui-icon {
+  margin-right: 0;
+}
+
+.layui-dropdown-menu-item-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.layui-dropdown-menu-item.menu-active,
+.layui-dropdown-menu-item:hover,
+.layui-dropdown-menu-submenu:hover {
+  background-color: #f0f3f7;
+  transition: 0.3s all;
+}
+
+.layui-dropdown-menu-item.menu-active > a,
+.layui-dropdown-menu-item:hover > a,
+.layui-dropdown-menu-submenu:hover > a {
+  color: #0077ff;
+  transition: 0.3s all;
+}
+
+.layui-dropdown-menu-item-disabled:hover {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.layui-dropdown-menu-item i,
+.layui-dropdown-menu-submenu-title > i {
+  min-width: 12px;
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.layui-dropdown-menu-submenu {
+  position: relative;
+}
+
+.layui-dropdown-menu-submenu-disabled {
+  pointer-events: none;
+}
+
+.layui-dropdown-menu-submenu-disabled .layui-dropdown-menu-submenu-title {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  cursor: not-allowed;
+}
+
+.layui-dropdown-menu-submenu-title {
+  padding-right: 26px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.layui-dropdown-menu-submenu-title .layui-dropdown-menu-submenu-arrow {
+  position: absolute;
+  right: 8px;
+}
+
+.layui-dropdown-menu-submenu-title > span > i {
+  min-width: 12px;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.layui-dropdown-menu-submenu-popup {
+  position: absolute;
+  display: none;
+  top: 0;
+  padding: 0 8px;
+}
+
+.layui-dropdown-menu-submenu-title:hover .layui-dropdown-menu-submenu-popup {
+  display: block;
+}

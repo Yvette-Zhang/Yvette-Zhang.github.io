@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@提及</title>
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <link href="./at/css/jquery.atwho.css" rel="stylesheet">
+  <script src="./js/jquery-1.9.1.min.js"></script>
+  <script src="./at/js/jquery.caret.min.js"></script>
+  <script src="./at/js/jquery.atwho.min.js"></script>
+  <style>
+    body {
+      padding: 0px 30px;
+    }
+
+    .inputor {
+      height: 160px;
+      width: 90%;
+      border: 1px solid #dadada;
+      border-radius: 4px;
+      padding: 5px 8px;
+      outline: 0 none;
+      margin: 10px 0;
+      background: white;
+      font-size: inherit;
+      overflow-y: scroll;
+    }
+
+    #inputor-t {
+      width: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-md6">
+      <blockquote class="layui-elem-quote" style="margin-top: 30px">
+        提及新增组件，依赖文件：jquery.atwho.css，jquery-1.9.1.min.js，jquery.caret.min.js，jquery.atwho.min.js
+        <p>使用示例及配置说明：</p>
+        <pre class="layui-code">
+
+          &lt;textarea id="inputor" class="inputor"&gt;我来试试textarea@的提及功能 @&lt;/textarea&gt;
+    
+          var arr = ['老大', '老二', '老三', '张三', '李四', '王五', '老六']
+          
+          var arrObj = $.map(arr, function (value, i) {
+            return { 'id': i, 'name': value };
+          });
+          
+          var at_config = {
+            at: "@", // 触发字符 不仅仅是@，也可以是其他字符 
+            data: arrObj, //数据 json格式
+            headerTpl: '', // 弹出菜单的标题
+            insertTpl: '@${name}', // 选中菜单显示的内容
+            displayTpl: "&lt;li data-id=${id}&gt;${name}&lt;/li&gt;", // 这个是显示的弹出菜单里面的内容
+            searchKey: "name", // 搜索键匹配的值
+            startWithSpace: true, // 是否匹配at之前的空格 默认为true
+            limit: 200, // 弹出菜单显示的条目数
+            callbacks: { //回调函数
+            beforeReposition: function (offset) { // 调整菜单的偏移量
+              //offset.left += 10;
+              offset.top += 10;
+            },
+            beforeInsert: function (value, $li) { // 选中菜单的回调
+              console.log(value);
+              console.log($li.attr('data-id'));
+              return value 
+            }
+            }
+          }
+          $inputor = $('#inputor').atwho(at_config);
+         
+        </pre>
+        <p>使用iframe方式可有效避免at定位不准确bug</p>
+        <p>示例：</p>
+        <pre>
+          &lt;div class="inputor" style="overflow: hidden">
+            &lt;iframe src="" id="iframe1" style="width: 100%; height: 100%; border: 0px;"></iframe>
+          &lt;/div>
+          var ifr = $('#iframe1')[0],
+            doc = ifr.contentDocument || iframe.contentWindow.document,
+            ifrBody;
+          if ((ifrBody = doc.body) == null) {
+          // For IE
+          doc.write("&lt;body>&lt;/body>")
+            ifrBody = doc.body
+          }
+          ifrBody.contentEditable = true
+          ifrBody.id = 'ifrBody'
+          ifrBody.innerHTML = ''
+          $(ifrBody).atwho('setIframe', ifr).atwho(at_config)
+        </pre>
+      </blockquote>
+    </div>
+    <div class="layui-col-md6">
+      <br>
+      <textarea id="inputor" class="inputor">我来试试textarea@的提及功能 @</textarea>
+      <span class="clickMe">点我</span>
+      <input id="inputor-t" type="text" name="title" placeholder="请输入内容" autocomplete="off" class="layui-input">
+
+      <br>
+      <div class="inputor" style="overflow: hidden">
+        <iframe src="" id="iframe1" style="width: 100%; height: 100%; border: 0px;"></iframe>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    var jeremy = decodeURI("J%C3%A9r%C3%A9my") // Jérémy
+    var names = ["Jacob", "Isabella", "Ethan", "Emma", "Michael", "Olivia", "Alexander", "Sophia", "William", "Ava", "Joshua", "Emily", "Daniel", "Madison", "Jayden", "Abigail", "Noah", "Chloe", "你好", "你你你", jeremy, "가"];
+
+    var names = $.map(names, function (value, i) {
+      return { 'id': i, 'name': value, 'email': value + "@email.com" };
+    });
+
+    var arr = ['老大', '老二', '老三', '张三', '李四', '王五', '老六']
+
+    var arrObj = $.map(arr, function (value, i) {
+      return { 'id': i, 'name': value };
+    });
+
+    var at_config = {
+      at: "@", //触发字符
+      data: arrObj, //数据 json格式
+      headerTpl: '', // 弹出菜单的标题
+      insertTpl: '@${name}', // 选中菜单显示的内容
+      displayTpl: "<li data-id=${id}>${name}</li>",  // 这个是显示的弹出菜单里面的内容 
+      searchKey: "name", // 搜索键匹配的值
+      startWithSpace: true, // 是否匹配at之前的空格 默认为true
+      limit: 200 // 弹出菜单显示的条目数
+    }
+    $inputor = $('#inputor').atwho(at_config);
+    $inputor.caret('pos', 47);
+    $inputor.focus().atwho('run');
+
+    $('.clickMe').on('click', function () {
+      console.log($inputor);
+    })
+
+    var at_config2 = {
+      at: "@", //触发字符
+      data: arrObj, //数据 json格式
+      headerTpl: '', // 弹出菜单的标题
+      insertTpl: '@${name}', // 选中菜单显示的内容
+      displayTpl: "<li data-id=${id}>${name}</li>",  // 这个是显示的弹出菜单里面的内容 
+      searchKey: "name", // 搜索键匹配的值
+      startWithSpace: false, // 是否匹配at之前的空格 默认为true
+      limit: 200, // 弹出菜单显示的条目数
+      callbacks: { //回调函数
+        beforeReposition: function (offset) { // 调整菜单的偏移量
+          //offset.left += 10;
+          //offset.top += 10;
+        },
+        beforeInsert: function (value, $li) { // 选中菜单的回调
+          console.log(value);
+          console.log($li.attr('data-id'));
+          return value
+        }
+      }
+    }
+
+    $inputorT = $('#inputor-t').atwho('setIframe').atwho(at_config2);
+    $inputorT.caret('pos', 47);
+    $inputorT.focus().atwho('run');
+
+    var ifr = $('#iframe1')[0],
+      doc = ifr.contentDocument || iframe.contentWindow.document,
+      ifrBody;
+    if ((ifrBody = doc.body) == null) {
+      // For IE
+      doc.write("&lt;body>&lt;/body>")
+      ifrBody = doc.body
+    }
+    ifrBody.contentEditable = true
+    ifrBody.id = 'ifrBody'
+    ifrBody.innerHTML = ''
+    $(ifrBody).atwho('setIframe', ifr).atwho(at_config)
+
+  </script>
+</body>
+
+</html>

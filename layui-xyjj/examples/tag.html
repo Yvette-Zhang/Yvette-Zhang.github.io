@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tag</title>
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <style>
+    body {
+      padding:0px 30px;
+    }
+
+    #demo {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-md6">
+      <blockquote class="layui-elem-quote" style="margin-top: 30px">
+        <p>示例代码：</p>
+        <textarea style="width: 100%;height: 550px;border: none;" readonly>
+      <span>默认标签：</span>
+      <span class="layui-tag">标签一</span>
+      <span class="layui-tag">标签二</span>
+      <span class="layui-tag">标签三</span>
+      <span class="layui-tag">标签四</span>
+      <span class="layui-tag">标签五</span>
+     
+      
+      <span>带删除标签：</span>
+      <span class="layui-tag">标签一<i class="layui-icon layui-icon-close"></i></span>
+      <span class="layui-tag">标签二<i class="layui-icon layui-icon-close"></i></span>
+      <span class="layui-tag">标签三<i class="layui-icon layui-icon-close"></i></span>
+      <span class="layui-tag">标签四<i class="layui-icon layui-icon-close"></i></span>
+      <span class="layui-tag">标签五<i class="layui-icon layui-icon-close"></i></span>
+      
+
+      <span>默认dot标签：</span>
+      <span class="layui-tag layui-tag-text"><i class="layui-tag-dot"></i>标签一</span>
+      
+    </textarea>
+      </blockquote>
+    </div>
+    <div class="layui-col-md6">
+      <br>
+      <br>
+      <div>
+        <span>默认标签：</span>
+        <span class="layui-tag">标签一</span>
+        <span class="layui-tag">标签二</span>
+        <span class="layui-tag">标签三</span>
+        <span class="layui-tag">标签四</span>
+        <span class="layui-tag">标签五</span>
+        <br />
+        <br />
+        <span>带删除标签：</span>
+        <span class="layui-tag">标签一<i class="layui-icon layui-icon-close"></i></span>
+        <span class="layui-tag">标签二<i class="layui-icon layui-icon-close"></i></span>
+        <span class="layui-tag">标签三<i class="layui-icon layui-icon-close"></i></span>
+        <span class="layui-tag">标签四<i class="layui-icon layui-icon-close"></i></span>
+        <span class="layui-tag">标签五<i class="layui-icon layui-icon-close"></i></span>
+        <br />
+        <br />
+        <span>默认dot标签：</span>
+        <span class="layui-tag layui-tag-text"><i class="layui-tag-dot"></i>标签一</span>
+        <br />
+        <br />
+        <!-- <span>自定义颜色dot标签：</span>
+          <div id="demo">
+            <span class="layui-tag layui-tag-text layui-tag-inline"><i class="layui-tag-dot"></i>标签一</span>
+            <span class="layui-tag layui-tag-text layui-tag-inline"><i class="layui-tag-dot"></i>标签二</span>
+            <span class="layui-tag layui-tag-text layui-tag-inline"><i class="layui-tag-dot"></i>标签三</span>
+            <span class="layui-tag layui-tag-text layui-tag-inline"><i class="layui-tag-dot"></i>标签四</span>
+            <span class="layui-tag layui-tag-text layui-tag-inline"><i class="layui-tag-dot"></i>标签五</span>
+          </div> -->
+        <br />
+        <br />
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./js/jquery-1.9.1.min.js"></script>
+  <script src="../src/layui.js"></script>
+  <script>
+    layui.use(['colorpicker'], function () {
+      var colorpicker = layui.colorpicker;
+
+      // $('#demo .layui-tag-dot').each(function () {
+      //   var $this = $(this)
+      //   colorpicker.render({
+      //     elem: $this,
+
+      //     done: function (color) {
+      //       console.log(color);
+      //       $this.css('background-color', color)
+      //     }, change: function (color) {
+      //       $this.css('background-color', color)
+      //     }
+      //   });
+      // })
+
+    })
+  </script>
+</body>
+
+</html>

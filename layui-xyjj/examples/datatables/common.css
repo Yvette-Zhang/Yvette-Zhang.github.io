@@ -1,0 +1,134 @@
+/* 排序列光标 */
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+  cursor: pointer;
+  *cursor: hand;
+  position: relative;
+}
+/* 排序右边距 */
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > th.sorting_desc,
+table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > td.sorting_asc,
+table.dataTable thead > tr > td.sorting_desc,
+table.dataTable thead > tr > td.sorting {
+  padding-right: 30px;
+}
+/* 默认排序状态 */
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:after {
+  position: absolute;
+  display: block;
+  opacity: 0.3;
+  font-family: "layui-icon" !important;
+  font-size: 1em;
+  font-style: normal;
+  color: #2b79f6;
+}
+
+/* 升序图标 */
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+  right: 1em;
+  top: 5px;
+  content: "\e625";
+  transform: rotate(180deg);
+}
+/* 降序图标 */
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  right: 1em;
+  bottom: 5px;
+  content: "\e625";
+}
+/* 排序图标激活 */
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:after {
+  opacity: 1;
+}
+/* 排序图标禁用 */
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:after {
+  opacity: 0;
+}
+
+/* 表格内部下拉选光标 */
+table.dataTable [data-dropdown] {
+  cursor: pointer;
+}
+
+/* 覆盖 layui-table 样式 */
+table.dataTable {
+  border: none !important;
+}
+table.dataTable thead tr {
+  background-color: #f8f9fa;
+}
+table.dataTable thead th {
+  border: none !important;
+  color: #333;
+  font-weight: bold;
+}
+table.dataTable tbody tr:hover {
+  background-color: #f8f9fa;
+}
+/* 分组 */
+table.dataTable .dtrg-group td {
+  padding: 20px 0;
+  font-weight: bold;
+}
+.datatable-group-icon {
+  margin-right: 10px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 10px;
+  background: #f0f8ff;
+}
+/* 固定表头 */
+table.fixedHeader-floating {
+  position: fixed !important;
+  background-color: white;
+  margin: 0 auto;
+}
+
+table.fixedHeader-floating.no-footer {
+  border-bottom-width: 0;
+}
+
+table.fixedHeader-locked {
+  position: absolute !important;
+  background-color: white;
+}
+
+@media print {
+  table.fixedHeader-floating {
+    display: none;
+  }
+}
+
+/* 操作栏按钮颜色 */
+table.dataTable .datatable-btn {
+  background: #0000;
+  color: #2b79f6;
+  font-size: 1em;
+}

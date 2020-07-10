@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layui树形表格</title>
+    <link rel="stylesheet" href="../../src/css/layui.css">
+    <link rel="stylesheet" href="../../layui_exts/treeTable/css/demo.css">
+</head>
+<body class="layui-hide">
+<div class="page-wrapper">
+    <div class="layui-btn-container">
+        <a href="treetable.html" class="layui-btn layui-btn-sm layui-btn-primary">
+            <i class="layui-icon">&#xe65c;</i>返回
+        </a>
+    </div>
+    <table id="demoTreeTb"></table>
+</div>
+
+<!-- 表格操作列 -->
+<script type="text/html" id="tbBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<script src="../../src/layui.js"></script>
+<script>
+    layui.config({
+        base: '../../layui_exts/treeTable/js/'
+    }).use(['treeTable'], function () {
+        var $ = layui.jquery;
+        var treeTable = layui.treeTable;
+        $('body').removeClass('layui-hide');
+
+        // 渲染表格
+        treeTable.render({
+            elem: '#demoTreeTb',
+            url: '../../layui_exts/treeTable/json/menus.json',
+            toolbar: true,
+            tree: {
+                iconIndex: 2,
+                isPidData: true,
+                idName: 'authorityId',
+                pidName: 'parentId',
+                arrowType: 'arrow2',
+                getIcon: 'ew-tree-icon-style2'
+            },
+            cols: [[
+                {type: 'numbers'},
+                {type: 'checkbox'},
+                {field: 'authorityName', title: '菜单名称', minWidth: 165},
+                {field: 'menuUrl', title: '菜单地址'},
+                {field: 'authority', title: '权限标识'},
+                {title: '类型', templet: '<p>{{d.isMenu?"菜单":"按钮"}}</p>', align: 'center', width: 60},
+                {field: 'createTime', title: '创建时间'},
+                {align: 'center', toolbar: '#tbBar', title: '操作', width: 120}
+            ]],
+            style: 'margin-top:0;'
+        });
+
+    });
+</script>
+</body>
+</html>

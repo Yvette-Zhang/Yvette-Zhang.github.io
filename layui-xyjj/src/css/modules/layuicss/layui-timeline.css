@@ -1,0 +1,343 @@
+/* 时间线 */
+.layui-timeline {
+  padding-left: 5px;
+}
+
+.layui-timeline-item {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.layui-timeline-axis {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #fff;
+  color: #5fb878;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.layui-timeline-axis:hover {
+  color: #ff5722;
+}
+
+.layui-timeline-item:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  z-index: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.layui-timeline-item:last-child:before {
+  display: none;
+}
+
+.layui-timeline-item:first-child:before {
+  display: block;
+}
+
+.layui-timeline-content {
+  padding-left: 25px;
+}
+
+.layui-timeline-title {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+/* 时间线弹窗 */
+::-webkit-scrollbar {
+  width: 10px;
+  /*对垂直流动条有效*/
+  height: 10px;
+  /*对水平流动条有效*/
+}
+
+/*定义滚动条的轨道颜色、内阴影及圆角*/
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+
+/*定义滑块颜色、内阴影及圆角*/
+::-webkit-scrollbar-thumb {
+  background: rgba(226, 232, 241, 1);
+  border-radius: 3px;
+}
+
+/*定义两端按钮的样式*/
+::-webkit-scrollbar-button {
+  background-color: #fff;
+}
+
+.layui-titleO {
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.layui-titleO .h4 {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(34, 40, 51, 1);
+}
+
+.head_ptoto {
+  display: inline-block;
+  position: absolute;
+  right: 40px;
+}
+
+.layui-titleO .span {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(185, 192, 200, 1);
+  margin-right: 10px;
+}
+
+.head_ptoto .layui-head_photo_span {
+  display: inline-block;
+  width: 30px;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(98, 104, 116, 1);
+  margin-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  top: 5px;
+}
+
+
+
+
+
+
+/* 表格 */
+
+.table-title table tr th {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(34, 40, 51, 1);
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sticky-table tr td {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(98, 104, 116, 1);
+  width: 98px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 3px;
+}
+
+.table-title table {
+  width: 100%;
+}
+
+.sticky-div table {
+  min-width: 100%;
+}
+
+.sticky-btn {
+  transform: rotate(0deg);
+  transition: .2s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.layui-timeline-item .sticky-btn .layui-icon_top {
+  color: rgba(102, 102, 102, 1);
+  font-size: 8px;
+}
+
+.layui-timeline-item.on .sticky-btn {
+  transform: rotate(-180deg);
+}
+
+.sticky-div {
+  display: inline-block;
+}
+
+.layui-timeline-content {
+  min-height: 30px;
+  height: 30px;
+  overflow: hidden;
+  transition: .2s;
+  margin-top: 21px;
+}
+
+.layui-timeline-item.on .layui-timeline-content {
+  height: auto;
+  margin-top: 21px;
+}
+
+.timeline-time {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.timeline-time .timeline-time_pO {
+  color: rgba(202, 34, 28, 1);
+}
+
+.timeline-time .timeline-time_p1 {
+  color: rgba(98, 104, 116, 1);
+}
+
+.blue-text,
+.red-text {
+  cursor: pointer;
+}
+
+.blue-text {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 120, 255, 1);
+  margin-right: 19px;
+}
+
+.blue-text_yulan {
+  margin-left: -28px;
+}
+
+.layui-timeline-item .layui-icon {
+  color: rgba(0, 119, 255, 1);
+}
+
+.red-text_icon .layui-icon {
+  color: #666;
+}
+
+.red-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(202, 34, 28, 1);
+}
+
+.list-num {
+  display: inline-block;
+  margin-left: 5px;
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 28px;
+  text-align: center;
+  color: #47C5B2;
+  background: rgba(71, 197, 178, 0.2);
+}
+
+.table-title {
+  height: 38px;
+  line-height: 38px;
+  padding-left: 140px;
+  background: rgba(245, 246, 247, 1);
+  border-radius: 4px;
+}
+
+.sticky-table {
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 10px;
+  margin-left: 3px;
+  transition: background-color .2s;
+}
+
+
+.layui-icon.layui-timeline-axis {
+  margin-top: 5px;
+}
+
+.layui-timeline-item:before,
+hr {
+  top: 5px;
+  background-color: rgb(155, 172, 192);
+}
+
+.timeline-time,
+.timeline-time-single {
+  display: inline-block;
+  width: 40px;
+}
+
+.timeline-time {
+  line-height: 1;
+  float: left;
+}
+
+.timeline-time-single {
+  line-height: 30px;
+  float: left;
+}
+
+.sticky-btn-area {
+  float: left;
+  display: inline-block;
+  width: 20px;
+}
+
+
+
+.table-titleO table tr th {
+  width: 132px;
+}
+
+.sticky-divO table tr td {
+  width: 132px;
+}
+
+.layui-btnO {
+  cursor: pointer;
+}
+
+.layui-timeline-item .layui-timeline-icon {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #0077FF;
+  background: #0077FF;
+  box-shadow: 0 8px 21px 0 rgba(0, 119, 255, 0.4);
+  border-radius: 50%;
+  position: absolute;
+  left: -2px;
+  top: 5px;
+}
+
+.layui-timeline-item.on .layui-timeline-icon {
+  background: #fff;
+  box-shadow: none;
+}
+.layui-timeline-item.on .sticky-table{
+  background-color: #F5F6F7;
+}

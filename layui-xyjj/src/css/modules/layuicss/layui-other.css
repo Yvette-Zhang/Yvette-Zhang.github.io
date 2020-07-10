@@ -1,0 +1,462 @@
+/** 基础通用 **/
+.layui-border-box,
+.layui-border-box * {
+  box-sizing: border-box;
+}
+/* 消除第三方ui可能造成的冲突 */
+.layui-box,
+.layui-box * {
+  box-sizing: content-box;
+}
+.layui-clear {
+  clear: both;
+  *zoom: 1;
+}
+.layui-clear:after {
+  content: "\20";
+  clear: both;
+  *zoom: 1;
+  display: block;
+  height: 0;
+}
+.layui-inline {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+}
+/* 三角形 */
+.layui-edge {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-style: dashed;
+  border-color: transparent;
+  overflow: hidden;
+}
+.layui-edge-top {
+  top: -4px;
+  border-bottom-color: #999;
+  border-bottom-style: solid;
+}
+.layui-edge-right {
+  border-left-color: #999;
+  border-left-style: solid;
+}
+.layui-edge-bottom {
+  top: 2px;
+  border-top-color: #999;
+  border-top-style: solid;
+}
+.layui-edge-left {
+  border-right-color: #999;
+  border-right-style: solid;
+}
+/* 单行溢出省略 */
+.layui-elip {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/* 屏蔽选中 */
+.layui-unselect,
+.layui-icon,
+.layui-disabled {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+/* 禁用 */
+.layui-disabled,
+.layui-disabled:hover {
+  color: #d2d2d2 !important;
+  cursor: not-allowed !important;
+}
+/* 纯圆角 */
+.layui-circle {
+  border-radius: 100%;
+}
+.layui-show {
+  display: block !important;
+}
+.layui-hide {
+  display: none !important;
+}
+
+/* 基本布局 */
+.layui-main {
+  position: relative;
+  width: 1140px;
+  margin: 0 auto;
+}
+.layui-header {
+  position: relative;
+  z-index: 1000;
+  height: 60px;
+}
+.layui-header a:hover {
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
+.layui-side {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  width: 200px;
+  overflow-x: hidden;
+}
+.layui-side-scroll {
+  position: relative;
+  width: 220px;
+  height: 100%;
+  overflow-x: hidden;
+}
+.layui-body {
+  position: absolute;
+  left: 200px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 998;
+  width: auto;
+  overflow: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/* 后台框架大布局 */
+.layui-layout-body {
+  overflow: hidden;
+}
+.layui-layout-admin .layui-header {
+  background-color: #23262e;
+}
+.layui-layout-admin .layui-side {
+  top: 60px;
+  width: 200px;
+  overflow-x: hidden;
+}
+.layui-layout-admin .layui-body {
+  position: fixed;
+  top: 60px;
+  bottom: 44px;
+}
+.layui-layout-admin .layui-main {
+  width: auto;
+  margin: 0 15px;
+}
+.layui-layout-admin .layui-footer {
+  position: fixed;
+  left: 200px;
+  right: 0;
+  bottom: 0;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 15px;
+  background-color: #eee;
+}
+.layui-layout-admin .layui-logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  color: #009688;
+  font-size: 16px;
+}
+.layui-layout-admin .layui-header .layui-nav {
+  background: none;
+}
+.layui-layout-left {
+  position: absolute !important;
+  left: 200px;
+  top: 0;
+}
+.layui-layout-right {
+  position: absolute !important;
+  right: 0;
+  top: 0;
+}
+
+/** 页面元素 **/
+.layui-btn,
+.layui-input,
+.layui-textarea,
+.layui-upload-button,
+.layui-select {
+  outline: none;
+  -webkit-appearance: none;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+/* 引用 */
+.layui-elem-quote {
+  margin-bottom: 10px;
+  padding: 15px;
+  line-height: 22px;
+  border-left: 5px solid #009688;
+  border-radius: 0 2px 2px 0;
+  background-color: #f2f2f2;
+}
+.layui-quote-nm {
+  border-style: solid;
+  border-width: 1px;
+  border-left-width: 5px;
+  background: none;
+}
+/* 字段集合 */
+.layui-elem-field {
+  margin-bottom: 10px;
+  padding: 0;
+  border-width: 1px;
+  border-style: solid;
+}
+.layui-elem-field legend {
+  margin-left: 20px;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 300;
+}
+.layui-field-title {
+  margin: 10px 0 20px;
+  border-width: 0;
+  border-top-width: 1px;
+}
+.layui-field-box {
+  padding: 10px 15px;
+}
+.layui-field-title .layui-field-box {
+  padding: 10px 0;
+}
+
+/* 其它辅助 */
+.layui-auxiliar-moving {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  z-index: 9999999999;
+}
+
+/* 
+
+  默认主题 
+  
+*/
+
+/* 背景颜色 */
+.layui-bg-red {
+  background-color: #ff5722 !important;
+  color: #fff !important;
+} /*赤*/
+.layui-bg-orange {
+  background-color: #ffb800 !important;
+  color: #fff !important;
+} /*橙*/
+.layui-bg-green {
+  background-color: #009688 !important;
+  color: #fff !important;
+} /*绿*/
+.layui-bg-cyan {
+  background-color: #2f4056 !important;
+  color: #fff !important;
+} /*青*/
+.layui-bg-blue {
+  background-color: #1e9fff !important;
+  color: #fff !important;
+} /*蓝*/
+.layui-bg-black {
+  background-color: #393d49 !important;
+  color: #fff !important;
+} /*黑*/
+.layui-bg-gray {
+  background-color: #eee !important;
+  color: #666 !important;
+} /*灰*/
+
+/* 边框 */
+.layui-quote-nm,
+.layui-elem-field,
+.layui-collapse,
+.layui-colla-item,
+.layui-colla-content,
+.layui-badge-rim,
+.layui-tab-title,
+.layui-tab-title .layui-this:after,
+.layui-tab-bar,
+.layui-tab-card,
+.layui-input,
+.layui-textarea,
+.layui-select,
+.layui-form-pane .layui-form-label,
+.layui-form-pane .layui-form-item[pane],
+.layui-layedit,
+.layui-layedit-tool {
+  border-color: #e6e9f0;
+}
+
+/* 背景边框 */
+hr,
+.layui-timeline-item:before {
+  background-color: #e6e6e6;
+}
+
+/* 文本区域 */
+.layui-text {
+  line-height: 22px;
+  font-size: 14px;
+  color: #666;
+}
+.layui-text h1,
+.layui-text h2,
+.layui-text h3 {
+  font-weight: 500;
+  color: #333;
+}
+.layui-text h1 {
+  font-size: 30px;
+}
+.layui-text h2 {
+  font-size: 24px;
+}
+.layui-text h3 {
+  font-size: 18px;
+}
+.layui-text a:not(.layui-btn) {
+  color: #01aaed;
+}
+.layui-text a:not(.layui-btn):hover {
+  text-decoration: underline;
+}
+.layui-text ul {
+  padding: 5px 0 5px 15px;
+}
+.layui-text ul li {
+  margin-top: 5px;
+  list-style-type: disc;
+}
+.layui-text em,
+.layui-word-aux {
+  color: #999 !important;
+  padding: 0 5px !important;
+}
+
+/** fixbar **/
+.layui-fixbar {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 999999;
+}
+.layui-fixbar li {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 1px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 30px;
+  background-color: #9f9f9f;
+  color: #fff;
+  border-radius: 2px;
+  opacity: 0.95;
+}
+.layui-fixbar li:hover {
+  opacity: 0.85;
+}
+.layui-fixbar li:active {
+  opacity: 1;
+}
+.layui-fixbar .layui-fixbar-top {
+  display: none;
+  font-size: 40px;
+}
+
+/** 表情面板 **/
+body .layui-util-face {
+  border: none;
+  background: none;
+}
+body .layui-util-face .layui-layer-content {
+  padding: 0;
+  background-color: #fff;
+  color: #666;
+  box-shadow: none;
+}
+.layui-util-face .layui-layer-TipsG {
+  display: none;
+}
+.layui-util-face ul {
+  position: relative;
+  width: 372px;
+  padding: 10px;
+  border: 1px solid #d9d9d9;
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.layui-util-face ul li {
+  cursor: pointer;
+  float: left;
+  border: 1px solid #e8e8e8;
+  height: 22px;
+  width: 26px;
+  overflow: hidden;
+  margin: -1px 0 0 -1px;
+  padding: 4px 2px;
+  text-align: center;
+}
+.layui-util-face ul li:hover {
+  position: relative;
+  z-index: 2;
+  border: 1px solid #eb7350;
+  background: #fff9ec;
+}
+
+/** 代码修饰器 **/
+.layui-code {
+  position: relative;
+  margin: 10px 0;
+  padding: 15px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  border-left-width: 6px;
+  background-color: #f2f2f2;
+  color: #333;
+  font-family: Courier New;
+  font-size: 12px;
+}
+
+/* 多选xm-select下拉标签新增样式 */
+.xm-tag-dot {
+  box-sizing: border-box;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+xm-select > .xm-body .xm-option-content {
+  align-items: center;
+}
+
+xm-select > .xm-body .xm-option-content {
+  width: calc(100% - 10px) !important;
+}
+
+xm-select > .xm-body .xm-option-content .layui-icon {
+  position: absolute;
+  right: 0;
+}

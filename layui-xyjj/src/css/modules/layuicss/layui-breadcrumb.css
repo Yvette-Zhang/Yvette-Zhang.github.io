@@ -1,0 +1,38 @@
+/** 面包屑 **/
+.layui-breadcrumb {
+  visibility: hidden;
+  font-size: 0;
+  color: #939997;
+}
+
+.layui-breadcrumb > * {
+  font-size: 14px;
+}
+
+.layui-breadcrumb a {
+  color: #939997 !important;
+}
+
+.layui-breadcrumb a:hover {
+  color: #308c57 !important;
+}
+
+.layui-breadcrumb a cite {
+  color: #939997;
+  font-style: normal;
+}
+
+.layui-breadcrumb span[lay-separator] {
+  margin: 0 10px;
+  color: #939997;
+}
+
+.layui-crumbs a {
+  color: #939997;
+  font-size: 12px;
+}
+
+.layui-crumbs a cite {
+  color: #939997;
+  font-size: 12px;
+}

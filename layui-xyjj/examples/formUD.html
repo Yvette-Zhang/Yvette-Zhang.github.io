@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>form表单</title>
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <link rel="stylesheet" href="../src/css/modules/layuicss/layui-form.css">
+</head>
+<style>
+  body {
+    padding: 0 30px;
+  }
+</style>
+
+<body>
+  <div class="layui-row layui-col-space10">
+    <div class="layui-col-md6">
+      <br>
+      <blockquote class="layui-elem-quote">
+        <p>form表单</p>
+        <p>如果form表单的标题和输入框显示上下结构</p>
+        <pre class="layui-cord">
+          可以在form标签中加入class类名layui-formUD
+          <xmp><form class="layui-form layui-formUD"></form></xmp>
+        </pre>
+      </blockquote>
+    </div>
+    <div class="layui-col-md6">
+      <form class="layui-form layui-formUD">
+        <div class="layui-form-item">
+          <label class="layui-form-label">序号</label>
+          <div class="layui-input-inline">
+            <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input layui-input1"
+              placeholder="3" disabled="disabled">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">分类名称</label>
+          <div class="layui-input-inline ">
+            <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label ">任务字段</label>
+          <div class="layui-input-inline ">
+            <input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input" placeholder="+选择" ">
+          </div>
+        </div>
+        <div class=" layui-form-item">
+            <label class="layui-form-label ">备注</label>
+            <div class="layui-input-inline ">
+              <textarea class="layui-textarea"></textarea>
+            </div>
+          </div>
+      </form>
+
+      <div class="site-demo-button" id="layerDemo">
+        <br>
+        <br>
+        <p>最终表单显示的上下结构</p>
+        <a class="layui-btn" data-method="notice">编辑</a>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+  <script src="../src/layui.js"></script>
+  <script>
+    layui.use(['layer'], function () {
+      var layer = layui.layer;
+      var $ = layui.jquery;
+
+      var active = {
+        notice: function () {
+          layer.open({
+            type: 1,
+            title: ['新增任务分类'],
+            area: ['600px', '500px'],
+            content: '<form class="layui-form layui-formUD"><div class="layui-form-item"><label class="layui-form-label">序号</label><div class="layui-input-inline"><input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input layui-input1" placeholder="3" disabled="disabled"></div></div><div class="layui-form-item"><label class="layui-form-label">分类名称</label><div class="layui-input-inline "><input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input"></div></div><div class="layui-form-item"><label class="layui-form-label ">任务字段</label><div class="layui-input-inline " ><input type="text" name="title" lay-verify="title" autocomplete="off" class="layui-input" placeholder="+选择" "></div></div><div class="layui-form-item"><label class="layui-form-label ">备注</label><div class="layui-input-inline "><textarea class="layui-textarea" ></textarea></div></div></form>',
+            btn: '保存',
+            btnAlign: 'c',  //按钮居中
+
+          })
+        }
+      };
+
+      $('#layerDemo .layui-btn').on('click', function () {
+        var othis = $(this), method = othis.data('method');
+        active[method] ? active[method].call(this, othis) : '';
+      })
+    })
+  </script>
+</body>
+
+</html>

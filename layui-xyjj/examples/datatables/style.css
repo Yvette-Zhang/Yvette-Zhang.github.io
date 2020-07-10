@@ -1,0 +1,73 @@
+table.dataTable {
+  border: none !important;
+}
+table.dataTable thead th {
+  border: none !important;
+  color: #333;
+  font-weight: bold;
+}
+table.dataTable .dtrg-group td {
+  padding: 20px 0;
+  font-weight: bold;
+}
+table.dataTable .layui-btn {
+  background: #0000;
+  color: #00f;
+}
+[data-dropdown]{
+  cursor: pointer;
+}
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc,
+table.dataTable thead .sorting_asc_disabled,
+table.dataTable thead .sorting_desc_disabled {
+  cursor: pointer;
+  *cursor: hand;
+}
+table.dataTable tbody tr:hover {
+  box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.24);
+  background-color: transparent;
+}
+table.dataTable tbody tr:hover td {
+  border-bottom-color: transparent;
+}
+table.dataTable .dtrg-group:hover {
+  box-shadow: none;
+}
+table.dataTable td.datatable-visible-hide * {
+  opacity: 0;
+  transition: all 0.2s;
+}
+table.dataTable tr:hover td.datatable-visible-hide * {
+  opacity: 1;
+}
+table.dataTable td.datatable-visible-hide .layui-icon {
+  cursor: pointer;
+}
+table.dataTable td.datatable-visible-hide .layui-icon + .layui-icon {
+  margin-left: 5px;
+}
+
+.datatable-status-invalid td {
+  opacity: 0.1;
+}
+
+.datatable-status-invalid td:last-child {
+  opacity: 1;
+}
+
+.datatable-status-invalid td:nth-child(2) {
+  text-decoration: line-through;
+}
+
+.datatable-group-icon {
+  margin-right: 10px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 10px;
+  background: #f0f8ff;
+}

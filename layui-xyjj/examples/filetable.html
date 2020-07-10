@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>表格操作 - layui</title>
+
+  <link rel="stylesheet" href="../src/css/layui.css">
+  <link rel="stylesheet" href="../layui_exts/dropDown/dropDown.css">
+
+
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    .filetable-tag {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .filetable-tag-item {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      position: absolute;
+      top: -5px;
+    }
+
+    .file-box {
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .file-box__icon {
+      margin-right: 13px;
+      display: block;
+      width: 48px;
+      height: 50px;
+    }
+
+    .file-box__content {
+      flex: 1
+    }
+
+    .file-box__content__name {
+      font-size: 16px;
+      font-weight: 400;
+      color: #212732;
+    }
+
+    .file-box__content__mate {
+      font-size: 12px;
+      color: #616774;
+    }
+
+    .file-box__content__mate i {
+      font-size: 12px;
+      color: #CCD2E0;
+      margin-right: 5px;
+    }
+
+    .file-box__no-share {
+      width: 18px;
+      height: 2px;
+      margin-top: 10px;
+      background-color: rgba(219, 221, 231, 1);
+    }
+
+    .file-box--disabled {
+      opacity: .4;
+    }
+
+    .file-box--isfloder .file-box__icon {
+      width: 28px;
+      height: 20px;
+    }
+
+    .file-box--isfloder .file-box__no-share {
+      display: none;
+    }
+
+    .file-box--istop::after {
+      content: " ";
+      position: absolute;
+      display: block;
+      top: -5px;
+      left: -48px;
+      width: 0;
+      height: 0;
+      border-top: 10px solid red;
+      border-right: 10px solid transparent;
+      opacity: .2;
+    }
+
+    .layui-table-cell:empty::before {
+      position: absolute;
+      display: block;
+      content: " ";
+      width: 18px;
+      height: 2px;
+      background-color: rgba(219, 221, 231, 1);
+    }
+  </style>
+</head>
+
+<body>
+  <table id="demo" lay-filter="test"></table>
+
+  <script type="text/html" id="fileNameTpl">
+    <div class="file-box {{d.top ? 'file-box--istop' : ''}} {{d.disabled ? 'file-box--disabled' : ''}} {{d.floder ? 'file-box--isfloder' : ''}}">
+      <img class="file-box__icon" src="https://dummyimage.com/60x70/000/fff" alt="">
+      <div class="file-box__content">
+        <div class="file-box__content__name">{{d.name}}</div>
+        <div class="file-box__content__mate">
+          {{#  if(d.share){ }}
+          <i class="layui-icon layui-icon-share"></i>已分享
+          {{#  } else { }}
+          <div class="file-box__no-share"></div>
+          {{#  } }}
+        </div>
+      </div>
+    </div>
+  </script>
+  <script type="text/html" id="fileActionTpl">
+    <button class="layui-btn layui-btn-text" lay-event="history">
+      <i class="layui-icon layui-icon-heart-fill"></i>
+    </button>
+    <button class="layui-btn layui-btn-text" data-dropdown="more{{d.LAY_INDEX}}" lay-event="more">
+      <i class="layui-icon layui-icon-more"></i>
+    </button>
+    {{#  if(d.star){ }}
+      <button class="layui-btn layui-btn-text" lay-event="star">
+        <i class="layui-icon layui-icon-rate-solid"></i>
+      </button>
+    {{#  } else { }}
+      <button class="layui-btn layui-btn-text" lay-event="unstar">
+        <i class="layui-icon layui-icon-rate"></i>
+      </button>
+    {{#  } }}
+
+  </script>
+  <script type="text/html" id="fileTagTpl">
+    <div class="filetable-tag">
+      {{#  layui.each(d.tags, function(index, item){ }}
+        <div class="filetable-tag-item" style="background: {{ item.color }};right: {{(index+1) * 5}}px;"></div>
+      {{#  }); }}
+    </div>
+  </script>
+
+  <script src="../src/layui.js"></script>
+  <script>
+    layui.config({
+      base: '../layui_exts/dropDown/'
+    }).use(['table', 'layer', 'dropDown'], function () {
+      var dropDown = layui.dropDown;
+      var table = layui.table;
+      var layer = layui.layer;
+      table.on('tool(test)', function (obj) {
+        // console.log(obj)
+        var data = obj.data;
+        layer.msg(obj.event + JSON.stringify(obj.data))
+        var el = obj.tr.find("[lay-event='" + obj.event + "']")
+        if (obj.event === 'more') {
+          console.log()
+          dropDown.render({
+            ele: el,
+            data: [{ 'type': 2, 'title': '添加文件', 'icon': 'delete' }],
+            choose: function () {
+
+            }
+          });
+        }
+      })
+      table.render({
+        elem: "#demo",
+        skin: 'line',
+        data: [
+          {
+            name: "某课题研究小组报告",
+            size: 10240,
+            disabled: false,
+            star: true,
+            top: true,
+            floder: true
+          },
+          {
+            name: "某课题研究小组报告",
+            time: "2020-6-21 14:27:49",
+            size: 10240,
+            share: true,
+            disabled: true,
+            star: false,
+            top: true,
+            tags: [
+              {
+                name: "蓝色",
+                color: "blue"
+              },
+              {
+                name: "红色",
+                color: "red"
+              },
+            ]
+          },
+          {
+            name: "某课题研究小组报告",
+            time: "2020-6-21 14:27:49",
+            size: 22222,
+            share: false,
+            star: true,
+            top: true,
+            tags: [
+              {
+                name: "红色",
+                color: "red"
+              },
+            ]
+          },
+        ],
+        cols: [
+          [
+            { type: 'checkbox' },
+            { field: "name", title: "文件", templet: "#fileNameTpl" },
+            { field: "", title: "", templet: "#fileActionTpl", visibility: true, width: 120 },
+            { field: "", title: "", templet: "#fileTagTpl", width: 80 },
+            { field: "time", title: "浏览时间" },
+            {
+              field: "size", title: "大小", sort: true, templet: function (data) {
+                var fileSize = data.size || 0;
+                if (fileSize < 1024) {
+                  return fileSize + 'B';
+                } else if (fileSize < (1024 * 1024)) {
+                  var temp = fileSize / 1024;
+                  temp = temp.toFixed(2);
+                  return temp + 'KB';
+                } else if (fileSize < (1024 * 1024 * 1024)) {
+                  var temp = fileSize / (1024 * 1024);
+                  temp = temp.toFixed(2);
+                  return temp + 'MB';
+                } else {
+                  var temp = fileSize / (1024 * 1024 * 1024);
+                  temp = temp.toFixed(2);
+                  return temp + 'GB';
+                }
+              }
+            }
+          ],
+        ],
+      });
+    })
+  </script>
+</body>
+
+</html>

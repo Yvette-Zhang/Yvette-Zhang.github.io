@@ -1,0 +1,285 @@
+/*
+ 
+  按钮 
+
+*/
+
+.layui-btn {
+  display: inline-block;
+  vertical-align: middle;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 20px;
+  background-color: #43c267;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.layui-btn:hover {
+  background-color: #30ab64;
+  color: #fff;
+}
+
+.layui-btn + .layui-btn {
+  margin-left: 10px;
+}
+
+/* 按钮容器 */
+.layui-btn-container {
+  font-size: 0;
+}
+.layui-btn-container .layui-btn {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.layui-btn-container .layui-btn + .layui-btn {
+  margin-left: 0;
+}
+.layui-table .layui-btn-container .layui-btn {
+  margin-bottom: 9px;
+}
+
+/* 圆角 */
+.layui-btn-radius {
+  border-radius: 100px;
+}
+.layui-btn .layui-icon {
+  font-size: 18px;
+  vertical-align: bottom;
+  vertical-align: middle\0;
+}
+
+/* 圆 */
+.layui-btn.layui-btn-circle {
+  width: 34px;
+  padding: 0;
+}
+.layui-btn.layui-btn-sm.layui-btn-circle {
+  width: 30px;
+  padding: 0;
+}
+.layui-btn-circle {
+  border-radius: 50%;
+}
+
+/* 原始 */
+.layui-btn-primary {
+  border: 1px solid #dcdfe6;
+  background-color: #fff;
+  color: #626665;
+}
+.layui-btn-primary:hover {
+  background-color: #f8fafc;
+  color: #626665;
+}
+/* 百搭 */
+.layui-btn-normal {
+  background-color: #43c267;
+}
+.layui-btn-normal:hover {
+  background-color: #43c267;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+/* 暖色 */
+.layui-btn-warm {
+  background-color: #ff8d18;
+}
+.layui-btn-warm:hover {
+  background-color: #f8b95a;
+}
+/* 警告 */
+.layui-btn-danger {
+  background-color: #f84926;
+}
+.layui-btn-danger:hover {
+  background-color: #ff6b4d;
+}
+/* 选中 */
+.layui-btn-checked {
+  background-color: #5fb878;
+}
+/* 禁用 */
+.layui-btn-disabled,
+.layui-btn-disabled:hover,
+.layui-btn-disabled:active {
+  border: 1px solid #e6e6e6;
+  background-color: #fbfbfb;
+  color: #c9c9c9;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* 朴素按钮 */
+/* 默认 */
+.layui-btn.layui-btn-plain {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #308c57;
+  background-color: #fff;
+  color: #308c57;
+}
+
+.layui-btn.layui-btn-plain:hover {
+  background-color: rgba(48, 140, 87, 0.1);
+}
+
+/* 百搭 */
+.layui-btn-normal.layui-btn-plain {
+  border-color: #43c167;
+  color: #43c167;
+}
+
+.layui-btn-normal.layui-btn-plain:hover {
+  background-color: rgba(30, 159, 255, 0.1);
+}
+
+/* 暖色 */
+.layui-btn-warm.layui-btn-plain {
+  border-color: #ff8e18;
+  color: #ff8d18;
+}
+
+.layui-btn-warm.layui-btn-plain:hover {
+  background-color: rgba(255, 142, 24, 0.1);
+}
+
+/* 警告 */
+.layui-btn-danger.layui-btn-plain {
+  border-color: #f84926;
+  color: #f84926;
+}
+
+.layui-btn-danger.layui-btn-plain:hover {
+  background-color: rgba(248, 73, 38, 0.1);
+}
+
+/* 大型 */
+.layui-btn-lg {
+  height: 44px;
+  line-height: 44px;
+  padding: 0 25px;
+  font-size: 16px;
+}
+/* 小型 */
+.layui-btn-sm {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+.layui-btn-sm i {
+  font-size: 16px !important;
+}
+/* 超小 */
+.layui-btn-xs {
+  height: 22px;
+  line-height: 22px;
+  padding: 0 5px;
+  font-size: 12px;
+}
+.layui-btn-xs i {
+  font-size: 14px !important;
+}
+/* 按钮组 */
+.layui-btn-group {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+}
+.layui-btn-group .layui-btn {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0;
+}
+.layui-btn-group .layui-btn-primary {
+  border-left: none;
+}
+.layui-btn-group .layui-btn-primary:hover {
+  border-color: #c9c9c9;
+  color: #009688;
+}
+.layui-btn-group .layui-btn:first-child {
+  border-left: none;
+  border-radius: 2px 0 0 2px;
+}
+.layui-btn-group .layui-btn-primary:first-child {
+  border-left: 1px solid #c9c9c9;
+}
+.layui-btn-group .layui-btn:last-child {
+  border-radius: 0 2px 2px 0;
+}
+.layui-btn-group .layui-btn + .layui-btn {
+  margin-left: 0;
+}
+.layui-btn-group + .layui-btn-group {
+  margin-left: 10px;
+}
+
+/* 文字按钮 */
+.layui-btn-text {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #2f8b57;
+}
+
+.layui-btn-text:hover {
+  opacity: 0.8;
+  color: #2f8b57;
+  background-color: transparent;
+}
+
+.layui-btn-text.layui-btn-primary {
+  color: #616874;
+}
+.layui-btn-text.layui-btn-primary:hover {
+  color: #616874;
+}
+
+.layui-btn-text.layui-btn-normal {
+  color: #43c167;
+}
+
+.layui-btn-text.layui-btn-normal:hover {
+  color: #43c167;
+}
+
+.layui-btn-text.layui-btn-warm {
+  color: #ff8d18;
+}
+
+.layui-btn-text.layui-btn-warm:hover {
+  color: #ff8d18;
+}
+
+.layui-btn-text.layui-btn-danger {
+  color: #f74926;
+}
+
+.layui-btn-text.layui-btn-danger:hover {
+  color: #f74926;
+}
+
+.layui-btn-text.layui-btn-disabled {
+  color: #c9c9c9;
+  cursor: not-allowed;
+}
+
+.layui-btn-text.layui-btn-disabled:hover {
+  border: none;
+}
+
+/* 流体 */
+.layui-btn-fluid {
+  width: 100%;
+}
