@@ -60,14 +60,10 @@
   top: 3px;
   right: 10px;
   color: #99a3bc;
-  visibility: hidden;
+  display: none;
 }
 .search-ipt:focus + .icon-sousuo {
   color: #0077ff;
-}
-.search-ipt:focus ~ .icon-guanbi {
-  /*display: inline;*/
-  visibility: visible;
 }
 
 /*左侧菜单栏*/
