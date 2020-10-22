@@ -172,7 +172,7 @@
       ifrBody;
     if ((ifrBody = doc.body) == null) {
       // For IE
-      doc.write("<body></body>")
+      doc.write("&lt;body>&lt;/body>")
       ifrBody = doc.body
     }
     ifrBody.contentEditable = true

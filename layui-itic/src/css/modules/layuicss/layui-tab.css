@@ -206,3 +206,68 @@
 .layui-tab-title-trapezoid + .layui-tab-content {
   background-color: #fff;
 }
+
+/* 块状选项卡 */
+
+.layui-tab-block .layui-tab-title {
+  border-bottom: none;
+  height: 60px;
+}
+
+.layui-tab-block li {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  min-width: 175px;
+  padding: 0 20px;
+  margin-left: 20px;
+  border: 1px solid #e5e9ef;
+  border-radius: 4px;
+}
+
+.layui-tab-block li:first-child {
+  margin-left: 0;
+}
+
+.layui-tab-block .layui-this {
+  border-color: #0077ff;
+}
+
+.layui-tab-block .layui-this:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  top: 58px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #0077ff;
+}
+
+.layui-tab-block .total-progress {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  right: 20px;
+  height: 4px;
+  border-radius: 2px;
+  background: #e6eaee;
+}
+
+.layui-tab-block .total-progress .progress {
+  height: 4px;
+  border-radius: 2px;
+}
+
+.layui-tab-block .layui-tab-type {
+  font-size: 14px;
+  text-align: left;
+  color: #212732;
+}
+
+.layui-tab-block .layui-tab-type span {
+  font-size: 20px;
+  margin-left: 10px;
+}

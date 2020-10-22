@@ -28,6 +28,24 @@
   <div class="layui-row layui-col-space10">
     <div class="layui-col-md6">
       <blockquote class="layui-elem-quote">
+        <p>为了解决弹窗中出现例如下拉选的定位导致弹窗高度被撑开或显示不全无法选择问题，添加了一个自定义主题"layui-layer-unOverflow"</p>
+        <p style="color: #ff5722;">
+          提示：这个方法并不能解决所有遇到的情况，例如如果弹窗中内容过多需要用到滚动条的时候不能添加这个主题，如果弹窗中有下拉选的时候可把下拉选调整到相对合适的位置，或者自己调整下拉选项的高度到合适的高度</p>
+        <table class="layui-table" style="width: 100%">
+          <thead>
+            <tr>
+              <th>值</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>skin: 'layui-layer-unOverflow',</td>
+              <td>解决上述问题</td>
+            </tr>
+          </tbody>
+        </table>
+
         <p>扩展抽屉及弹出框圆角效果，使用此功能时需要自定义layer弹出层的skin属性</p>
         <table class="layui-table" style="width: 100%">
           <thead>
@@ -385,7 +403,7 @@
             , content: '<div style="padding: 20px 100px;">' + text + '</div>'
             , btn: '关闭全部'
             , fixed: false
-            , skin: 'layui-layer-radius'
+            , skin: 'layui-layer-radius layui-layer-unOverflow'
             , move: false // 禁止拖动
             , btnAlign: 'c' //按钮居中
             , shade: 0 //0不显示遮罩,

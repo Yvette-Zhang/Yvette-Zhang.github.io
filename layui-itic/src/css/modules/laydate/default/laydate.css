@@ -203,7 +203,7 @@ html #layuicss-laydate {
   font-size: 12px;
 }
 .layui-laydate-footer span:hover {
-  color: #5fb878;
+  color: #0077ff;
 }
 .laydate-footer-btns {
   position: absolute;
@@ -320,7 +320,7 @@ html #layuicss-laydate {
 }
 .layui-laydate-header i:hover,
 .layui-laydate-header span:hover {
-  color: #5fb878;
+  color: #0077ff;
 }
 .layui-laydate-content {
   border-top: none 0;
@@ -370,13 +370,13 @@ html #layuicss-laydate {
   color: #ff5722;
 }
 .laydate-day-mark::after {
-  background-color: #5fb878;
+  background-color: #0077ff;
 }
 .layui-laydate-content td.layui-this .laydate-day-mark::after {
   display: none;
 }
 .layui-laydate-footer span[lay-type="date"] {
-  color: #5fb878;
+  color: #0077ff;
 }
 .layui-laydate .layui-this {
   background-color: #0077ff !important;

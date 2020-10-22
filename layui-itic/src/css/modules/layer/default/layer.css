@@ -107,7 +107,6 @@ html #layuicss-layer {
 }
 
 @-webkit-keyframes layer-bounceIn {
-
   /* 默认 */
   0% {
     opacity: 0;
@@ -315,7 +314,6 @@ html #layuicss-layer {
 }
 
 @-webkit-keyframes layer-shake {
-
   0%,
   100% {
     -webkit-transform: translateX(0);
@@ -341,7 +339,6 @@ html #layuicss-layer {
 }
 
 @keyframes layer-shake {
-
   0%,
   100% {
     -webkit-transform: translateX(0);
@@ -618,6 +615,10 @@ html #layuicss-layer {
   position: relative;
   overflow: auto;
   padding: 20px;
+}
+
+.layui-layer-page.layui-layer-unOverflow .layui-layer-content {
+  overflow: unset;
 }
 
 .layui-layer-page .layui-layer-btn,
