@@ -22,24 +22,43 @@
         <span>在线人员：</span>
         <div class="avatar-online">
           <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
-          <span class="layui-avatar layui-avatar-sm"><span class="layui-avatar-text">李四</span></span>
           <button class="layui-btn layui-btn-sm layui-btn-text">更多 <i class="font_family icon-xia"></i></button>
         </div>
-        <div class="btn-box">
-          <button class="layui-btn" id="showAll">查看全文</button>
-          <div class="other-btn">
-            <button class="layui-btn layui-btn-plain" id="goback">返回</button>
-            <button class="layui-btn" id="save">保存版本</button>
-            <button class="layui-btn layui-btn-text" id="more" data-dropdown="moreBtn"><i
-                class="font_family icon-gengduo"></i></button>
+        <div class="issue-tab layui-tab">
+          <ul class="layui-tab-title issue-tab-title">
+            <li class="issue-tab-shishi">实时发布 </li>
+            <li class="issue-tab-sd active layui-this">手动发布</li>
+          </ul>
+          <div class="layui-tab-content issue-tab-content" style="display:none;">
+            <div class="layui-tab-item layui-show">
+            </div>
+            <div class="layui-tab-item">
+            </div>
           </div>
+          <div class="issue-tips-box" style="margin-left:-25px;">
+            <div class="issue-tab-item item1" style="display:none;">
+              <div class="issue-tip">
+                <p class="issue-tip-title">实时发布</p>
+                <p>软件将默认保存您当前输入的内容，当您
+                  点击发布按钮后输入的内容才会被相关人
+                  员看到。
+                </p>
+              </div>
+            </div>
+            <div class="issue-tab-item item2" style="display:none;">
+              <div class="issue-tip">
+                <p class="issue-tip-title">手动发布</p>
+                <p>软件将默认保存您当前输入的内容，当您
+                  点击发布按钮后输入的内容才会被相关人
+                  员看到。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn-box">
+          <button class="layui-btn  layui-btn-plain" id="showAll">查看全文</button>
+          <button class="layui-btn" id="save">保存版本</button>
         </div>
       </div>
     </div>
@@ -125,14 +144,21 @@
         <div class="tree-con" id="reportTree"></div>
       </div>
       <div class="doc-toolbar">
+        <a class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary" id="partInfo">
+          <i class="font_family icon-taolunjilu"></i>
+          <span>信息</span>
+        </a>
+        <a class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+          <i class="font_family icon-baocun"></i>
+          <span>版本</span>
+        </a>
         <a class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
           <i class="font_family icon-taolun"></i>
+          <span>讨论</span>
         </a>
         <a class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
-          <i class="font_family icon-guanlian"></i>
-        </a>
-        <a class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
-          <i class="font_family icon-gengduo"></i>
+          <i class="font_family icon-taolun1"></i>
+          <span>评论</span>
         </a>
       </div>
     </div>
@@ -1133,6 +1159,172 @@
       </li>
     </ul>
   </div>
+  <!-- 段落信息 -->
+  <div id="partInfoMain" style="display: none;">
+    <form class="layui-form layui-form-label-left layui-form-label-icon" action="">
+      <div class="layui-form-item layui-form-hide">
+        <label class="layui-form-label"><i class="font_family icon-renwumingcheng"></i>状态</label>
+        <div class="layui-input-block">
+          <a id="taskType" class="task-type layui-dropdown-link" data-dropdown="1" data-type="task-drop">
+            <span><label class="task-type-icon un-done"></label>未完成</span>
+            <i class="font_family icon-xia"></i>
+          </a>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label"><i class="font_family icon-quanxian2"></i>执行人</label>
+        <div class="layui-input-block">
+          <div class="add-pretask-btn">
+            <i class="font_family icon-tianjia"></i>
+          </div>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label"><i class="font_family icon-shijian"></i>时间</label>
+        <div class="layui-input-inline" style="width: 150px;">
+          <input type="text" id="startTime" name="startTime" autocomplete="off" class="layui-input layui-input-noborder"
+            placeholder="选择开始时间">
+        </div>
+        <div class="layui-form-mid">-</div>
+        <div class="layui-input-inline" style="width: 150px;">
+          <input type="text" id="endTime" name="endTime" autocomplete="off" class="layui-input layui-input-noborder"
+            placeholder="选择结束时间">
+        </div>
+      </div>
+      <div class="layui-form-item layui-form-hide">
+        <label class="layui-form-label"><i class="font_family icon-keti1"></i>备注</label>
+        <div class="layui-input-block">
+          <input type="text" placeholder="请输入备注" autocomplete="off" class="layui-input">
+          <!-- <textarea id="emarks" placeholder="请输入备注"></textarea> -->
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label"><i class="font_family icon-quanxian2"></i>成员</label>
+        <div class="layui-input-block">
+          <div class="add-pretask-btn">
+            <i class="font_family icon-tianjia"></i>
+          </div>
+        </div>
+      </div>
+      <div class="slice-line"></div>
+
+      <div class="part-info-item">
+        <div class="part-info-item-title">
+          <label>
+            <i class="font_family icon-guanlian1"></i>
+            关联文件
+          </label>
+          <a class="layui-btn layui-btn-sm layui-btn-text">
+            <i class="layui-icon layui-icon-addition"></i>
+            关联文件
+          </a>
+        </div>
+        <div class="part-files">
+          <div class="part-files-item">
+            <div class="part-files-icon">
+              <svg class="icon file-box__icon" aria-hidden="true">
+                <use xlink:href="#icon-W"></use>
+              </svg>
+            </div>
+            <div class="part-files-title">某课题研究小组报告.excel</div>
+            <div class="part-files-user">
+              上传人：妮娜
+            </div>
+            <div class="part-files-btn">
+              <i class="font_family icon-xiazai"></i>
+            </div>
+          </div>
+          <div class="part-files-item">
+            <div class="part-files-icon">
+              <svg class="icon file-box__icon" aria-hidden="true">
+                <use xlink:href="#icon-W"></use>
+              </svg>
+            </div>
+            <div class="part-files-title">某课题研究小组报告.excel</div>
+            <div class="part-files-user">
+              上传人：妮娜
+            </div>
+            <div class="part-files-btn">
+              <i class="font_family icon-xiazai"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slice-line"></div>
+      <div class="part-info-item">
+        <div class="part-info-item-title">
+          <label>
+            <i class="font_family icon-renwuxiangqing"></i>
+            子任务<span>2</span>
+          </label>
+          <a class="layui-btn layui-btn-sm layui-btn-text">
+            <i class="layui-icon layui-icon-addition"></i>
+            添加子任务
+          </a>
+        </div>
+        <div class="part-files">
+          <div class="part-files-item">
+            <div class="part-files-title">11111</div>
+            <div class="part-files-time">
+              5.7 12:08
+            </div>
+            <a class="layui-dropdown-link">
+              <span>妮娜那</span>
+              <i class="font_family icon-xia"></i>
+            </a>
+          </div>
+          <div class="part-files-item">
+            <div class="part-files-title">11111</div>
+            <div class="part-files-time">
+              5.7 12:08
+            </div>
+            <a class="layui-dropdown-link">
+              <span>妮娜那</span>
+              <i class="font_family icon-xia"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="slice-line"></div>
+      <div class="part-info-item">
+        <div class="part-info-item-title">
+          <label>
+            <i class="font_family icon-guanlian1"></i>
+            关联的任务<span>2</span>
+          </label>
+          <a class="layui-btn layui-btn-sm layui-btn-text">
+            <i class="layui-icon layui-icon-addition"></i>
+            关联任务
+          </a>
+        </div>
+        <div class="part-files">
+          <div class="part-files-item">
+            <div class="part-files-status file-undone">未完成</div>
+            <div class="part-files-title">11111</div>
+            <div class="part-files-time">
+              5.7 12:08
+            </div>
+            <a class="layui-dropdown-link">
+              <span>妮娜那</span>
+              <i class="font_family icon-xia"></i>
+            </a>
+          </div>
+          <div class="part-files-item">
+            <div class="part-files-status file-done">已完成</div>
+            <div class="part-files-title">11111</div>
+            <div class="part-files-time">
+              5.7 12:08
+            </div>
+            <a class="layui-dropdown-link">
+              <span>妮娜那</span>
+              <i class="font_family icon-xia"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
   <script src="../../assets/js/jquery-1.9.1.min.js"></script>
   <script src="../../assets/plugins/layui/layui.js"></script>
   <script src="../../assets/plugins/layui/layui_exts/at/js/jquery.caret.min.js"></script>
@@ -1140,8 +1332,30 @@
   <script src="../../assets/plugins/layui/layui_exts/xm-select/xm-select.js"></script>
   <script src="../../assets/icon/iconfont.js"></script>
   <script src="../../assets/plugins/ckeditor/ckeditor.js"></script>
+
   <script src="../../assets/js/report-cooperation/edit-report.js"></script>
   <script>
+    layui.use(["element"], function () {
+      var element = layui.element;
+      element.on('tab(issue-tab)', function (data) {
+      });
+    })
+    $('.issue-tab-title li').on('mouseenter', function () {
+      $('.issue-tab-title li').removeClass('active');
+      $(this).addClass('active');
+      var idx = $(this).index();
+      $('.issue-tips-box').find('.issue-tab-item').hide();
+      $('.issue-tips-box').find('.issue-tab-item').eq(idx).show();
+      if (idx === 0) {
+        $('.issue-tips-box').css('marginLeft', "-90px");
+      } else {
+        $('.issue-tips-box').css('marginLeft', "-25px");
+      }
+    });
+    $('.issue-tab-title li').on('mouseleave', function () {
+      $('.issue-tab-title li').removeClass('active');
+      $('.issue-tips-box').find('.issue-tab-item').hide();
+    })
     DecoupledDocumentEditor
       .create(document.querySelector('.editor'), {
 

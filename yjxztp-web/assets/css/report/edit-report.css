@@ -57,7 +57,7 @@ body {
   position: absolute;
   left: 0;
   top: 20px;
-  bottom: 16px;
+  bottom: 0;
   width: 250px;
   padding-top: 40px;
   padding-bottom: 10px;
@@ -79,7 +79,26 @@ body {
 }
 
 #reportTree .layui-tree-entry {
-  padding: 5px 0;
+  padding: 8px 0;
+}
+
+#reportTree .layui-disabled > span {
+  color: #d2d2d2 !important;
+}
+
+#reportTree .layui-tree-entry {
+  height: auto;
+}
+
+#reportTree .layui-tree-entry {
+  align-items: normal;
+}
+
+#reportTree .layui-tree-overflow .layui-tree-btnGroup {
+  position: absolute;
+  right: 5px;
+  height: 22px;
+  bottom: 5px;
 }
 
 .container .right-con {
@@ -94,11 +113,73 @@ body {
 
 .right-tool {
   display: flex;
+  align-items: center;
   padding-right: 5px;
 }
 
 .avatar-online .layui-avatar {
   margin-right: 5px;
+}
+.issue-tab {
+  box-shadow: none;
+  border: none;
+  margin: 0 30px;
+}
+.issue-tab .issue-tab-title {
+  width: 149px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  background: #f5f6f7;
+}
+.issue-tab .issue-tab-title li {
+  line-height: 26px;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border-radius: 4px;
+  border: 1px solid #e6e9f0;
+  position: relative;
+  font-size: 14px;
+  cursor: pointer;
+}
+.layui-tab-title .layui-this {
+  background: #0077ff;
+  color: #fff;
+}
+.layui-tab-title .layui-this:after {
+  height: 26px;
+  border-radius: 4px;
+  border: 1px solid #0077ff;
+}
+.issue-tab .issue-tab-title li.active {
+  opacity: 0.7;
+  transition: all 0.5s;
+}
+.issue-tab .issue-tab-content {
+  position: absolute;
+  z-index: 999;
+}
+.issue-tips-box {
+  position: absolute;
+  z-index: 999;
+}
+.issue-tip {
+  width: 257px;
+  height: 119px;
+  padding: 20px;
+  box-sizing: border-box;
+  background-image: url("../../images/report/issue-tip.png");
+}
+.issue-tip p {
+  line-height: 18px;
+  color: #fff;
+  font-size: 12px;
+}
+.issue-tip .issue-tip-title {
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .btn-box {
@@ -805,24 +886,227 @@ body {
 
 .doc-toolbar {
   position: absolute;
-  top: 120px;
-  left: 50%;
-  margin-left: 440px;
-  z-index: 5;
+  top: 40px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  padding: 20px;
+  box-sizing: border-box;
 }
-
 .doc-toolbar .layui-btn {
   width: 30px;
   height: 30px;
   line-height: 30px;
   text-align: center;
-  color: #99a3bc;
+  color: #fff;
+  border-radius: 50%;
+  background: aqua;
+  margin-bottom: 40px;
+  margin-left: 0;
+  display: flex;
+  font-size: 14px;
+  flex-direction: column;
+}
+.doc-toolbar .layui-btn span {
+  color: #616874;
+  font-size: 14px;
+}
+.doc-toolbar .layui-btn:first-child {
+  background: #fb3c35;
+  box-shadow: 0px 3px 7px 0px rgba(251, 53, 60, 0.35);
+}
+.doc-toolbar .layui-btn:nth-child(2) {
+  background: #50c5b2;
+  box-shadow: 0px 3px 7px 0px rgba(80, 178, 197, 0.35);
+}
+.doc-toolbar .layui-btn:nth-child(3) {
+  background: #0077ff;
+  box-shadow: 0px 3px 7px 0px rgba(0, 119, 255, 0.35);
+}
+.doc-toolbar .layui-btn:nth-child(4) {
+  background: #6565ef;
+  box-shadow: 0px 3px 7px 0px rgba(101, 101, 239, 0.35);
 }
 
 .doc-toolbar .layui-btn i {
   font-size: 18px !important;
 }
-
 .doc-toolbar .layui-btn:hover {
-  background-color: #f0f3f7;
+  color: #fff;
+}
+.doc-toolbar .layui-btn:hover span {
+  color: #0077ff;
+}
+
+/* 段落信息弹窗 */
+.partInfo-layer {
+  top: 130px !important;
+  left: auto !important;
+  right: 100px !important;
+  bottom: 20px;
+}
+
+.partInfo-layer.layui-layer-page .layui-layer-content {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 14px;
+}
+
+#partInfoMain .task-type-icon {
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  height: 12px;
+  width: 12px;
+  margin-right: 5px;
+  border-width: 1px;
+  border-style: solid;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+#partInfoMain .font_family {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+#partInfoMain .layui-form-label-icon .layui-form-label {
+  padding-left: 25px;
+}
+
+#partInfoMain .un-done {
+  border-color: #99a3bc;
+}
+
+#partInfoMain .done {
+  border-color: #46c5b2;
+}
+
+#partInfoMain .un-done:after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 2px;
+  left: 2px;
+  background-color: #99a3bc;
+  border-radius: 50%;
+}
+
+#partInfoMain .done:after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 2px;
+  left: 2px;
+  background-color: #46c5b2;
+  border-radius: 50%;
+}
+.layui-layer .layui-dropdown-link {
+  color: #212832;
+  cursor: pointer;
+  line-height: 34px;
+}
+
+.add-pretask-btn {
+  line-height: 1;
+}
+.add-pretask-btn i {
+  font-size: 32px !important;
+  cursor: pointer;
+  color: rgba(0, 119, 255, 1);
+}
+
+#partInfoMain .slice-line {
+  height: 1px;
+  width: 100%;
+  background-color: #e6e8ef;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#partInfoMain .part-info-item .part-info-item-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#partInfoMain .part-files-item {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#partInfoMain .part-files-icon {
+  padding: 5px 0;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+#partInfoMain .part-files-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+#partInfoMain .part-files-title {
+  flex: 1;
+  width: 0;
+  color: #616774;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#partInfoMain .part-files-item .part-files-user {
+  color: #616774;
+  margin-left: 10px;
+}
+
+#partInfoMain .part-files-item .part-files-btn {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#partInfoMain .part-files-item .part-files-btn i {
+  color: #99a3bb;
+}
+
+#partInfoMain .part-files-item .part-files-time {
+  color: #b9bfc7;
+  margin-left: 10px;
+}
+
+#partInfoMain .part-files-item .layui-dropdown-link {
+  margin-left: 10px;
+}
+
+#partInfoMain .part-files-item .layui-dropdown-link i {
+  color: #99a3bb;
+  font-size: 14px;
+}
+
+#partInfoMain .part-files-item .part-files-status {
+  width: 50px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 4px;
+  color: #fff;
+  margin-right: 15px;
+  font-size: 12px;
+}
+
+#partInfoMain .part-files-item .part-files-status.file-undone {
+  background-color: #616773;
+}
+
+#partInfoMain .part-files-item .part-files-status.file-done {
+  background-color: #45c5b1;
 }

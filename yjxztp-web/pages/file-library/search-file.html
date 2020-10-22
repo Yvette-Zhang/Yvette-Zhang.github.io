@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>搜索文件</title>
+    <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css" />
+    <link rel="stylesheet" href="../../assets/css/common.css" />
+    <link rel="stylesheet" href="../../assets/icon/iconfont.css" />
+    <style>
+      .search-wrap {
+        width: 700px;
+        margin: 10% auto 0;
+      }
+      .search-box {
+        width: 700px;
+        height: 38px;
+        border: 2px solid #e6e9f0;
+        border-radius: 4px;
+        position: relative;
+      }
+      #search-ipt{
+        width: 100%;
+        height: 100%;
+        -webkit-appearance: none;
+        border: none;
+        padding: 0 120px 0 10px;
+        font-size: 14px;
+      }
+      #search-btn {
+        position: absolute;
+        height: 42px;
+        width: 106px;
+        right: -2px;
+        top: -2px;
+      }
+      .show-more,.hide-more{
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+        color: #8B949E;
+        margin: 20px 0;
+      }
+      .search-history-title{
+        color:#212832;
+        font-size: 14px;
+        margin-top: 20px;
+      }
+      .search-history-items{
+        display: flex;
+        width: 93%;
+        height: 140px;
+        flex-flow: column wrap;
+      }
+      .search-history-items p{
+        width: 50%;
+        margin: 10px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #8B949E;
+      }
+      .search-history-items p span{
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        background: #EDF0F2;
+        font-size: 14px;
+        margin: 0 10px;
+      }
+      .search-history-items p:first-child span{
+        background: #F5AE44;
+        color: #fff;
+      }
+      .search-history-items p:nth-child(2) span{
+        background: #0077FF;
+        color: #fff;
+      }
+      .search-history-items p:nth-child(3) span{
+        background: #46C5B2;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body style="margin: 20px; margin-bottom: 0">
+    <h2 class="page-title">搜索文件</h2>
+      <div class="layui-card" style="height: calc(100vh - 80px);padding: 6px;box-sizing: border-box;">
+        <div class="layui-card-body" style="height: calc(100vh - 150px);overflow-y: scroll;">
+          <div class="search-wrap">
+            <form class="layui-form layui-form-label-left" action="">
+              <div class="layui-form-item">
+                <div class="search-box">
+                  <input type="search" id="search-ipt" name="fileName" placeholder="请输入文件名称">
+                  <button class="layui-btn" lay-submit lay-filter="searchForm" id="search-btn">搜索</button>
+                </div>
+              </div>
+              <a href="#" class="show-more">展开更多搜索条件<i class="font_family icon-xia"></i></a>
+              <div class="search-more" style="display: none;">
+                <div class="layui-form-item">
+                  <label class="layui-form-label">共有标签:</label>
+                  <div class="layui-input-block">
+                    <input type="checkbox" name="pulicTag" lay-skin="primary" value="不限" title="不限" checked="true">
+                    <input type="checkbox" name="pulicTag" lay-skin="primary" value="能源领域1" title="能源领域1">
+                    <input type="checkbox" name="pulicTag" lay-skin="primary" value="能源领域1" title="能源领域1">
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                  <label class="layui-form-label">所属项目:</label>
+                  <div class="layui-input-block">
+                    <input type="checkbox" name="project" class="projectAll" lay-filter="project" lay-skin="primary" value="不限" title="不限" checked="true">
+                    <input type="checkbox" name="project" class="project" lay-filter="project" lay-skin="primary" value="第一个项目" title="第一个项目">
+                    <input type="checkbox" name="project" class="project" lay-filter="project" lay-skin="primary" value="第二个项目" title="第二个项目">
+                  </div>
+                </div>
+                <div class="topic-item" style="display: none;">
+                  <div class="layui-form-item">
+                    <label class="layui-form-label">所属课题:</label>
+                    <div class="layui-input-block">
+                      <input type="checkbox" name="topic" lay-skin="primary" value="不限" title="不限" checked="true">
+                      <input type="checkbox" name="topic" lay-skin="primary" value="大气污染研究" title="大气污染研究">
+                      <input type="checkbox" name="topic" lay-skin="primary" value="大气污染研究" title="大气污染研究">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="hide-more" style="display: none;">收起更多搜索条件<i class="font_family icon-shang"></i></a>
+            </form>
+            <div class="search-history">
+              <p class="search-history-title">搜索历史</p>
+              <div class="search-history-items">
+                <p title="项目1/课题1/文件1"><span>1</span>项目1/课题1/文件1</p>
+                <p title="项目222222262726272726/课题223232323/文件文件文件"><span>2</span>项目222222262726272726/课题223232323/文件文件文件</p>
+                <p title="项目3/课题3/文件"><span>3</span>项目3/课题3/文件</p>
+                <p title="项目1/课题2/文件1"><span>4</span>项目1/课题2/文件1</p>
+                <p title="项目3/课题4/文件2"><span>5</span>项目3/课题4/文件2</p>
+                <p title="项目1/课题5/文件3"><span>6</span>项目1/课题5/文件3</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+    <script src="../../assets/plugins/layui/layui.js"></script>
+    <script>
+      layui.use('form', function(){
+        var form = layui.form;
+        form.render();
+        // 表单取值
+        form.on('submit(searchForm)',function(data){
+          var pulicTagArr = [],
+              projectArr = [],
+              topicArr = [];
+          $('input[name="pulicTag"]:checked').each(function(index,item){
+            pulicTagArr.push(item.value);
+          })
+          $('input[name="project"]:checked').each(function(index,item){
+            projectArr.push(item.value);
+          })
+          $('input[name="topic"]:checked').each(function(index,item){
+            topicArr.push(item.value);
+          })
+          data.field.pulicTag = pulicTagArr; 
+          data.field.project = projectArr; 
+          data.field.topic = topicArr; 
+          console.log(data.field)
+          // 请求成功后跳转至搜索结果页
+          window.location.href="./search-result.html"
+          return false;
+        })
+        //判断是否勾选了项目选项，是则显示课题选项，否则不显示;
+        form.on('checkbox(project)',function(data){
+          var items = $(".project");
+          var arr = [];
+          for (var i = 0; i < items.length; i++) {
+            arr.push(items[i].checked);
+          }
+          var checked = arr.some(function(item){
+            return item;
+          })
+          if(checked){
+            $('.topic-item').show()
+          }else{
+            $('.topic-item').hide()
+          }
+        })
+      });
+      //展开更多
+      $('.show-more').on('click',function(){
+          $('.search-more').show()
+          $(this).hide();
+          $('.hide-more').show();
+      })
+      // 收起更多
+      $('.hide-more').on('click',function(){
+          $('.search-more').hide();
+          $(this).hide();
+          $('.show-more').show();
+      })
+    </script>
+  </body>
+</html>

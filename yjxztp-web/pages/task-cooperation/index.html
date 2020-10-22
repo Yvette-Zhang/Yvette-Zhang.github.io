@@ -42,6 +42,9 @@
   <script src="../../assets/js/jquery-1.9.1.min.js"></script>
   <script src="../../assets/plugins/layui/layui.js"></script>
   <script>
+    layui.use('layer', function () {
+      var layer = layui.layer;
+    });
     $(".menu-item").on("click", function () {
       var title = document.title.split("-");
       title[1] = $(this).text();

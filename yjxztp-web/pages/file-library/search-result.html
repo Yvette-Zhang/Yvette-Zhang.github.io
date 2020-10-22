@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>搜索结果</title>
+  <link rel="stylesheet" href="../../assets/plugins/layui/css/layui.css" />
+  <link rel="stylesheet" href="../../assets/css/common.css" />
+  <link rel="stylesheet" href="../../assets/plugins/datatables/datatable.css">
+  <link rel="stylesheet" href="../../assets/icon/iconfont.css" />
+  <link rel="stylesheet" href="../../assets/plugins/layui/layui_exts/dropDown/dropDown.css">
+  <style>
+    .search-result-text{
+      color: #616874;
+      font-size: 12px;
+      display: flex;
+    }
+    .search-result-text i{
+      font-size: 22px;
+      color: #99A3BC;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .search-result-num{
+      color: #CA221C;
+      margin: 0 3px;
+    }
+    .table-toolbar-right .layui-btn{
+      font-size: 14px;
+      color: #616874;
+    }
+    .table-toolbar-right .icon-btn i {
+      font-size: 18px !important;
+      color: #99A3BC;
+    }
+    #search-result-table .file-box__icon{
+      margin-right: 13px;
+      display: block;
+      width: 28px;
+      height: 28px;
+    }
+    #search-result-table .file-box {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    #search-result-table td{
+      padding: 15px 5px;
+    }
+    #search-result-table .public-tag-cell{
+      overflow: auto;
+    }
+    .file-box__content{
+      width: 90%;
+    }
+    .file-box__content__name{
+      color: #212832;
+      font-size: 14px;
+    }
+    .file-box__content__mate{
+      width: 100%;
+      color: #8B949E;
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .filetable-tag{
+      display: flex;
+      justify-content: flex-start;
+    }
+    .filetable-tag-item--public{
+      height: 24px;
+      line-height: 24px;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 12px;
+      padding: 0 5px;
+      margin-right: 5px;
+    }
+
+  </style>
+</head>
+<body style="margin: 20px; margin-bottom: 0">
+  <h2 class="page-title">搜索文件</h2>
+  <div class="layui-card" style="height: calc(100vh - 80px)">
+    <div class="layui-card-body">
+      <div class="table-toolbar table-toolbar--two">
+        <div class="table-toolbar-tool">
+          <div class="table-toolbar-left">
+            <p class="search-result-text"><a href="./search-file.html"><i class="font_family icon-zuo"></i></a>搜索出<span class="search-result-num"><span id="search-num">10</span>条</span>结果</p>
+          </div>
+          <div class="table-toolbar-right layui-form">
+            <button id="privateTag" data-tips="分配私有标签"
+              class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+              <i class="font_family icon-fenpeibiaoqian"></i>
+            </button>
+            <button data-tips="导出" class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary icon-btn">
+              <i class="font_family icon-xiazai"></i>
+            </button>
+            <button class="layui-btn layui-btn-text layui-btn-sm layui-btn-primary">
+              筛选 <i class="layui-icon layui-icon-down"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <form class="layui-form">
+        <table id="search-result-table" class="layui-table" lay-skin='line'></table>
+      </form>
+    </div>
+  </div>
+  <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../../assets/plugins/layui/layui.js"></script>
+  <!-- datatables -->
+  <script src="../../assets/plugins/datatables/datatables.min.js"></script>
+  <script src="../../assets/plugins/datatables/dataTables.tips.js"></script>
+  <!-- 模拟数据 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/Mock.js/1.0.1-beta3/mock-min.js"></script>
+  <script src="../../assets/icon/iconfont.js"></script>
+  <script src="../../assets/js/file-libray/search-result.js"></script>
+</body>
+</html>

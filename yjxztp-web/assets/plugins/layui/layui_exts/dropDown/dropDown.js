@@ -139,8 +139,14 @@ layui.define([
       l = data.length,
       eleArr = '';
     eleArr += '<ul class="layui-dropdown-menu">';
-
-    if (options.showIcon) {
+    if (options.template) {
+      var tempEle = '';
+      for (var i = 0; i < l; i++) {
+        var d = data[i],
+        tempEle = options.template(d);    
+        eleArr += '<li class="layui-dropdown-menu-item"><a href="javascript:;">' + tempEle + '</a></li>'
+      }
+    } else if (options.showIcon) {
       for (var i = 0; i < l; i++) {
         var d = data[i],
           arrowStr = '';

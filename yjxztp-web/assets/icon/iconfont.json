@@ -6,6 +6,55 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "17684682",
+      "name": "不可见",
+      "font_class": "bukejian",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "17561608",
+      "name": "私密-01",
+      "font_class": "simi-01",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "17561550",
+      "name": "公开-01",
+      "font_class": "gongkai-01",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "17487292",
+      "name": "未完成",
+      "font_class": "weiwancheng",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "17487293",
+      "name": "已完成",
+      "font_class": "yiwancheng1",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "17340714",
+      "name": "报告",
+      "font_class": "baogao",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "9652339",
+      "name": "头像",
+      "font_class": "touxiang",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
       "icon_id": "6337472",
       "name": "字体颜色",
       "font_class": "zitiyanse",
@@ -767,13 +816,6 @@
       "font_class": "wenjianjia",
       "unicode": "e635",
       "unicode_decimal": 58933
-    },
-    {
-      "icon_id": "15383244",
-      "name": "报告",
-      "font_class": "baogao",
-      "unicode": "e636",
-      "unicode_decimal": 58934
     },
     {
       "icon_id": "15383247",

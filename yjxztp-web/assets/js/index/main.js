@@ -67,7 +67,7 @@ layui.config({
 
   var indexWin;
   // 模拟弹出
-  /*setTimeout(function () {
+  setTimeout(function () {
     indexWin = layer.open({
       title: '讨论通知',
       type: 1,
@@ -86,7 +86,7 @@ layui.config({
   }, 1000);
   setTimeout(function () {
     layer.close(indexWin);
-  }, 4000)*/
+  }, 4000)
 });
 
 $("[data-href]").on("click", function () {
